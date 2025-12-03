@@ -19,6 +19,7 @@ import {
   LayoutDashboard,
 } from 'lucide-react';
 import { useUserStore } from '../../stores/userStore';
+import { useAuthStore } from '../../stores/authStore';
 
 interface AppShellProps {
   children: ReactNode;
@@ -89,6 +90,7 @@ const getPageTitle = (pathname: string): string => {
 const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user } = useUserStore();
+  const { authUser, isAuthenticated } = useAuthStore();
   const location = useLocation();
   const pageTitle = getPageTitle(location.pathname);
 
@@ -96,6 +98,15 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const currentExp = user?.exp || 0;
   const nextLevelExp = (user?.level || 1) * 1000;
   const expProgress = Math.round((currentExp / nextLevelExp) * 100);
+
+  // 로그인, 회원가입, 관리자, 선생님 페이지에서는 사이드바 없이 children만 렌더링
+  const noShellPaths = ['/login', '/register', '/admin', '/teacher'];
+  const shouldHideShell = noShellPaths.some(path => location.pathname.startsWith(path)) ||
+    (isAuthenticated && authUser && (authUser.role === 'admin' || authUser.role === 'teacher'));
+
+  if (shouldHideShell) {
+    return <>{children}</>;
+  }
 
   return (
     <div className="flex min-h-screen bg-slate-900 font-sans text-slate-200 selection:bg-indigo-500/30">

@@ -10,11 +10,11 @@ import {
   Mail,
   Building,
   Calendar,
-  ArrowLeft,
   RefreshCw,
   AlertCircle,
   UserCheck,
   UserX,
+  LogOut,
 } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
 import type { AuthUser } from '../types';
@@ -27,6 +27,7 @@ const AdminDashboard: React.FC = () => {
     loadPendingTeachers,
     approveTeacherAccount,
     rejectTeacherAccount,
+    logout,
     isLoading,
   } = useAuthStore();
 
@@ -94,6 +95,11 @@ const AdminDashboard: React.FC = () => {
     setTimeout(() => setActionResult(null), 3000);
   };
 
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('ko-KR', {
@@ -116,30 +122,33 @@ const AdminDashboard: React.FC = () => {
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <button
-                onClick={() => navigate('/')}
-                className="p-2 hover:bg-slate-700/50 rounded-xl transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5 text-slate-400" />
-              </button>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold text-white">관리자 대시보드</h1>
-                  <p className="text-sm text-slate-400">선생님 가입 승인 관리</p>
+                  <p className="text-sm text-slate-400">{authUser?.displayName} 님</p>
                 </div>
               </div>
             </div>
-            <button
-              onClick={() => loadPendingTeachers()}
-              disabled={isLoading}
-              className="flex items-center gap-2 px-4 py-2 bg-slate-700/50 hover:bg-slate-700 rounded-xl text-slate-300 transition-colors disabled:opacity-50"
-            >
-              <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
-              새로고침
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => loadPendingTeachers()}
+                disabled={isLoading}
+                className="flex items-center gap-2 px-4 py-2 bg-slate-700/50 hover:bg-slate-700 rounded-xl text-slate-300 transition-colors disabled:opacity-50"
+              >
+                <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
+                새로고침
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-xl transition-colors"
+              >
+                <LogOut className="w-4 h-4" />
+                로그아웃
+              </button>
+            </div>
           </div>
         </div>
       </div>

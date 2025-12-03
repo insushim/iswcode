@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Users, Plus, Copy, CheckCircle, TrendingUp, Clock, Target,
   ChevronRight, Flame, Award, BookOpen, BarChart3, Settings,
-  RefreshCw, Search, Filter
+  RefreshCw, Search, Filter, LogOut, GraduationCap
 } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
 import { getClassStudents, subscribeToClassProgress, getStudentProgressData } from '../services/authService';
 import type { ClassRoom, Student } from '../types';
 
 const TeacherDashboard: React.FC = () => {
-  const { authUser, classes, createClass, loadClasses } = useAuthStore();
+  const navigate = useNavigate();
+  const { authUser, classes, createClass, loadClasses, logout } = useAuthStore();
   const [selectedClass, setSelectedClass] = useState<ClassRoom | null>(null);
   const [students, setStudents] = useState<any[]>([]);
   const [isCreatingClass, setIsCreatingClass] = useState(false);
@@ -106,23 +108,57 @@ const TeacherDashboard: React.FC = () => {
       : 0,
   };
 
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* 헤더 */}
+      <div className="bg-slate-800/50 border-b border-slate-700/50 backdrop-blur-xl sticky top-0 z-10">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold text-white">선생님 대시보드</h1>
+                  <p className="text-sm text-slate-400">{authUser?.displayName} 님</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setIsCreatingClass(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-indigo-500/25"
+              >
+                <Plus className="w-4 h-4" />
+                새 학급
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-xl transition-colors"
+              >
+                <LogOut className="w-4 h-4" />
+                로그아웃
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-8 space-y-6">
+      {/* 환영 메시지 */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-extrabold text-white">
-            안녕하세요, {authUser?.displayName} 선생님
-          </h1>
+          <h2 className="text-2xl font-bold text-white">
+            학급 관리
+          </h2>
           <p className="text-slate-400 mt-1">학급을 관리하고 학생들의 진행 상황을 확인하세요</p>
         </div>
-        <button
-          onClick={() => setIsCreatingClass(true)}
-          className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-indigo-500/25"
-        >
-          <Plus className="w-5 h-5" />
-          새 학급 만들기
-        </button>
       </div>
 
       {/* 학급 선택 탭 */}
@@ -435,6 +471,7 @@ const TeacherDashboard: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      </div>
     </div>
   );
 };
