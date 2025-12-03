@@ -20,7 +20,7 @@ export const unit2: Unit = {
         {
           id: '2-5-1',
           title: '캐릭터 움직이기',
-          description: '블록을 사용해 캐릭터를 오른쪽으로 100픽셀 이동시켜보세요',
+          description: '블록을 사용해 캐릭터를 오른쪽으로 10칸 이동시켜보세요',
           type: 'visual-programming',
           language: 'blocks',
           difficulty: 'beginner',
@@ -29,7 +29,7 @@ export const unit2: Unit = {
           concept: '이동 블록',
           hints: [
             '"이동하기" 블록을 찾아보세요',
-            '숫자를 100으로 바꿔보세요',
+            '숫자를 10으로 바꿔보세요',
             '초록색 깃발을 클릭하면 실행돼요',
           ],
           blocks: ['이동하기', '회전하기', '기다리기'],

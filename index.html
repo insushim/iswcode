@@ -1,14 +1,54 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="CodeQuest - 학생용 1년 완성 인터랙티브 코딩 학습 플랫폼" />
-    <title>CodeQuest 2.0 - 코딩 학습 플랫폼</title>
+    <meta name="description" content="코딩마루 - 학생용 1년 완성 인터랙티브 코딩 학습 플랫폼" />
+    <title>코딩마루 - 재미있는 코딩 학습</title>
+    <!-- 폰트 프리로드로 깜빡임 방지 - Jua 폰트 추가 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- 초기 다크모드 배경색 설정으로 흰 화면 방지 -->
+    <style>
+      /* 폰트 로딩 전 깜빡임 방지 */
+      html, body, #root {
+        background-color: #0f172a;
+        min-height: 100vh;
+      }
+      body {
+        font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        color: #e2e8f0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Jua 폰트 사전 정의 */
+      .font-logo {
+        font-family: 'Jua', 'Noto Sans KR', sans-serif;
+      }
+      /* 로딩 중 콘텐츠 숨김 - 폰트 로드 후 표시 */
+      .fonts-loading #root {
+        visibility: hidden;
+      }
+      .fonts-loaded #root {
+        visibility: visible;
+      }
+    </style>
+    <!-- 폰트 로딩 감지 스크립트 -->
+    <script>
+      document.documentElement.classList.add('fonts-loading');
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function() {
+          document.documentElement.classList.remove('fonts-loading');
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      } else {
+        // 폴백: 폰트 API 미지원 브라우저
+        document.documentElement.classList.remove('fonts-loading');
+        document.documentElement.classList.add('fonts-loaded');
+      }
+    </script>
   </head>
   <body class="antialiased">
     <div id="root"></div>

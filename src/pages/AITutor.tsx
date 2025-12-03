@@ -115,34 +115,32 @@ const AITutor: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/25">
             <Bot className="w-6 h-6 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-bold">AI 튜터</h1>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+            <h1 className="text-xl font-bold text-white">AI 튜터</h1>
+            <p className="text-sm text-slate-400">
               코딩에 대해 무엇이든 물어보세요!
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="sm"
+          <button
             onClick={() => setShowSettings(!showSettings)}
-            leftIcon={<Settings className="w-4 h-4" />}
+            className="flex items-center gap-2 px-3 py-2 bg-slate-700/50 hover:bg-slate-700 text-slate-300 rounded-lg text-sm font-medium transition-colors border border-slate-600"
           >
+            <Settings className="w-4 h-4" />
             성격
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
+          </button>
+          <button
             onClick={handleClearChat}
-            leftIcon={<Trash2 className="w-4 h-4" />}
+            className="flex items-center gap-2 px-3 py-2 bg-slate-700/50 hover:bg-slate-700 text-slate-300 rounded-lg text-sm font-medium transition-colors border border-slate-600"
           >
+            <Trash2 className="w-4 h-4" />
             초기화
-          </Button>
+          </button>
         </div>
       </div>
 
@@ -155,8 +153,8 @@ const AITutor: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             className="mb-4"
           >
-            <Card className="p-4">
-              <p className="text-sm font-medium mb-3">튜터 성격 선택</p>
+            <div className="bg-slate-800 rounded-2xl border border-slate-700/50 p-4">
+              <p className="text-sm font-medium mb-3 text-slate-300">튜터 성격 선택</p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {personalityOptions.map((option) => (
                   <button
@@ -167,32 +165,32 @@ const AITutor: React.FC = () => {
                     }}
                     className={`p-3 rounded-lg text-left transition-all ${
                       personality === option.value
-                        ? 'bg-primary-100 dark:bg-primary-900/30 border-2 border-primary-500'
-                        : 'bg-slate-50 dark:bg-dark-surfaceHover border-2 border-transparent hover:border-slate-200'
+                        ? 'bg-indigo-500/20 border-2 border-indigo-500'
+                        : 'bg-slate-700/50 border-2 border-transparent hover:border-slate-600'
                     }`}
                   >
                     <span className="text-2xl">{option.icon}</span>
-                    <p className="font-medium text-sm mt-1">{option.label}</p>
-                    <p className="text-xs text-slate-500">{option.desc}</p>
+                    <p className="font-medium text-sm mt-1 text-slate-200">{option.label}</p>
+                    <p className="text-xs text-slate-400">{option.desc}</p>
                   </button>
                 ))}
               </div>
-            </Card>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Chat Area */}
-      <Card className="flex-1 flex flex-col min-h-0 overflow-hidden">
+      <div className="flex-1 flex flex-col min-h-0 overflow-hidden bg-slate-800 rounded-2xl border border-slate-700/50">
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar">
           {messages.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center py-8">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl flex items-center justify-center mb-4">
-                <Sparkles className="w-10 h-10 text-primary-500" />
+              <div className="w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-4 border border-indigo-500/30">
+                <Sparkles className="w-10 h-10 text-indigo-400" />
               </div>
-              <h2 className="text-lg font-semibold mb-2">AI 튜터와 대화를 시작해보세요!</h2>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 max-w-md">
+              <h2 className="text-lg font-semibold mb-2 text-white">AI 튜터와 대화를 시작해보세요!</h2>
+              <p className="text-sm text-slate-400 mb-6 max-w-md">
                 코딩에 관한 질문, 개념 설명, 코드 도움 등 무엇이든 물어보세요.
                 {personalityOptions.find(p => p.value === personality)?.icon} {personalityOptions.find(p => p.value === personality)?.label} 스타일로 답변해드릴게요!
               </p>
@@ -203,7 +201,7 @@ const AITutor: React.FC = () => {
                   <button
                     key={index}
                     onClick={() => handleSend(prompt.text)}
-                    className="px-3 py-2 text-sm bg-slate-100 dark:bg-dark-surfaceHover rounded-lg hover:bg-slate-200 dark:hover:bg-dark-border transition-colors text-left flex items-center gap-2"
+                    className="px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-lg transition-colors text-left flex items-center gap-2 border border-slate-600 text-slate-300"
                   >
                     <span>{prompt.icon}</span>
                     <span className="truncate">{prompt.text}</span>
@@ -224,24 +222,24 @@ const AITutor: React.FC = () => {
                 <div
                   className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                     message.role === 'user'
-                      ? 'bg-primary-500 text-white'
-                      : 'bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30'
+                      ? 'bg-indigo-500 text-white'
+                      : 'bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30'
                   }`}
                 >
                   {message.role === 'user' ? (
                     user?.name.charAt(0).toUpperCase() || 'U'
                   ) : (
-                    <Bot className="w-4 h-4 text-primary-500" />
+                    <Bot className="w-4 h-4 text-indigo-400" />
                   )}
                 </div>
                 <div
                   className={`max-w-[80%] p-3 rounded-xl ${
                     message.role === 'user'
-                      ? 'bg-primary-500 text-white'
-                      : 'bg-slate-100 dark:bg-dark-surfaceHover'
+                      ? 'bg-indigo-500 text-white'
+                      : 'bg-slate-700/50 border border-slate-600 text-slate-200'
                   }`}
                 >
-                  <div className="prose prose-sm dark:prose-invert max-w-none">
+                  <div className="prose prose-sm prose-invert max-w-none">
                     <p className="whitespace-pre-wrap m-0">{message.content}</p>
                   </div>
                 </div>
@@ -255,10 +253,10 @@ const AITutor: React.FC = () => {
               animate={{ opacity: 1 }}
               className="flex gap-3"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 flex items-center justify-center">
-                <Bot className="w-4 h-4 text-primary-500" />
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center border border-indigo-500/30">
+                <Bot className="w-4 h-4 text-indigo-400" />
               </div>
-              <div className="bg-slate-100 dark:bg-dark-surfaceHover p-3 rounded-xl">
+              <div className="bg-slate-700/50 border border-slate-600 p-3 rounded-xl">
                 <div className="flex gap-1">
                   <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                   <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -272,9 +270,9 @@ const AITutor: React.FC = () => {
         </div>
 
         {/* Input Area */}
-        <div className="p-4 border-t border-slate-200 dark:border-dark-border">
+        <div className="p-4 border-t border-slate-700">
           {!geminiApiKey && (
-            <div className="mb-3 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg text-sm text-yellow-700 dark:text-yellow-400">
+            <div className="mb-3 p-3 bg-yellow-500/10 rounded-lg text-sm text-yellow-400 border border-yellow-500/20">
               💡 AI 튜터를 사용하려면 설정에서 Gemini API 키를 입력해주세요.
             </div>
           )}
@@ -284,20 +282,19 @@ const AITutor: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="메시지를 입력하세요..."
-              className="input flex-1 min-h-[44px] max-h-32 resize-none"
+              className="flex-1 min-h-[44px] max-h-32 resize-none px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
               rows={1}
             />
-            <Button
-              variant="primary"
+            <button
               onClick={() => handleSend()}
               disabled={!input.trim() || isLoading}
-              className="px-4"
+              className="px-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send className="w-5 h-5" />
-            </Button>
+            </button>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 };

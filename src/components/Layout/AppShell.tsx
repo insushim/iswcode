@@ -120,7 +120,7 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
             <Code2 className="text-white w-6 h-6 transform group-hover:scale-110 transition-transform duration-300 drop-shadow-md" />
           </div>
           <div>
-            <h1 className="text-2xl text-white tracking-wide leading-none mb-1" style={{ fontFamily: "'Jua', sans-serif" }}>
+            <h1 className="text-2xl text-white tracking-wide leading-none mb-1 font-logo">
               코딩마루
             </h1>
             <p className="text-[11px] text-slate-300 font-medium tracking-wide opacity-80">소프트웨어 배움터</p>
@@ -271,18 +271,8 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
         </main>
       </div>
 
-      {/* Global Styles */}
+      {/* Global Styles - 폰트는 index.html에서 로드됨 */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
-
-        body {
-          font-family: 'Noto Sans KR', sans-serif;
-        }
-
-        .font-logo {
-          font-family: 'Jua', sans-serif;
-        }
-
         .custom-scrollbar::-webkit-scrollbar {
           width: 6px;
           height: 6px;

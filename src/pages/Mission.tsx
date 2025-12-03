@@ -106,32 +106,32 @@ const Mission: React.FC = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={() => navigate(-1)}
-            className="p-2 rounded-xl border-2 border-gray-900 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-xl border-2 border-slate-600 bg-slate-800 hover:bg-slate-700 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <span className={`text-xs font-black px-2 py-1 rounded border-2 border-gray-900 ${
-                mission.difficulty === 'beginner' ? 'bg-emerald-200' :
-                mission.difficulty === 'intermediate' ? 'bg-yellow-200' : 'bg-red-200'
+              <span className={`text-xs font-black px-2.5 py-1 rounded-md ${
+                mission.difficulty === 'beginner' ? 'bg-emerald-500 text-white' :
+                mission.difficulty === 'intermediate' ? 'bg-yellow-500 text-slate-900' : 'bg-red-500 text-white'
               }`}>
                 {mission.difficulty === 'beginner' ? '초급' :
                  mission.difficulty === 'intermediate' ? '중급' : '고급'}
               </span>
               {mission.language && (
-                <span className="text-xs font-bold px-2 py-1 rounded bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-800">
+                <span className="text-xs font-bold px-2 py-1 rounded-md bg-violet-600 text-white">
                   {mission.language}
                 </span>
               )}
             </div>
-            <h1 className="text-xl md:text-2xl font-black text-gray-900 dark:text-white">{mission.title}</h1>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{mission.description}</p>
+            <h1 className="text-xl md:text-2xl font-black text-white">{mission.title}</h1>
+            <p className="text-sm text-slate-400">{mission.description}</p>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-xl border-2 border-gray-200 dark:border-gray-700">
+          <div className="flex items-center gap-2 px-3 py-2 bg-slate-800 rounded-xl border-2 border-slate-600">
             <Clock className="w-4 h-4 text-gray-400" />
             <span className="text-sm font-medium">~{mission.estimatedMinutes}분</span>
           </div>
@@ -202,24 +202,24 @@ const Mission: React.FC = () => {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-white dark:bg-gray-800 rounded-3xl border-2 border-gray-900 dark:border-gray-700 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 max-w-md w-full text-center"
+            className="bg-slate-800 rounded-3xl border-2 border-slate-600 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 max-w-md w-full text-center"
           >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: 'spring', damping: 10, delay: 0.2 }}
-              className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center border-4 border-gray-900"
+              className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center border-4 border-slate-600"
             >
               <Trophy className="w-12 h-12 text-white" />
             </motion.div>
 
-            <h2 className="text-3xl font-black mb-2 text-gray-900 dark:text-white">미션 완료! 🎉</h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <h2 className="text-3xl font-black mb-2 text-white">미션 완료! 🎉</h2>
+            <p className="text-slate-400 mb-6">
               {mission.title} 미션을 성공적으로 완료했어요!
             </p>
 
-            <div className="bg-gray-50 dark:bg-gray-900/50 rounded-2xl p-6 mb-6 border-2 border-gray-200 dark:border-gray-700">
-              <h3 className="font-bold mb-4 text-gray-900 dark:text-white">획득한 보상</h3>
+            <div className="bg-slate-900/50 rounded-2xl p-6 mb-6 border-2 border-slate-600">
+              <h3 className="font-bold mb-4 text-white">획득한 보상</h3>
               <div className="flex justify-center gap-8">
                 <div className="text-center">
                   <div className="text-3xl font-black text-yellow-500">+{earnedExp}</div>
@@ -237,7 +237,7 @@ const Mission: React.FC = () => {
             <div className="flex gap-3">
               <button
                 onClick={() => navigate('/learn')}
-                className="flex-1 px-4 py-3 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+                className="flex-1 px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-slate-600 transition-colors"
               >
                 학습 목록
               </button>
@@ -247,14 +247,14 @@ const Mission: React.FC = () => {
                     setShowComplete(false);
                     navigate(`/mission/${nextMission.id}`);
                   }}
-                  className="flex-1 px-4 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors flex items-center justify-center gap-2"
                 >
                   다음 미션 <ChevronRight className="w-4 h-4" />
                 </button>
               ) : (
                 <button
                   onClick={() => navigate('/learn')}
-                  className="flex-1 px-4 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors"
+                  className="flex-1 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors"
                 >
                   계속 학습
                 </button>
@@ -321,13 +321,13 @@ const DragDropMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">블록을 올바른 순서로 배열하세요</h3>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-4 text-white">블록을 올바른 순서로 배열하세요</h3>
 
       {/* Available Items */}
       <div className="mb-6">
         <p className="text-sm font-medium text-gray-500 mb-2">사용 가능한 블록:</p>
-        <div className="flex flex-wrap gap-2 min-h-[60px] p-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600">
+        <div className="flex flex-wrap gap-2 min-h-[60px] p-4 bg-slate-900/50 rounded-xl border-2 border-dashed border-slate-600">
           {items.map((item, index) => (
             <motion.div
               key={`available-${index}`}
@@ -354,7 +354,7 @@ const DragDropMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
           className={`min-h-[120px] p-4 rounded-xl border-2 border-dashed transition-colors ${
             feedback === 'correct' ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20' :
             feedback === 'incorrect' ? 'border-red-500 bg-red-50 dark:bg-red-900/20' :
-            'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900/50'
+            'border-slate-600 bg-slate-900/50'
           }`}
           onDragOver={(e) => e.preventDefault()}
           onDrop={() => handleDrop(userOrder.length)}
@@ -368,11 +368,11 @@ const DragDropMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
                 className={`px-4 py-3 rounded-lg border-2 font-medium flex items-center justify-between ${
                   feedback === 'correct' ? 'bg-emerald-100 border-emerald-400 text-emerald-800' :
                   feedback === 'incorrect' ? 'bg-red-100 border-red-400 text-red-800' :
-                  'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-800 dark:text-gray-200'
+                  'bg-slate-800 border-slate-600 text-slate-200'
                 }`}
               >
                 <span className="flex items-center gap-3">
-                  <span className="w-6 h-6 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center text-sm font-bold">
+                  <span className="w-6 h-6 bg-slate-700 rounded-full flex items-center justify-center text-sm font-bold">
                     {index + 1}
                   </span>
                   {item}
@@ -380,7 +380,7 @@ const DragDropMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
                 {feedback === 'none' && (
                   <button
                     onClick={() => handleRemove(item)}
-                    className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                    className="p-1 hover:bg-slate-700 rounded"
                   >
                     <XCircle className="w-5 h-5 text-gray-400" />
                   </button>
@@ -424,7 +424,7 @@ const DragDropMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
       <div className="flex gap-3">
         <button
           onClick={handleReset}
-          className="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+          className="flex items-center gap-2 px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-slate-600 transition-colors"
         >
           <Shuffle className="w-4 h-4" />
           초기화
@@ -432,7 +432,7 @@ const DragDropMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
         <button
           onClick={handleSubmit}
           disabled={userOrder.length !== mission.blocks?.length}
-          className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Play className="w-4 h-4" />
           제출하기
@@ -465,8 +465,8 @@ const PatternMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">패턴을 찾아 ?에 들어갈 숫자를 입력하세요</h3>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-6 text-white">패턴을 찾아 ?에 들어갈 숫자를 입력하세요</h3>
 
       <div className="flex justify-center gap-4 mb-8">
         {currentPattern.sequence.map((item, index) => (
@@ -475,7 +475,7 @@ const PatternMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
             className={`w-16 h-16 flex items-center justify-center text-2xl font-black rounded-xl border-2 ${
               item === '?'
                 ? 'border-violet-500 bg-violet-100 dark:bg-violet-900/30 text-violet-600'
-                : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900/50 text-gray-800 dark:text-gray-200'
+                : 'border-slate-600 bg-slate-900/50 text-slate-200'
             }`}
           >
             {item}
@@ -489,7 +489,7 @@ const PatternMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
           placeholder="정답 입력"
-          className="w-full px-4 py-3 text-center text-xl font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:border-violet-500"
+          className="w-full px-4 py-3 text-center text-xl font-bold rounded-xl border-2 border-slate-600 bg-slate-700 text-white focus:outline-none focus:border-violet-500"
         />
 
         {feedback !== 'none' && (
@@ -506,7 +506,7 @@ const PatternMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
 
         <button
           onClick={handleSubmit}
-          className="w-full mt-4 px-4 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors"
+          className="w-full mt-4 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors"
         >
           확인
         </button>
@@ -536,8 +536,8 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">{quiz.question}</h3>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-xl font-bold mb-6 text-white">{quiz.question}</h3>
 
       <div className="space-y-3 mb-6">
         {quiz.options.map((option, index) => (
@@ -554,7 +554,7 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
                     : 'border-gray-200 dark:border-gray-600 text-gray-400'
                 : selectedAnswer === index
                   ? 'border-violet-500 bg-violet-100 dark:bg-violet-900/30 text-violet-800 dark:text-violet-200'
-                  : 'border-gray-200 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 text-gray-800 dark:text-gray-200'
+                  : 'border-gray-200 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 text-slate-200'
             }`}
           >
             <span className="flex items-center gap-3">
@@ -562,7 +562,7 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
                 isSubmitted && index === quiz.correctAnswer ? 'bg-emerald-500 text-white' :
                 isSubmitted && index === selectedAnswer ? 'bg-red-500 text-white' :
                 selectedAnswer === index ? 'bg-violet-500 text-white' :
-                'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300'
+                'bg-slate-700 text-slate-300'
               }`}>
                 {String.fromCharCode(65 + index)}
               </span>
@@ -593,7 +593,7 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
         <button
           onClick={handleSubmit}
           disabled={selectedAnswer === null}
-          className="w-full px-4 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           제출하기
         </button>
@@ -662,119 +662,319 @@ const VisualProgrammingMission: React.FC<{ mission: MissionType; onComplete: (pe
   return <GeneralBlockMission mission={mission} onComplete={onComplete} />;
 };
 
-// 캐릭터 이동 미션
+// 블록 타입 정의
+interface Block {
+  id: string;
+  type: string;
+  label: string;
+  color: string;
+  value?: number;
+  hasInput?: boolean;
+}
+
+// 캐릭터 이동 미션 - 드래그 앤 드롭 방식
 const MoveMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
-  const [charX, setCharX] = useState(50);
-  const [moveValue, setMoveValue] = useState(50);
+  // charX = 현재 칸 번호 (0~10)
+  const [charX, setCharX] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
-  const targetX = 150; // 100px 이동 목표
+  const [showHint, setShowHint] = useState(false);
+
+  // 사용 가능한 블록들
+  const [availableBlocks, setAvailableBlocks] = useState<Block[]>([
+    { id: 'flag', type: 'event', label: '🚩 깃발 클릭했을 때', color: 'bg-yellow-500' },
+    { id: 'move', type: 'motion', label: '➡️ 오른쪽으로 ___ 칸 이동하기', color: 'bg-blue-500', value: 0, hasInput: true },
+    { id: 'left', type: 'motion', label: '⬅️ 왼쪽으로 5칸 이동하기', color: 'bg-blue-400' },
+    { id: 'wait', type: 'control', label: '⏱️ 1초 기다리기', color: 'bg-orange-500' },
+  ]);
+
+  // 조합된 블록들
+  const [assembledBlocks, setAssembledBlocks] = useState<Block[]>([]);
+  const [moveValue, setMoveValue] = useState(0);
+
+  const handleDragStart = (e: React.DragEvent, block: Block) => {
+    e.dataTransfer.setData('blockId', block.id);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    const blockId = e.dataTransfer.getData('blockId');
+    const block = availableBlocks.find(b => b.id === blockId);
+    if (block && !assembledBlocks.find(b => b.id === blockId)) {
+      setAssembledBlocks([...assembledBlocks, { ...block }]);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+
+  const removeBlock = (blockId: string) => {
+    setAssembledBlocks(assembledBlocks.filter(b => b.id !== blockId));
+  };
 
   const runCode = () => {
-    setCharX(50 + moveValue);
-    if (moveValue === 100) {
+    // 블록 순서 검증: 깃발 → 이동
+    const hasFlag = assembledBlocks.some(b => b.id === 'flag');
+    const hasMove = assembledBlocks.some(b => b.id === 'move');
+
+    if (!hasFlag || !hasMove) {
+      setShowHint(true);
+      return;
+    }
+
+    // 순서 확인
+    const flagIndex = assembledBlocks.findIndex(b => b.id === 'flag');
+    const moveIndex = assembledBlocks.findIndex(b => b.id === 'move');
+
+    if (flagIndex > moveIndex) {
+      setShowHint(true);
+      return;
+    }
+
+    // 실행 - moveValue 칸만큼 이동
+    setCharX(moveValue);
+
+    if (moveValue === 10) {
       setIsComplete(true);
-      setTimeout(() => onComplete(true), 1000);
+      setTimeout(() => onComplete(true), 1500);
+    } else {
+      setShowHint(true);
     }
   };
 
   const reset = () => {
-    setCharX(50);
+    setCharX(0);
+    setAssembledBlocks([]);
+    setMoveValue(0);
     setIsComplete(false);
+    setShowHint(false);
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">🏃 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border border-slate-700 p-6">
+      <h3 className="text-xl font-bold mb-2 text-white">🏃 {mission.title}</h3>
+      <p className="text-slate-300 text-base mb-4">{mission.description}</p>
 
-      {/* 스테이지 */}
-      <div className="relative bg-gradient-to-b from-sky-200 to-green-200 dark:from-sky-900 dark:to-green-900 rounded-xl h-40 mb-4 border-2 border-gray-300 dark:border-gray-600 overflow-hidden">
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-green-400 dark:bg-green-700" />
-        {/* 시작점 */}
-        <div className="absolute bottom-8 left-12 w-1 h-12 bg-gray-400 dark:bg-gray-500">
-          <div className="absolute -top-2 -left-2 text-xs bg-white dark:bg-gray-800 px-1 rounded">시작</div>
+      {/* 스테이지 - 스크롤 가능 */}
+      <div className="relative bg-gradient-to-b from-sky-400 to-sky-600 rounded-xl h-56 mb-4 border-2 border-slate-600 overflow-x-auto overflow-y-hidden">
+        {/* 하늘 배경 */}
+        <div className="absolute top-4 right-8 text-2xl">☁️</div>
+        <div className="absolute top-8 right-24 text-xl">☁️</div>
+        <div className="absolute top-6 left-12 text-xl">🌤️</div>
+
+        {/* 바닥 - 20칸 */}
+        <div className="absolute bottom-0 left-0 h-20 bg-gradient-to-t from-amber-800 to-amber-700 border-t-4 border-amber-600" style={{ width: '856px' }}>
+          {/* 칸 그리드 (0~20칸) - 고정 너비 */}
+          <div className="absolute top-0 left-4 flex">
+            {[...Array(21)].map((_, i) => (
+              <div
+                key={i}
+                className={`w-10 h-12 border-l-2 ${i === 20 ? 'border-r-2' : ''} border-amber-500 flex items-end justify-center pb-1 ${i === 0 ? 'bg-green-600/30' : i === 10 ? 'bg-yellow-500/30' : ''}`}
+              >
+                <span className="text-xs font-bold text-white">{i}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        {/* 목표점 */}
-        <div className="absolute bottom-8 left-[162px] w-1 h-12 bg-emerald-500">
-          <div className="absolute -top-2 -left-3 text-xs bg-emerald-100 dark:bg-emerald-900 px-1 rounded text-emerald-700 dark:text-emerald-300">목표</div>
+
+        {/* 시작 표시 (0칸 위) */}
+        <div className="absolute bottom-20 left-4 w-10 flex flex-col items-center z-10">
+          <span className="text-2xl">🚩</span>
+          <span className="text-[10px] font-bold text-white bg-green-600 px-1.5 py-0.5 rounded">시작</span>
         </div>
-        {/* 캐릭터 */}
+
+        {/* 목표 표시 (10칸 위) - 16px + 10칸*40px = 416px */}
+        <div className="absolute bottom-20 left-[416px] w-10 flex flex-col items-center z-10">
+          <span className="text-2xl animate-bounce">⭐</span>
+          <span className="text-[10px] font-bold text-white bg-yellow-500 px-1.5 py-0.5 rounded">목표</span>
+        </div>
+
+        {/* 캐릭터 - 칸 위에 정확히 위치 */}
         <motion.div
-          className="absolute bottom-8 text-4xl"
-          animate={{ left: charX }}
+          className="absolute bottom-20 w-10 flex justify-center text-4xl z-20"
+          style={{ filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.3))' }}
+          animate={{ left: 16 + charX * 40 }} // left-4 = 16px, 한 칸 = 40px
           transition={{ type: 'spring', stiffness: 100 }}
         >
-          🐱
+          🧑‍💻
         </motion.div>
       </div>
 
-      {/* 블록 코드 영역 */}
-      <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-4 mb-4 border border-violet-200 dark:border-violet-800">
-        <p className="text-sm font-medium text-violet-700 dark:text-violet-300 mb-3">🧱 코드 블록</p>
-        <div className="flex items-center gap-2 flex-wrap">
-          <div className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium shadow">
-            🚩 깃발 클릭했을 때
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+        {/* 사용 가능한 블록 */}
+        <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-dashed border-slate-500">
+          <p className="text-base font-bold text-slate-300 mb-3">🧱 블록 상자 (드래그하세요)</p>
+          <div className="flex flex-col gap-2">
+            {availableBlocks.map((block) => (
+              <div
+                key={block.id}
+                draggable
+                onDragStart={(e) => handleDragStart(e, block)}
+                className={`${block.color} text-white px-4 py-3 rounded-lg font-bold text-base shadow cursor-grab active:cursor-grabbing flex items-center gap-2 hover:opacity-90 transition-opacity ${assembledBlocks.find(b => b.id === block.id) ? 'opacity-40' : ''}`}
+              >
+                <GripVertical className="w-5 h-5" />
+                {block.hasInput ? (
+                  <span className="flex items-center gap-2 text-base">
+                    ➡️ 오른쪽으로
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={moveValue === 0 ? '' : moveValue}
+                      onChange={(e) => {
+                        const val = e.target.value.replace(/[^0-9]/g, '');
+                        setMoveValue(val === '' ? 0 : Math.min(20, parseInt(val)));
+                      }}
+                      onFocus={(e) => e.target.select()}
+                      onClick={(e) => e.stopPropagation()}
+                      placeholder="?"
+                      className="w-14 px-2 py-1 rounded bg-white text-slate-900 text-center font-bold text-lg border-2 border-slate-300 focus:border-blue-400 focus:outline-none"
+                    />
+                    칸 이동하기
+                  </span>
+                ) : (
+                  block.label
+                )}
+              </div>
+            ))}
           </div>
-          <div className="bg-blue-400 text-white px-4 py-2 rounded-lg font-medium shadow flex items-center gap-2">
-            ➡️ 오른쪽으로
-            <input
-              type="number"
-              value={moveValue}
-              onChange={(e) => setMoveValue(Number(e.target.value))}
-              className="w-16 px-2 py-1 rounded text-gray-900 text-center font-bold"
-              min={0}
-              max={200}
-            />
-            픽셀 이동하기
-          </div>
+        </div>
+
+        {/* 코드 조합 영역 */}
+        <div
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          className="bg-violet-900/30 rounded-xl p-4 border-2 border-violet-500/50 min-h-[180px]"
+        >
+          <p className="text-base font-bold text-violet-300 mb-3">📝 코드 영역 (여기에 놓으세요)</p>
+          {assembledBlocks.length === 0 ? (
+            <div className="flex items-center justify-center h-24 text-slate-400 text-base font-medium border-2 border-dashed border-slate-500 rounded-lg">
+              블록을 여기로 드래그하세요!
+            </div>
+          ) : (
+            <div className="flex flex-col gap-2">
+              {assembledBlocks.map((block, index) => (
+                <motion.div
+                  key={`${block.id}-${index}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className={`${block.color} text-white px-4 py-3 rounded-lg font-bold text-base shadow flex items-center justify-between`}
+                >
+                  <span>
+                    {block.hasInput ? (
+                      <span>➡️ 오른쪽으로 <strong>{moveValue}</strong> 칸 이동하기</span>
+                    ) : (
+                      block.label
+                    )}
+                  </span>
+                  <button onClick={() => removeBlock(block.id)} className="text-white/70 hover:text-white ml-2">
+                    <XCircle className="w-5 h-5" />
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
       {/* 힌트 */}
-      {mission.hints && mission.hints.length > 0 && (
-        <div className="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-xl border border-amber-200 dark:border-amber-800 mb-4">
-          <p className="font-medium text-amber-800 dark:text-amber-200 text-sm">💡 힌트</p>
-          <ul className="text-sm text-amber-700 dark:text-amber-300 mt-1 space-y-1">
-            {mission.hints.map((hint, i) => (
-              <li key={i}>• {hint}</li>
-            ))}
+      {showHint && !isComplete && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-amber-500/10 p-4 rounded-xl border border-amber-500/30 mb-4"
+        >
+          <p className="font-bold text-amber-300 text-base mb-2">💡 힌트</p>
+          <ul className="text-base text-amber-200 space-y-1">
+            <li>• "🚩 깃발 클릭했을 때" 블록을 먼저 놓으세요</li>
+            <li>• "이동하기" 블록의 숫자를 <strong className="text-amber-100">10</strong>으로 설정하세요</li>
+            <li>• 블록 순서가 중요해요!</li>
           </ul>
-        </div>
+        </motion.div>
       )}
 
       {isComplete && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 mb-4 flex items-center gap-3"
+          className="p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/30 mb-4 flex items-center gap-3"
         >
-          <CheckCircle className="w-6 h-6" />
-          <span className="font-bold">정확히 100픽셀 이동했어요! 🎉</span>
+          <CheckCircle className="w-6 h-6 text-emerald-400" />
+          <span className="font-bold text-emerald-300 text-lg">정확히 10칸 이동했어요! 🎉 다음 레슨으로 이동합니다...</span>
         </motion.div>
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
-          <Shuffle className="w-4 h-4 inline mr-2" />초기화
+        <button onClick={reset} className="px-5 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold text-base rounded-xl border border-slate-600 transition-colors flex items-center gap-2">
+          <Shuffle className="w-5 h-5" />초기화
         </button>
-        <button onClick={runCode} className="flex-1 px-4 py-3 bg-green-500 text-white font-bold rounded-xl border-2 border-green-600 hover:bg-green-600 flex items-center justify-center gap-2">
-          <Play className="w-4 h-4" />🚩 실행하기
+        <button onClick={runCode} className="flex-1 px-5 py-3 bg-green-600 hover:bg-green-500 text-white font-bold text-lg rounded-xl border border-green-500 transition-colors flex items-center justify-center gap-2">
+          <Play className="w-5 h-5" />🚩 실행하기
         </button>
       </div>
     </div>
   );
 };
 
-// 대화 미션
+// 대화 미션 - 드래그 앤 드롭 방식
 const DialogueMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
   const [step, setStep] = useState(0);
   const [userName, setUserName] = useState('');
   const [showInput, setShowInput] = useState(false);
   const [dialogue, setDialogue] = useState('');
+  const [showHint, setShowHint] = useState(false);
+
+  // 사용 가능한 블록들
+  const availableBlocks: Block[] = [
+    { id: 'flag', type: 'event', label: '🚩 깃발 클릭했을 때', color: 'bg-yellow-500' },
+    { id: 'ask', type: 'sensing', label: '❓ "이름이 뭐야?" 묻고 기다리기', color: 'bg-cyan-500' },
+    { id: 'say', type: 'looks', label: '💬 "안녕, " + 대답 말하기', color: 'bg-purple-500' },
+    { id: 'wait', type: 'control', label: '⏱️ 2초 기다리기', color: 'bg-orange-500' },
+  ];
+
+  const [assembledBlocks, setAssembledBlocks] = useState<Block[]>([]);
+
+  const handleDragStart = (e: React.DragEvent, block: Block) => {
+    e.dataTransfer.setData('blockId', block.id);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    const blockId = e.dataTransfer.getData('blockId');
+    const block = availableBlocks.find(b => b.id === blockId);
+    if (block && !assembledBlocks.find(b => b.id === blockId)) {
+      setAssembledBlocks([...assembledBlocks, { ...block }]);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => e.preventDefault();
+
+  const removeBlock = (blockId: string) => {
+    setAssembledBlocks(assembledBlocks.filter(b => b.id !== blockId));
+  };
 
   const runCode = () => {
+    // 블록 검증: 깃발 → 묻기 → 말하기
+    const hasFlag = assembledBlocks.some(b => b.id === 'flag');
+    const hasAsk = assembledBlocks.some(b => b.id === 'ask');
+    const hasSay = assembledBlocks.some(b => b.id === 'say');
+
+    if (!hasFlag || !hasAsk || !hasSay) {
+      setShowHint(true);
+      return;
+    }
+
+    const flagIdx = assembledBlocks.findIndex(b => b.id === 'flag');
+    const askIdx = assembledBlocks.findIndex(b => b.id === 'ask');
+    const sayIdx = assembledBlocks.findIndex(b => b.id === 'say');
+
+    if (flagIdx > askIdx || askIdx > sayIdx) {
+      setShowHint(true);
+      return;
+    }
+
     setStep(1);
     setShowInput(true);
+    setShowHint(false);
   };
 
   const handleSubmitName = () => {
@@ -791,73 +991,123 @@ const DialogueMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
     setUserName('');
     setShowInput(false);
     setDialogue('');
+    setAssembledBlocks([]);
+    setShowHint(false);
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">💬 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border border-slate-700 p-6">
+      <h3 className="text-xl font-bold mb-2 text-white">💬 {mission.title}</h3>
+      <p className="text-slate-300 text-base mb-4">{mission.description}</p>
 
       {/* 스테이지 */}
-      <div className="relative bg-gradient-to-b from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 rounded-xl h-48 mb-4 border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+      <div className="relative bg-gradient-to-b from-purple-800 to-pink-800 rounded-xl h-48 mb-4 border border-slate-600 flex items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-2">🐱</div>
           {showInput && (
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-4 left-1/2 -translate-x-1/2 bg-white dark:bg-gray-800 rounded-xl p-4 shadow-lg border-2 border-violet-300">
-              <p className="text-sm font-medium mb-2">이름이 뭐야? 🤔</p>
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-4 left-1/2 -translate-x-1/2 bg-slate-700 rounded-xl p-4 shadow-lg border border-violet-500">
+              <p className="text-base font-bold text-white mb-2">이름이 뭐야? 🤔</p>
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
                   placeholder="이름 입력..."
-                  className="px-3 py-2 border-2 border-gray-300 rounded-lg text-sm"
+                  className="px-3 py-2 bg-slate-600 border border-slate-500 rounded-lg text-base text-white placeholder-slate-400"
                   onKeyPress={(e) => e.key === 'Enter' && handleSubmitName()}
                 />
-                <button onClick={handleSubmitName} className="px-3 py-2 bg-violet-500 text-white rounded-lg font-bold text-sm">확인</button>
+                <button onClick={handleSubmitName} className="px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white rounded-lg font-bold text-base">확인</button>
               </div>
             </motion.div>
           )}
           {dialogue && (
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="absolute top-4 left-1/2 -translate-x-1/2 bg-white dark:bg-gray-800 rounded-xl px-6 py-3 shadow-lg border-2 border-emerald-300">
-              <p className="text-lg font-medium">{dialogue}</p>
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} className="absolute top-4 left-1/2 -translate-x-1/2 bg-emerald-600 rounded-xl px-6 py-3 shadow-lg border border-emerald-400">
+              <p className="text-lg font-bold text-white">{dialogue}</p>
             </motion.div>
           )}
         </div>
       </div>
 
-      {/* 블록 코드 영역 */}
-      <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-4 mb-4 border border-violet-200 dark:border-violet-800">
-        <p className="text-sm font-medium text-violet-700 dark:text-violet-300 mb-3">🧱 코드 블록</p>
-        <div className="flex flex-col gap-2">
-          <div className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium shadow">🚩 깃발 클릭했을 때</div>
-          <div className="bg-purple-500 text-white px-4 py-2 rounded-lg font-medium shadow">❓ "이름이 뭐야?" 묻고 기다리기</div>
-          <div className="bg-purple-400 text-white px-4 py-2 rounded-lg font-medium shadow">💬 "안녕, " + 대답 + "! 반가워!" 말하기</div>
+      {/* 블록 조합 영역 */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+        {/* 사용 가능한 블록 */}
+        <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-dashed border-slate-500">
+          <p className="text-base font-bold text-slate-300 mb-3">🧱 블록 상자 (드래그하세요)</p>
+          <div className="flex flex-col gap-2">
+            {availableBlocks.map((block) => (
+              <div
+                key={block.id}
+                draggable
+                onDragStart={(e) => handleDragStart(e, block)}
+                className={`${block.color} text-white px-4 py-3 rounded-lg font-bold text-base shadow cursor-grab active:cursor-grabbing flex items-center gap-2 hover:opacity-90 transition-opacity ${assembledBlocks.find(b => b.id === block.id) ? 'opacity-40' : ''}`}
+              >
+                <GripVertical className="w-5 h-5" />
+                {block.label}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 코드 조합 영역 */}
+        <div
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          className="bg-violet-900/30 rounded-xl p-4 border-2 border-violet-500/50 min-h-[180px]"
+        >
+          <p className="text-base font-bold text-violet-300 mb-3">📝 코드 영역 (여기에 놓으세요)</p>
+          {assembledBlocks.length === 0 ? (
+            <div className="flex items-center justify-center h-24 text-slate-400 text-base font-medium border-2 border-dashed border-slate-500 rounded-lg">
+              블록을 여기로 드래그하세요!
+            </div>
+          ) : (
+            <div className="flex flex-col gap-2">
+              {assembledBlocks.map((block, index) => (
+                <motion.div
+                  key={`${block.id}-${index}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className={`${block.color} text-white px-4 py-3 rounded-lg font-bold text-base shadow flex items-center justify-between`}
+                >
+                  <span>{block.label}</span>
+                  <button onClick={() => removeBlock(block.id)} className="text-white/70 hover:text-white ml-2">
+                    <XCircle className="w-5 h-5" />
+                  </button>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      {mission.hints && mission.hints.length > 0 && (
-        <div className="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-xl border border-amber-200 dark:border-amber-800 mb-4">
-          <p className="font-medium text-amber-800 dark:text-amber-200 text-sm">💡 힌트</p>
-          <ul className="text-sm text-amber-700 dark:text-amber-300 mt-1 space-y-1">
-            {mission.hints.map((hint, i) => (<li key={i}>• {hint}</li>))}
+      {/* 힌트 */}
+      {showHint && step === 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-amber-500/10 p-4 rounded-xl border border-amber-500/30 mb-4"
+        >
+          <p className="font-bold text-amber-300 text-base mb-2">💡 힌트</p>
+          <ul className="text-base text-amber-200 space-y-1">
+            <li>• 블록 순서: 🚩 깃발 → ❓ 묻기 → 💬 말하기</li>
+            <li>• 먼저 "깃발 클릭했을 때" 블록을 놓으세요</li>
+            <li>• 그 다음 "묻고 기다리기" 블록을 놓으세요</li>
           </ul>
-        </div>
+        </motion.div>
       )}
 
       {step === 2 && (
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-4 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 mb-4 flex items-center gap-3">
-          <CheckCircle className="w-6 h-6" />
-          <span className="font-bold">대화 프로그램 완성! 🎉</span>
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/30 mb-4 flex items-center gap-3">
+          <CheckCircle className="w-6 h-6 text-emerald-400" />
+          <span className="font-bold text-emerald-300 text-lg">대화 프로그램 완성! 🎉 다음 레슨으로 이동합니다...</span>
         </motion.div>
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
-          <Shuffle className="w-4 h-4 inline mr-2" />초기화
+        <button onClick={reset} className="px-5 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold text-base rounded-xl border border-slate-600 transition-colors flex items-center gap-2">
+          <Shuffle className="w-5 h-5" />초기화
         </button>
-        <button onClick={runCode} disabled={step > 0} className="flex-1 px-4 py-3 bg-green-500 text-white font-bold rounded-xl border-2 border-green-600 hover:bg-green-600 disabled:opacity-50 flex items-center justify-center gap-2">
-          <Play className="w-4 h-4" />🚩 실행하기
+        <button onClick={runCode} disabled={step > 0} className="flex-1 px-5 py-3 bg-green-600 hover:bg-green-500 text-white font-bold text-lg rounded-xl border border-green-500 transition-colors disabled:opacity-50 flex items-center justify-center gap-2">
+          <Play className="w-5 h-5" />🚩 실행하기
         </button>
       </div>
     </div>
@@ -883,11 +1133,11 @@ const ColorMission: React.FC<{ mission: MissionType; onComplete: (perfect: boole
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">🎨 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border border-slate-700 p-6">
+      <h3 className="text-xl font-bold mb-2 text-white">🎨 {mission.title}</h3>
+      <p className="text-slate-300 text-base mb-4">{mission.description}</p>
 
-      <div className="relative bg-gradient-to-b from-indigo-100 to-purple-100 dark:from-indigo-900 dark:to-purple-900 rounded-xl h-48 mb-4 border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+      <div className="relative bg-gradient-to-b from-indigo-800 to-purple-800 rounded-xl h-48 mb-4 border border-slate-600 flex items-center justify-center">
         <motion.button
           onClick={handleClick}
           whileHover={{ scale: 1.1 }}
@@ -924,7 +1174,7 @@ const ColorMission: React.FC<{ mission: MissionType; onComplete: (perfect: boole
         </motion.div>
       )}
 
-      <button onClick={reset} className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
+      <button onClick={reset} className="w-full px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200">
         <Shuffle className="w-4 h-4 inline mr-2" />초기화
       </button>
     </div>
@@ -952,11 +1202,11 @@ const SoundMission: React.FC<{ mission: MissionType; onComplete: (perfect: boole
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">🔊 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">🔊 {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
-      <div className="relative bg-gradient-to-b from-orange-100 to-yellow-100 dark:from-orange-900 dark:to-yellow-900 rounded-xl h-40 mb-4 border-2 border-gray-300 dark:border-gray-600 overflow-hidden">
+      <div className="relative bg-gradient-to-b from-orange-100 to-yellow-100 dark:from-orange-900 dark:to-yellow-900 rounded-xl h-40 mb-4 border-2 border-slate-600 overflow-hidden">
         <motion.div className="absolute bottom-8 text-4xl" animate={{ left: charX }} transition={{ duration: 1 }}>
           🐱
         </motion.div>
@@ -986,7 +1236,7 @@ const SoundMission: React.FC<{ mission: MissionType; onComplete: (perfect: boole
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
+        <button onClick={reset} className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200">
           <Shuffle className="w-4 h-4 inline mr-2" />초기화
         </button>
         <button onClick={runCode} disabled={isPlaying} className="flex-1 px-4 py-3 bg-green-500 text-white font-bold rounded-xl border-2 border-green-600 hover:bg-green-600 disabled:opacity-50 flex items-center justify-center gap-2">
@@ -1018,11 +1268,11 @@ const CoordinateMission: React.FC<{ mission: MissionType; onComplete: (perfect: 
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">📍 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">📍 {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
-      <div className="relative bg-gray-100 dark:bg-gray-900 rounded-xl h-64 mb-4 border-2 border-gray-300 dark:border-gray-600 overflow-hidden">
+      <div className="relative bg-slate-900 rounded-xl h-64 mb-4 border-2 border-slate-600 overflow-hidden">
         {/* 좌표축 */}
         <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600" />
         <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-300 dark:bg-gray-600" />
@@ -1033,7 +1283,7 @@ const CoordinateMission: React.FC<{ mission: MissionType; onComplete: (perfect: 
         <motion.div className="absolute text-3xl" animate={{ left: `calc(50% + ${x}px)`, top: `calc(50% - ${y}px)` }} style={{ transform: 'translate(-50%, -50%)' }}>
           🐱
         </motion.div>
-        <p className="absolute bottom-2 right-2 text-xs bg-white dark:bg-gray-800 px-2 py-1 rounded">현재: ({x}, {y})</p>
+        <p className="absolute bottom-2 right-2 text-xs bg-slate-800 px-2 py-1 rounded">현재: ({x}, {y})</p>
       </div>
 
       <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-4 mb-4 border border-violet-200 dark:border-violet-800">
@@ -1042,9 +1292,9 @@ const CoordinateMission: React.FC<{ mission: MissionType; onComplete: (perfect: 
           <div className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium shadow">🚩 깃발 클릭했을 때</div>
           <div className="bg-blue-400 text-white px-4 py-2 rounded-lg font-medium shadow flex items-center gap-2 flex-wrap">
             📍 x:
-            <input type="number" value={inputX} onChange={(e) => setInputX(Number(e.target.value))} className="w-16 px-2 py-1 rounded text-gray-900 text-center" />
+            <input type="number" value={inputX} onChange={(e) => setInputX(Number(e.target.value))} className="w-16 px-2 py-1 rounded text-slate-900 text-center" />
             y:
-            <input type="number" value={inputY} onChange={(e) => setInputY(Number(e.target.value))} className="w-16 px-2 py-1 rounded text-gray-900 text-center" />
+            <input type="number" value={inputY} onChange={(e) => setInputY(Number(e.target.value))} className="w-16 px-2 py-1 rounded text-slate-900 text-center" />
             (으)로 이동하기
           </div>
         </div>
@@ -1067,7 +1317,7 @@ const CoordinateMission: React.FC<{ mission: MissionType; onComplete: (perfect: 
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
+        <button onClick={reset} className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200">
           <Shuffle className="w-4 h-4 inline mr-2" />초기화
         </button>
         <button onClick={runCode} className="flex-1 px-4 py-3 bg-green-500 text-white font-bold rounded-xl border-2 border-green-600 hover:bg-green-600 flex items-center justify-center gap-2">
@@ -1093,11 +1343,11 @@ const SizeMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
   const reset = () => setScale(100);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">📐 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">📐 {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
-      <div className="bg-gradient-to-b from-cyan-100 to-blue-100 dark:from-cyan-900 dark:to-blue-900 rounded-xl h-48 mb-4 border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+      <div className="bg-gradient-to-b from-cyan-100 to-blue-100 dark:from-cyan-900 dark:to-blue-900 rounded-xl h-48 mb-4 border-2 border-slate-600 flex items-center justify-center">
         <motion.div className="text-6xl" animate={{ scale: scale / 100 }} transition={{ type: 'spring' }}>
           🐱
         </motion.div>
@@ -1109,7 +1359,7 @@ const SizeMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
           <div className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium shadow">🚩 깃발 클릭했을 때</div>
           <div className="bg-purple-500 text-white px-4 py-2 rounded-lg font-medium shadow flex items-center gap-2">
             📐 크기를
-            <input type="number" value={inputScale} onChange={(e) => setInputScale(Number(e.target.value))} className="w-16 px-2 py-1 rounded text-gray-900 text-center" min={10} max={300} />
+            <input type="number" value={inputScale} onChange={(e) => setInputScale(Number(e.target.value))} className="w-16 px-2 py-1 rounded text-slate-900 text-center" min={10} max={300} />
             %로 정하기
           </div>
         </div>
@@ -1132,7 +1382,7 @@ const SizeMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
+        <button onClick={reset} className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200">
           <Shuffle className="w-4 h-4 inline mr-2" />초기화
         </button>
         <button onClick={runCode} className="flex-1 px-4 py-3 bg-green-500 text-white font-bold rounded-xl border-2 border-green-600 hover:bg-green-600 flex items-center justify-center gap-2">
@@ -1161,11 +1411,11 @@ const RotateMission: React.FC<{ mission: MissionType; onComplete: (perfect: bool
   const reset = () => setRotation(0);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">🔄 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">🔄 {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
-      <div className="bg-gradient-to-b from-teal-100 to-emerald-100 dark:from-teal-900 dark:to-emerald-900 rounded-xl h-48 mb-4 border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+      <div className="bg-gradient-to-b from-teal-100 to-emerald-100 dark:from-teal-900 dark:to-emerald-900 rounded-xl h-48 mb-4 border-2 border-slate-600 flex items-center justify-center">
         <motion.div className="text-6xl" style={{ transform: `rotate(${rotation}deg)` }}>
           🐱
         </motion.div>
@@ -1197,7 +1447,7 @@ const RotateMission: React.FC<{ mission: MissionType; onComplete: (perfect: bool
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
+        <button onClick={reset} className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200">
           <Shuffle className="w-4 h-4 inline mr-2" />초기화
         </button>
         <button onClick={runCode} disabled={isRunning} className="flex-1 px-4 py-3 bg-green-500 text-white font-bold rounded-xl border-2 border-green-600 hover:bg-green-600 disabled:opacity-50 flex items-center justify-center gap-2">
@@ -1233,11 +1483,11 @@ const VisibilityMission: React.FC<{ mission: MissionType; onComplete: (perfect: 
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">👻 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">👻 {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
-      <div className="bg-gradient-to-b from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-xl h-48 mb-4 border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+      <div className="bg-gradient-to-b from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-xl h-48 mb-4 border-2 border-slate-600 flex items-center justify-center">
         <motion.div className="text-6xl" animate={{ opacity: visible ? 1 : 0 }} transition={{ duration: 0.2 }}>
           🐱
         </motion.div>
@@ -1272,7 +1522,7 @@ const VisibilityMission: React.FC<{ mission: MissionType; onComplete: (perfect: 
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200">
+        <button onClick={reset} className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200">
           <Shuffle className="w-4 h-4 inline mr-2" />초기화
         </button>
         <button onClick={runCode} disabled={isRunning} className="flex-1 px-4 py-3 bg-green-500 text-white font-bold rounded-xl border-2 border-green-600 hover:bg-green-600 disabled:opacity-50 flex items-center justify-center gap-2">
@@ -1339,9 +1589,9 @@ const StarDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect:
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">⭐ {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">⭐ {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="flex-shrink-0">
@@ -1359,7 +1609,7 @@ const StarDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect:
             </p>
           </div>
 
-          <div className="space-y-4 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl border-2 border-gray-200 dark:border-gray-700">
+          <div className="space-y-4 p-4 bg-slate-900/50 rounded-xl border-2 border-slate-600">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 🔄 반복 횟수: <span className="text-violet-600 font-bold">{repeatCount}번</span>
@@ -1397,10 +1647,10 @@ const StarDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect:
           )}
 
           <div className="flex gap-3">
-            <button onClick={reset} disabled={isRunning} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 disabled:opacity-50">
+            <button onClick={reset} disabled={isRunning} className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200 disabled:opacity-50">
               <Shuffle className="w-4 h-4 inline mr-2" />지우기
             </button>
-            <button onClick={drawStar} disabled={isRunning} className="flex-1 px-4 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 disabled:opacity-50 flex items-center justify-center gap-2">
+            <button onClick={drawStar} disabled={isRunning} className="flex-1 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-gray-800 disabled:opacity-50 flex items-center justify-center gap-2">
               <Play className="w-4 h-4" />{isRunning ? '그리는 중...' : '실행하기'}
             </button>
           </div>
@@ -1476,9 +1726,9 @@ const ShapeDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">📐 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">📐 {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="flex-shrink-0">
@@ -1495,7 +1745,7 @@ const ShapeDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect
             </p>
           </div>
 
-          <div className="space-y-4 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-xl border-2 border-gray-200 dark:border-gray-700">
+          <div className="space-y-4 p-4 bg-slate-900/50 rounded-xl border-2 border-slate-600">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 🔄 반복 횟수 (변의 개수): <span className="text-emerald-600 font-bold">{sides}번</span>
@@ -1527,7 +1777,7 @@ const ShapeDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect
           )}
 
           <div className="flex gap-3">
-            <button onClick={reset} disabled={isRunning} className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200 disabled:opacity-50">
+            <button onClick={reset} disabled={isRunning} className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200 disabled:opacity-50">
               <Shuffle className="w-4 h-4 inline mr-2" />지우기
             </button>
             <button onClick={drawShape} disabled={isRunning} className="flex-1 px-4 py-3 bg-emerald-500 text-white font-bold rounded-xl border-2 border-emerald-600 hover:bg-emerald-600 disabled:opacity-50 flex items-center justify-center gap-2">
@@ -1543,9 +1793,9 @@ const ShapeDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect
 // 일반 블록 코딩 미션 (fallback)
 const GeneralBlockMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">🧱 {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">🧱 {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
       {/* 사용 가능한 블록 표시 */}
       {mission.blocks && mission.blocks.length > 0 && (
@@ -1575,9 +1825,9 @@ const GeneralBlockMission: React.FC<{ mission: MissionType; onComplete: (perfect
         </div>
       )}
 
-      <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-6 mb-6 border-2 border-gray-200 dark:border-gray-700 text-center">
+      <div className="bg-slate-900/50 rounded-xl p-6 mb-6 border-2 border-slate-600 text-center">
         <p className="text-4xl mb-4">🐱</p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-sm text-slate-400">
           위의 블록들을 사용해서 미션을 수행해보세요!<br />
           준비가 되었다면 완료 버튼을 눌러주세요.
         </p>
@@ -1585,7 +1835,7 @@ const GeneralBlockMission: React.FC<{ mission: MissionType; onComplete: (perfect
 
       <button
         onClick={() => onComplete(true)}
-        className="w-full px-8 py-4 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors"
+        className="w-full px-8 py-4 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors"
       >
         미션 완료하기 ✓
       </button>
@@ -1612,9 +1862,9 @@ const WritingMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
   const lineCount = text.split('\n').filter(l => l.trim().length > 0).length;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">✍️ {mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">{mission.description}</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">✍️ {mission.title}</h3>
+      <p className="text-slate-400 mb-4">{mission.description}</p>
 
       <div className="mb-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
         <p className="font-medium text-blue-800 dark:text-blue-200 mb-2">작성 요구사항:</p>
@@ -1633,7 +1883,7 @@ const WritingMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
           onChange={(e) => setText(e.target.value)}
           disabled={submitted}
           placeholder="여기에 작성하세요...&#10;&#10;예시:&#10;1. 첫 번째 단계&#10;2. 두 번째 단계&#10;3. 세 번째 단계"
-          className="w-full h-64 p-4 rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none focus:outline-none focus:border-violet-500 font-mono text-sm"
+          className="w-full h-64 p-4 rounded-xl border-2 border-slate-600 bg-slate-700 text-white resize-none focus:outline-none focus:border-violet-500 font-mono text-sm"
         />
         <div className="absolute bottom-3 right-3 text-xs text-gray-400">
           {lineCount} / {minLines} 줄
@@ -1654,7 +1904,7 @@ const WritingMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
       <button
         onClick={handleSubmit}
         disabled={lineCount < minLines || submitted}
-        className="w-full px-4 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {lineCount < minLines ? `${minLines - lineCount}줄 더 작성해주세요` : '제출하기'}
       </button>
@@ -1726,12 +1976,12 @@ const VisualPuzzleMission: React.FC<{ mission: MissionType; onComplete: (perfect
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">🧩 길 찾기 퍼즐</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-4">시작점(🚀)에서 도착점(🏁)까지 경로를 연결하세요. 벽(⬛)은 지나갈 수 없어요!</p>
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      <h3 className="text-lg font-bold mb-2 text-white">🧩 길 찾기 퍼즐</h3>
+      <p className="text-slate-400 mb-4">시작점(🚀)에서 도착점(🏁)까지 경로를 연결하세요. 벽(⬛)은 지나갈 수 없어요!</p>
 
       <div className="flex flex-col items-center gap-6">
-        <div className="inline-grid gap-1 p-4 bg-gray-100 dark:bg-gray-900/50 rounded-xl border-2 border-gray-300 dark:border-gray-600"
+        <div className="inline-grid gap-1 p-4 bg-slate-900/50 rounded-xl border-2 border-slate-600"
              style={{ gridTemplateColumns: `repeat(${gridSize}, 1fr)` }}>
           {maze.flat().map((cell, i) => {
             const isSelected = selectedPath.includes(i);
@@ -1746,14 +1996,14 @@ const VisualPuzzleMission: React.FC<{ mission: MissionType; onComplete: (perfect
                 disabled={isWall}
                 className={`w-12 h-12 rounded-lg border-2 flex items-center justify-center text-xl font-bold transition-all ${
                   isWall
-                    ? 'bg-gray-800 border-gray-900 cursor-not-allowed'
+                    ? 'bg-gray-800 border-slate-600 cursor-not-allowed'
                     : isSelected
                     ? 'bg-violet-400 border-violet-600 text-white'
                     : isStart
                     ? 'bg-green-200 border-green-400'
                     : isEnd
                     ? 'bg-yellow-200 border-yellow-400'
-                    : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:bg-violet-100 dark:hover:bg-violet-900/30'
+                    : 'bg-slate-700 border-slate-600 hover:bg-violet-100 dark:hover:bg-violet-900/30'
                 }`}
               >
                 {isStart ? '🚀' : isEnd ? '🏁' : isWall ? '' : isSelected ? selectedPath.indexOf(i) + 1 : ''}
@@ -1781,14 +2031,14 @@ const VisualPuzzleMission: React.FC<{ mission: MissionType; onComplete: (perfect
         <div className="flex gap-3">
           <button
             onClick={reset}
-            className="px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-bold rounded-xl border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-200"
+            className="px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-gray-200"
           >
             <Shuffle className="w-4 h-4 inline mr-2" />초기화
           </button>
           <button
             onClick={checkPath}
             disabled={selectedPath.length === 0}
-            className="px-8 py-3 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 disabled:opacity-50 flex items-center gap-2"
+            className="px-8 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-gray-800 disabled:opacity-50 flex items-center gap-2"
           >
             <Play className="w-4 h-4" />확인하기
           </button>
@@ -1801,15 +2051,15 @@ const VisualPuzzleMission: React.FC<{ mission: MissionType; onComplete: (perfect
 // Interactive/Generic Mission (fallback)
 const InteractiveMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-900 dark:border-gray-700 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-8 text-center">
-      <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-5xl border-2 border-gray-900">
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-8 text-center">
+      <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-5xl border-2 border-slate-600">
         {mission.type === 'audio-visual' ? '🎵' :
          mission.type === 'interactive-lesson' ? '📚' :
          mission.type === 'hands-on' ? '🛠️' : '📋'}
       </div>
 
-      <h3 className="text-2xl font-black mb-2 text-gray-900 dark:text-white">{mission.title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto">
+      <h3 className="text-2xl font-black mb-2 text-white">{mission.title}</h3>
+      <p className="text-slate-400 mb-6 max-w-lg mx-auto">
         {mission.description}
       </p>
 
@@ -1819,15 +2069,15 @@ const InteractiveMission: React.FC<{ mission: MissionType; onComplete: (perfect:
         </div>
       )}
 
-      <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-6 mb-6 border-2 border-gray-200 dark:border-gray-700">
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+      <div className="bg-slate-900/50 rounded-xl p-6 mb-6 border-2 border-slate-600">
+        <p className="text-sm text-slate-400 mb-4">
           이 미션의 내용을 읽고 이해했다면 완료 버튼을 눌러주세요.
         </p>
       </div>
 
       <button
         onClick={() => onComplete(true)}
-        className="px-8 py-4 bg-gray-900 dark:bg-violet-600 text-white font-bold rounded-xl border-2 border-gray-900 dark:border-violet-500 hover:bg-gray-800 dark:hover:bg-violet-700 transition-colors"
+        className="px-8 py-4 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors"
       >
         이해했어요! 완료하기
       </button>

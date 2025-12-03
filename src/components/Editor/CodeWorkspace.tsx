@@ -26,6 +26,7 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
     setIsRunning(true);
     setTestPassed(null);
     setErrorExplanation(null);
+    setCurrentHint(null);
 
     try {
       let result;
@@ -38,6 +39,7 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
         result = await runJavaScript(code);
       }
 
+      // 실제 출력 결과 표시
       setOutput(result.output);
 
       if (mission.expectedOutput) {
@@ -45,22 +47,43 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
         setTestPassed(passed);
 
         if (passed) {
-          // 성공 시 잠시 결과를 보여준 후 완료 처리
+          // 성공 시 2초 후 자동으로 다음 레슨으로 이동
           setTimeout(() => {
             onComplete(hintsUsed === 0);
-          }, 1500);
+          }, 2000);
+        } else {
+          // 실패 시 힌트 자동 표시
+          if (mission.hints && mission.hints.length > 0) {
+            const hintIndex = Math.min(currentHintIndex, mission.hints.length - 1);
+            setCurrentHint(`💡 힌트: ${mission.hints[hintIndex]}`);
+          } else {
+            // 기본 힌트 제공
+            setCurrentHint(`💡 힌트: 예상 출력은 "${mission.expectedOutput}" 입니다. 코드를 다시 확인해보세요!`);
+          }
         }
       } else if (result.success && result.output && result.output !== '(실행 완료 - 출력 없음)') {
         setTestPassed(true);
+        // 성공 시 2초 후 자동으로 다음 레슨으로 이동
+        setTimeout(() => {
+          onComplete(hintsUsed === 0);
+        }, 2000);
       }
 
       if (result.error) {
         const explanation = await explainError(code, result.error, language);
         setErrorExplanation(explanation);
+        // 에러 발생 시에도 힌트 표시
+        if (mission.hints && mission.hints.length > 0) {
+          setCurrentHint(`💡 힌트: ${mission.hints[0]}`);
+        }
       }
     } catch (error) {
       setOutput('실행 중 오류가 발생했습니다.');
       setTestPassed(false);
+      // 실패 시 힌트 표시
+      if (mission.hints && mission.hints.length > 0) {
+        setCurrentHint(`💡 힌트: ${mission.hints[0]}`);
+      }
     } finally {
       setIsRunning(false);
     }
@@ -241,7 +264,7 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
           </div>
 
           {/* Terminal Window */}
-          <div className={`h-48 bg-[#1e1e1e] rounded-2xl border ${testPassed ? 'border-emerald-500/50 shadow-lg shadow-emerald-500/20' : testPassed === false ? 'border-red-500/50' : 'border-slate-700/50'} p-4 font-mono text-sm overflow-hidden flex flex-col transition-all duration-300`}>
+          <div className={`h-56 bg-[#1e1e1e] rounded-2xl border ${testPassed ? 'border-emerald-500/50 shadow-lg shadow-emerald-500/20' : testPassed === false ? 'border-red-500/50' : 'border-slate-700/50'} p-4 font-mono text-sm overflow-hidden flex flex-col transition-all duration-300`}>
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
                 <Terminal className="w-3.5 h-3.5" /> 실행 결과
@@ -255,7 +278,7 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
                   >
                     {testPassed ? (
                       <>
-                        <CheckCircle2 className="w-4 h-4" /> 정답입니다!
+                        <CheckCircle2 className="w-4 h-4" /> 정답! 다음 레슨으로 이동합니다...
                       </>
                     ) : (
                       <>
@@ -274,7 +297,7 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
               {isRunning ? (
                 <div className="flex items-center gap-2 text-yellow-400">
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  Python 코드 실행 중...
+                  {language === 'python' ? 'Python' : 'JavaScript'} 코드 실행 중...
                 </div>
               ) : output ? (
                 <div>
@@ -288,8 +311,23 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
                     animate={{ opacity: 1, y: 0 }}
                     className={`p-3 rounded-lg ${testPassed ? 'bg-emerald-500/10 border border-emerald-500/30' : testPassed === false ? 'bg-red-500/10 border border-red-500/30' : 'bg-slate-800/50'}`}
                   >
-                    <pre className={`whitespace-pre-wrap font-mono text-base ${testPassed ? 'text-emerald-300' : testPassed === false ? 'text-red-300' : 'text-slate-200'}`}>{output}</pre>
+                    {/* 실제 출력 결과 표시 */}
+                    <div className="text-slate-400 text-xs mb-1">출력:</div>
+                    <pre className={`whitespace-pre-wrap font-mono text-lg ${testPassed ? 'text-emerald-300' : testPassed === false ? 'text-red-300' : 'text-slate-200'}`}>{output}</pre>
                   </motion.div>
+
+                  {/* 예상 출력과 비교 */}
+                  {mission.expectedOutput && testPassed === false && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mt-2 p-2 rounded-lg bg-slate-800/50 border border-slate-700"
+                    >
+                      <div className="text-slate-400 text-xs mb-1">예상 출력:</div>
+                      <pre className="whitespace-pre-wrap font-mono text-sm text-slate-400">{mission.expectedOutput}</pre>
+                    </motion.div>
+                  )}
+
                   <div className="mt-2 flex items-center gap-2 text-xs">
                     <span className="text-slate-500">Program exited with code</span>
                     <span className={testPassed === false ? 'text-red-400' : 'text-emerald-400'}>{testPassed === false ? 1 : 0}</span>

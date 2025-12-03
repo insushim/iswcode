@@ -310,9 +310,118 @@ export const vibeCoding = async (request: VibeCodingRequest): Promise<VibeCoding
   try {
     const model = ai.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
 
+    const languageRules = {
+      python: `
+- Python 코드만 생성하세요
+- print() 함수로 결과 출력
+- input() 함수 절대 사용 금지!
+- HTML 태그 사용 금지!`,
+      javascript: `
+- 순수 JavaScript 코드만 생성하세요
+- console.log()로 결과 출력
+- HTML 태그 절대 사용 금지! (<div>, <p>, <script> 등 금지)
+- document.write() 사용 금지!
+- DOM 조작 금지! (document.getElementById 등 금지)
+- prompt(), alert() 사용 금지!`,
+      html: `
+- 완전한 HTML 페이지를 생성하세요 (<!DOCTYPE html>부터 </html>까지)
+- 사용자가 직접 조작할 수 있는 인터랙티브 UI를 만드세요
+- <style> 태그로 예쁜 CSS 스타일 포함 (다크모드 권장: 배경 #1e293b, 글자 white)
+- <script> 태그로 JavaScript 게임 로직 포함
+- 버튼, 입력창 등 UI 요소를 사용해서 사용자가 직접 플레이 가능하게
+- 게임 상태를 화면에 표시 (점수, 시도 횟수 등)
+- alert() 대신 화면에 결과 메시지 표시`
+    };
+
     const prompt = `사용자 요청: "${request.prompt}"
 언어: ${request.language}
 복잡도: ${request.complexity} (simple/medium/complex)
+
+🚨🚨🚨 절대 지켜야 할 규칙 🚨🚨🚨
+
+[${request.language} 언어 규칙]
+${languageRules[request.language] || languageRules.python}
+
+[공통 규칙]
+1. 사용자 입력 함수 사용 금지!
+   - Python: input() 금지
+   - JavaScript: prompt() 금지
+   - 값이 필요하면 직접 변수에 할당
+
+2. 게임/인터랙션 요청 시:
+   - 컴퓨터가 자동으로 시뮬레이션
+   - 모든 과정을 출력으로 보여줌
+
+3. 무한루프 금지:
+   - while True 금지
+   - for문으로 정해진 횟수만 반복
+
+4. 실행 즉시 결과가 출력되어야 함
+
+예시 - HTML 숫자 맞추기 게임:
+\`\`\`html
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; background: #1e293b; color: white; padding: 20px; text-align: center; }
+    input { padding: 10px; font-size: 18px; width: 100px; }
+    button { padding: 10px 20px; font-size: 16px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 5px; }
+    button:hover { background: #2563eb; }
+    #message { font-size: 20px; margin: 20px 0; min-height: 30px; }
+    #history { text-align: left; max-width: 300px; margin: 20px auto; }
+  </style>
+</head>
+<body>
+  <h1>숫자 맞추기 게임</h1>
+  <p>1부터 100 사이의 숫자를 맞춰보세요!</p>
+  <input type="number" id="guess" min="1" max="100" placeholder="숫자">
+  <button onclick="checkGuess()">확인</button>
+  <button onclick="newGame()">새 게임</button>
+  <div id="message"></div>
+  <div id="history"></div>
+  <script>
+    let answer = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guess').value);
+      if (!guess) return;
+      attempts++;
+      const msg = document.getElementById('message');
+      const history = document.getElementById('history');
+      if (guess === answer) {
+        msg.innerHTML = '🎉 정답! ' + attempts + '번 만에 맞췄습니다!';
+        msg.style.color = '#22c55e';
+      } else if (guess < answer) {
+        msg.innerHTML = '📈 더 높은 숫자입니다!';
+        msg.style.color = '#f59e0b';
+      } else {
+        msg.innerHTML = '📉 더 낮은 숫자입니다!';
+        msg.style.color = '#f59e0b';
+      }
+      history.innerHTML += '<div>시도 ' + attempts + ': ' + guess + '</div>';
+      document.getElementById('guess').value = '';
+    }
+    function newGame() {
+      answer = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      document.getElementById('message').innerHTML = '';
+      document.getElementById('history').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
+\`\`\`
+
+예시 - Python 구구단:
+\`\`\`python
+# 구구단 출력하기
+for i in range(2, 10):
+    print(f"=== {i}단 ===")
+    for j in range(1, 10):
+        print(f"{i} x {j} = {i * j}")
+    print()
+\`\`\`
 
 다음 형식으로 한국어로 응답해주세요:
 
@@ -321,8 +430,8 @@ export const vibeCoding = async (request: VibeCodingRequest): Promise<VibeCoding
 
 ## 💻 생성된 코드
 \`\`\`${request.language}
-(완전히 동작하는 코드)
-(주석으로 각 부분 설명)
+(${request.language} 코드만 작성!)
+(다른 언어나 HTML 태그 절대 금지!)
 \`\`\`
 
 ## 📚 코드 설명
@@ -379,6 +488,61 @@ export const vibeCoding = async (request: VibeCodingRequest): Promise<VibeCoding
       customizationIdeas: [],
       nextSteps: [],
     };
+  }
+};
+
+// AI 코드 오류 수정
+export const fixCodeWithAI = async (
+  code: string,
+  errorMessage: string,
+  language: string,
+  originalPrompt: string
+): Promise<string> => {
+  const ai = getGenAI();
+
+  if (!ai) {
+    return code;
+  }
+
+  try {
+    const model = ai.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+
+    const prompt = `다음 ${language} 코드에서 오류가 발생했습니다. 오류를 수정해주세요.
+
+원래 요청: "${originalPrompt}"
+
+현재 코드:
+\`\`\`${language}
+${code}
+\`\`\`
+
+발생한 오류:
+${errorMessage}
+
+🚨 중요한 규칙:
+${language === 'python' ? '- input() 함수 사용 금지! 값은 직접 변수에 할당' : ''}
+${language === 'javascript' ? '- prompt(), alert() 사용 금지! console.log()만 사용' : ''}
+${language === 'html' ? '- 완전한 HTML 페이지로 작성 (<!DOCTYPE html>부터 </html>까지)' : ''}
+- 오류를 수정한 완전히 동작하는 코드만 응답
+- 코드 블록(\`\`\`)으로 감싸서 응답
+- 설명 없이 수정된 코드만 응답
+
+수정된 코드:`;
+
+    const result = await model.generateContent(prompt);
+    const text = result.response.text();
+
+    // 코드 블록에서 코드 추출
+    const codeMatch = text.match(/```[\w]*\n([\s\S]*?)```/);
+    if (codeMatch) {
+      return codeMatch[1].trim();
+    }
+
+    // 코드 블록이 없으면 전체 텍스트 반환
+    return text.trim();
+  } catch (error) {
+    console.error('AI 코드 수정 오류:', error);
+    return code;
   }
 };
 

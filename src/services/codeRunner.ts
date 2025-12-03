@@ -37,22 +37,22 @@ export const runPython = async (code: string, input?: string): Promise<CodeExecu
     const pyodide = await initPyodide();
 
     if (pyodide) {
-      // input 시뮬레이션
-      if (input) {
-        const inputs = input.split('\n');
-        pyodide.globals.set('__inputs__', pyodide.toPy(inputs));
-        await pyodide.runPythonAsync(`
+      // input 시뮬레이션 - 항상 설정 (input이 없어도 빈 배열로 설정)
+      const inputs = input ? input.split('\n') : [];
+      pyodide.globals.set('__inputs__', pyodide.toPy(inputs));
+      await pyodide.runPythonAsync(`
 __input_index__ = 0
 __inputs__ = list(__inputs__)
 def input(prompt=''):
     global __input_index__
+    if prompt:
+        print(prompt, end='')
     if __input_index__ < len(__inputs__):
         result = __inputs__[__input_index__]
         __input_index__ += 1
         return result
     return ''
-        `);
-      }
+      `);
 
       // stdout/stderr 캡처
       await pyodide.runPythonAsync(`
@@ -267,44 +267,45 @@ const simulatePython = (code: string, input?: string): CodeExecutionResult => {
   };
 };
 
-// JavaScript 코드 실행 (안전한 샌드박스)
+// JavaScript 코드 실행 (console.log 캡처 방식)
 export const runJavaScript = async (code: string): Promise<CodeExecutionResult> => {
   const startTime = performance.now();
 
   try {
     const outputs: string[] = [];
 
-    // console.log 캡처
-    const originalLog = console.log;
-    console.log = (...args) => {
-      outputs.push(args.map(arg =>
-        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
-      ).join(' '));
+    // 커스텀 console 객체 생성
+    const customConsole = {
+      log: (...args: any[]) => {
+        outputs.push(args.map(arg =>
+          typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+        ).join(' '));
+      },
+      error: (...args: any[]) => {
+        outputs.push('[오류] ' + args.map(arg => String(arg)).join(' '));
+      },
+      warn: (...args: any[]) => {
+        outputs.push('[경고] ' + args.map(arg => String(arg)).join(' '));
+      },
     };
 
-    // iframe 샌드박스에서 실행
-    const sandbox = document.createElement('iframe');
-    sandbox.style.display = 'none';
-    sandbox.sandbox.add('allow-scripts');
-    document.body.appendChild(sandbox);
+    // Function 생성자를 사용하여 코드 실행
+    // console을 매개변수로 전달하여 출력 캡처
+    const wrappedCode = `
+      const console = arguments[0];
+      ${code}
+    `;
 
-    const sandboxWindow = sandbox.contentWindow;
-    if (sandboxWindow) {
-      // 안전한 함수만 노출
-      (sandboxWindow as any).console = { log: console.log };
+    try {
+      const fn = new Function(wrappedCode);
+      const result = fn(customConsole);
 
-      try {
-        const result = (sandboxWindow as any).eval(code);
-        if (result !== undefined && outputs.length === 0) {
-          outputs.push(String(result));
-        }
-      } catch (e) {
-        throw e;
+      if (result !== undefined && outputs.length === 0) {
+        outputs.push(String(result));
       }
+    } catch (e) {
+      throw e;
     }
-
-    document.body.removeChild(sandbox);
-    console.log = originalLog;
 
     const executionTime = performance.now() - startTime;
 
