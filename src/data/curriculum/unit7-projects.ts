@@ -12,26 +12,26 @@ export const unit7: Unit = {
   estimatedHours: 30,
   weeks: [
     {
-      id: 'week-39',
-      number: 39,
+      id: 'week-41',
+      number: 41,
       title: '계산기 만들기',
       description: 'JavaScript로 계산기를 만들어요',
       missions: [
-        { id: '7-39-1', title: '계산기 프로젝트 소개', description: '어떤 계산기를 만들지 계획해요', type: 'interactive-lesson', difficulty: 'beginner', exp: 50, estimatedMinutes: 10, concept: '프로젝트 계획', hints: ['HTML, CSS, JS 조합'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-2', title: '계산기 HTML 구조', description: '디스플레이와 버튼 만들기', type: 'coding', language: 'html', difficulty: 'beginner', exp: 70, estimatedMinutes: 15, concept: 'HTML 구조', starterCode: '<div class="calculator">\n  <!-- 디스플레이와 버튼 추가 -->\n</div>', hints: ['버튼을 Grid로 배치'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-3', title: '계산기 CSS 스타일', description: '계산기를 예쁘게 꾸미기', type: 'coding', language: 'css', difficulty: 'beginner', exp: 80, estimatedMinutes: 18, concept: 'CSS 스타일링', starterCode: '.calculator {\n  /* 스타일 추가 */\n}', hints: ['Grid 레이아웃 사용'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-4', title: '숫자 버튼 기능', description: '숫자 버튼 클릭 처리', type: 'coding', language: 'javascript', difficulty: 'beginner', exp: 80, estimatedMinutes: 18, concept: '이벤트 처리', starterCode: 'function appendNumber(num) {\n  // 구현하세요\n}', hints: ['display.textContent 업데이트'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-5', title: '연산자 처리', description: '덧셈, 뺄셈 등 연산자 처리', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 100, estimatedMinutes: 22, concept: '연산자', starterCode: 'function setOperator(op) {\n  // 구현하세요\n}', hints: ['이전 값과 연산자 저장'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-6', title: '계산 기능', description: '= 버튼으로 결과 계산', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 100, estimatedMinutes: 22, concept: '계산 로직', starterCode: 'function calculate() {\n  // 구현하세요\n}', hints: ['switch문으로 연산 분기'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-7', title: 'Clear와 Delete', description: 'C와 삭제 버튼 기능', type: 'coding', language: 'javascript', difficulty: 'beginner', exp: 70, estimatedMinutes: 15, concept: '초기화', starterCode: 'function clearAll() {\n  // 구현하세요\n}', hints: ['모든 상태 초기화'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-8', title: '소수점 처리', description: '소수점 입력 처리하기', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 80, estimatedMinutes: 15, concept: '유효성 검사', starterCode: 'function appendDecimal() {\n  // 구현하세요\n}', hints: ['소수점 중복 방지'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-9', title: '계산기 완성', description: '모든 기능 통합하기', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 150, estimatedMinutes: 35, concept: '통합', starterCode: '<!-- 모든 기능 연결 -->', hints: ['키보드 입력도 지원해보세요'], unlocked: true, completed: false, perfectScore: false },
-        { id: '7-39-10', title: '계산기 리뷰', description: '프로젝트 평가하기', type: 'quiz', difficulty: 'beginner', exp: 100, estimatedMinutes: 10, hints: [], unlocked: true, completed: false, perfectScore: false }
+        { id: '7-41-1', title: '계산기 프로젝트 소개', description: '어떤 계산기를 만들지 계획해요', type: 'interactive-lesson', difficulty: 'beginner', exp: 50, estimatedMinutes: 10, concept: '프로젝트 계획', hints: ['HTML, CSS, JS 조합'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-2', title: '계산기 HTML 구조', description: '디스플레이와 버튼 만들기', type: 'coding', language: 'html', difficulty: 'beginner', exp: 70, estimatedMinutes: 15, concept: 'HTML 구조', starterCode: '<div class="calculator">\n  <!-- 디스플레이와 버튼 추가 -->\n</div>', hints: ['버튼을 Grid로 배치'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-3', title: '계산기 CSS 스타일', description: '계산기를 예쁘게 꾸미기', type: 'coding', language: 'css', difficulty: 'beginner', exp: 80, estimatedMinutes: 18, concept: 'CSS 스타일링', starterCode: '.calculator {\n  /* 스타일 추가 */\n}', hints: ['Grid 레이아웃 사용'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-4', title: '숫자 버튼 기능', description: '숫자 버튼 클릭 처리', type: 'coding', language: 'javascript', difficulty: 'beginner', exp: 80, estimatedMinutes: 18, concept: '이벤트 처리', starterCode: 'function appendNumber(num) {\n  // 구현하세요\n}', hints: ['display.textContent 업데이트'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-5', title: '연산자 처리', description: '덧셈, 뺄셈 등 연산자 처리', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 100, estimatedMinutes: 22, concept: '연산자', starterCode: 'function setOperator(op) {\n  // 구현하세요\n}', hints: ['이전 값과 연산자 저장'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-6', title: '계산 기능', description: '= 버튼으로 결과 계산', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 100, estimatedMinutes: 22, concept: '계산 로직', starterCode: 'function calculate() {\n  // 구현하세요\n}', hints: ['switch문으로 연산 분기'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-7', title: 'Clear와 Delete', description: 'C와 삭제 버튼 기능', type: 'coding', language: 'javascript', difficulty: 'beginner', exp: 70, estimatedMinutes: 15, concept: '초기화', starterCode: 'function clearAll() {\n  // 구현하세요\n}', hints: ['모든 상태 초기화'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-8', title: '소수점 처리', description: '소수점 입력 처리하기', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 80, estimatedMinutes: 15, concept: '유효성 검사', starterCode: 'function appendDecimal() {\n  // 구현하세요\n}', hints: ['소수점 중복 방지'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-9', title: '계산기 완성', description: '모든 기능 통합하기', type: 'coding', language: 'javascript', difficulty: 'intermediate', exp: 150, estimatedMinutes: 35, concept: '통합', starterCode: '<!-- 모든 기능 연결 -->', hints: ['키보드 입력도 지원해보세요'], unlocked: true, completed: false, perfectScore: false },
+        { id: '7-41-10', title: '계산기 리뷰', description: '프로젝트 평가하기', type: 'quiz', difficulty: 'beginner', exp: 100, estimatedMinutes: 10, hints: [], unlocked: true, completed: false, perfectScore: false }
       ]
     },
     {
-      id: 'week-40',
-      number: 40,
+      id: 'week-42',
+      number: 42,
       title: '할 일 목록 앱',
       description: 'To-Do 리스트를 만들어요',
       missions: [
@@ -48,8 +48,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-41',
-      number: 41,
+      id: 'week-43',
+      number: 43,
       title: '날씨 앱 만들기',
       description: 'API를 활용한 날씨 앱',
       missions: [
@@ -66,8 +66,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-42',
-      number: 42,
+      id: 'week-44',
+      number: 44,
       title: '퀴즈 게임 만들기',
       description: '인터랙티브 퀴즈 게임',
       missions: [
@@ -84,8 +84,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-43',
-      number: 43,
+      id: 'week-45',
+      number: 45,
       title: '그림판 앱 만들기',
       description: 'Canvas로 그림판 만들기',
       missions: [
@@ -102,8 +102,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-44',
-      number: 44,
+      id: 'week-46',
+      number: 46,
       title: '포트폴리오 웹사이트',
       description: '나만의 포트폴리오 사이트',
       missions: [
@@ -120,8 +120,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-45',
-      number: 45,
+      id: 'week-47',
+      number: 47,
       title: '미니 프로젝트 추가 실습',
       description: '다양한 미니 프로젝트로 실력을 키워요',
       missions: [
@@ -138,8 +138,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-46',
-      number: 46,
+      id: 'week-48',
+      number: 48,
       title: '완성형 게임 만들기 I',
       description: '진짜 게임을 처음부터 끝까지 만들어요!',
       missions: [
@@ -156,8 +156,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-47',
-      number: 47,
+      id: 'week-49',
+      number: 49,
       title: '완성형 게임 만들기 II',
       description: '벽돌깨기와 팡 게임을 만들어요!',
       missions: [
@@ -174,8 +174,8 @@ export const unit7: Unit = {
       ]
     },
     {
-      id: 'week-48',
-      number: 48,
+      id: 'week-50',
+      number: 50,
       title: '완성형 게임 만들기 III',
       description: '테트리스와 플래피 버드를 만들어요!',
       missions: [

@@ -11,6 +11,7 @@ import { useMissionStore } from '../stores/missionStore';
 import { useProgressStore } from '../stores/progressStore';
 import { useUserStore } from '../stores/userStore';
 import type { Mission as MissionType } from '../types';
+import GeneralBlockMission from '../components/GeneralBlockMission';
 
 const Mission: React.FC = () => {
   const { missionId } = useParams();
@@ -604,61 +605,7 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
 
 // Visual Programming Mission - 다양한 블록 코딩 활동
 const VisualProgrammingMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
-  // 미션 유형 감지 (미션 제목/설명 기반)
-  const getMissionType = (): 'move' | 'dialogue' | 'color' | 'sound' | 'animation' | 'coordinate' | 'size' | 'rotate' | 'visibility' | 'star' | 'shape' | 'general' => {
-    const title = mission.title.toLowerCase();
-    const desc = mission.description.toLowerCase();
-    const concept = mission.concept?.toLowerCase() || '';
-
-    if (title.includes('별') || desc.includes('별을 그') || concept.includes('별')) return 'star';
-    if (title.includes('사각형') || title.includes('육각형') || desc.includes('다각형') || concept.includes('다각형')) return 'shape';
-    if (title.includes('움직') || title.includes('이동') || desc.includes('이동') || concept.includes('이동')) return 'move';
-    if (title.includes('대화') || title.includes('말하') || desc.includes('묻') || concept.includes('입출력')) return 'dialogue';
-    if (title.includes('색깔') || title.includes('색상') || desc.includes('색깔') || concept.includes('효과')) return 'color';
-    if (title.includes('소리') || desc.includes('소리') || concept.includes('소리')) return 'sound';
-    if (title.includes('애니메이션') || title.includes('모양') || concept.includes('모양')) return 'animation';
-    if (title.includes('좌표') || desc.includes('좌표') || concept.includes('좌표')) return 'coordinate';
-    if (title.includes('크기') || desc.includes('크기') || concept.includes('크기')) return 'size';
-    if (title.includes('회전') || desc.includes('회전') || concept.includes('회전')) return 'rotate';
-    if (title.includes('숨') || title.includes('보이') || concept.includes('보이기')) return 'visibility';
-    return 'general';
-  };
-
-  const missionType = getMissionType();
-
-  // 각 미션 타입별 렌더링
-  if (missionType === 'move') {
-    return <MoveMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'dialogue') {
-    return <DialogueMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'color') {
-    return <ColorMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'sound') {
-    return <SoundMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'coordinate') {
-    return <CoordinateMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'size') {
-    return <SizeMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'rotate') {
-    return <RotateMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'visibility') {
-    return <VisibilityMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'star') {
-    return <StarDrawingMission mission={mission} onComplete={onComplete} />;
-  }
-  if (missionType === 'shape') {
-    return <ShapeDrawingMission mission={mission} onComplete={onComplete} />;
-  }
-
-  // 일반 visual-programming 미션
+  // 모든 visual-programming 미션은 GeneralBlockMission 사용 (드래그/드롭 + 캐릭터 시각화)
   return <GeneralBlockMission mission={mission} onComplete={onComplete} />;
 };
 
@@ -1786,59 +1733,6 @@ const ShapeDrawingMission: React.FC<{ mission: MissionType; onComplete: (perfect
           </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-// 일반 블록 코딩 미션 (fallback)
-const GeneralBlockMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
-  return (
-    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
-      <h3 className="text-lg font-bold mb-2 text-white">🧱 {mission.title}</h3>
-      <p className="text-slate-400 mb-4">{mission.description}</p>
-
-      {/* 사용 가능한 블록 표시 */}
-      {mission.blocks && mission.blocks.length > 0 && (
-        <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-4 mb-4 border border-violet-200 dark:border-violet-800">
-          <p className="text-sm font-medium text-violet-700 dark:text-violet-300 mb-3">🧱 사용할 수 있는 블록</p>
-          <div className="flex flex-wrap gap-2">
-            {mission.blocks.map((block, i) => (
-              <span key={i} className="px-3 py-2 bg-blue-500 text-white rounded-lg font-medium text-sm shadow">{block}</span>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* 힌트 */}
-      {mission.hints && mission.hints.length > 0 && (
-        <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-xl border border-amber-200 dark:border-amber-800 mb-4">
-          <p className="font-medium text-amber-800 dark:text-amber-200 mb-2">💡 힌트</p>
-          <ul className="text-sm text-amber-700 dark:text-amber-300 space-y-1">
-            {mission.hints.map((hint, i) => (<li key={i}>• {hint}</li>))}
-          </ul>
-        </div>
-      )}
-
-      {mission.concept && (
-        <div className="inline-block px-4 py-2 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-xl font-medium mb-6">
-          학습 개념: {mission.concept}
-        </div>
-      )}
-
-      <div className="bg-slate-900/50 rounded-xl p-6 mb-6 border-2 border-slate-600 text-center">
-        <p className="text-4xl mb-4">🐱</p>
-        <p className="text-sm text-slate-400">
-          위의 블록들을 사용해서 미션을 수행해보세요!<br />
-          준비가 되었다면 완료 버튼을 눌러주세요.
-        </p>
-      </div>
-
-      <button
-        onClick={() => onComplete(true)}
-        className="w-full px-8 py-4 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors"
-      >
-        미션 완료하기 ✓
-      </button>
     </div>
   );
 };

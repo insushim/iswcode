@@ -12,8 +12,8 @@ export const unit9: Unit = {
   estimatedHours: 30,
   weeks: [
     {
-      id: 'week-51',
-      number: 51,
+      id: 'week-58',
+      number: 58,
       title: '고급 JavaScript',
       description: 'JavaScript 심화 개념을 배워요',
       missions: [
@@ -30,8 +30,8 @@ export const unit9: Unit = {
       ]
     },
     {
-      id: 'week-52',
-      number: 52,
+      id: 'week-59',
+      number: 59,
       title: '개발 도구와 워크플로우',
       description: '실무에서 사용하는 도구들을 배워요',
       missions: [
@@ -48,8 +48,8 @@ export const unit9: Unit = {
       ]
     },
     {
-      id: 'week-53',
-      number: 53,
+      id: 'week-60',
+      number: 60,
       title: '최종 프로젝트 기획',
       description: '최종 프로젝트를 계획하고 설계해요',
       missions: [
@@ -66,8 +66,8 @@ export const unit9: Unit = {
       ]
     },
     {
-      id: 'week-54',
-      number: 54,
+      id: 'week-61',
+      number: 61,
       title: '최종 프로젝트 개발',
       description: '프로젝트의 핵심 기능을 구현해요',
       missions: [
@@ -84,8 +84,8 @@ export const unit9: Unit = {
       ]
     },
     {
-      id: 'week-55',
-      number: 55,
+      id: 'week-62',
+      number: 62,
       title: '최종 프로젝트 완성',
       description: '프로젝트를 완성하고 발표해요',
       missions: [
@@ -102,8 +102,8 @@ export const unit9: Unit = {
       ]
     },
     {
-      id: 'week-56',
-      number: 56,
+      id: 'week-63',
+      number: 63,
       title: '다음 단계로',
       description: '앞으로의 학습 방향을 탐색해요',
       missions: [
@@ -120,8 +120,8 @@ export const unit9: Unit = {
       ]
     },
     {
-      id: 'week-57',
-      number: 57,
+      id: 'week-64',
+      number: 64,
       title: '고급 개발 실습',
       description: '실전 개발 환경에서 고급 기술을 익혀요',
       missions: [

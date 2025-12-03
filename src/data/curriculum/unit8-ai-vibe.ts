@@ -12,8 +12,8 @@ export const unit8: Unit = {
   estimatedHours: 25,
   weeks: [
     {
-      id: 'week-45',
-      number: 45,
+      id: 'week-51',
+      number: 51,
       title: 'AI 기초 이해하기',
       description: 'AI가 무엇인지, 어떻게 작동하는지 알아봐요',
       missions: [
@@ -30,8 +30,8 @@ export const unit8: Unit = {
       ]
     },
     {
-      id: 'week-46',
-      number: 46,
+      id: 'week-52',
+      number: 52,
       title: '프롬프트 엔지니어링',
       description: 'AI에게 효과적으로 요청하는 방법을 배워요',
       missions: [
@@ -48,8 +48,8 @@ export const unit8: Unit = {
       ]
     },
     {
-      id: 'week-47',
-      number: 47,
+      id: 'week-53',
+      number: 53,
       title: '바이브 코딩 기초',
       description: '자연어로 코드를 작성하는 바이브 코딩을 시작해요',
       missions: [
@@ -66,8 +66,8 @@ export const unit8: Unit = {
       ]
     },
     {
-      id: 'week-48',
-      number: 48,
+      id: 'week-54',
+      number: 54,
       title: 'AI 코딩 도구',
       description: '다양한 AI 코딩 도구를 사용해봐요',
       missions: [
@@ -84,8 +84,8 @@ export const unit8: Unit = {
       ]
     },
     {
-      id: 'week-49',
-      number: 49,
+      id: 'week-55',
+      number: 55,
       title: '바이브 코딩 심화',
       description: '더 복잡한 프로젝트를 바이브 코딩으로 만들어요',
       missions: [
@@ -102,8 +102,8 @@ export const unit8: Unit = {
       ]
     },
     {
-      id: 'week-50',
-      number: 50,
+      id: 'week-56',
+      number: 56,
       title: 'AI 시대의 개발자',
       description: 'AI와 함께 일하는 미래의 개발자가 되어봐요',
       missions: [
@@ -120,8 +120,8 @@ export const unit8: Unit = {
       ]
     },
     {
-      id: 'week-51',
-      number: 51,
+      id: 'week-57',
+      number: 57,
       title: 'AI 코딩 실전 프로젝트',
       description: 'AI를 활용해서 실전 프로젝트를 완성해요',
       missions: [

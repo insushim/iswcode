@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AppShell } from './components/Layout';
 import { useSettingsStore } from './stores/settingsStore';
 import { useAuthStore } from './stores/authStore';
@@ -22,11 +22,94 @@ import RegisterTeacher from './pages/RegisterTeacher';
 import TeacherDashboard from './pages/TeacherDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 
+// 보호된 라우트 컴포넌트
+const ProtectedRoute: React.FC<{ children: React.ReactNode; allowedRoles?: ('student' | 'teacher' | 'admin')[] }> = ({ children, allowedRoles }) => {
+  const { isAuthenticated, authUser, isLoading } = useAuthStore();
+  const location = useLocation();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-white text-lg">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  // 역할 확인 (승인되지 않은 선생님은 대기 페이지로)
+  if (authUser?.role === 'teacher' && authUser?.approvalStatus !== 'approved') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+        <div className="text-center max-w-md p-8 bg-slate-800 rounded-2xl border border-slate-700">
+          <div className="text-6xl mb-4">⏳</div>
+          <h2 className="text-2xl font-bold text-white mb-2">승인 대기 중</h2>
+          <p className="text-slate-400 mb-4">
+            선생님 계정이 관리자 승인을 기다리고 있습니다.<br />
+            승인되면 이메일로 알려드립니다.
+          </p>
+          <button
+            onClick={() => useAuthStore.getState().logout()}
+            className="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+          >
+            로그아웃
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // 역할 기반 접근 제어
+  if (allowedRoles && authUser && !allowedRoles.includes(authUser.role)) {
+    if (authUser.role === 'admin') {
+      return <Navigate to="/admin" replace />;
+    } else if (authUser.role === 'teacher') {
+      return <Navigate to="/teacher" replace />;
+    } else {
+      return <Navigate to="/" replace />;
+    }
+  }
+
+  return <>{children}</>;
+};
+
+// 공개 라우트
+const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { isAuthenticated, authUser, isLoading } = useAuthStore();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-slate-900">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-white text-lg">로딩 중...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (isAuthenticated && authUser) {
+    if (authUser.role === 'admin') {
+      return <Navigate to="/admin" replace />;
+    } else if (authUser.role === 'teacher' && authUser.approvalStatus === 'approved') {
+      return <Navigate to="/teacher" replace />;
+    } else if (authUser.role === 'student') {
+      return <Navigate to="/" replace />;
+    }
+  }
+
+  return <>{children}</>;
+};
+
 const App: React.FC = () => {
   const initializeApiKey = useSettingsStore((state) => state.initializeApiKey);
   const initAuth = useAuthStore((state) => state.initAuth);
 
-  // 앱 시작 시 환경변수에서 API 키 초기화 및 인증 초기화
   useEffect(() => {
     initializeApiKey();
     initAuth();
@@ -35,38 +118,32 @@ const App: React.FC = () => {
   return (
     <AppShell>
       <Routes>
-        {/* Main Routes */}
-        <Route path="/" element={<Home />} />
-
-        {/* Learning Routes */}
-        <Route path="/learn" element={<Learn />} />
-        <Route path="/learn/:unitId" element={<Learn />} />
-        <Route path="/learn/:unitId/:weekId" element={<Learn />} />
-
-        {/* Mission Route */}
-        <Route path="/mission/:missionId" element={<Mission />} />
-
-        {/* Feature Routes */}
-        <Route path="/vibe-coding" element={<VibeCoding />} />
-        <Route path="/games" element={<Games />} />
-        <Route path="/ai-tutor" element={<AITutor />} />
-
-        {/* User Routes */}
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/achievements" element={<Achievements />} />
-        <Route path="/settings" element={<Settings />} />
-
         {/* Auth Routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register/student" element={<RegisterStudent />} />
-        <Route path="/register/teacher" element={<RegisterTeacher />} />
+        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+        <Route path="/register/student" element={<PublicRoute><RegisterStudent /></PublicRoute>} />
+        <Route path="/register/teacher" element={<PublicRoute><RegisterTeacher /></PublicRoute>} />
 
-        {/* Dashboard Routes */}
-        <Route path="/teacher" element={<TeacherDashboard />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        {/* Student Routes */}
+        <Route path="/" element={<ProtectedRoute allowedRoles={['student']}><Home /></ProtectedRoute>} />
+        <Route path="/learn" element={<ProtectedRoute allowedRoles={['student']}><Learn /></ProtectedRoute>} />
+        <Route path="/learn/:unitId" element={<ProtectedRoute allowedRoles={['student']}><Learn /></ProtectedRoute>} />
+        <Route path="/learn/:unitId/:weekId" element={<ProtectedRoute allowedRoles={['student']}><Learn /></ProtectedRoute>} />
+        <Route path="/mission/:missionId" element={<ProtectedRoute allowedRoles={['student']}><Mission /></ProtectedRoute>} />
+        <Route path="/vibe-coding" element={<ProtectedRoute allowedRoles={['student']}><VibeCoding /></ProtectedRoute>} />
+        <Route path="/games" element={<ProtectedRoute allowedRoles={['student']}><Games /></ProtectedRoute>} />
+        <Route path="/ai-tutor" element={<ProtectedRoute allowedRoles={['student']}><AITutor /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute allowedRoles={['student']}><Profile /></ProtectedRoute>} />
+        <Route path="/achievements" element={<ProtectedRoute allowedRoles={['student']}><Achievements /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute allowedRoles={['student']}><Settings /></ProtectedRoute>} />
+
+        {/* Teacher Routes */}
+        <Route path="/teacher" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherDashboard /></ProtectedRoute>} />
+
+        {/* Admin Routes */}
+        <Route path="/admin" element={<ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>} />
 
         {/* Fallback */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </AppShell>
   );

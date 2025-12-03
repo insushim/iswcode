@@ -138,9 +138,22 @@ export interface Mission {
   testCases?: TestCase[];
   requirements?: string[];
   blocks?: string[];
+  correctBlocks?: string[];
   unlocked: boolean;
   completed: boolean;
   perfectScore: boolean;
+  // Visual programming grid properties
+  gridSize?: { rows: number; cols: number };
+  startPosition?: { row: number; col: number };
+  goalPosition?: { row: number; col: number };
+  obstacles?: { row: number; col: number }[];
+  checkpoints?: { row: number; col: number }[];
+  mustVisitAll?: boolean;
+  maxCommands?: number;
+  drawPath?: boolean;
+  expectedShape?: string;
+  useConditional?: boolean;
+  mazeWalls?: boolean;
 }
 
 export type MissionType =
