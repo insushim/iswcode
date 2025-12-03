@@ -366,3 +366,168 @@ export const checkUserRole = async (uid: string): Promise<UserRole | null> => {
   if (!userDoc.exists()) return null;
   return (userDoc.data() as AuthUser).role;
 };
+
+// ========== 관리자 전용 함수 ==========
+
+// 관리자: 모든 학급 조회 (캐싱 적용)
+let allClassesCache: { data: ClassRoom[]; timestamp: number } | null = null;
+const CLASSES_CACHE_DURATION = 30000; // 30초 캐시
+
+export const getAllClasses = async (): Promise<ClassRoom[]> => {
+  if (allClassesCache && Date.now() - allClassesCache.timestamp < CLASSES_CACHE_DURATION) {
+    return allClassesCache.data;
+  }
+  const snapshot = await getDocs(collection(db, 'classrooms'));
+  const data = snapshot.docs.map((doc) => doc.data() as ClassRoom);
+  allClassesCache = { data, timestamp: Date.now() };
+  return data;
+};
+
+// 관리자: 모든 승인된 선생님 조회
+export const getApprovedTeachers = async (): Promise<Teacher[]> => {
+  const teacherQuery = query(
+    collection(db, 'users'),
+    where('role', '==', 'teacher'),
+    where('approvalStatus', '==', 'approved')
+  );
+  const snapshot = await getDocs(teacherQuery);
+  return snapshot.docs.map((doc) => doc.data() as Teacher);
+};
+
+// 관리자: 학급 삭제 (학생들도 함께 삭제)
+export const deleteClassRoom = async (classId: string): Promise<{ success: boolean; error?: string }> => {
+  try {
+    const batch = writeBatch(db);
+    const students = await getClassStudents(classId);
+    for (const student of students) {
+      batch.delete(doc(db, 'users', student.uid));
+      batch.delete(doc(db, 'progress', student.uid));
+    }
+    batch.delete(doc(db, 'classrooms', classId));
+    await batch.commit();
+    allClassesCache = null;
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: '학급 삭제 중 오류가 발생했습니다.' };
+  }
+};
+
+// 관리자: 학생 계정 삭제
+export const deleteStudent = async (studentId: string, classId: string): Promise<{ success: boolean; error?: string }> => {
+  try {
+    const batch = writeBatch(db);
+    batch.delete(doc(db, 'users', studentId));
+    batch.delete(doc(db, 'progress', studentId));
+    const classDoc = await getDoc(doc(db, 'classrooms', classId));
+    if (classDoc.exists()) {
+      const classData = classDoc.data() as ClassRoom;
+      batch.update(doc(db, 'classrooms', classId), {
+        studentIds: classData.studentIds.filter(id => id !== studentId)
+      });
+    }
+    await batch.commit();
+    progressCache.delete(studentId);
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: '학생 삭제 중 오류가 발생했습니다.' };
+  }
+};
+
+// ========== 선생님 전용: 학생 일괄 생성 ==========
+
+export const createStudentsBatch = async (
+  classId: string,
+  teacherId: string,
+  students: { name: string; loginId: string; password: string }[]
+): Promise<{ success: boolean; error?: string; createdCount: number; errors: string[] }> => {
+  if (students.length > 30) {
+    return { success: false, error: '한 번에 최대 30명까지만 생성할 수 있습니다.', createdCount: 0, errors: [] };
+  }
+
+  const errors: string[] = [];
+  let createdCount = 0;
+
+  const classDoc = await getDoc(doc(db, 'classrooms', classId));
+  if (!classDoc.exists()) {
+    return { success: false, error: '학급을 찾을 수 없습니다.', createdCount: 0, errors: [] };
+  }
+  const classData = classDoc.data() as ClassRoom;
+  const newStudentIds: string[] = [...classData.studentIds];
+
+  for (const student of students) {
+    try {
+      const email = student.loginId + '@student.local';
+      const userCredential = await createUserWithEmailAndPassword(auth, email, student.password);
+      const user = userCredential.user;
+      await updateProfile(user, { displayName: student.name });
+
+      const studentData: Student = {
+        uid: user.uid,
+        email: email,
+        role: 'student',
+        displayName: student.name,
+        createdAt: new Date().toISOString(),
+        approvalStatus: 'approved',
+        teacherId: teacherId,
+        classId: classId,
+      };
+
+      await setDoc(doc(db, 'users', user.uid), studentData);
+      newStudentIds.push(user.uid);
+      createdCount++;
+    } catch (error: any) {
+      if (error.code === 'auth/email-already-in-use') {
+        errors.push(student.name + ': 이미 사용 중인 아이디입니다.');
+      } else {
+        errors.push(student.name + ': 생성 실패');
+      }
+    }
+  }
+
+  if (createdCount > 0) {
+    await updateDoc(doc(db, 'classrooms', classId), { studentIds: newStudentIds });
+  }
+
+  return { success: createdCount > 0, createdCount, errors, error: errors.length > 0 ? errors.length + '개의 계정 생성 실패' : undefined };
+};
+
+// 선생님: 학급 삭제
+export const deleteTeacherClass = async (classId: string, teacherId: string): Promise<{ success: boolean; error?: string }> => {
+  try {
+    const classDoc = await getDoc(doc(db, 'classrooms', classId));
+    if (!classDoc.exists()) return { success: false, error: '학급을 찾을 수 없습니다.' };
+    const classData = classDoc.data() as ClassRoom;
+    if (classData.teacherId !== teacherId) return { success: false, error: '권한이 없습니다.' };
+
+    const batch = writeBatch(db);
+    const students = await getClassStudents(classId);
+    for (const student of students) {
+      batch.delete(doc(db, 'users', student.uid));
+      batch.delete(doc(db, 'progress', student.uid));
+    }
+    batch.delete(doc(db, 'classrooms', classId));
+
+    const teacherDoc = await getDoc(doc(db, 'users', teacherId));
+    if (teacherDoc.exists()) {
+      const teacherData = teacherDoc.data() as Teacher;
+      batch.update(doc(db, 'users', teacherId), { classIds: teacherData.classIds.filter(id => id !== classId) });
+    }
+    await batch.commit();
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: '학급 삭제 중 오류가 발생했습니다.' };
+  }
+};
+
+// 선생님: 학생 삭제
+export const deleteStudentByTeacher = async (studentId: string, classId: string, teacherId: string): Promise<{ success: boolean; error?: string }> => {
+  try {
+    const classDoc = await getDoc(doc(db, 'classrooms', classId));
+    if (!classDoc.exists()) return { success: false, error: '학급을 찾을 수 없습니다.' };
+    const classData = classDoc.data() as ClassRoom;
+    if (classData.teacherId !== teacherId) return { success: false, error: '권한이 없습니다.' };
+    return await deleteStudent(studentId, classId);
+  } catch (error) {
+    return { success: false, error: '학생 삭제 중 오류가 발생했습니다.' };
+  }
+};

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Lock, Eye, EyeOff, LogIn, Sparkles, AlertCircle } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, LogIn, AlertCircle } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const { login, isLoading, error, clearError } = useAuthStore();
+  const { login, isLoading, error, clearError, authUser } = useAuthStore();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,7 +18,15 @@ const Login: React.FC = () => {
 
     const success = await login(email, password);
     if (success) {
-      navigate('/');
+      // 역할에 따라 리다이렉트
+      const user = useAuthStore.getState().authUser;
+      if (user?.role === 'admin') {
+        navigate('/admin');
+      } else if (user?.role === 'teacher') {
+        navigate('/teacher');
+      } else {
+        navigate('/');
+      }
     }
   };
 
@@ -66,14 +74,14 @@ const Login: React.FC = () => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-slate-400 mb-2">이메일</label>
+              <label className="block text-sm font-medium text-slate-400 mb-2">이메일 또는 아이디</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
                 <input
-                  type="email"
+                  type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="email@example.com"
+                  placeholder="이메일 또는 학생 아이디"
                   className="w-full pl-10 pr-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
                   required
                 />
@@ -120,38 +128,22 @@ const Login: React.FC = () => {
 
           <div className="mt-6 pt-6 border-t border-slate-700">
             <p className="text-center text-slate-400 text-sm mb-4">
-              계정이 없으신가요?
+              선생님이신가요?
             </p>
-            <div className="grid grid-cols-2 gap-3">
-              <Link
-                to="/register/student"
-                className="py-3 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-medium rounded-xl text-center transition-all text-sm"
-              >
-                학생 회원가입
-              </Link>
-              <Link
-                to="/register/teacher"
-                className="py-3 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-400 font-medium rounded-xl text-center transition-all text-sm"
-              >
-                선생님 회원가입
-              </Link>
-            </div>
-          </div>
-
-          {/* 게스트 모드 */}
-          <div className="mt-4">
-            <button
-              onClick={() => navigate('/')}
-              className="w-full py-3 bg-slate-700/50 hover:bg-slate-700 text-slate-300 font-medium rounded-xl transition-all text-sm flex items-center justify-center gap-2"
+            <Link
+              to="/register/teacher"
+              className="block w-full py-3 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-400 font-medium rounded-xl text-center transition-all text-sm"
             >
-              <Sparkles className="w-4 h-4" />
-              체험하기 (로그인 없이)
-            </button>
+              선생님 회원가입
+            </Link>
+            <p className="text-center text-slate-500 text-xs mt-3">
+              학생 계정은 담당 선생님이 생성합니다
+            </p>
           </div>
         </div>
 
         <p className="text-center text-slate-500 text-xs mt-6">
-          로그인하면 학습 진행 상황이 저장됩니다
+          코딩마루 - 초등학생을 위한 코딩 교육 플랫폼
         </p>
       </motion.div>
     </div>
