@@ -14,10 +14,12 @@ import {
   ChevronRight,
   Star,
   TrendingUp,
+  LogOut,
 } from 'lucide-react';
-import { ConfettiEffect } from '../components/Common';
+import { ConfettiEffect, AppLogo } from '../components/Common';
 import { useUserStore } from '../stores/userStore';
 import { useProgressStore } from '../stores/progressStore';
+import { useAuthStore } from '../stores/authStore';
 import { allUnits } from '../data/curriculum';
 
 // Stat Card Component
@@ -74,11 +76,30 @@ const StatCard = ({
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-  const { user, isInitialized, initUser, updateStreak } = useUserStore();
+  const { user, isInitialized, initUser, updateStreak, resetUser } = useUserStore();
   const { progress, checkDailyReset } = useProgressStore();
+  const { authUser, logout, isAuthenticated } = useAuthStore();
+
+  // 전체 초기화 (로그인 시스템 없이 만든 계정용)
+  const handleFullReset = async () => {
+    if (confirm('모든 데이터를 초기화하고 로그인 화면으로 이동합니다. 계속하시겠습니까?')) {
+      await logout();
+      resetUser();
+      localStorage.clear();
+      navigate('/login');
+      window.location.reload();
+    }
+  };
 
   const [showWelcome, setShowWelcome] = useState(false);
   const [name, setName] = useState('');
+
+  // 학생 로그인 시 authUser가 있지만 user가 없으면 자동 초기화
+  useEffect(() => {
+    if (authUser && (!isInitialized || !user)) {
+      initUser(authUser.displayName);
+    }
+  }, [authUser, isInitialized, user, initUser]);
 
   useEffect(() => {
     if (isInitialized && user) {
@@ -96,8 +117,8 @@ const Home: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           className="bg-slate-700 p-8 rounded-2xl border border-slate-600 shadow-2xl max-w-md w-full text-center"
         >
-          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-indigo-500 via-purple-500 to-teal-400 rounded-2xl flex items-center justify-center text-4xl shadow-lg">
-            🚀
+          <div className="mx-auto mb-6">
+            <AppLogo size="lg" />
           </div>
           <h1 className="text-2xl font-bold mb-2 text-white">코딩마루에 오신 것을 환영해요!</h1>
           <p className="text-slate-400 mb-6">
@@ -168,6 +189,18 @@ const Home: React.FC = () => {
             <Zap className="w-5 h-5 text-yellow-400 fill-yellow-400" />
             <span className="font-bold text-yellow-400">{user.totalExp.toLocaleString()} XP</span>
           </div>
+
+          {/* 로그아웃/초기화 버튼 (authUser가 없는 레거시 계정용) */}
+          {!authUser && (
+            <button
+              onClick={handleFullReset}
+              className="flex items-center gap-2 bg-red-500/20 px-4 py-2.5 rounded-xl border border-red-500/30 hover:border-red-500/50 hover:bg-red-500/30 transition-colors"
+              title="로그아웃 및 초기화"
+            >
+              <LogOut className="w-5 h-5 text-red-400" />
+              <span className="font-bold text-red-400 hidden sm:inline">로그아웃</span>
+            </button>
+          )}
         </div>
       </motion.div>
 

@@ -1,5 +1,5 @@
-import React, { useState, ReactNode } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useState, ReactNode, useEffect } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
   Home,
   BookOpen,
@@ -17,6 +17,7 @@ import {
   ChevronRight,
   Briefcase,
   LayoutDashboard,
+  LogOut,
 } from 'lucide-react';
 import { useUserStore } from '../../stores/userStore';
 import { useAuthStore } from '../../stores/authStore';
@@ -89,10 +90,19 @@ const getPageTitle = (pathname: string): string => {
 
 const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user } = useUserStore();
-  const { authUser, isAuthenticated } = useAuthStore();
+  const { user, resetUser } = useUserStore();
+  const { authUser, isAuthenticated, logout } = useAuthStore();
   const location = useLocation();
+  const navigate = useNavigate();
   const pageTitle = getPageTitle(location.pathname);
+
+  // 로그아웃 핸들러
+  const handleLogout = async () => {
+    await logout();
+    resetUser();
+    localStorage.clear();
+    navigate('/login');
+  };
 
   // Calculate XP progress
   const currentExp = user?.exp || 0;
@@ -103,6 +113,16 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const noShellPaths = ['/login', '/register', '/admin', '/teacher'];
   const shouldHideShell = noShellPaths.some(path => location.pathname.startsWith(path)) ||
     (isAuthenticated && authUser && (authUser.role === 'admin' || authUser.role === 'teacher'));
+
+  // 레거시 데이터 정리: authUser 없이 user만 있는 경우 (로그인 시스템 이전 데이터)
+  useEffect(() => {
+    const isPublicPath = noShellPaths.some(path => location.pathname.startsWith(path));
+    if (!isPublicPath && !authUser && user) {
+      // 레거시 데이터 강제 정리
+      localStorage.clear();
+      window.location.href = '/login';
+    }
+  }, [authUser, user, location.pathname]);
 
   if (shouldHideShell) {
     return <>{children}</>;
@@ -201,6 +221,15 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
               onClick={() => setIsMobileMenuOpen(false)}
             />
           ))}
+
+          {/* 로그아웃 버튼 */}
+          <button
+            onClick={handleLogout}
+            className="group relative flex items-center gap-3 w-full px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 overflow-hidden text-red-400 hover:bg-red-500/10 hover:text-red-300 mt-2"
+          >
+            <LogOut className="w-5 h-5 text-red-400 group-hover:text-red-300" />
+            <span>로그아웃</span>
+          </button>
         </nav>
 
         {/* Premium Upgrade CTA */}

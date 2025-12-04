@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { CheckCircle, XCircle, Play, Shuffle, GripVertical } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle, XCircle, Play, Shuffle, GripVertical, RotateCcw, Zap, Trophy, Star } from 'lucide-react';
 import { Mission as MissionType } from '../types';
 
 interface Props {
@@ -8,7 +8,710 @@ interface Props {
   onComplete: (perfect: boolean) => void;
 }
 
+// 로봇 그리드 미션인지 확인
+const isRobotGridMission = (mission: MissionType): boolean => {
+  return !!(mission as any).gridSize || !!(mission as any).startPosition;
+};
+
 const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
+  // 로봇 그리드 미션이면 RobotGridMission 사용
+  if (isRobotGridMission(mission)) {
+    return <RobotGridMission mission={mission} onComplete={onComplete} />;
+  }
+
+  return <BlockCodingMission mission={mission} onComplete={onComplete} />;
+};
+
+// 블록 타입별 3D 스타일
+const getBlockStyle3D = (block: string) => {
+  const lower = block.toLowerCase();
+  if (lower.includes('반복') || lower.includes('번'))
+    return 'bg-gradient-to-b from-orange-400 to-orange-600 shadow-[0_4px_0_0_#c2410c,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#c2410c,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+  if (lower.includes('만약') || lower.includes('조건') || lower.includes('아니면'))
+    return 'bg-gradient-to-b from-amber-400 to-amber-600 shadow-[0_4px_0_0_#b45309,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#b45309,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+  if (lower.includes('앞으로') || lower.includes('이동') || lower.includes('뒤로'))
+    return 'bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_4px_0_0_#1d4ed8,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#1d4ed8,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+  if (lower.includes('회전') || lower.includes('돌기'))
+    return 'bg-gradient-to-b from-cyan-400 to-cyan-600 shadow-[0_4px_0_0_#0e7490,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#0e7490,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+  if (lower.includes('기다') || lower.includes('멈추'))
+    return 'bg-gradient-to-b from-yellow-400 to-yellow-600 shadow-[0_4px_0_0_#a16207,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#a16207,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+  if (lower.includes('벽') || lower.includes('감지') || lower.includes('앞에'))
+    return 'bg-gradient-to-b from-purple-400 to-purple-600 shadow-[0_4px_0_0_#7e22ce,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#7e22ce,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+  if (lower.includes('집') || lower.includes('줍') || lower.includes('놓'))
+    return 'bg-gradient-to-b from-green-400 to-green-600 shadow-[0_4px_0_0_#15803d,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#15803d,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+  return 'bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_4px_0_0_#1d4ed8,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#1d4ed8,0_4px_6px_rgba(0,0,0,0.3)] hover:translate-y-[2px]';
+};
+
+// 블록 아이콘
+const getBlockIcon = (block: string) => {
+  const lower = block.toLowerCase();
+  if (lower.includes('앞으로')) return '⬆️';
+  if (lower.includes('뒤로')) return '⬇️';
+  if (lower.includes('왼쪽') && lower.includes('회전')) return '↩️';
+  if (lower.includes('오른쪽') && lower.includes('회전')) return '↪️';
+  if (lower.includes('반복')) return '🔁';
+  if (lower.includes('만약')) return '❓';
+  if (lower.includes('아니면')) return '🔀';
+  if (lower.includes('기다')) return '⏱️';
+  if (lower.includes('벽')) return '🧱';
+  if (lower.includes('집')) return '📦';
+  if (lower.includes('놓')) return '📤';
+  if (lower.includes('멈추')) return '🛑';
+  return '🔷';
+};
+
+// 3D 로봇 그리드 미션 컴포넌트
+const RobotGridMission: React.FC<Props> = ({ mission, onComplete }) => {
+  const gridSize = (mission as any).gridSize || { rows: 6, cols: 6 };
+  const startPos = (mission as any).startPosition || { row: gridSize.rows - 1, col: 0 };
+  const goalPos = (mission as any).goalPosition || { row: 0, col: gridSize.cols - 1 };
+  const obstacles = (mission as any).obstacles || [];
+  const collectibles = (mission as any).collectibles || [];
+  const checkpoints = (mission as any).checkpoints || [];
+  const missionBlocks = mission.blocks || ['앞으로', '왼쪽회전', '오른쪽회전'];
+
+  // 사용 가능한 모든 블록 종류
+  const allBlockTypes = [
+    '앞으로 1칸',
+    '앞으로 2칸',
+    '앞으로 3칸',
+    '뒤로 1칸',
+    '왼쪽으로 90° 회전',
+    '오른쪽으로 90° 회전',
+    '2번 반복하기',
+    '3번 반복하기',
+    '5번 반복하기',
+    '만약 벽이 앞에 있으면',
+    '아니면',
+    '반복 끝',
+    '조건 끝',
+    '0.5초 기다리기',
+    '아이템 줍기',
+    '아이템 놓기',
+  ];
+
+  // 미션에서 사용할 블록 필터링
+  const availableBlockTypes = missionBlocks.length > 0
+    ? allBlockTypes.filter(b =>
+        missionBlocks.some((mb: string) =>
+          b.includes(mb) || mb.includes(b.split(' ')[0]) ||
+          (mb === '앞으로' && b.includes('앞으로')) ||
+          (mb === '왼쪽회전' && b.includes('왼쪽')) ||
+          (mb === '오른쪽회전' && b.includes('오른쪽')) ||
+          (mb === '반복' && b.includes('반복'))
+        )
+      )
+    : allBlockTypes.slice(0, 6);
+
+  const [robotPos, setRobotPos] = useState(startPos);
+  const [robotDir, setRobotDir] = useState<'up' | 'down' | 'left' | 'right'>('up');
+  const [assembledBlocks, setAssembledBlocks] = useState<string[]>([]);
+  const [isRunning, setIsRunning] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+  const [executionStep, setExecutionStep] = useState(-1);
+  const [collectedItems, setCollectedItems] = useState<{row: number, col: number}[]>([]);
+  const [visitedCheckpoints, setVisitedCheckpoints] = useState<{row: number, col: number}[]>([]);
+  const [trail, setTrail] = useState<{row: number, col: number}[]>([]);
+  const [score, setScore] = useState(0);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [failMessage, setFailMessage] = useState('');
+
+  const addBlock = (block: string) => {
+    setAssembledBlocks([...assembledBlocks, block]);
+  };
+
+  const removeBlock = (index: number) => {
+    setAssembledBlocks(assembledBlocks.filter((_, i) => i !== index));
+  };
+
+  const moveBlockUp = (index: number) => {
+    if (index === 0) return;
+    const newBlocks = [...assembledBlocks];
+    [newBlocks[index - 1], newBlocks[index]] = [newBlocks[index], newBlocks[index - 1]];
+    setAssembledBlocks(newBlocks);
+  };
+
+  const moveBlockDown = (index: number) => {
+    if (index === assembledBlocks.length - 1) return;
+    const newBlocks = [...assembledBlocks];
+    [newBlocks[index], newBlocks[index + 1]] = [newBlocks[index + 1], newBlocks[index]];
+    setAssembledBlocks(newBlocks);
+  };
+
+  const isObstacle = (row: number, col: number) => {
+    return obstacles.some((obs: any) => obs.row === row && obs.col === col);
+  };
+
+  const isValidMove = (row: number, col: number) => {
+    return row >= 0 && row < gridSize.rows && col >= 0 && col < gridSize.cols && !isObstacle(row, col);
+  };
+
+  const hasCollectible = (row: number, col: number) => {
+    return collectibles.some((c: any) => c.row === row && c.col === col) &&
+           !collectedItems.some(c => c.row === row && c.col === col);
+  };
+
+  const hasCheckpoint = (row: number, col: number) => {
+    return checkpoints.some((c: any) => c.row === row && c.col === col);
+  };
+
+  const isCheckpointVisited = (row: number, col: number) => {
+    return visitedCheckpoints.some(c => c.row === row && c.col === col);
+  };
+
+  const runCode = async () => {
+    if (assembledBlocks.length === 0) {
+      setShowHint(true);
+      return;
+    }
+
+    setIsRunning(true);
+    setShowHint(false);
+    setFailMessage('');
+    setCollectedItems([]);
+    setVisitedCheckpoints([]);
+    setTrail([]);
+    setScore(0);
+    let currentPos = { ...startPos };
+    let currentDir: 'up' | 'down' | 'left' | 'right' = 'up';
+    let collected: {row: number, col: number}[] = [];
+    let visited: {row: number, col: number}[] = [];
+    let pathTrail: {row: number, col: number}[] = [{ ...startPos }];
+    let currentScore = 0;
+    setRobotPos(currentPos);
+    setRobotDir(currentDir);
+
+    const executeBlock = async (block: string) => {
+      const lower = block.toLowerCase();
+
+      if (lower.includes('앞으로')) {
+        const steps = parseInt(block.match(/(\d+)/)?.[1] || '1');
+        for (let s = 0; s < steps; s++) {
+          let newRow = currentPos.row;
+          let newCol = currentPos.col;
+          if (currentDir === 'up') newRow--;
+          else if (currentDir === 'down') newRow++;
+          else if (currentDir === 'left') newCol--;
+          else if (currentDir === 'right') newCol++;
+
+          if (isValidMove(newRow, newCol)) {
+            currentPos = { row: newRow, col: newCol };
+            pathTrail.push({ ...currentPos });
+            setTrail([...pathTrail]);
+            setRobotPos({ ...currentPos });
+
+            // 아이템 자동 수집
+            if (hasCollectible(currentPos.row, currentPos.col) &&
+                !collected.some(c => c.row === currentPos.row && c.col === currentPos.col)) {
+              collected.push({ ...currentPos });
+              setCollectedItems([...collected]);
+              currentScore += 50;
+              setScore(currentScore);
+            }
+
+            // 체크포인트 방문
+            if (hasCheckpoint(currentPos.row, currentPos.col) &&
+                !visited.some(c => c.row === currentPos.row && c.col === currentPos.col)) {
+              visited.push({ ...currentPos });
+              setVisitedCheckpoints([...visited]);
+              currentScore += 100;
+              setScore(currentScore);
+            }
+
+            await new Promise(r => setTimeout(r, 350));
+          }
+        }
+      } else if (lower.includes('뒤로')) {
+        const steps = parseInt(block.match(/(\d+)/)?.[1] || '1');
+        const oppositeDir = { up: 'down', down: 'up', left: 'right', right: 'left' };
+        const backDir = oppositeDir[currentDir] as 'up' | 'down' | 'left' | 'right';
+        for (let s = 0; s < steps; s++) {
+          let newRow = currentPos.row;
+          let newCol = currentPos.col;
+          if (backDir === 'up') newRow--;
+          else if (backDir === 'down') newRow++;
+          else if (backDir === 'left') newCol--;
+          else if (backDir === 'right') newCol++;
+
+          if (isValidMove(newRow, newCol)) {
+            currentPos = { row: newRow, col: newCol };
+            pathTrail.push({ ...currentPos });
+            setTrail([...pathTrail]);
+            setRobotPos({ ...currentPos });
+            await new Promise(r => setTimeout(r, 350));
+          }
+        }
+      } else if (lower.includes('왼쪽') && lower.includes('회전')) {
+        const dirs: ('up' | 'down' | 'left' | 'right')[] = ['up', 'left', 'down', 'right'];
+        const idx = dirs.indexOf(currentDir);
+        currentDir = dirs[(idx + 1) % 4];
+        setRobotDir(currentDir);
+        await new Promise(r => setTimeout(r, 250));
+      } else if (lower.includes('오른쪽') && lower.includes('회전')) {
+        const dirs: ('up' | 'down' | 'left' | 'right')[] = ['up', 'right', 'down', 'left'];
+        const idx = dirs.indexOf(currentDir);
+        currentDir = dirs[(idx + 1) % 4];
+        setRobotDir(currentDir);
+        await new Promise(r => setTimeout(r, 250));
+      } else if (lower.includes('기다')) {
+        await new Promise(r => setTimeout(r, 500));
+      }
+    };
+
+    // 블록 실행
+    for (let i = 0; i < assembledBlocks.length; i++) {
+      setExecutionStep(i);
+      const block = assembledBlocks[i];
+
+      // 반복문 처리
+      if (block.includes('반복하기')) {
+        const times = parseInt(block.match(/(\d+)/)?.[1] || '2');
+        const repeatEnd = assembledBlocks.findIndex((b, idx) => idx > i && b.includes('반복 끝'));
+        const repeatBlocks = repeatEnd > i ? assembledBlocks.slice(i + 1, repeatEnd) : [];
+
+        for (let t = 0; t < times; t++) {
+          for (const rb of repeatBlocks) {
+            await executeBlock(rb);
+          }
+        }
+        if (repeatEnd > i) {
+          i = repeatEnd;
+        }
+      } else if (!block.includes('반복 끝') && !block.includes('조건 끝') && !block.includes('아니면')) {
+        await executeBlock(block);
+      }
+
+      await new Promise(r => setTimeout(r, 100));
+    }
+
+    setExecutionStep(-1);
+    setIsRunning(false);
+
+    // 목표 도달 확인 + 체크포인트 확인
+    const allCheckpointsVisited = checkpoints.length === 0 ||
+      checkpoints.every((cp: any) => visited.some(v => v.row === cp.row && v.col === cp.col));
+
+    if (currentPos.row === goalPos.row && currentPos.col === goalPos.col) {
+      if (allCheckpointsVisited) {
+        currentScore += 200;
+        setScore(currentScore);
+        setIsComplete(true);
+        setShowCelebration(true);
+        setTimeout(() => {
+          setShowCelebration(false);
+          onComplete(true);
+        }, 2000);
+      } else {
+        setFailMessage('모든 체크포인트(🔷)를 방문해야 해요!');
+        setShowHint(true);
+      }
+    } else {
+      setShowHint(true);
+    }
+  };
+
+  const reset = () => {
+    setRobotPos(startPos);
+    setRobotDir('up');
+    setAssembledBlocks([]);
+    setIsComplete(false);
+    setShowHint(false);
+    setFailMessage('');
+    setExecutionStep(-1);
+    setCollectedItems([]);
+    setVisitedCheckpoints([]);
+    setTrail([]);
+    setScore(0);
+  };
+
+  // 방향 표시
+  const getDirectionIndicator = () => {
+    const arrows: Record<string, string> = { up: '↑', down: '↓', left: '←', right: '→' };
+    return arrows[robotDir];
+  };
+
+  // 그리드 셀 크기 계산 - 그리드가 화면에 꽉 차도록
+  const cellSize = Math.min(52, Math.floor(340 / gridSize.cols));
+
+  return (
+    <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl border-2 border-slate-600 shadow-2xl p-4 md:p-6 relative overflow-hidden">
+      {/* 배경 장식 */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl"></div>
+
+      {/* 헤더 */}
+      <div className="mb-4 relative z-10">
+        <div className="flex items-center justify-between">
+          <h3 className="text-xl font-bold text-white flex items-center gap-2">
+            <span className="text-3xl">🤖</span> {mission.title}
+          </h3>
+          <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-4 py-2 rounded-full border border-yellow-500/30">
+            <Trophy className="w-5 h-5 text-yellow-400" />
+            <span className="font-bold text-yellow-300">{score}</span>
+          </div>
+        </div>
+        <p className="text-slate-400 text-sm mt-1">{mission.description}</p>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {mission.concept && (
+            <span className="px-3 py-1 bg-violet-900/50 text-violet-300 rounded-full text-xs font-medium border border-violet-500/30">
+              📚 {mission.concept}
+            </span>
+          )}
+          {checkpoints.length > 0 && (
+            <span className="px-3 py-1 bg-cyan-900/50 text-cyan-300 rounded-full text-xs font-medium border border-cyan-500/30">
+              🔷 체크포인트 {visitedCheckpoints.length}/{checkpoints.length}
+            </span>
+          )}
+          {collectibles.length > 0 && (
+            <span className="px-3 py-1 bg-pink-900/50 text-pink-300 rounded-full text-xs font-medium border border-pink-500/30">
+              💎 아이템 {collectedItems.length}/{collectibles.length}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* 메인 레이아웃 */}
+      <div className="flex flex-col lg:flex-row gap-4 relative z-10">
+        {/* 왼쪽: 블록 상자 + 내 코드 */}
+        <div className="lg:w-[360px] flex flex-col gap-4">
+          {/* 블록 상자 - 3D 스타일 */}
+          <div className="bg-gradient-to-b from-slate-700 to-slate-800 rounded-2xl p-4 border border-slate-600 shadow-lg">
+            <p className="text-sm font-bold text-white mb-3 flex items-center gap-2">
+              <span className="w-8 h-8 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">🧱</span>
+              블록 상자
+            </p>
+            <div className="flex flex-wrap gap-2 max-h-[200px] overflow-y-auto custom-scrollbar pr-1">
+              {availableBlockTypes.map((block, i) => (
+                <motion.button
+                  key={`block-${i}`}
+                  onClick={() => addBlock(block)}
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97, y: 2 }}
+                  disabled={isRunning}
+                  className={`${getBlockStyle3D(block)} text-white px-3 py-2 rounded-xl font-bold text-xs transition-all disabled:opacity-50 flex items-center gap-1.5 border-t border-white/20`}
+                >
+                  <span className="text-base">{getBlockIcon(block)}</span>
+                  <span>{block}</span>
+                </motion.button>
+              ))}
+            </div>
+          </div>
+
+          {/* 내 코드 - 3D 스타일 */}
+          <div className="bg-gradient-to-b from-slate-900 to-slate-950 rounded-2xl p-4 border border-violet-500/40 flex-1 min-h-[260px] max-h-[360px] overflow-hidden flex flex-col shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)]">
+            <div className="flex items-center justify-between mb-3">
+              <p className="text-sm font-bold text-violet-300 flex items-center gap-2">
+                <span className="w-8 h-8 bg-gradient-to-br from-violet-400 to-violet-600 rounded-lg flex items-center justify-center shadow-lg">📝</span>
+                내 코드
+              </p>
+              <span className="text-xs bg-violet-500/20 text-violet-300 px-2 py-1 rounded-full">{assembledBlocks.length}개</span>
+            </div>
+            <div className="flex-1 overflow-y-auto custom-scrollbar pr-1">
+              {assembledBlocks.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full text-slate-500 text-sm">
+                  <Zap className="w-8 h-8 mb-2 opacity-30" />
+                  <p>블록을 클릭해서 추가하세요!</p>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-1.5">
+                  {assembledBlocks.map((block, index) => (
+                    <motion.div
+                      key={`code-${index}`}
+                      initial={{ opacity: 0, x: -20, scale: 0.9 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      className={`${getBlockStyle3D(block)} text-white px-3 py-2 rounded-xl text-xs flex items-center gap-2 group relative overflow-hidden
+                        ${executionStep === index ? 'ring-2 ring-yellow-400 ring-offset-2 ring-offset-slate-900' : ''}`}
+                    >
+                      {executionStep === index && (
+                        <motion.div
+                          className="absolute inset-0 bg-yellow-400/20"
+                          animate={{ opacity: [0.2, 0.5, 0.2] }}
+                          transition={{ repeat: Infinity, duration: 0.5 }}
+                        />
+                      )}
+                      <span className="w-6 h-6 bg-black/30 rounded-lg flex items-center justify-center text-[10px] font-bold flex-shrink-0 border border-white/10">
+                        {index + 1}
+                      </span>
+                      <span className="text-base">{getBlockIcon(block)}</span>
+                      <span className="flex-1 truncate font-medium">{block}</span>
+                      <div className="hidden group-hover:flex items-center gap-1 bg-black/30 rounded-lg p-1">
+                        <button onClick={() => moveBlockUp(index)} className="p-1 hover:bg-white/20 rounded" disabled={isRunning}>
+                          <span className="text-xs">▲</span>
+                        </button>
+                        <button onClick={() => moveBlockDown(index)} className="p-1 hover:bg-white/20 rounded" disabled={isRunning}>
+                          <span className="text-xs">▼</span>
+                        </button>
+                        <button onClick={() => removeBlock(index)} className="p-1 hover:bg-red-500/50 rounded" disabled={isRunning}>
+                          <XCircle className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* 버튼들 - 3D */}
+          <div className="flex gap-3">
+            <motion.button
+              onClick={reset}
+              disabled={isRunning}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-4 py-3 bg-gradient-to-b from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600 text-white font-bold rounded-xl shadow-[0_4px_0_0_#374151,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#374151] hover:translate-y-[2px] transition-all flex items-center gap-2 disabled:opacity-50 text-sm border-t border-white/10"
+            >
+              <RotateCcw className="w-4 h-4" />초기화
+            </motion.button>
+            <motion.button
+              onClick={runCode}
+              disabled={assembledBlocks.length === 0 || isComplete || isRunning}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex-1 px-4 py-3 bg-gradient-to-b from-green-500 to-green-700 hover:from-green-400 hover:to-green-600 text-white font-bold rounded-xl shadow-[0_4px_0_0_#15803d,0_6px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_2px_0_0_#15803d] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm border-t border-white/20"
+            >
+              <Play className="w-5 h-5" />{isRunning ? '실행 중...' : '▶ 실행'}
+            </motion.button>
+          </div>
+        </div>
+
+        {/* 오른쪽: 3D 그리드 */}
+        <div className="flex-1 flex flex-col">
+          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl border-2 border-slate-600 p-5 flex-1 flex items-center justify-center min-h-[420px] shadow-[inset_0_4px_20px_rgba(0,0,0,0.4)] relative overflow-hidden">
+            {/* 조명 효과 */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-gradient-to-b from-blue-500/10 to-transparent rounded-full blur-2xl"></div>
+
+            <div className="relative">
+              {/* 방향 표시 */}
+              <motion.div
+                className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                <span className="text-lg">🤖</span> 방향: <span className="text-lg">{getDirectionIndicator()}</span>
+              </motion.div>
+
+              {/* 3D 그리드 */}
+              <div
+                className="relative"
+                style={{
+                  perspective: '800px',
+                  transformStyle: 'preserve-3d'
+                }}
+              >
+                <div
+                  className="grid gap-1 p-3 rounded-2xl"
+                  style={{
+                    gridTemplateColumns: `repeat(${gridSize.cols}, 1fr)`,
+                    gridTemplateRows: `repeat(${gridSize.rows}, 1fr)`,
+                    width: `${gridSize.cols * (cellSize + 4) + 24}px`,
+                    background: 'linear-gradient(145deg, #1e293b 0%, #0f172a 100%)',
+                    boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.5), 0 10px 40px rgba(0,0,0,0.4)',
+                    transform: 'rotateX(5deg)',
+                  }}
+                >
+                  {Array.from({ length: gridSize.rows * gridSize.cols }).map((_, idx) => {
+                    const row = Math.floor(idx / gridSize.cols);
+                    const col = idx % gridSize.cols;
+                    const isStart = row === startPos.row && col === startPos.col;
+                    const isGoal = row === goalPos.row && col === goalPos.col;
+                    const isRobot = row === robotPos.row && col === robotPos.col;
+                    const isObs = isObstacle(row, col);
+                    const hasItem = hasCollectible(row, col);
+                    const hasCP = hasCheckpoint(row, col);
+                    const isCPVisited = isCheckpointVisited(row, col);
+                    const isTrail = trail.some(t => t.row === row && t.col === col) && !isRobot;
+
+                    return (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.01 }}
+                        style={{ width: cellSize, height: cellSize }}
+                        className={`relative flex items-center justify-center rounded-lg transition-all duration-200
+                          ${isObs
+                            ? 'bg-gradient-to-br from-stone-500 to-stone-700 shadow-[inset_0_-4px_0_0_#44403c,0_4px_8px_rgba(0,0,0,0.3)]'
+                            : 'bg-gradient-to-br from-slate-700 to-slate-800 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_2px_4px_rgba(0,0,0,0.2)]'}
+                          ${isGoal && !isRobot ? 'bg-gradient-to-br from-yellow-500/30 to-amber-600/30 border-2 border-yellow-500/50' : ''}
+                          ${isRobot ? 'bg-gradient-to-br from-blue-500/40 to-cyan-500/40 border-2 border-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.4)]' : ''}
+                          ${isTrail && !isRobot ? 'bg-gradient-to-br from-blue-500/20 to-cyan-500/20' : ''}
+                          ${hasCP && !isCPVisited ? 'border-2 border-cyan-400/50' : ''}
+                          ${hasCP && isCPVisited ? 'border-2 border-green-400/50' : ''}
+                        `}
+                      >
+                        {/* 3D 장애물 */}
+                        {isObs && (
+                          <div className="relative">
+                            <span style={{ fontSize: cellSize * 0.55 }} className="drop-shadow-lg">🪨</span>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg"></div>
+                          </div>
+                        )}
+
+                        {/* 목표 */}
+                        {isGoal && !isRobot && (
+                          <motion.span
+                            style={{ fontSize: cellSize * 0.6 }}
+                            animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+                            transition={{ repeat: Infinity, duration: 2 }}
+                            className="drop-shadow-[0_0_10px_rgba(234,179,8,0.6)]"
+                          >⭐</motion.span>
+                        )}
+
+                        {/* 아이템 */}
+                        {hasItem && !isRobot && (
+                          <motion.span
+                            style={{ fontSize: cellSize * 0.5 }}
+                            animate={{ y: [0, -4, 0] }}
+                            transition={{ repeat: Infinity, duration: 1.5 }}
+                            className="drop-shadow-[0_0_8px_rgba(236,72,153,0.6)]"
+                          >💎</motion.span>
+                        )}
+
+                        {/* 체크포인트 */}
+                        {hasCP && !isRobot && !isCPVisited && (
+                          <motion.span
+                            style={{ fontSize: cellSize * 0.5 }}
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ repeat: Infinity, duration: 1 }}
+                            className="drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]"
+                          >🔷</motion.span>
+                        )}
+                        {hasCP && !isRobot && isCPVisited && (
+                          <span style={{ fontSize: cellSize * 0.5 }} className="opacity-50">✅</span>
+                        )}
+
+                        {/* 로봇 */}
+                        {isRobot && (
+                          <motion.div
+                            animate={{
+                              scale: isRunning ? [1, 1.1, 1] : 1,
+                            }}
+                            transition={{ repeat: isRunning ? Infinity : 0, duration: 0.4 }}
+                            style={{ fontSize: cellSize * 0.65 }}
+                            className="drop-shadow-[0_0_15px_rgba(34,211,238,0.8)]"
+                          >
+                            🤖
+                          </motion.div>
+                        )}
+
+                        {/* 시작점 */}
+                        {isStart && !isRobot && !isObs && (
+                          <span style={{ fontSize: cellSize * 0.45 }} className="opacity-70">🚩</span>
+                        )}
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* 범례 */}
+              <div className="mt-4 flex flex-wrap gap-3 justify-center">
+                <span className="flex items-center gap-1.5 text-xs bg-slate-800/80 px-3 py-1.5 rounded-full text-slate-300 border border-slate-700">🚩 시작</span>
+                <span className="flex items-center gap-1.5 text-xs bg-slate-800/80 px-3 py-1.5 rounded-full text-yellow-300 border border-yellow-500/30">⭐ 목표</span>
+                <span className="flex items-center gap-1.5 text-xs bg-slate-800/80 px-3 py-1.5 rounded-full text-stone-300 border border-stone-500/30">🪨 장애물</span>
+                {checkpoints.length > 0 && (
+                  <span className="flex items-center gap-1.5 text-xs bg-slate-800/80 px-3 py-1.5 rounded-full text-cyan-300 border border-cyan-500/30">🔷 필수</span>
+                )}
+                {collectibles.length > 0 && (
+                  <span className="flex items-center gap-1.5 text-xs bg-slate-800/80 px-3 py-1.5 rounded-full text-pink-300 border border-pink-500/30">💎 보너스</span>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* 힌트/완료 메시지 */}
+          <AnimatePresence>
+            {showHint && !isComplete && (
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="mt-3 bg-gradient-to-r from-amber-500/10 to-orange-500/10 p-4 rounded-xl border border-amber-500/30"
+              >
+                {failMessage && (
+                  <p className="font-bold text-red-400 text-sm mb-2 flex items-center gap-2">
+                    <XCircle className="w-4 h-4" /> {failMessage}
+                  </p>
+                )}
+                <p className="font-bold text-amber-300 text-sm mb-2">💡 힌트</p>
+                <ul className="text-amber-200 text-xs space-y-1">
+                  {mission.hints?.map((hint, i) => (<li key={i}>• {hint}</li>))}
+                  {(!mission.hints || mission.hints.length === 0) && (
+                    <li>• 목표 지점(⭐)까지 로봇을 이동시켜보세요!</li>
+                  )}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* 성공 메시지 */}
+          <AnimatePresence>
+            {isComplete && (
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                className="mt-3 p-4 rounded-xl bg-gradient-to-r from-emerald-500/20 to-green-500/20 border border-emerald-500/30 flex items-center gap-3"
+              >
+                <CheckCircle className="w-6 h-6 text-emerald-400" />
+                <div>
+                  <span className="font-bold text-emerald-300 text-lg">🎉 미션 완료!</span>
+                  <p className="text-emerald-400 text-sm">획득 점수: {score}점</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* 성공 축하 효과 */}
+      <AnimatePresence>
+        {showCelebration && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 pointer-events-none flex items-center justify-center z-50"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: [0, 1.2, 1] }}
+              transition={{ duration: 0.5 }}
+              className="text-8xl"
+            >
+              🎊
+            </motion.div>
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  scale: 1
+                }}
+                animate={{
+                  opacity: 0,
+                  x: (Math.random() - 0.5) * 400,
+                  y: (Math.random() - 0.5) * 400,
+                  scale: 0
+                }}
+                transition={{ duration: 1.5, delay: Math.random() * 0.3 }}
+                className="absolute text-2xl"
+              >
+                {['⭐', '🌟', '✨', '💫', '🎉'][Math.floor(Math.random() * 5)]}
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// 일반 블록 코딩 미션 (3D 스타일 업그레이드)
+const BlockCodingMission: React.FC<Props> = ({ mission, onComplete }) => {
   const [availableBlocks, setAvailableBlocks] = useState<string[]>([]);
   const [assembledBlocks, setAssembledBlocks] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
@@ -23,6 +726,7 @@ const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
   const [bubbleText, setBubbleText] = useState('');
   const [charColor, setCharColor] = useState(0);
   const [playingSound, setPlayingSound] = useState(false);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     if (mission.blocks && mission.blocks.length > 0) {
@@ -122,6 +826,7 @@ const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
     }
     const isCorrect = correctAnswer.every((block: string, index: number) => assembledBlocks[index] === block);
     if (isCorrect) {
+      setScore(mission.exp || 100);
       setIsComplete(true);
       setTimeout(() => onComplete(true), 1500);
     } else {
@@ -144,76 +849,125 @@ const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
       setBubbleText('');
       setCharColor(0);
       setPlayingSound(false);
+      setScore(0);
     }
   };
 
-  const getBlockColor = (block: string): string => {
+  const getBlockColor3D = (block: string): string => {
     const lower = block.toLowerCase();
-    if (lower.includes('깃발') || lower.includes('클릭') || lower.includes('시작')) return 'bg-yellow-500';
-    if (lower.includes('이동') || lower.includes('앞으로') || lower.includes('회전')) return 'bg-blue-500';
-    if (lower.includes('반복') || lower.includes('번')) return 'bg-orange-500';
-    if (lower.includes('만약') || lower.includes('조건')) return 'bg-amber-600';
-    if (lower.includes('말하') || lower.includes('묻') || lower.includes('소리')) return 'bg-purple-500';
-    if (lower.includes('펜') || lower.includes('색') || lower.includes('크기')) return 'bg-green-500';
-    if (lower.includes('변수') || lower.includes('값') || lower.includes('%')) return 'bg-red-500';
-    return 'bg-blue-500';
+    if (lower.includes('깃발') || lower.includes('클릭') || lower.includes('시작'))
+      return 'bg-gradient-to-b from-yellow-400 to-yellow-600 shadow-[0_4px_0_0_#a16207]';
+    if (lower.includes('이동') || lower.includes('앞으로') || lower.includes('회전'))
+      return 'bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_4px_0_0_#1d4ed8]';
+    if (lower.includes('반복') || lower.includes('번'))
+      return 'bg-gradient-to-b from-orange-400 to-orange-600 shadow-[0_4px_0_0_#c2410c]';
+    if (lower.includes('만약') || lower.includes('조건'))
+      return 'bg-gradient-to-b from-amber-400 to-amber-600 shadow-[0_4px_0_0_#b45309]';
+    if (lower.includes('말하') || lower.includes('묻') || lower.includes('소리'))
+      return 'bg-gradient-to-b from-purple-400 to-purple-600 shadow-[0_4px_0_0_#7e22ce]';
+    if (lower.includes('펜') || lower.includes('색') || lower.includes('크기'))
+      return 'bg-gradient-to-b from-green-400 to-green-600 shadow-[0_4px_0_0_#15803d]';
+    if (lower.includes('변수') || lower.includes('값') || lower.includes('%'))
+      return 'bg-gradient-to-b from-red-400 to-red-600 shadow-[0_4px_0_0_#b91c1c]';
+    return 'bg-gradient-to-b from-blue-400 to-blue-600 shadow-[0_4px_0_0_#1d4ed8]';
   };
 
   return (
-    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
-      <h3 className="text-xl font-bold mb-2 text-white">🧱 {mission.title}</h3>
+    <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl border-2 border-slate-600 shadow-2xl p-6 relative overflow-hidden">
+      {/* 배경 장식 */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
+
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-xl font-bold text-white flex items-center gap-2">
+          <span className="text-3xl">🧱</span> {mission.title}
+        </h3>
+        <div className="flex items-center gap-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-4 py-2 rounded-full border border-yellow-500/30">
+          <Star className="w-5 h-5 text-yellow-400" />
+          <span className="font-bold text-yellow-300">{mission.exp} XP</span>
+        </div>
+      </div>
+
       <p className="text-slate-300 text-base mb-4">{mission.description}</p>
 
       {mission.concept && (
-        <div className="inline-block px-4 py-2 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-xl font-medium mb-4">
+        <div className="inline-block px-4 py-2 bg-gradient-to-r from-violet-900/50 to-purple-900/50 text-violet-300 rounded-xl font-medium mb-4 border border-violet-500/30">
           📚 학습 개념: {mission.concept}
         </div>
       )}
 
-      {/* 캐릭터 실행 영역 */}
-      <div className="bg-gradient-to-b from-sky-400 to-sky-200 rounded-xl p-4 mb-4 border-4 border-sky-500 relative overflow-hidden" style={{ height: '180px' }}>
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-green-500 to-green-400"></div>
+      {/* 3D 캐릭터 실행 영역 */}
+      <div
+        className="rounded-2xl p-4 mb-4 border-4 border-sky-500/50 relative overflow-hidden shadow-[inset_0_4px_20px_rgba(0,0,0,0.3)]"
+        style={{
+          height: '200px',
+          background: 'linear-gradient(180deg, #38bdf8 0%, #0ea5e9 50%, #7dd3fc 100%)'
+        }}
+      >
+        {/* 구름 */}
+        <motion.div
+          className="absolute top-4 text-4xl opacity-80"
+          animate={{ x: [0, 300, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        >☁️</motion.div>
+        <motion.div
+          className="absolute top-12 left-20 text-2xl opacity-60"
+          animate={{ x: [0, 250, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+        >☁️</motion.div>
+
+        {/* 땅 - 3D 효과 */}
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-green-700 via-green-500 to-green-400 shadow-[inset_0_4px_0_0_rgba(255,255,255,0.2)]"></div>
+        <div className="absolute bottom-12 left-0 right-0 h-2 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600"></div>
+
+        {/* 캐릭터 */}
         <motion.div
           animate={{ x: charX, scale: charScale, rotate: charRotation }}
           transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-          className="absolute bottom-8"
+          className="absolute bottom-12"
           style={{ filter: charColor > 0 ? `hue-rotate(${charColor}deg)` : 'none' }}
         >
-          <span className="text-5xl">{isRunning ? '🐱' : '😺'}</span>
+          <span className="text-6xl drop-shadow-lg">{isRunning ? '🐱' : '😺'}</span>
           {showBubble && (
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="absolute -top-12 left-8 bg-white px-3 py-1 rounded-xl text-sm font-bold shadow-lg whitespace-nowrap"
+              initial={{ opacity: 0, y: 10, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              className="absolute -top-14 left-10 bg-white px-4 py-2 rounded-2xl text-sm font-bold shadow-xl whitespace-nowrap border-2 border-slate-200"
             >
               {bubbleText}
-              <div className="absolute -bottom-2 left-2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white"></div>
+              <div className="absolute -bottom-2 left-3 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white"></div>
             </motion.div>
           )}
           {playingSound && (
-            <motion.div animate={{ scale: [1, 1.3, 1] }} transition={{ repeat: Infinity, duration: 0.5 }} className="absolute -top-8 left-8 text-2xl">
-              🎵
-            </motion.div>
+            <motion.div
+              animate={{ scale: [1, 1.3, 1], y: [0, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 0.4 }}
+              className="absolute -top-10 left-10 text-3xl"
+            >🎵</motion.div>
           )}
         </motion.div>
+
         {isRunning && (
-          <div className="absolute top-2 right-2 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+          <div className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">
             실행 중...
           </div>
         )}
       </div>
 
-      <div className="bg-blue-900/30 rounded-lg p-3 mb-4 border border-blue-500/30">
-        <p className="text-blue-300 text-sm font-medium">
-          💡 <strong>블록을 클릭하거나 드래그</strong>해서 아래 코드 영역에 순서대로 배치하세요!
+      <div className="bg-blue-900/30 rounded-xl p-4 mb-4 border border-blue-500/30">
+        <p className="text-blue-300 text-sm font-medium flex items-center gap-2">
+          <Zap className="w-5 h-5" />
+          <strong>블록을 클릭하거나 드래그</strong>해서 코드 영역에 순서대로 배치하세요!
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-        {/* 사용 가능한 블록 */}
-        <div className="bg-slate-700/50 rounded-xl p-4 border-2 border-dashed border-slate-500">
-          <p className="text-base font-bold text-slate-300 mb-3">🧱 블록 상자 (클릭 또는 드래그)</p>
-          <div className="flex flex-col gap-2 min-h-[150px]">
+        {/* 블록 상자 */}
+        <div className="bg-gradient-to-b from-slate-700 to-slate-800 rounded-2xl p-4 border-2 border-dashed border-slate-500 shadow-lg">
+          <p className="text-base font-bold text-white mb-3 flex items-center gap-2">
+            <span className="w-8 h-8 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg">🧱</span>
+            블록 상자
+          </p>
+          <div className="flex flex-col gap-2 min-h-[160px]">
             {availableBlocks.length > 0 ? (
               availableBlocks.map((block, i) => (
                 <motion.div
@@ -222,34 +976,39 @@ const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
                   onDragStart={() => handleDragStart(block)}
                   onDragEnd={handleDragEnd}
                   onClick={() => addBlock(block)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`${getBlockColor(block)} text-white px-4 py-3 rounded-lg font-bold text-base shadow cursor-pointer flex items-center gap-2 hover:brightness-110 transition-all border-2 border-transparent hover:border-white/30`}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98, y: 2 }}
+                  className={`${getBlockColor3D(block)} text-white px-4 py-3 rounded-xl font-bold text-base cursor-pointer flex items-center gap-2 transition-all border-t border-white/20 hover:brightness-110`}
                 >
                   <GripVertical className="w-5 h-5 opacity-60" />
                   <span className="flex-1">{block}</span>
-                  <span className="text-xs bg-white/20 px-2 py-1 rounded">클릭!</span>
+                  <span className="text-xs bg-black/20 px-2 py-1 rounded-lg">클릭!</span>
                 </motion.div>
               ))
             ) : (
-              <div className="flex items-center justify-center h-24 text-emerald-400 text-base font-bold">
-                ✓ 모든 블록을 배치했어요!
+              <div className="flex items-center justify-center h-28 text-emerald-400 text-base font-bold">
+                <CheckCircle className="w-6 h-6 mr-2" /> 모든 블록을 배치했어요!
               </div>
             )}
           </div>
         </div>
 
-        {/* 코드 조합 영역 */}
+        {/* 코드 영역 */}
         <div
           onDrop={handleDrop}
           onDragOver={handleDragOver}
-          className={`rounded-xl p-4 min-h-[200px] transition-all ${
-            isDragging ? 'bg-violet-600/40 border-2 border-violet-400 border-dashed' : 'bg-violet-900/30 border-2 border-violet-500/50'
+          className={`rounded-2xl p-4 min-h-[200px] transition-all shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)] ${
+            isDragging
+              ? 'bg-gradient-to-b from-violet-600/40 to-purple-600/40 border-2 border-violet-400 border-dashed'
+              : 'bg-gradient-to-b from-violet-900/30 to-purple-900/30 border-2 border-violet-500/50'
           }`}
         >
-          <p className="text-base font-bold text-violet-300 mb-3">📝 코드 영역 (순서대로 배치)</p>
+          <p className="text-base font-bold text-violet-300 mb-3 flex items-center gap-2">
+            <span className="w-8 h-8 bg-gradient-to-br from-violet-400 to-violet-600 rounded-lg flex items-center justify-center shadow-lg">📝</span>
+            코드 영역
+          </p>
           {assembledBlocks.length === 0 ? (
-            <div className={`flex flex-col items-center justify-center h-32 rounded-lg border-2 border-dashed transition-all ${isDragging ? 'border-violet-400 bg-violet-500/20' : 'border-slate-500'}`}>
+            <div className={`flex flex-col items-center justify-center h-36 rounded-xl border-2 border-dashed transition-all ${isDragging ? 'border-violet-400 bg-violet-500/20' : 'border-slate-500'}`}>
               <p className="text-slate-400 text-base font-medium mb-2">{isDragging ? '👇 여기에 놓으세요!' : '블록을 클릭하거나 드래그하세요'}</p>
               <p className="text-slate-500 text-sm">시작 블록부터 순서대로!</p>
             </div>
@@ -258,21 +1017,21 @@ const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
               {assembledBlocks.map((block, index) => (
                 <motion.div
                   key={`assembled-${index}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className={`${getBlockColor(block)} text-white px-4 py-3 rounded-lg font-bold text-base shadow flex items-center justify-between`}
+                  initial={{ opacity: 0, x: -20, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  className={`${getBlockColor3D(block)} text-white px-4 py-3 rounded-xl font-bold text-base flex items-center justify-between border-t border-white/20`}
                 >
                   <span className="flex items-center gap-2">
-                    <span className="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm font-bold">{index + 1}</span>
+                    <span className="w-8 h-8 bg-black/20 rounded-lg flex items-center justify-center text-sm font-bold">{index + 1}</span>
                     {block}
                   </span>
-                  <button onClick={() => removeBlock(block)} className="text-white/70 hover:text-white ml-2 p-1 hover:bg-white/20 rounded transition-colors" title="블록 제거">
+                  <button onClick={() => removeBlock(block)} className="text-white/70 hover:text-white ml-2 p-2 hover:bg-black/20 rounded-lg transition-colors">
                     <XCircle className="w-5 h-5" />
                   </button>
                 </motion.div>
               ))}
               {isDragging && (
-                <div className="h-12 border-2 border-dashed border-violet-400 rounded-lg bg-violet-500/20 flex items-center justify-center text-violet-300 text-sm">
+                <div className="h-14 border-2 border-dashed border-violet-400 rounded-xl bg-violet-500/20 flex items-center justify-center text-violet-300 text-sm">
                   👇 여기에 추가
                 </div>
               )}
@@ -282,7 +1041,7 @@ const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
       </div>
 
       {showHint && !isComplete && (
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-amber-500/10 p-4 rounded-xl border border-amber-500/30 mb-4">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-gradient-to-r from-amber-500/10 to-orange-500/10 p-4 rounded-xl border border-amber-500/30 mb-4">
           <p className="font-bold text-amber-300 text-base mb-2">💡 힌트</p>
           <ul className="text-base text-amber-200 space-y-1">
             {mission.hints && mission.hints.map((hint, i) => (<li key={i}>• {hint}</li>))}
@@ -297,23 +1056,37 @@ const GeneralBlockMission: React.FC<Props> = ({ mission, onComplete }) => {
       )}
 
       {isComplete && (
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/30 mb-4 flex items-center gap-3">
-          <CheckCircle className="w-6 h-6 text-emerald-400" />
-          <span className="font-bold text-emerald-300 text-lg">잘했어요! 블록을 올바르게 조합했습니다! 🎉</span>
+        <motion.div
+          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          className="p-4 rounded-xl bg-gradient-to-r from-emerald-500/20 to-green-500/20 border border-emerald-500/30 mb-4 flex items-center gap-3"
+        >
+          <CheckCircle className="w-7 h-7 text-emerald-400" />
+          <div>
+            <span className="font-bold text-emerald-300 text-lg">🎉 완벽해요!</span>
+            <p className="text-emerald-400 text-sm">+{score} XP 획득!</p>
+          </div>
         </motion.div>
       )}
 
       <div className="flex gap-3">
-        <button onClick={reset} className="px-5 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold text-base rounded-xl border border-slate-600 transition-colors flex items-center gap-2">
-          <Shuffle className="w-5 h-5" />초기화
-        </button>
-        <button
+        <motion.button
+          onClick={reset}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="px-5 py-3 bg-gradient-to-b from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600 text-white font-bold text-base rounded-xl shadow-[0_4px_0_0_#374151] hover:shadow-[0_2px_0_0_#374151] hover:translate-y-[2px] transition-all flex items-center gap-2 border-t border-white/10"
+        >
+          <RotateCcw className="w-5 h-5" />초기화
+        </motion.button>
+        <motion.button
           onClick={checkAnswer}
           disabled={assembledBlocks.length === 0 || isComplete || isRunning}
-          className="flex-1 px-5 py-3 bg-green-600 hover:bg-green-500 text-white font-bold text-lg rounded-xl border border-green-500 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="flex-1 px-5 py-3 bg-gradient-to-b from-green-500 to-green-700 hover:from-green-400 hover:to-green-600 text-white font-bold text-lg rounded-xl shadow-[0_4px_0_0_#15803d] hover:shadow-[0_2px_0_0_#15803d] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed border-t border-white/20"
         >
           <Play className="w-5 h-5" />🚩 실행하기
-        </button>
+        </motion.button>
       </div>
     </div>
   );

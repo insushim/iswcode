@@ -12,6 +12,7 @@ import {
   Bot,
   Settings,
 } from 'lucide-react';
+import { AppLogo } from '../Common';
 
 interface SidebarProps {
   collapsed: boolean;
@@ -35,7 +36,10 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onClose }) => {
       {/* Mobile Close Button */}
       {onClose && (
         <div className="flex justify-between items-center px-4 mb-4 lg:hidden">
-          <span className="font-bold text-lg gradient-text">CodeQuest</span>
+          <div className="flex items-center gap-2">
+            <AppLogo size="sm" />
+            <span className="font-bold text-lg gradient-text">코딩마루</span>
+          </div>
           <button
             onClick={onClose}
             className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-dark-surfaceHover"

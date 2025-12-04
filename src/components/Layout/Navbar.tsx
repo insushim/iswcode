@@ -18,6 +18,7 @@ import {
 import { useUserStore } from '../../stores/userStore';
 import { useSettingsStore } from '../../stores/settingsStore';
 import { useAuthStore } from '../../stores/authStore';
+import { AppLogo } from '../Common';
 
 interface NavbarProps {
   onMenuClick: () => void;
@@ -68,11 +69,9 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">C</span>
-            </div>
+            <AppLogo size="sm" />
             <span className="hidden sm:block font-bold text-xl gradient-text">
-              CodeQuest
+              코딩마루
             </span>
           </Link>
         </div>

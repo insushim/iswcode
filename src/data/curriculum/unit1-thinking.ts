@@ -80,17 +80,17 @@ export const unit1: Unit = {
         {
           id: '1-1-5',
           title: '로봇 첫 걸음',
-          description: '로봇을 직선으로 3칸 이동시켜 목표 지점에 도착하세요',
+          description: '로봇을 목표 지점(⭐)까지 이동시키세요. 앞으로 블록을 사용해보세요!',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 60,
           estimatedMinutes: 12,
           concept: '명령어와 실행',
-          hints: ['로봇은 한 번에 한 칸씩 움직여요', '앞으로 명령만 사용해보세요'],
-          blocks: ['앞으로'],
-          gridSize: { rows: 1, cols: 4 },
-          startPosition: { row: 0, col: 0 },
-          goalPosition: { row: 0, col: 3 },
+          hints: ['로봇은 위쪽(↑)을 바라보고 있어요', '앞으로 1칸 블록을 3번 사용하거나, 앞으로 3칸을 한 번 사용하세요'],
+          blocks: ['앞으로', '왼쪽회전', '오른쪽회전'],
+          gridSize: { rows: 5, cols: 5 },
+          startPosition: { row: 4, col: 2 },
+          goalPosition: { row: 1, col: 2 },
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -98,18 +98,30 @@ export const unit1: Unit = {
         {
           id: '1-1-6',
           title: '로봇 장애물 피하기',
-          description: '장애물을 피해 로봇을 목표까지 이동시키세요 (L자 경로)',
+          description: '벽을 피해 로봇을 목표까지 이동시키세요. 필수 체크포인트(🔷)를 반드시 지나가야 해요!',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 80,
           estimatedMinutes: 15,
           concept: '경로 계획',
-          hints: ['벽에 부딪히면 안 돼요', '회전 후에는 바라보는 방향이 바뀌어요', '앞으로 2칸 → 회전 → 앞으로 2칸'],
+          hints: ['벽(🪨)에 부딪히면 안 돼요', '회전 후에는 바라보는 방향이 바뀌어요', '체크포인트(🔷)를 먼저 지나가세요'],
           blocks: ['앞으로', '왼쪽회전', '오른쪽회전'],
-          gridSize: { rows: 3, cols: 3 },
-          startPosition: { row: 2, col: 0 },
-          goalPosition: { row: 0, col: 2 },
-          obstacles: [{ row: 1, col: 0 }, { row: 1, col: 1 }],
+          gridSize: { rows: 6, cols: 6 },
+          startPosition: { row: 5, col: 0 },
+          goalPosition: { row: 0, col: 5 },
+          obstacles: [
+            { row: 4, col: 1 }, { row: 3, col: 1 },
+            { row: 3, col: 3 }, { row: 2, col: 3 },
+            { row: 1, col: 1 }
+          ],
+          checkpoints: [
+            // 시작(5,0) -> 위로 -> (3,0) -> 오른쪽 -> (3,2) 체크포인트 -> 위 -> (0,2) -> 오른쪽 -> 목표(0,5)
+            { row: 3, col: 2 },
+            { row: 1, col: 4 }
+          ],
+          collectibles: [
+            { row: 4, col: 4 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -225,18 +237,27 @@ export const unit1: Unit = {
         {
           id: '1-2-3',
           title: '보물 찾기',
-          description: '지도의 X표시를 따라 보물 상자까지 가세요',
+          description: '보물 상자까지 가세요! 필수 체크포인트를 모두 지나야 해요.',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 90,
           estimatedMinutes: 15,
           concept: '조건부 이동',
-          hints: ['X표시를 순서대로 따라가세요', '동→남→동 방향으로 이동해요'],
+          hints: ['오른쪽으로 먼저 회전하세요', '체크포인트(🔷)를 거쳐서 목표로 가세요', '장애물을 피해 가세요'],
           blocks: ['앞으로', '왼쪽회전', '오른쪽회전'],
-          gridSize: { rows: 4, cols: 4 },
+          gridSize: { rows: 5, cols: 5 },
           startPosition: { row: 0, col: 0 },
-          goalPosition: { row: 2, col: 3 },
-          checkpoints: [{ row: 0, col: 2 }, { row: 2, col: 2 }],
+          goalPosition: { row: 4, col: 4 },
+          obstacles: [
+            { row: 1, col: 1 }, { row: 2, col: 1 },
+            { row: 2, col: 3 }, { row: 3, col: 3 }
+          ],
+          checkpoints: [
+            // 시작(0,0) -> 오른쪽 -> (0,2) 체크포인트 -> 아래 -> (2,2) 체크포인트 -> 오른쪽아래 -> 목표(4,4)
+            { row: 0, col: 2 },
+            { row: 2, col: 2 }
+          ],
+          collectibles: [{ row: 1, col: 4 }, { row: 3, col: 4 }],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -244,17 +265,21 @@ export const unit1: Unit = {
         {
           id: '1-2-4',
           title: '로봇 청소기 기초',
-          description: '2x2 방의 모든 칸을 청소하도록 경로를 만드세요',
+          description: '3x3 방의 모든 아이템을 수집하세요!',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 80,
           estimatedMinutes: 15,
           concept: '경로 계획',
-          hints: ['방의 모든 칸을 지나가야 해요', 'ㄷ자 모양으로 이동해보세요'],
-          blocks: ['앞으로', '왼쪽회전', '오른쪽회전', '청소하기'],
-          gridSize: { rows: 2, cols: 2 },
-          startPosition: { row: 0, col: 0 },
-          mustVisitAll: true,
+          hints: ['모든 💎를 지나가야 해요', 'ㄷ자 모양으로 이동해보세요'],
+          blocks: ['앞으로', '왼쪽회전', '오른쪽회전'],
+          gridSize: { rows: 3, cols: 3 },
+          startPosition: { row: 2, col: 0 },
+          goalPosition: { row: 0, col: 2 },
+          collectibles: [
+            { row: 2, col: 1 }, { row: 2, col: 2 },
+            { row: 1, col: 2 }, { row: 0, col: 1 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -262,18 +287,29 @@ export const unit1: Unit = {
         {
           id: '1-2-5',
           title: '로봇 청소기 심화',
-          description: '3x3 방을 최소한의 명령으로 전체 청소하세요',
+          description: '5x5 방에서 체크포인트를 모두 지나 목표까지 가세요!',
           type: 'visual-programming',
           difficulty: 'intermediate',
           exp: 100,
           estimatedMinutes: 20,
           concept: '효율적 경로',
-          hints: ['지그재그로 움직이면 효율적이에요', '반복 패턴을 찾아보세요'],
-          blocks: ['앞으로', '왼쪽회전', '오른쪽회전', '청소하기', '2번 반복', '3번 반복'],
-          gridSize: { rows: 3, cols: 3 },
-          startPosition: { row: 0, col: 0 },
-          mustVisitAll: true,
-          maxCommands: 15,
+          hints: ['반복 블록으로 코드를 줄여보세요', '체크포인트(🔷)를 순서대로 방문하세요', '위로 먼저 이동해보세요'],
+          blocks: ['앞으로', '왼쪽회전', '오른쪽회전', '반복'],
+          gridSize: { rows: 5, cols: 5 },
+          startPosition: { row: 4, col: 0 },
+          goalPosition: { row: 0, col: 4 },
+          obstacles: [
+            { row: 3, col: 2 }, { row: 2, col: 2 },
+            { row: 1, col: 1 }, { row: 1, col: 3 }
+          ],
+          checkpoints: [
+            // 시작(4,0) -> 위 -> (2,0) 체크포인트 -> 오른쪽위 -> (0,2) 체크포인트 -> 오른쪽 -> 목표(0,4)
+            { row: 2, col: 0 },
+            { row: 0, col: 2 }
+          ],
+          collectibles: [
+            { row: 4, col: 4 }, { row: 3, col: 4 }, { row: 2, col: 4 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -433,38 +469,48 @@ export const unit1: Unit = {
         {
           id: '1-3-6',
           title: '반복 로봇 - 직선',
-          description: '반복 블록을 사용해 로봇을 10칸 앞으로 이동시키세요',
+          description: '반복 블록을 사용해 로봇을 목표까지 이동시키세요',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 70,
           estimatedMinutes: 12,
           concept: '반복문 기초',
-          hints: ['"앞으로"를 10번 쓰는 대신 반복을 사용하세요', '10번 반복 블록을 활용해요'],
-          blocks: ['앞으로', '10번 반복'],
-          gridSize: { rows: 1, cols: 11 },
-          startPosition: { row: 0, col: 0 },
-          goalPosition: { row: 0, col: 10 },
-          maxCommands: 2,
+          hints: ['"앞으로"를 여러 번 쓰는 대신 반복을 사용하세요', '반복 블록을 활용해요'],
+          blocks: ['앞으로', '반복'],
+          gridSize: { rows: 3, cols: 6 },
+          startPosition: { row: 1, col: 0 },
+          goalPosition: { row: 1, col: 5 },
+          obstacles: [
+            { row: 0, col: 2 }, { row: 2, col: 2 },
+            { row: 0, col: 4 }, { row: 2, col: 4 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
         {
           id: '1-3-7',
-          title: '반복 로봇 - 정사각형',
-          description: '반복 블록으로 4x4 정사각형 경로를 그리며 출발점으로 돌아오세요',
+          title: '반복 로봇 - 정사각형 탐험',
+          description: '장애물을 피해 정사각형 모양으로 이동하며 모든 아이템을 수집하세요',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 100,
           estimatedMinutes: 15,
           concept: '반복문의 효율성',
-          hints: ['정사각형은 4개의 같은 변으로 이루어져요', '"앞으로 4칸 + 오른쪽회전"을 4번 반복하면 돼요'],
-          blocks: ['앞으로', '오른쪽회전', '4번 반복', '4칸 앞으로'],
+          hints: ['정사각형 모양으로 움직여보세요', '"앞으로 + 오른쪽회전"을 반복하면 돼요'],
+          blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
           gridSize: { rows: 5, cols: 5 },
-          startPosition: { row: 0, col: 0 },
-          goalPosition: { row: 0, col: 0 },
-          drawPath: true,
-          expectedShape: 'square',
+          startPosition: { row: 4, col: 0 },
+          goalPosition: { row: 4, col: 0 },
+          obstacles: [
+            { row: 2, col: 2 },
+            { row: 1, col: 1 }, { row: 1, col: 3 },
+            { row: 3, col: 1 }, { row: 3, col: 3 }
+          ],
+          collectibles: [
+            { row: 4, col: 2 }, { row: 2, col: 4 },
+            { row: 0, col: 2 }, { row: 2, col: 0 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -521,70 +567,145 @@ export const unit1: Unit = {
       missions: [
         {
           id: '1-4-1',
-          title: '삼각형 그리기',
-          description: '반복을 사용해 정삼각형을 그려보세요',
+          title: '삼각형 경로',
+          description: '삼각형 모양으로 이동하며 3개의 아이템을 수집하세요',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 90,
           estimatedMinutes: 15,
           concept: '도형과 반복',
-          hints: ['정삼각형의 내각은 60도예요', '3번 반복하면 돼요'],
+          hints: ['삼각형 꼭짓점에 아이템이 있어요', '회전 후 직진을 3번 반복하세요'],
+          blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
+          gridSize: { rows: 5, cols: 5 },
+          startPosition: { row: 4, col: 2 },
+          goalPosition: { row: 4, col: 2 },
+          obstacles: [
+            { row: 2, col: 2 }, { row: 3, col: 1 }, { row: 3, col: 3 }
+          ],
+          collectibles: [
+            { row: 4, col: 0 }, { row: 0, col: 2 }, { row: 4, col: 4 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
         {
           id: '1-4-2',
-          title: '오각형 그리기',
-          description: '반복을 사용해 정오각형을 그려보세요',
+          title: '미로 탈출 I',
+          description: '복잡한 미로를 탈출하세요. 벽에 부딪히면 안 돼요!',
           type: 'visual-programming',
           difficulty: 'beginner',
           exp: 100,
           estimatedMinutes: 18,
           concept: '다각형과 반복',
-          hints: ['정오각형의 외각은 72도예요', '5번 반복하면 돼요'],
+          hints: ['오른쪽 벽을 따라가는 규칙을 사용해보세요', '회전 후 직진을 반복하세요'],
+          blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
+          gridSize: { rows: 6, cols: 6 },
+          startPosition: { row: 5, col: 0 },
+          goalPosition: { row: 0, col: 5 },
+          obstacles: [
+            { row: 4, col: 1 }, { row: 3, col: 1 }, { row: 2, col: 1 },
+            { row: 2, col: 2 }, { row: 2, col: 3 }, { row: 2, col: 4 },
+            { row: 4, col: 3 }, { row: 4, col: 4 }, { row: 4, col: 5 },
+            { row: 0, col: 1 }, { row: 0, col: 2 }, { row: 0, col: 3 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
         {
           id: '1-4-3',
-          title: '별 그리기',
-          description: '반복을 사용해 5각 별 모양을 그려보세요',
+          title: '미로 탈출 II',
+          description: '더 어려운 미로를 탈출하세요. 아이템도 수집하세요!',
           type: 'visual-programming',
           difficulty: 'intermediate',
           exp: 120,
           estimatedMinutes: 20,
           concept: '복잡한 반복',
-          hints: ['별은 5개의 꼭지점이 있어요', '144도 회전해야 해요'],
+          hints: ['벽을 잘 피해가세요', '아이템(💎)을 지나가면 점수를 얻어요'],
+          blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
+          gridSize: { rows: 7, cols: 7 },
+          startPosition: { row: 6, col: 0 },
+          goalPosition: { row: 0, col: 6 },
+          obstacles: [
+            { row: 5, col: 1 }, { row: 4, col: 1 }, { row: 3, col: 1 },
+            { row: 3, col: 2 }, { row: 3, col: 3 },
+            { row: 1, col: 3 }, { row: 1, col: 4 }, { row: 1, col: 5 },
+            { row: 5, col: 3 }, { row: 5, col: 4 },
+            { row: 3, col: 5 }, { row: 4, col: 5 }
+          ],
+          collectibles: [
+            { row: 6, col: 3 }, { row: 2, col: 2 }, { row: 0, col: 4 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
         {
           id: '1-4-4',
-          title: '육각형 패턴',
-          description: '벌집 모양처럼 육각형 패턴을 그려보세요',
+          title: '다이아몬드 수집',
+          description: '모든 다이아몬드를 수집하고 시작점으로 돌아오세요',
           type: 'visual-programming',
           difficulty: 'intermediate',
           exp: 130,
           estimatedMinutes: 22,
           concept: '중첩 반복',
-          hints: ['정육각형의 외각은 60도예요', '반복 안에 반복을 사용하세요'],
+          hints: ['시계 방향으로 돌면서 수집하세요', '반복 패턴을 찾아보세요'],
+          blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
+          gridSize: { rows: 5, cols: 5 },
+          startPosition: { row: 2, col: 2 },
+          goalPosition: { row: 2, col: 2 },
+          obstacles: [
+            { row: 0, col: 0 }, { row: 0, col: 4 },
+            { row: 4, col: 0 }, { row: 4, col: 4 }
+          ],
+          collectibles: [
+            { row: 0, col: 2 }, { row: 2, col: 4 },
+            { row: 4, col: 2 }, { row: 2, col: 0 },
+            { row: 1, col: 1 }, { row: 1, col: 3 },
+            { row: 3, col: 1 }, { row: 3, col: 3 }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
         {
           id: '1-4-5',
-          title: '나선 그리기',
-          description: '점점 커지는 나선을 그려보세요',
+          title: '나선형 미로',
+          description: '나선형 미로를 따라 중앙의 보물까지 이동하세요!',
           type: 'visual-programming',
           difficulty: 'intermediate',
           exp: 140,
           estimatedMinutes: 22,
           concept: '변하는 반복',
-          hints: ['반복할 때마다 이동 거리를 늘려보세요'],
+          hints: ['바깥에서 안쪽으로 나선형으로 들어가세요', '오른쪽→왼쪽회전→오른쪽→왼쪽회전 반복!', '점점 짧아지는 거리를 이동해요'],
+          blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
+          gridSize: { rows: 7, cols: 7 },
+          startPosition: { row: 6, col: 0 },
+          goalPosition: { row: 3, col: 3 },
+          obstacles: [
+            // 진짜 나선형 미로 - 바깥에서 안쪽으로 돌아 들어감
+            // col:  0   1   2   3   4   5   6
+            // row0: .   .   .   .   .   .   .   ← 위 통로 (왼쪽으로)
+            // row1: 🪨  🪨  🪨  🪨  🪨  🪨  .   ← 벽1
+            // row2: .   .   .   .   .   .   .   ← 통로 (오른쪽으로)
+            // row3: .   🪨  🪨  ⭐  🪨  🪨  🪨  ← 벽2 + 목표
+            // row4: .   .   .   .   .   .   .   ← 통로 (왼쪽으로)
+            // row5: 🪨  🪨  🪨  🪨  🪨  🪨  .   ← 벽3
+            // row6: 🚩  .   .   .   .   .   .   ← 시작 통로 (오른쪽으로)
+            // 벽1 - row1 (col 6 열림)
+            { row: 1, col: 0 }, { row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 }, { row: 1, col: 5 },
+            // 벽2 - row3 (col 0 열림, col 3은 목표)
+            { row: 3, col: 1 }, { row: 3, col: 2 }, { row: 3, col: 4 }, { row: 3, col: 5 }, { row: 3, col: 6 },
+            // 벽3 - row5 (col 6 열림)
+            { row: 5, col: 0 }, { row: 5, col: 1 }, { row: 5, col: 2 }, { row: 5, col: 3 }, { row: 5, col: 4 }, { row: 5, col: 5 }
+          ],
+          collectibles: [
+            // 나선 경로를 따라 배치
+            { row: 6, col: 3 },  // 시작 통로
+            { row: 4, col: 3 },  // 중간 통로
+            { row: 2, col: 3 }   // 목표 직전 통로
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -715,12 +836,16 @@ export const unit1: Unit = {
           exp: 80,
           estimatedMinutes: 15,
           concept: '조건부 실행',
-          hints: ['앞에 벽이 있는지 확인해요', '벽이 있으면 오른쪽으로 회전해요'],
-          blocks: ['앞으로', '오른쪽회전', '만약 앞이 벽이면', '아니면'],
-          gridSize: { rows: 3, cols: 4 },
-          startPosition: { row: 1, col: 0 },
-          goalPosition: { row: 1, col: 3 },
-          obstacles: [{ row: 1, col: 2 }],
+          hints: ['앞에 벽이 있는지 확인해요', '벽이 있으면 오른쪽으로 회전해요', '위로 돌아간 뒤 오른쪽으로 가세요'],
+          blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '만약 앞이 벽이면', '아니면'],
+          gridSize: { rows: 4, cols: 5 },
+          startPosition: { row: 2, col: 0 },
+          goalPosition: { row: 2, col: 4 },
+          obstacles: [
+            { row: 2, col: 2 },
+            { row: 1, col: 2 },
+            { row: 3, col: 2 }
+          ],
           useConditional: true,
           unlocked: true,
           completed: false,
@@ -757,18 +882,43 @@ export const unit1: Unit = {
         {
           id: '1-5-6',
           title: '미로 탈출 조건',
-          description: '조건문으로 갈림길을 판단하며 5x5 미로를 탈출하세요',
+          description: '체크포인트(🔷)를 모두 지나 목표까지 가세요! 보석도 모아보세요.',
           type: 'visual-programming',
           difficulty: 'intermediate',
           exp: 100,
           estimatedMinutes: 18,
           concept: '조건부 경로',
-          hints: ['갈림길에서 조건을 확인해요', '항상 오른쪽 벽을 따라가는 규칙을 사용해보세요'],
-          blocks: ['앞으로', '왼쪽회전', '오른쪽회전', '만약 오른쪽이 비어있으면', '만약 앞이 벽이면', '반복하기'],
-          gridSize: { rows: 5, cols: 5 },
-          startPosition: { row: 4, col: 0 },
-          goalPosition: { row: 0, col: 4 },
-          mazeWalls: true,
+          hints: ['체크포인트를 순서대로 방문하세요', '위로 먼저 올라간 뒤 오른쪽으로 가세요', '모든 체크포인트를 거쳐야 목표 도달 가능해요'],
+          blocks: ['앞으로', '왼쪽회전', '오른쪽회전', '반복'],
+          gridSize: { rows: 6, cols: 6 },
+          startPosition: { row: 5, col: 0 },
+          goalPosition: { row: 5, col: 5 },
+          obstacles: [
+            // 간단한 미로 - 체크포인트 경로 확보
+            // col:  0   1   2   3   4   5
+            // row0: .   .   .   .   .   .   ← 위 통로
+            // row1: .   🪨  🪨  .   🪨  .
+            // row2: .   .   .   .   🪨  .
+            // row3: 🪨  🪨  .   🪨  .   .
+            // row4: .   .   .   🪨  .   .
+            // row5: 🚩  🪨  .   .   .   ⭐  ← 시작, 목표
+            { row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 4 },
+            { row: 2, col: 4 },
+            { row: 3, col: 0 }, { row: 3, col: 1 }, { row: 3, col: 3 },
+            { row: 4, col: 3 },
+            { row: 5, col: 1 }
+          ],
+          checkpoints: [
+            // 경로: 시작(5,0) → 위 → (4,0) → (2,0)CP1 → 오른쪽 → (2,2)CP2 → 아래 → (4,2) → 오른쪽 → (4,4)CP3 → 아래 → 목표(5,5)
+            { row: 2, col: 0 },  // 왼쪽 위
+            { row: 2, col: 2 },  // 중앙 위
+            { row: 4, col: 4 }   // 오른쪽 아래
+          ],
+          collectibles: [
+            { row: 0, col: 3 },  // 위쪽 통로
+            { row: 4, col: 2 },  // 중간 경로
+            { row: 5, col: 3 }   // 아래쪽 통로
+          ],
           useConditional: true,
           unlocked: true,
           completed: false,

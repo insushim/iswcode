@@ -62,6 +62,10 @@ export const useAuthStore = create<AuthState>()(
         const result = await authLogin(email, password);
 
         if (result.success && result.user) {
+          // 기존 사용자 데이터 초기화 (다른 계정의 데이터가 남아있을 수 있음)
+          localStorage.removeItem('codequest-user');
+          localStorage.removeItem('codequest-progress');
+
           set((state) => {
             state.authUser = result.user!;
             state.isAuthenticated = true;
@@ -91,6 +95,11 @@ export const useAuthStore = create<AuthState>()(
           state.classes = [];
           state.pendingTeachers = [];
         });
+        // 로컬 스토리지의 모든 사용자 데이터 초기화
+        localStorage.removeItem('codequest-user');
+        localStorage.removeItem('codequest-progress');
+        localStorage.removeItem('codequest-auth');
+        localStorage.removeItem('codequest-settings');
       },
 
       registerAsTeacher: async (email, password, name, school) => {
@@ -237,8 +246,9 @@ export const useAuthStore = create<AuthState>()(
     {
       name: 'codequest-auth',
       partialize: (state) => ({
-        // 민감한 정보 제외, 기본 정보만 저장
+        // authUser도 저장해야 새로고침 후에도 로그아웃 버튼이 보임
         isAuthenticated: state.isAuthenticated,
+        authUser: state.authUser,
       }),
     }
   )

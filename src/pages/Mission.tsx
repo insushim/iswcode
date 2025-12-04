@@ -12,6 +12,7 @@ import { useProgressStore } from '../stores/progressStore';
 import { useUserStore } from '../stores/userStore';
 import type { Mission as MissionType } from '../types';
 import GeneralBlockMission from '../components/GeneralBlockMission';
+import InteractiveLessonMission from '../components/InteractiveLessonMission';
 
 const Mission: React.FC = () => {
   const { missionId } = useParams();
@@ -192,6 +193,8 @@ const Mission: React.FC = () => {
           <WritingMission mission={mission} onComplete={handleComplete} />
         ) : mission.type === 'visual-puzzle' ? (
           <VisualPuzzleMission mission={mission} onComplete={handleComplete} />
+        ) : mission.type === 'interactive-lesson' ? (
+          <InteractiveLessonMission mission={mission} onComplete={handleComplete} />
         ) : (
           <InteractiveMission mission={mission} onComplete={handleComplete} />
         )}
@@ -520,6 +523,7 @@ const PatternMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
 const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   // Sample quiz - would be better from mission data
   const quiz = {
@@ -531,10 +535,22 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
 
   const handleSubmit = () => {
     setIsSubmitted(true);
+    setAttempts(prev => prev + 1);
     if (selectedAnswer === quiz.correctAnswer) {
-      setTimeout(() => onComplete(true), 2000);
+      setTimeout(() => onComplete(attempts === 0), 2000);
     }
   };
+
+  const handleRetry = () => {
+    setSelectedAnswer(null);
+    setIsSubmitted(false);
+  };
+
+  const handleSkip = () => {
+    onComplete(false);
+  };
+
+  const isCorrect = selectedAnswer === quiz.correctAnswer;
 
   return (
     <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
@@ -578,19 +594,19 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className={`p-4 rounded-xl mb-4 ${
-            selectedAnswer === quiz.correctAnswer
+            isCorrect
               ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200'
               : 'bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200'
           }`}
         >
           <p className="font-bold mb-1">
-            {selectedAnswer === quiz.correctAnswer ? '정답입니다! 🎉' : '아쉽네요!'}
+            {isCorrect ? '정답입니다! 🎉' : '아쉽네요! 😅'}
           </p>
           <p className="text-sm">{quiz.explanation}</p>
         </motion.div>
       )}
 
-      {!isSubmitted && (
+      {!isSubmitted ? (
         <button
           onClick={handleSubmit}
           disabled={selectedAnswer === null}
@@ -598,6 +614,21 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
         >
           제출하기
         </button>
+      ) : !isCorrect && (
+        <div className="flex gap-3">
+          <button
+            onClick={handleRetry}
+            className="flex-1 px-4 py-3 bg-blue-600 text-white font-bold rounded-xl border-2 border-blue-500 hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+          >
+            🔄 다시 풀기
+          </button>
+          <button
+            onClick={handleSkip}
+            className="flex-1 px-4 py-3 bg-slate-600 text-white font-bold rounded-xl border-2 border-slate-500 hover:bg-slate-500 transition-colors flex items-center justify-center gap-2"
+          >
+            ⏭️ 건너뛰기
+          </button>
+        </div>
       )}
     </div>
   );

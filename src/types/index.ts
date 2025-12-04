@@ -148,6 +148,7 @@ export interface Mission {
   goalPosition?: { row: number; col: number };
   obstacles?: { row: number; col: number }[];
   checkpoints?: { row: number; col: number }[];
+  collectibles?: { row: number; col: number }[];
   mustVisitAll?: boolean;
   maxCommands?: number;
   drawPath?: boolean;

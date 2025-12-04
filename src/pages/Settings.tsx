@@ -16,16 +16,21 @@ const Settings: React.FC = () => {
     fontSize, setFontSize,
     soundEnabled, setSoundEnabled,
     notificationsEnabled, setNotificationsEnabled,
-    geminiApiKey, setGeminiApiKey
+    geminiApiKey, setGeminiApiKey, getUserApiKey
   } = useSettingsStore();
 
   const { user, resetUser } = useUserStore();
   const { resetProgress } = useProgressStore();
 
-  const [apiKey, setApiKey] = useState(geminiApiKey || '');
+  // 사용자가 직접 입력한 API 키만 표시 (시스템 키는 숨김)
+  const userApiKey = getUserApiKey();
+  const [apiKey, setApiKey] = useState(userApiKey || '');
   const [showApiKey, setShowApiKey] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
   const [resetConfirmText, setResetConfirmText] = useState('');
+
+  // 시스템에 API 키가 설정되어 있는지 확인 (사용자 키가 아닌 경우)
+  const hasSystemApiKey = geminiApiKey && !userApiKey;
 
   const handleSaveApiKey = () => {
     setGeminiApiKey(apiKey);
@@ -194,47 +199,64 @@ const Settings: React.FC = () => {
           <Key className="w-5 h-5 text-yellow-500" />
           AI 설정
         </h2>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
-          AI 튜터와 바이브코딩 기능을 사용하려면 Gemini API 키가 필요합니다.
-          <a
-            href="https://makersuite.google.com/app/apikey"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary-600 hover:underline ml-1"
-          >
-            API 키 발급받기
-          </a>
-        </p>
 
-        <div className="flex gap-2">
-          <div className="flex-1 relative">
-            <input
-              type={showApiKey ? 'text' : 'password'}
-              value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
-              placeholder="Gemini API 키를 입력하세요"
-              className="input pr-20"
-            />
-            <button
-              onClick={() => setShowApiKey(!showApiKey)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-sm text-slate-500 hover:text-slate-700"
-            >
-              {showApiKey ? '숨기기' : '보기'}
-            </button>
+        {hasSystemApiKey ? (
+          // 시스템에서 제공하는 API 키가 있는 경우
+          <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-4">
+            <p className="text-sm text-green-700 dark:text-green-400 flex items-center gap-2">
+              <Check className="w-5 h-5" />
+              AI 기능이 활성화되어 있습니다
+            </p>
+            <p className="text-xs text-green-600 dark:text-green-500 mt-1">
+              AI 튜터와 바이브코딩을 바로 사용할 수 있어요!
+            </p>
           </div>
-          <Button
-            variant="primary"
-            onClick={handleSaveApiKey}
-            leftIcon={<Check className="w-4 h-4" />}
-          >
-            저장
-          </Button>
-        </div>
+        ) : (
+          // 시스템 키가 없거나 사용자 키를 사용하는 경우
+          <>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+              AI 튜터와 바이브코딩 기능을 사용하려면 Gemini API 키가 필요합니다.
+              <a
+                href="https://makersuite.google.com/app/apikey"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-600 hover:underline ml-1"
+              >
+                API 키 발급받기
+              </a>
+            </p>
 
-        {geminiApiKey && (
-          <p className="text-sm text-green-600 dark:text-green-400 mt-2 flex items-center gap-1">
-            <Check className="w-4 h-4" /> API 키가 설정되었습니다
-          </p>
+            <div className="flex gap-2">
+              <div className="flex-1 relative">
+                <input
+                  type={showApiKey ? 'text' : 'password'}
+                  value={apiKey}
+                  onChange={(e) => setApiKey(e.target.value)}
+                  placeholder="Gemini API 키를 입력하세요"
+                  className="input pr-20"
+                />
+                <button
+                  onClick={() => setShowApiKey(!showApiKey)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-sm text-slate-500 hover:text-slate-700"
+                >
+                  {showApiKey ? '숨기기' : '보기'}
+                </button>
+              </div>
+              <Button
+                variant="primary"
+                onClick={handleSaveApiKey}
+                leftIcon={<Check className="w-4 h-4" />}
+              >
+                저장
+              </Button>
+            </div>
+
+            {userApiKey && (
+              <p className="text-sm text-green-600 dark:text-green-400 mt-2 flex items-center gap-1">
+                <Check className="w-4 h-4" /> 내 API 키가 설정되었습니다
+              </p>
+            )}
+          </>
         )}
       </Card>
 

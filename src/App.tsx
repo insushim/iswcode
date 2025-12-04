@@ -38,7 +38,13 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode; allowedRoles?: ('stu
     );
   }
 
-  if (!isAuthenticated) {
+  // authUser가 없으면 레거시 데이터 - 로그인 페이지로 보내기
+  if (!isAuthenticated || !authUser) {
+    // 레거시 데이터 정리
+    localStorage.removeItem('codequest-user');
+    localStorage.removeItem('codequest-progress');
+    localStorage.removeItem('codequest-auth');
+    localStorage.removeItem('codequest-settings');
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 

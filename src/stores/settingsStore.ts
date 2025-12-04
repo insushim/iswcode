@@ -19,6 +19,7 @@ interface SettingsState {
   sidebarCollapsed: boolean;
   editorTheme: 'vs-dark' | 'light';
   geminiApiKey: string | null;
+  userApiKey: string | null; // 사용자가 직접 입력한 API 키
 
   // Actions
   setTheme: (theme: 'light' | 'dark' | 'system') => void;
@@ -30,6 +31,8 @@ interface SettingsState {
   toggleSidebar: () => void;
   setEditorTheme: (theme: 'vs-dark' | 'light') => void;
   setGeminiApiKey: (key: string) => void;
+  setUserApiKey: (key: string) => void;
+  getUserApiKey: () => string | null; // 사용자가 직접 입력한 키만 반환
   getEffectiveTheme: () => 'light' | 'dark';
   initializeApiKey: () => void;
 }
@@ -37,7 +40,7 @@ interface SettingsState {
 export const useSettingsStore = create<SettingsState>()(
   persist(
     (set, get) => ({
-      theme: 'system',
+      theme: 'dark', // 기본값을 dark로 변경
       fontSize: 'medium',
       soundEnabled: true,
       musicEnabled: false,
@@ -45,6 +48,7 @@ export const useSettingsStore = create<SettingsState>()(
       sidebarCollapsed: false,
       editorTheme: 'vs-dark',
       geminiApiKey: getEnvApiKey(),
+      userApiKey: null, // 사용자가 직접 입력한 키
 
       setTheme: (theme) => {
         set({ theme });
@@ -80,7 +84,22 @@ export const useSettingsStore = create<SettingsState>()(
       },
 
       setGeminiApiKey: (key) => {
-        set({ geminiApiKey: key });
+        // 시스템 키와 다르면 사용자 키로 저장
+        const envKey = getEnvApiKey();
+        if (key !== envKey) {
+          set({ userApiKey: key, geminiApiKey: key });
+        } else {
+          set({ geminiApiKey: key });
+        }
+      },
+
+      setUserApiKey: (key) => {
+        set({ userApiKey: key, geminiApiKey: key });
+      },
+
+      getUserApiKey: () => {
+        // 사용자가 직접 입력한 키만 반환 (설정 화면 표시용)
+        return get().userApiKey;
       },
 
       initializeApiKey: () => {

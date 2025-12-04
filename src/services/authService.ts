@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   User as FirebaseUser,
   updateProfile,
+  getAuth,
 } from 'firebase/auth';
 import {
   doc,
@@ -20,8 +21,20 @@ import {
   onSnapshot,
   Timestamp,
 } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
 import { auth, db } from '../config/firebase';
 import type { AuthUser, Teacher, Student, ClassRoom, UserRole, ApprovalStatus } from '../types';
+
+// 학생 생성용 별도 Firebase 앱 (현재 로그인 유지를 위해)
+const secondaryApp = initializeApp(
+  {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  },
+  'secondary'
+);
+const secondaryAuth = getAuth(secondaryApp);
 
 // 6자리 학급 코드 생성
 const generateClassCode = (): string => {
@@ -134,10 +147,16 @@ export const registerStudent = async (
 
 // 로그인
 export const login = async (
-  email: string,
+  emailOrId: string,
   password: string
 ): Promise<{ success: boolean; error?: string; user?: AuthUser }> => {
   try {
+    // 이메일 형식이 아니면 학생 아이디로 간주하고 @student.local 추가
+    let email = emailOrId;
+    if (!emailOrId.includes('@')) {
+      email = emailOrId + '@student.local';
+    }
+
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid));
 
@@ -162,9 +181,11 @@ export const login = async (
   } catch (error: any) {
     let errorMessage = '로그인 중 오류가 발생했습니다.';
     if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-      errorMessage = '이메일 또는 비밀번호가 올바르지 않습니다.';
+      errorMessage = '아이디 또는 비밀번호가 올바르지 않습니다.';
     } else if (error.code === 'auth/invalid-credential') {
-      errorMessage = '이메일 또는 비밀번호가 올바르지 않습니다.';
+      errorMessage = '아이디 또는 비밀번호가 올바르지 않습니다.';
+    } else if (error.code === 'auth/invalid-email') {
+      errorMessage = '아이디 또는 비밀번호가 올바르지 않습니다.';
     }
     return { success: false, error: errorMessage };
   }
@@ -394,6 +415,42 @@ export const getApprovedTeachers = async (): Promise<Teacher[]> => {
   return snapshot.docs.map((doc) => doc.data() as Teacher);
 };
 
+// 관리자: 모든 사용자 조회 (선생님 + 학생)
+export const getAllUsers = async (): Promise<AuthUser[]> => {
+  const snapshot = await getDocs(collection(db, 'users'));
+  return snapshot.docs.map((doc) => doc.data() as AuthUser);
+};
+
+// 관리자: 선생님 계정 삭제
+export const deleteTeacherAccount = async (teacherId: string): Promise<{ success: boolean; error?: string }> => {
+  try {
+    const batch = writeBatch(db);
+
+    // 선생님의 모든 학급 가져오기
+    const classQuery = query(collection(db, 'classrooms'), where('teacherId', '==', teacherId));
+    const classSnapshot = await getDocs(classQuery);
+
+    // 각 학급과 학생들 삭제
+    for (const classDoc of classSnapshot.docs) {
+      const classData = classDoc.data() as ClassRoom;
+      const students = await getClassStudents(classDoc.id);
+      for (const student of students) {
+        batch.delete(doc(db, 'users', student.uid));
+        batch.delete(doc(db, 'progress', student.uid));
+      }
+      batch.delete(doc(db, 'classrooms', classDoc.id));
+    }
+
+    // 선생님 계정 삭제
+    batch.delete(doc(db, 'users', teacherId));
+    await batch.commit();
+
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: '선생님 삭제 중 오류가 발생했습니다.' };
+  }
+};
+
 // 관리자: 학급 삭제 (학생들도 함께 삭제)
 export const deleteClassRoom = async (classId: string): Promise<{ success: boolean; error?: string }> => {
   try {
@@ -457,7 +514,8 @@ export const createStudentsBatch = async (
   for (const student of students) {
     try {
       const email = student.loginId + '@student.local';
-      const userCredential = await createUserWithEmailAndPassword(auth, email, student.password);
+      // secondaryAuth를 사용하여 현재 선생님 로그인 유지
+      const userCredential = await createUserWithEmailAndPassword(secondaryAuth, email, student.password);
       const user = userCredential.user;
       await updateProfile(user, { displayName: student.name });
 
@@ -475,6 +533,9 @@ export const createStudentsBatch = async (
       await setDoc(doc(db, 'users', user.uid), studentData);
       newStudentIds.push(user.uid);
       createdCount++;
+
+      // secondary auth에서 로그아웃 (메모리 정리)
+      await signOut(secondaryAuth);
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
         errors.push(student.name + ': 이미 사용 중인 아이디입니다.');

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Mail, Lock, User, Building, Eye, EyeOff, UserPlus, AlertCircle, CheckCircle } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
+import { AppLogo } from '../components/Common';
 
 const RegisterTeacher: React.FC = () => {
   const navigate = useNavigate();
@@ -47,6 +48,16 @@ const RegisterTeacher: React.FC = () => {
     }
   };
 
+  // 성공 시 3초 후 자동으로 로그인 페이지로 이동
+  useEffect(() => {
+    if (success) {
+      const timer = setTimeout(() => {
+        navigate('/login');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [success, navigate]);
+
   if (success) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4">
@@ -63,11 +74,12 @@ const RegisterTeacher: React.FC = () => {
             관리자 승인 후 로그인이 가능합니다.<br />
             승인까지 1-2일 정도 소요될 수 있습니다.
           </p>
+          <p className="text-slate-500 text-sm mb-4">3초 후 로그인 페이지로 이동합니다...</p>
           <Link
             to="/login"
-            className="inline-block w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl"
+            className="inline-block w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all"
           >
-            로그인 페이지로
+            지금 로그인 페이지로 이동
           </Link>
         </motion.div>
       </div>
@@ -89,8 +101,8 @@ const RegisterTeacher: React.FC = () => {
       >
         {/* 로고 */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl mb-3 shadow-xl">
-            <span className="text-3xl">👨‍🏫</span>
+          <div className="inline-block mb-3">
+            <AppLogo size="lg" />
           </div>
           <h1 className="text-2xl font-bold text-white">선생님 회원가입</h1>
           <p className="text-slate-400 text-sm mt-1">학급을 만들고 학생들의 학습을 관리하세요</p>
