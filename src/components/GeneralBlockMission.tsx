@@ -724,6 +724,7 @@ const MissionStage: React.FC<{
 }> = ({ mission, isRunning, charX, charScale, charRotation, charColor, showBubble, bubbleText, playingSound }) => {
   const title = mission.title?.toLowerCase() || '';
   const concept = mission.concept?.toLowerCase() || '';
+  const desc = mission.description?.toLowerCase() || '';
 
   // 슈팅 게임
   if (title.includes('슈팅') || concept.includes('슈팅')) {
@@ -856,6 +857,257 @@ const MissionStage: React.FC<{
           </motion.div>
         )}
         {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">연주 중...</div>}
+      </div>
+    );
+  }
+
+  // 키보드 조종/방향키 미션
+  if (title.includes('키보드') || title.includes('조종') || title.includes('화살표') || desc.includes('화살표')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-indigo-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #1e1b4b 0%, #312e81 50%, #3730a3 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-slate-700 to-slate-600" />
+        <div className="absolute top-4 right-4 flex flex-col items-center gap-1">
+          <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center text-xl border-2 border-slate-500 shadow-lg">⬆️</div>
+          <div className="flex gap-1">
+            <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center text-xl border-2 border-slate-500 shadow-lg">⬅️</div>
+            <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center text-xl border-2 border-slate-500 shadow-lg">⬇️</div>
+            <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center text-xl border-2 border-slate-500 shadow-lg">➡️</div>
+          </div>
+        </div>
+        <motion.div animate={{ x: charX }} className="absolute bottom-12 left-8">
+          <span className="text-6xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute bottom-2 left-4 text-gray-400 text-xs">⌨️ 방향키로 캐릭터를 조종하세요!</div>
+        {isRunning && <div className="absolute top-3 left-3 bg-gradient-to-r from-indigo-400 to-purple-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">조종 중...</div>}
+      </div>
+    );
+  }
+
+  // 마우스 따라가기/마우스 포인터 미션
+  if (title.includes('마우스') || title.includes('따라') || title.includes('드래그') || desc.includes('마우스')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-rose-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%)' }}>
+        <motion.div className="absolute w-6 h-6 pointer-events-none" animate={{ x: [50, 200, 150, 100, 50], y: [40, 80, 120, 60, 40] }} transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}>
+          <span className="text-2xl">🖱️</span>
+        </motion.div>
+        <motion.div animate={{ x: isRunning ? [80, 180, 130, 100, 80] : 80, y: isRunning ? [100, 130, 160, 120, 100] : 100 }} transition={{ duration: 4, repeat: Infinity, ease: 'linear' }} className="absolute">
+          <span className="text-5xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute bottom-2 left-4 text-gray-300 text-xs">🖱️ 마우스를 따라다녀요!</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-rose-400 to-pink-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">따라가는 중...</div>}
+      </div>
+    );
+  }
+
+  // 복제 미션
+  if (title.includes('복제') || desc.includes('복제')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-teal-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #134e4a 0%, #0f766e 50%, #14b8a6 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-slate-700 to-slate-600" />
+        <motion.div className="absolute bottom-14 left-8"><span className="text-5xl">🐱</span></motion.div>
+        {isRunning && (
+          <>
+            <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="absolute bottom-14 left-24"><span className="text-4xl">🐱</span></motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }} className="absolute bottom-14 left-40"><span className="text-4xl">🐱</span></motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.9 }} className="absolute bottom-14 left-56"><span className="text-4xl">🐱</span></motion.div>
+          </>
+        )}
+        <div className="absolute bottom-2 left-4 text-teal-300 text-xs">🐑 클릭하면 복제돼요!</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-teal-400 to-cyan-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">복제 중...</div>}
+      </div>
+    );
+  }
+
+  // 좌표 이동/위치 미션
+  if (title.includes('좌표') || title.includes('위치') || desc.includes('좌표') || desc.includes('x:') || desc.includes('y:')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-blue-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: '#1e293b' }}>
+        {/* 좌표 그리드 */}
+        <div className="absolute inset-4 opacity-20">
+          {[...Array(5)].map((_, i) => (
+            <div key={`h-${i}`} className="absolute w-full h-px bg-blue-400" style={{ top: `${20 + i * 20}%` }} />
+          ))}
+          {[...Array(6)].map((_, i) => (
+            <div key={`v-${i}`} className="absolute h-full w-px bg-blue-400" style={{ left: `${i * 20}%` }} />
+          ))}
+        </div>
+        <div className="absolute left-2 bottom-12 text-blue-400 text-xs">x</div>
+        <div className="absolute left-12 top-2 text-blue-400 text-xs">y</div>
+        <motion.div animate={{ x: isRunning ? [80, 200] : charX, y: isRunning ? [100, 50] : 100 }} transition={{ duration: 1 }} className="absolute">
+          <span className="text-5xl">🐱</span>
+        </motion.div>
+        <div className="absolute top-4 left-4 bg-slate-800/80 px-3 py-1 rounded-lg text-blue-300 text-sm font-mono">x: {isRunning ? 100 : Math.round(charX)}, y: 50</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-400 to-indigo-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">이동 중...</div>}
+      </div>
+    );
+  }
+
+  // 크기 변환 미션
+  if (title.includes('크기') || desc.includes('크기') || concept.includes('크기')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-lime-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #365314 0%, #4d7c0f 50%, #65a30d 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-green-800 to-green-700" />
+        <motion.div animate={{ scale: isRunning ? [1, 1.5, 0.5, 1.2, 1] : charScale }} transition={{ duration: 2 }} className="absolute bottom-16 left-1/2 -translate-x-1/2">
+          <span className="text-6xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute top-4 left-4 bg-lime-800/80 px-3 py-1 rounded-lg text-lime-300 text-sm">크기: {Math.round(charScale * 100)}%</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-lime-400 to-green-400 text-lime-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">크기 변환 중...</div>}
+      </div>
+    );
+  }
+
+  // 회전 미션
+  if (title.includes('회전') || desc.includes('회전') || desc.includes('360')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-fuchsia-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #701a75 0%, #a21caf 50%, #c026d3 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-purple-800 to-purple-700" />
+        <motion.div animate={{ rotate: isRunning ? [0, 360] : charRotation }} transition={{ duration: 1, repeat: isRunning ? Infinity : 0, ease: 'linear' }} className="absolute bottom-16 left-1/2 -translate-x-1/2">
+          <span className="text-6xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute top-4 left-4 bg-fuchsia-800/80 px-3 py-1 rounded-lg text-fuchsia-300 text-sm">각도: {charRotation}°</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-fuchsia-400 to-pink-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">회전 중...</div>}
+      </div>
+    );
+  }
+
+  // 숨기기/보이기 미션
+  if (title.includes('숨') || title.includes('보이') || desc.includes('숨기') || desc.includes('보이기')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-slate-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #1e293b 0%, #334155 50%, #475569 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-slate-700 to-slate-600" />
+        <motion.div animate={{ opacity: isRunning ? [1, 0, 1, 0, 1] : 1 }} transition={{ duration: 3 }} className="absolute bottom-16 left-1/2 -translate-x-1/2">
+          <span className="text-6xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute top-4 left-4 bg-slate-700/80 px-3 py-1 rounded-lg text-slate-300 text-sm flex items-center gap-2">
+          <span>👁️</span> 숨바꼭질!
+        </div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-slate-400 to-gray-400 text-slate-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">숨바꼭질 중...</div>}
+      </div>
+    );
+  }
+
+  // 배경 바꾸기 미션
+  if (title.includes('배경') || desc.includes('배경')) {
+    const [bgIndex, setBgIndex] = React.useState(0);
+    const backgrounds = [
+      'linear-gradient(180deg, #38bdf8 0%, #7dd3fc 100%)',
+      'linear-gradient(180deg, #1e1b4b 0%, #312e81 100%)',
+      'linear-gradient(180deg, #fbbf24 0%, #f97316 100%)',
+      'linear-gradient(180deg, #22c55e 0%, #16a34a 100%)'
+    ];
+    React.useEffect(() => {
+      if (isRunning) {
+        const interval = setInterval(() => setBgIndex(i => (i + 1) % 4), 800);
+        return () => clearInterval(interval);
+      }
+    }, [isRunning]);
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-sky-500/50 relative overflow-hidden shadow-lg transition-all duration-500" style={{ height: '220px', background: isRunning ? backgrounds[bgIndex] : backgrounds[0] }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-green-700 to-green-500" />
+        <motion.div className="absolute bottom-16 left-1/2 -translate-x-1/2">
+          <span className="text-6xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute top-4 left-4 bg-black/30 px-3 py-1 rounded-lg text-white text-sm">🖼️ 배경 {bgIndex + 1}</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-sky-400 to-blue-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">배경 변경 중...</div>}
+      </div>
+    );
+  }
+
+  // 애니메이션/모양 바꾸기 미션
+  if (title.includes('애니메이션') || title.includes('모양') || desc.includes('걷는') || concept.includes('모양')) {
+    const catFaces = ['😺', '😸', '😹', '😻', '🙀', '😿'];
+    const [faceIndex, setFaceIndex] = React.useState(0);
+    React.useEffect(() => {
+      if (isRunning) {
+        const interval = setInterval(() => setFaceIndex(i => (i + 1) % catFaces.length), 200);
+        return () => clearInterval(interval);
+      }
+    }, [isRunning]);
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-orange-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #fb923c 0%, #f97316 50%, #ea580c 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-amber-700 to-amber-600" />
+        <motion.div animate={{ x: isRunning ? [80, 280] : 80 }} transition={{ duration: 2, repeat: isRunning ? Infinity : 0 }} className="absolute bottom-14">
+          <span className="text-6xl drop-shadow-lg">{isRunning ? catFaces[faceIndex] : '🐱'}</span>
+        </motion.div>
+        <div className="absolute top-4 left-4 bg-orange-800/80 px-3 py-1 rounded-lg text-orange-200 text-sm">👔 모양 바꾸기!</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-orange-400 to-amber-400 text-orange-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">애니메이션 중...</div>}
+      </div>
+    );
+  }
+
+  // 랜덤 위치 미션
+  if (title.includes('랜덤') || title.includes('무작위') || desc.includes('무작위')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-yellow-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #854d0e 0%, #a16207 50%, #ca8a04 100%)' }}>
+        <motion.div animate={isRunning ? { x: [80, 200, 50, 250, 120], y: [100, 40, 150, 80, 100] } : { x: charX, y: 100 }} transition={{ duration: 2, repeat: isRunning ? Infinity : 0 }} className="absolute">
+          <span className="text-5xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute bottom-2 left-4 text-yellow-300 text-xs">🎲 클릭하면 랜덤 위치로!</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-amber-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">순간이동!</div>}
+      </div>
+    );
+  }
+
+  // 벽 감지/충돌 미션
+  if (title.includes('벽') || title.includes('감지') || title.includes('부딪') || desc.includes('벽')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-red-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%)' }}>
+        <div className="absolute left-0 top-0 bottom-0 w-4 bg-slate-600" />
+        <div className="absolute right-0 top-0 bottom-0 w-4 bg-slate-600" />
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-slate-700 to-slate-600" />
+        <motion.div animate={isRunning ? { x: [80, 280, 80], scaleX: [1, -1, 1] } : { x: charX }} transition={{ duration: 2, repeat: isRunning ? Infinity : 0, ease: 'linear' }} className="absolute bottom-14">
+          <span className="text-5xl drop-shadow-lg">🐱</span>
+        </motion.div>
+        <div className="absolute top-4 left-8 bg-red-800/80 px-3 py-1 rounded-lg text-red-200 text-sm">🧱 벽에 닿으면 방향 전환!</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-red-400 to-rose-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">감지 중...</div>}
+      </div>
+    );
+  }
+
+  // 점수/변수 미션
+  if (title.includes('점수') || title.includes('변수') || desc.includes('점수') || concept.includes('변수')) {
+    const [score, setScore] = React.useState(0);
+    React.useEffect(() => {
+      if (isRunning) {
+        const interval = setInterval(() => setScore(s => s + 10), 500);
+        return () => clearInterval(interval);
+      }
+    }, [isRunning]);
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-emerald-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #064e3b 0%, #065f46 50%, #047857 100%)' }}>
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/40 px-6 py-2 rounded-xl">
+          <span className="text-2xl font-bold text-yellow-300">점수: {score}</span>
+        </div>
+        <motion.div className="absolute bottom-14 left-1/2 -translate-x-1/2"><span className="text-5xl">🐱</span></motion.div>
+        <motion.div animate={isRunning ? { y: [-20, 0], opacity: [0, 1, 0] } : {}} transition={{ duration: 0.5, repeat: isRunning ? Infinity : 0 }} className="absolute top-20 left-1/2 -translate-x-1/2 text-yellow-300 font-bold text-lg">
+          {isRunning && '+10'}
+        </motion.div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-emerald-400 to-green-400 text-emerald-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">점수 획득!</div>}
+      </div>
+    );
+  }
+
+  // 자기소개/인사 미션
+  if (title.includes('자기소개') || title.includes('소개') || desc.includes('소개')) {
+    const messages = ['안녕!', '나는 코딩 고양이야!', '코딩이 재미있어!', '같이 배우자!'];
+    const [msgIndex, setMsgIndex] = React.useState(0);
+    React.useEffect(() => {
+      if (isRunning) {
+        const interval = setInterval(() => setMsgIndex(i => (i + 1) % messages.length), 1500);
+        return () => clearInterval(interval);
+      }
+    }, [isRunning]);
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-pink-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #831843 0%, #9d174d 50%, #be185d 100%)' }}>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-pink-800 to-pink-700" />
+        <motion.div className="absolute bottom-16 left-1/2 -translate-x-1/2"><span className="text-6xl">🐱</span></motion.div>
+        {isRunning && (
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} key={msgIndex} className="absolute top-16 left-1/2 -translate-x-1/2 bg-white px-5 py-3 rounded-2xl shadow-xl">
+            <p className="text-base font-bold text-gray-800">{messages[msgIndex]}</p>
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white" />
+          </motion.div>
+        )}
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-pink-400 to-rose-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">자기소개 중...</div>}
       </div>
     );
   }
