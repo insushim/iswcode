@@ -728,13 +728,84 @@ const BlockCodingMission: React.FC<Props> = ({ mission, onComplete }) => {
   const [playingSound, setPlayingSound] = useState(false);
   const [score, setScore] = useState(0);
 
-  useEffect(() => {
-    if (mission.blocks && mission.blocks.length > 0) {
-      const shuffled = [...mission.blocks].sort(() => Math.random() - 0.5);
-      setAvailableBlocks(shuffled);
-      setAssembledBlocks([]);
+  // 미션 데이터를 기반으로 블록 자동 생성
+  const generateBlocksFromMission = (): string[] => {
+    const title = mission.title?.toLowerCase() || '';
+    const desc = mission.description?.toLowerCase() || '';
+    const concept = mission.concept?.toLowerCase() || '';
+
+    // 블록 템플릿 - 주제별
+    const blockTemplates: Record<string, string[]> = {
+      // 퍼즐/게임
+      '퍼즐': ['🚩 게임 시작', '🎯 클릭 감지하기', '✅ 점수 +10', '🔄 3번 반복하기', '🔊 효과음 재생'],
+      '매칭': ['🚩 게임 시작', '🖱️ 블록 클릭했을 때', '🔍 같은 색인지 확인', '✅ 맞으면 점수 +10', '❌ 틀리면 다시 섞기'],
+      '게임': ['🚩 게임 시작', '🎮 키보드 입력 감지', '➡️ 캐릭터 이동', '💥 충돌 확인', '🏆 점수 표시'],
+
+      // 이동/회전
+      '이동': ['🚩 깃발 클릭', '➡️ 10칸 이동하기', '⬆️ 앞으로 가기', '🔄 오른쪽 90° 회전'],
+      '회전': ['🚩 깃발 클릭', '🔄 오른쪽 90° 회전', '↩️ 왼쪽 90° 회전', '🔁 360° 회전'],
+
+      // 반복문
+      '반복': ['🚩 깃발 클릭', '🔁 5번 반복하기', '➡️ 10칸 이동', '🔄 72° 회전', '반복 끝'],
+      '루프': ['🚩 깃발 클릭', '🔁 무한 반복', '➡️ 1칸 이동', '⏱️ 0.1초 기다리기'],
+
+      // 조건문
+      '조건': ['🚩 깃발 클릭', '❓ 만약 벽이면', '🔄 방향 바꾸기', '아니면', '➡️ 앞으로 가기'],
+      '만약': ['🚩 깃발 클릭', '❓ 만약 닿으면', '🔊 소리 재생', '✨ 효과 주기'],
+
+      // 변수
+      '변수': ['🚩 깃발 클릭', '📊 점수 = 0', '🔁 클릭할 때마다', '📊 점수 +1', '💬 점수 말하기'],
+      '점수': ['🚩 게임 시작', '📊 점수 = 0', '✅ 성공하면 +10', '❌ 실패하면 -5', '🏆 결과 표시'],
+
+      // 이벤트
+      '클릭': ['🖱️ 클릭했을 때', '✨ 색깔 바꾸기', '📐 크기 키우기', '💬 "안녕!" 말하기'],
+      '키보드': ['⌨️ 스페이스 누르면', '🦘 점프하기', '⬅️ 왼쪽 누르면', '➡️ 오른쪽 이동'],
+
+      // 그래픽/애니메이션
+      '애니메이션': ['🚩 깃발 클릭', '🔁 무한 반복', '👔 다음 모양', '⏱️ 0.2초 기다리기'],
+      '색깔': ['🚩 깃발 클릭', '🎨 색깔 효과 25', '⏱️ 0.5초 기다리기', '🔁 계속 반복'],
+      '효과': ['🚩 깃발 클릭', '✨ 유령 효과', '🔊 소리 재생', '💫 회전 효과'],
+
+      // 대화/입력
+      '대화': ['🚩 깃발 클릭', '❓ "이름이 뭐야?" 묻기', '💬 "안녕, " + 대답', '⏱️ 2초 기다리기'],
+      '입력': ['🚩 깃발 클릭', '❓ 숫자 입력받기', '🔢 계산하기', '💬 결과 말하기'],
+
+      // 그리기
+      '그리기': ['🚩 깃발 클릭', '🖊️ 펜 내리기', '🔁 4번 반복', '➡️ 100 이동', '🔄 90° 회전'],
+      '도형': ['🚩 깃발 클릭', '🖊️ 펜 내리기', '🔁 반복하기', '➡️ 이동', '🔄 회전', '🖊️ 펜 올리기'],
+    };
+
+    // 기본 블록
+    const defaultBlocks = [
+      '🚩 깃발 클릭했을 때',
+      '➡️ 10칸 이동하기',
+      '🔄 오른쪽 90° 회전',
+      '💬 "안녕!" 말하기',
+      '🔁 3번 반복하기'
+    ];
+
+    // 미션 키워드로 적절한 블록 찾기
+    for (const [keyword, blocks] of Object.entries(blockTemplates)) {
+      if (title.includes(keyword) || desc.includes(keyword) || concept.includes(keyword)) {
+        return blocks;
+      }
     }
-  }, [mission.blocks]);
+
+    return defaultBlocks;
+  };
+
+  useEffect(() => {
+    let blocks: string[];
+    if (mission.blocks && mission.blocks.length > 0) {
+      blocks = [...mission.blocks];
+    } else {
+      // 블록이 없으면 자동 생성
+      blocks = generateBlocksFromMission();
+    }
+    const shuffled = blocks.sort(() => Math.random() - 0.5);
+    setAvailableBlocks(shuffled);
+    setAssembledBlocks([]);
+  }, [mission]);
 
   const handleDragStart = (block: string) => {
     setDraggedBlock(block);
@@ -817,40 +888,61 @@ const BlockCodingMission: React.FC<Props> = ({ mission, onComplete }) => {
   };
 
   const checkAnswer = async () => {
-    if (!mission.blocks) return;
     await runAnimation();
-    const correctAnswer = (mission as any).correctBlocks || mission.blocks;
-    if (assembledBlocks.length < correctAnswer.length) {
-      setShowHint(true);
-      return;
-    }
-    const isCorrect = correctAnswer.every((block: string, index: number) => assembledBlocks[index] === block);
-    if (isCorrect) {
-      setScore(mission.exp || 100);
-      setIsComplete(true);
-      setTimeout(() => onComplete(true), 1500);
+
+    // 미션에 정해진 정답이 있는 경우
+    if (mission.blocks && mission.blocks.length > 0) {
+      const correctAnswer = (mission as any).correctBlocks || mission.blocks;
+      if (assembledBlocks.length < correctAnswer.length) {
+        setShowHint(true);
+        return;
+      }
+      const isCorrect = correctAnswer.every((block: string, index: number) => assembledBlocks[index] === block);
+      if (isCorrect) {
+        setScore(mission.exp || 100);
+        setIsComplete(true);
+        setTimeout(() => onComplete(true), 1500);
+      } else {
+        setShowHint(true);
+      }
     } else {
-      setShowHint(true);
+      // 자동 생성된 블록의 경우: 첫 번째 블록이 시작 블록이고 3개 이상 배치하면 성공
+      const firstBlock = assembledBlocks[0]?.toLowerCase() || '';
+      const isStartBlock = firstBlock.includes('시작') || firstBlock.includes('깃발') || firstBlock.includes('클릭');
+
+      if (assembledBlocks.length >= 3 && isStartBlock) {
+        setScore(mission.exp || 100);
+        setIsComplete(true);
+        setTimeout(() => onComplete(true), 1500);
+      } else if (assembledBlocks.length < 3) {
+        setShowHint(true);
+      } else if (!isStartBlock) {
+        setShowHint(true);
+      }
     }
   };
 
   const reset = () => {
-    if (mission.blocks) {
-      const shuffled = [...mission.blocks].sort(() => Math.random() - 0.5);
-      setAvailableBlocks(shuffled);
-      setAssembledBlocks([]);
-      setIsComplete(false);
-      setShowHint(false);
-      setIsRunning(false);
-      setCharX(80);
-      setCharScale(1);
-      setCharRotation(0);
-      setShowBubble(false);
-      setBubbleText('');
-      setCharColor(0);
-      setPlayingSound(false);
-      setScore(0);
+    let blocks: string[];
+    if (mission.blocks && mission.blocks.length > 0) {
+      blocks = [...mission.blocks];
+    } else {
+      blocks = generateBlocksFromMission();
     }
+    const shuffled = blocks.sort(() => Math.random() - 0.5);
+    setAvailableBlocks(shuffled);
+    setAssembledBlocks([]);
+    setIsComplete(false);
+    setShowHint(false);
+    setIsRunning(false);
+    setCharX(80);
+    setCharScale(1);
+    setCharRotation(0);
+    setShowBubble(false);
+    setBubbleText('');
+    setCharColor(0);
+    setPlayingSound(false);
+    setScore(0);
   };
 
   const getBlockColor3D = (block: string): string => {
