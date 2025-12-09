@@ -710,6 +710,178 @@ const RobotGridMission: React.FC<Props> = ({ mission, onComplete }) => {
   );
 };
 
+// 미션별 실행 화면 컴포넌트
+const MissionStage: React.FC<{
+  mission: MissionType;
+  isRunning: boolean;
+  charX: number;
+  charScale: number;
+  charRotation: number;
+  charColor: number;
+  showBubble: boolean;
+  bubbleText: string;
+  playingSound: boolean;
+}> = ({ mission, isRunning, charX, charScale, charRotation, charColor, showBubble, bubbleText, playingSound }) => {
+  const title = mission.title?.toLowerCase() || '';
+  const concept = mission.concept?.toLowerCase() || '';
+
+  // 슈팅 게임
+  if (title.includes('슈팅') || concept.includes('슈팅')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-purple-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%)' }}>
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(20)].map((_, i) => (
+            <motion.div key={i} className="absolute w-1 h-1 bg-white rounded-full" style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }} animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1 + Math.random() * 2, repeat: Infinity }} />
+          ))}
+        </div>
+        <div className="absolute top-4 left-4 text-white font-bold">SCORE: 0</div>
+        <motion.div animate={{ x: charX, y: isRunning ? [0, -5, 0] : 0 }} transition={{ y: { repeat: Infinity, duration: 0.3 } }} className="absolute bottom-16 left-8">
+          <span className="text-5xl">🚀</span>
+        </motion.div>
+        {isRunning && (
+          <>
+            <motion.div initial={{ x: 80, y: 120 }} animate={{ x: 350, opacity: [1, 1, 0] }} transition={{ duration: 0.8 }} className="absolute text-2xl">💫</motion.div>
+            <motion.div className="absolute right-20 top-1/2" animate={{ x: [-20, -60], opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}><span className="text-4xl">👾</span></motion.div>
+            <motion.div className="absolute right-40 top-1/3" animate={{ x: [-10, -50], opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 2, delay: 0.5 }}><span className="text-3xl">👽</span></motion.div>
+          </>
+        )}
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-gray-400 text-xs">⌨️ 스페이스바로 발사!</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-purple-400 to-pink-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">실행 중...</div>}
+      </div>
+    );
+  }
+
+  // 퍼즐/매칭 게임
+  if (title.includes('퍼즐') || title.includes('매칭') || concept.includes('매칭')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-emerald-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%)' }}>
+        <div className="absolute top-4 left-4 text-white font-bold">SCORE: 0</div>
+        <div className="grid grid-cols-4 gap-2 absolute top-12 left-1/2 -translate-x-1/2">
+          {['🔴', '🔵', '🟢', '🟡', '🔴', '🟡', '🔵', '🟢', '🟢', '🔴', '🟡', '🔵'].map((color, i) => (
+            <motion.div key={i} className="w-10 h-10 bg-slate-800/50 rounded-lg flex items-center justify-center text-2xl cursor-pointer border-2 border-slate-600" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} animate={isRunning && i < 4 ? { scale: [1, 1.2, 1], rotate: [0, 10, -10, 0] } : {}} transition={{ duration: 0.5, delay: i * 0.1 }}>
+              {color}
+            </motion.div>
+          ))}
+        </div>
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-emerald-300 text-xs">🖱️ 같은 색을 클릭!</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-emerald-400 to-green-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">실행 중...</div>}
+      </div>
+    );
+  }
+
+  // 레이싱/자동차 게임
+  if (title.includes('레이싱') || title.includes('자동차') || title.includes('경주')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-orange-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #1f2937 0%, #374151 50%, #4b5563 100%)' }}>
+        <div className="absolute inset-x-0 top-0 bottom-0 flex justify-center">
+          <div className="w-48 h-full bg-gray-700 relative overflow-hidden">
+            <motion.div className="absolute inset-0" animate={isRunning ? { y: [0, 40] } : {}} transition={{ repeat: Infinity, duration: 0.3, ease: 'linear' }}>
+              {[...Array(8)].map((_, i) => (<div key={i} className="w-2 h-8 bg-yellow-400 mx-auto mb-8" style={{ marginTop: i === 0 ? '10px' : '0' }} />))}
+            </motion.div>
+          </div>
+        </div>
+        <motion.div animate={{ x: charX - 50 }} className="absolute bottom-12 left-1/2 -translate-x-1/2"><span className="text-5xl">🏎️</span></motion.div>
+        <div className="absolute top-4 left-4 text-white font-bold">LAP: 1/3</div>
+        <div className="absolute top-4 right-4 text-white font-bold">⏱️ 00:00</div>
+        {isRunning && <div className="absolute top-12 right-3 bg-gradient-to-r from-orange-400 to-red-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">실행 중...</div>}
+      </div>
+    );
+  }
+
+  // 점프/플랫포머 게임
+  if (title.includes('점프') || title.includes('플랫폼') || concept.includes('점프')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-cyan-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #0891b2 0%, #06b6d4 50%, #67e8f9 100%)' }}>
+        <motion.div className="absolute top-4 text-3xl" animate={{ x: [0, 200, 0] }} transition={{ duration: 15, repeat: Infinity }}>☁️</motion.div>
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-green-700 to-green-500" />
+        <div className="absolute bottom-12 left-20 w-16 h-8 bg-amber-700 rounded" />
+        <div className="absolute bottom-20 left-48 w-16 h-8 bg-amber-700 rounded" />
+        <div className="absolute bottom-28 right-20 w-16 h-8 bg-amber-700 rounded" />
+        <motion.div animate={{ x: charX, y: isRunning ? [-20, 0] : 0 }} transition={{ y: { type: 'spring', stiffness: 300 } }} className="absolute bottom-12"><span className="text-5xl">🐱</span></motion.div>
+        <div className="absolute bottom-16 right-8"><span className="text-3xl">⭐</span></div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-cyan-400 to-blue-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">실행 중...</div>}
+      </div>
+    );
+  }
+
+  // 그리기/펜 미션
+  if (title.includes('그리기') || title.includes('도형') || title.includes('별') || concept.includes('펜')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-violet-500/50 relative overflow-hidden shadow-lg flex items-center justify-center" style={{ height: '220px', background: '#1e1e1e' }}>
+        <svg width="180" height="180" className="absolute">
+          {isRunning && (
+            <motion.path d="M90,30 L120,80 L170,90 L130,130 L140,180 L90,150 L40,180 L50,130 L10,90 L60,80 Z" fill="none" stroke="#a855f7" strokeWidth="3" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2 }} />
+          )}
+        </svg>
+        <motion.div animate={{ rotate: charRotation }} className="absolute"><span className="text-4xl">🐢</span></motion.div>
+        <div className="absolute bottom-2 text-gray-500 text-xs">🖊️ 펜으로 도형 그리기</div>
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-violet-400 to-purple-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">그리는 중...</div>}
+      </div>
+    );
+  }
+
+  // 대화/인터랙션 미션
+  if (title.includes('대화') || title.includes('말하') || concept.includes('대화')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-pink-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #701a75 0%, #86198f 50%, #a21caf 100%)' }}>
+        <motion.div animate={{ x: 60, scale: charScale }} className="absolute bottom-12 left-8"><span className="text-6xl">🐱</span></motion.div>
+        <motion.div className="absolute bottom-12 right-12"><span className="text-5xl">🧑</span></motion.div>
+        {(showBubble || isRunning) && (
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="absolute top-12 left-20 bg-white px-4 py-3 rounded-2xl shadow-xl max-w-[200px]">
+            <p className="text-sm font-bold text-gray-800">{bubbleText || '안녕! 이름이 뭐야?'}</p>
+            <div className="absolute -bottom-2 left-4 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white" />
+          </motion.div>
+        )}
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-pink-400 to-rose-400 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">대화 중...</div>}
+      </div>
+    );
+  }
+
+  // 음악/소리 미션
+  if (title.includes('음악') || title.includes('소리') || title.includes('리듬') || concept.includes('소리')) {
+    return (
+      <div className="rounded-2xl p-4 mb-4 border-4 border-amber-500/50 relative overflow-hidden shadow-lg" style={{ height: '220px', background: 'linear-gradient(180deg, #78350f 0%, #92400e 50%, #b45309 100%)' }}>
+        <div className="flex justify-center gap-3 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          {['🥁', '🎹', '🎸', '🎺'].map((inst, i) => (
+            <motion.div key={i} className="w-14 h-14 bg-slate-800/60 rounded-xl flex items-center justify-center text-3xl cursor-pointer border-2 border-amber-600" whileHover={{ scale: 1.1 }} animate={isRunning && i === Math.floor(Date.now() / 500) % 4 ? { scale: [1, 1.3, 1], y: [0, -10, 0] } : {}} transition={{ duration: 0.2 }}>
+              {inst}
+            </motion.div>
+          ))}
+        </div>
+        {isRunning && (
+          <motion.div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {['🎵', '🎶', '🎵'].map((note, i) => (
+              <motion.span key={i} className="text-2xl" animate={{ y: [0, -10, 0], opacity: [1, 0.5, 1] }} transition={{ duration: 0.5, delay: i * 0.15, repeat: Infinity }}>{note}</motion.span>
+            ))}
+          </motion.div>
+        )}
+        {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-amber-400 to-yellow-400 text-amber-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">연주 중...</div>}
+      </div>
+    );
+  }
+
+  // 기본 실행 화면 (캐릭터 이동)
+  return (
+    <div className="rounded-2xl p-4 mb-4 border-4 border-sky-500/50 relative overflow-hidden shadow-lg" style={{ height: '200px', background: 'linear-gradient(180deg, #38bdf8 0%, #0ea5e9 50%, #7dd3fc 100%)' }}>
+      <motion.div className="absolute top-4 text-4xl opacity-80" animate={{ x: [0, 300, 0] }} transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}>☁️</motion.div>
+      <motion.div className="absolute top-12 left-20 text-2xl opacity-60" animate={{ x: [0, 250, 0] }} transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}>☁️</motion.div>
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-green-700 via-green-500 to-green-400" />
+      <div className="absolute bottom-12 left-0 right-0 h-2 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600" />
+      <motion.div animate={{ x: charX, scale: charScale, rotate: charRotation }} transition={{ type: 'spring', stiffness: 200, damping: 20 }} className="absolute bottom-12" style={{ filter: charColor > 0 ? `hue-rotate(${charColor}deg)` : 'none' }}>
+        <span className="text-6xl drop-shadow-lg">{isRunning ? '🐱' : '😺'}</span>
+        {showBubble && (
+          <motion.div initial={{ opacity: 0, y: 10, scale: 0.8 }} animate={{ opacity: 1, y: 0, scale: 1 }} className="absolute -top-14 left-10 bg-white px-4 py-2 rounded-2xl text-sm font-bold shadow-xl whitespace-nowrap border-2 border-slate-200">
+            {bubbleText}
+            <div className="absolute -bottom-2 left-3 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white" />
+          </motion.div>
+        )}
+        {playingSound && (<motion.div animate={{ scale: [1, 1.3, 1], y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 0.4 }} className="absolute -top-10 left-10 text-3xl">🎵</motion.div>)}
+      </motion.div>
+      {isRunning && <div className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">실행 중...</div>}
+    </div>
+  );
+};
+
 // 일반 블록 코딩 미션 (3D 스타일 업그레이드)
 const BlockCodingMission: React.FC<Props> = ({ mission, onComplete }) => {
   const [availableBlocks, setAvailableBlocks] = useState<string[]>([]);
@@ -987,63 +1159,18 @@ const BlockCodingMission: React.FC<Props> = ({ mission, onComplete }) => {
         </div>
       )}
 
-      {/* 3D 캐릭터 실행 영역 */}
-      <div
-        className="rounded-2xl p-4 mb-4 border-4 border-sky-500/50 relative overflow-hidden shadow-[inset_0_4px_20px_rgba(0,0,0,0.3)]"
-        style={{
-          height: '200px',
-          background: 'linear-gradient(180deg, #38bdf8 0%, #0ea5e9 50%, #7dd3fc 100%)'
-        }}
-      >
-        {/* 구름 */}
-        <motion.div
-          className="absolute top-4 text-4xl opacity-80"
-          animate={{ x: [0, 300, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-        >☁️</motion.div>
-        <motion.div
-          className="absolute top-12 left-20 text-2xl opacity-60"
-          animate={{ x: [0, 250, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-        >☁️</motion.div>
-
-        {/* 땅 - 3D 효과 */}
-        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-green-700 via-green-500 to-green-400 shadow-[inset_0_4px_0_0_rgba(255,255,255,0.2)]"></div>
-        <div className="absolute bottom-12 left-0 right-0 h-2 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600"></div>
-
-        {/* 캐릭터 */}
-        <motion.div
-          animate={{ x: charX, scale: charScale, rotate: charRotation }}
-          transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-          className="absolute bottom-12"
-          style={{ filter: charColor > 0 ? `hue-rotate(${charColor}deg)` : 'none' }}
-        >
-          <span className="text-6xl drop-shadow-lg">{isRunning ? '🐱' : '😺'}</span>
-          {showBubble && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              className="absolute -top-14 left-10 bg-white px-4 py-2 rounded-2xl text-sm font-bold shadow-xl whitespace-nowrap border-2 border-slate-200"
-            >
-              {bubbleText}
-              <div className="absolute -bottom-2 left-3 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-white"></div>
-            </motion.div>
-          )}
-          {playingSound && (
-            <motion.div
-              animate={{ scale: [1, 1.3, 1], y: [0, -5, 0] }}
-              transition={{ repeat: Infinity, duration: 0.4 }}
-              className="absolute -top-10 left-10 text-3xl"
-            >🎵</motion.div>
-          )}
-        </motion.div>
-
-        {isRunning && (
-          <div className="absolute top-3 right-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold animate-pulse shadow-lg">
-            실행 중...
-          </div>
-        )}
-      </div>
+      {/* 미션별 실행 화면 */}
+      <MissionStage
+        mission={mission}
+        isRunning={isRunning}
+        charX={charX}
+        charScale={charScale}
+        charRotation={charRotation}
+        charColor={charColor}
+        showBubble={showBubble}
+        bubbleText={bubbleText}
+        playingSound={playingSound}
+      />
 
       <div className="bg-blue-900/30 rounded-xl p-4 mb-4 border border-blue-500/30">
         <p className="text-blue-300 text-sm font-medium flex items-center gap-2">
