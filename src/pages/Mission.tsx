@@ -450,67 +450,153 @@ const DragDropMission: React.FC<{ mission: MissionType; onComplete: (perfect: bo
 const PatternMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
   const [answer, setAnswer] = useState('');
   const [feedback, setFeedback] = useState<'none' | 'correct' | 'incorrect'>('none');
+  const [attempts, setAttempts] = useState(0);
 
-  // Sample patterns - would be better from mission data
-  const patterns = [
-    { sequence: [2, 4, 6, 8, '?'], answer: '10', hint: '2씩 증가' },
-    { sequence: [1, 1, 2, 3, 5, '?'], answer: '8', hint: '피보나치 수열' },
-    { sequence: [1, 4, 9, 16, '?'], answer: '25', hint: '제곱수' },
-  ];
-  const [currentPattern] = useState(() => patterns[Math.floor(Math.random() * patterns.length)]);
+  // 미션 데이터 기반 패턴 생성
+  const generatePatternFromMission = () => {
+    const title = mission.title?.toLowerCase() || '';
+    const desc = mission.description?.toLowerCase() || '';
+    const concept = mission.concept?.toLowerCase() || '';
+
+    // 다양한 패턴 유형
+    const patternTypes = {
+      '숫자': [
+        { sequence: [2, 4, 6, 8, '?'], answer: '10', hint: '2씩 증가하는 수열', type: 'number' },
+        { sequence: [1, 3, 5, 7, '?'], answer: '9', hint: '홀수 패턴', type: 'number' },
+        { sequence: [3, 6, 9, 12, '?'], answer: '15', hint: '3의 배수', type: 'number' },
+        { sequence: [5, 10, 15, 20, '?'], answer: '25', hint: '5씩 증가', type: 'number' },
+      ],
+      '피보나치': [
+        { sequence: [1, 1, 2, 3, 5, '?'], answer: '8', hint: '앞 두 수를 더하면?', type: 'number' },
+        { sequence: [0, 1, 1, 2, 3, '?'], answer: '5', hint: '피보나치 수열', type: 'number' },
+      ],
+      '제곱': [
+        { sequence: [1, 4, 9, 16, '?'], answer: '25', hint: '제곱수 패턴', type: 'number' },
+        { sequence: [4, 9, 16, 25, '?'], answer: '36', hint: 'n²의 패턴', type: 'number' },
+      ],
+      '도형': [
+        { sequence: ['🔴', '🔵', '🔴', '🔵', '?'], answer: '🔴', hint: '빨강-파랑 반복', type: 'shape' },
+        { sequence: ['⭐', '⭐', '🌙', '⭐', '⭐', '?'], answer: '🌙', hint: '별-별-달 패턴', type: 'shape' },
+        { sequence: ['🟢', '🟡', '🔴', '🟢', '🟡', '?'], answer: '🔴', hint: '초록-노랑-빨강 반복', type: 'shape' },
+      ],
+      '색상': [
+        { sequence: ['빨강', '주황', '노랑', '초록', '?'], answer: '파랑', hint: '무지개 순서', type: 'text' },
+        { sequence: ['검정', '흰색', '검정', '흰색', '?'], answer: '검정', hint: '번갈아 반복', type: 'text' },
+      ],
+      '알파벳': [
+        { sequence: ['A', 'C', 'E', 'G', '?'], answer: 'I', hint: '하나씩 건너뛰기', type: 'text' },
+        { sequence: ['가', '나', '다', '라', '?'], answer: '마', hint: '한글 순서', type: 'text' },
+      ],
+      '기하학': [
+        { sequence: [3, 4, 5, 6, '?'], answer: '7', hint: '다각형 변의 수', type: 'number' },
+      ],
+    };
+
+    // 미션 키워드로 적절한 패턴 선택
+    let matchedPatterns: Array<{sequence: (string | number)[]; answer: string; hint: string; type: string}> = [];
+
+    for (const [keyword, patterns] of Object.entries(patternTypes)) {
+      if (title.includes(keyword) || desc.includes(keyword) || concept.includes(keyword)) {
+        matchedPatterns = [...matchedPatterns, ...patterns];
+      }
+    }
+
+    // 매칭되는 게 없으면 기본 숫자 패턴
+    if (matchedPatterns.length === 0) {
+      matchedPatterns = patternTypes['숫자'];
+    }
+
+    return matchedPatterns[Math.floor(Math.random() * matchedPatterns.length)];
+  };
+
+  const [currentPattern] = useState(generatePatternFromMission);
 
   const handleSubmit = () => {
-    if (answer === currentPattern.answer) {
+    setAttempts(prev => prev + 1);
+    const userAnswer = answer.trim().toLowerCase();
+    const correctAnswer = currentPattern.answer.toLowerCase();
+
+    if (userAnswer === correctAnswer) {
       setFeedback('correct');
-      setTimeout(() => onComplete(true), 1500);
+      setTimeout(() => onComplete(attempts === 0), 1500);
     } else {
       setFeedback('incorrect');
     }
   };
 
+  const getItemStyle = (item: string | number, isQuestion: boolean) => {
+    if (isQuestion) {
+      return 'border-violet-500 bg-violet-100 dark:bg-violet-900/30 text-violet-600';
+    }
+    if (currentPattern.type === 'shape' && typeof item === 'string') {
+      return 'border-slate-600 bg-slate-900/50 text-3xl';
+    }
+    return 'border-slate-600 bg-slate-900/50 text-slate-200';
+  };
+
   return (
     <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
-      <h3 className="text-lg font-bold mb-6 text-white">패턴을 찾아 ?에 들어갈 숫자를 입력하세요</h3>
+      <h3 className="text-lg font-bold mb-2 text-white">{mission.title}</h3>
+      <p className="text-slate-400 mb-6">패턴을 찾아 ?에 들어갈 값을 입력하세요</p>
 
-      <div className="flex justify-center gap-4 mb-8">
+      <div className="flex justify-center flex-wrap gap-3 mb-8">
         {currentPattern.sequence.map((item, index) => (
-          <div
+          <motion.div
             key={index}
-            className={`w-16 h-16 flex items-center justify-center text-2xl font-black rounded-xl border-2 ${
-              item === '?'
-                ? 'border-violet-500 bg-violet-100 dark:bg-violet-900/30 text-violet-600'
-                : 'border-slate-600 bg-slate-900/50 text-slate-200'
-            }`}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.1 }}
+            className={`w-16 h-16 flex items-center justify-center text-2xl font-black rounded-xl border-2 ${getItemStyle(item, item === '?')}`}
           >
             {item}
-          </div>
+          </motion.div>
         ))}
       </div>
 
       <div className="max-w-xs mx-auto">
-        <input
-          type="text"
-          value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
-          placeholder="정답 입력"
-          className="w-full px-4 py-3 text-center text-xl font-bold rounded-xl border-2 border-slate-600 bg-slate-700 text-white focus:outline-none focus:border-violet-500"
-        />
+        {currentPattern.type === 'shape' ? (
+          <div className="grid grid-cols-4 gap-2 mb-4">
+            {['🔴', '🔵', '🟢', '🟡', '⭐', '🌙', '💜', '🧡'].map((emoji) => (
+              <button
+                key={emoji}
+                onClick={() => setAnswer(emoji)}
+                className={`w-12 h-12 text-2xl rounded-lg border-2 transition-all ${
+                  answer === emoji
+                    ? 'border-violet-500 bg-violet-100 dark:bg-violet-900/50'
+                    : 'border-slate-600 bg-slate-700 hover:bg-slate-600'
+                }`}
+              >
+                {emoji}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <input
+            type="text"
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
+            placeholder="정답 입력"
+            className="w-full px-4 py-3 text-center text-xl font-bold rounded-xl border-2 border-slate-600 bg-slate-700 text-white focus:outline-none focus:border-violet-500"
+          />
+        )}
 
         {feedback !== 'none' && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className={`mt-4 p-3 rounded-xl text-center font-bold ${
-              feedback === 'correct' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'
+              feedback === 'correct' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
             }`}
           >
-            {feedback === 'correct' ? '정답! 🎉' : `틀렸어요. 힌트: ${currentPattern.hint}`}
+            {feedback === 'correct' ? '정답! 🎉' : `힌트: ${currentPattern.hint}`}
           </motion.div>
         )}
 
         <button
           onClick={handleSubmit}
-          className="w-full mt-4 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors"
+          disabled={!answer}
+          className="w-full mt-4 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           확인
         </button>
@@ -521,23 +607,137 @@ const PatternMission: React.FC<{ mission: MissionType; onComplete: (perfect: boo
 
 // Quiz Mission
 const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [attempts, setAttempts] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
 
-  // Sample quiz - would be better from mission data
-  const quiz = {
-    question: mission.description || '다음 중 올바른 것은?',
-    options: ['알고리즘은 프로그래밍 언어다', '알고리즘은 문제 해결 절차다', '알고리즘은 컴퓨터 부품이다', '알고리즘은 게임 이름이다'],
-    correctAnswer: 1,
-    explanation: '알고리즘은 문제를 해결하기 위한 단계별 절차입니다.'
+  // 미션 데이터 기반 동적 퀴즈 생성
+  const generateQuizFromMission = () => {
+    const concept = mission.concept?.toLowerCase() || '';
+    const title = mission.title?.toLowerCase() || '';
+    const desc = mission.description?.toLowerCase() || '';
+
+    // 퀴즈 데이터베이스 - 개념별 문제
+    const quizDatabase: Record<string, Array<{question: string; options: string[]; correctAnswer: number; explanation: string}>> = {
+      // Unit 1: 컴퓨팅 사고
+      'algorithm': [
+        { question: '알고리즘이란 무엇인가요?', options: ['프로그래밍 언어', '문제 해결을 위한 단계별 절차', '컴퓨터 부품', '게임 이름'], correctAnswer: 1, explanation: '알고리즘은 문제를 해결하기 위한 단계별 절차입니다.' },
+        { question: '좋은 알고리즘의 특징이 아닌 것은?', options: ['명확성', '효율성', '복잡성', '유한성'], correctAnswer: 2, explanation: '좋은 알고리즘은 단순하고 이해하기 쉬워야 합니다.' },
+      ],
+      '순서': [
+        { question: '알고리즘에서 가장 중요한 것은?', options: ['빠른 속도', '올바른 순서', '긴 코드', '많은 반복'], correctAnswer: 1, explanation: '알고리즘에서는 올바른 순서가 매우 중요합니다.' },
+      ],
+      '패턴': [
+        { question: '패턴 인식이란?', options: ['그림 그리기', '반복되는 규칙 찾기', '소리 듣기', '글 쓰기'], correctAnswer: 1, explanation: '패턴 인식은 데이터에서 반복되는 규칙이나 특징을 찾는 것입니다.' },
+      ],
+      '분해': [
+        { question: '문제 분해란?', options: ['문제를 없애기', '큰 문제를 작은 부분으로 나누기', '문제 무시하기', '문제 합치기'], correctAnswer: 1, explanation: '문제 분해는 복잡한 문제를 더 작고 관리하기 쉬운 부분으로 나누는 것입니다.' },
+      ],
+      '추상화': [
+        { question: '추상화란?', options: ['모든 세부사항 포함', '중요한 정보만 남기고 단순화', '복잡하게 만들기', '삭제하기'], correctAnswer: 1, explanation: '추상화는 불필요한 세부사항을 제거하고 핵심만 남기는 것입니다.' },
+      ],
+      // Unit 3-4: Python
+      'python': [
+        { question: 'Python에서 변수를 선언하는 올바른 방법은?', options: ['var x = 5', 'let x = 5', 'x = 5', 'int x = 5'], correctAnswer: 2, explanation: 'Python에서는 타입 선언 없이 변수명 = 값 형식으로 변수를 선언합니다.' },
+        { question: 'Python에서 문자열을 출력하는 함수는?', options: ['console.log()', 'System.out.println()', 'print()', 'echo()'], correctAnswer: 2, explanation: 'Python에서는 print() 함수로 출력합니다.' },
+      ],
+      '변수': [
+        { question: '변수란 무엇인가요?', options: ['고정된 값', '데이터를 저장하는 공간', '프로그램 이름', '함수'], correctAnswer: 1, explanation: '변수는 데이터를 저장하고 나중에 사용할 수 있는 공간입니다.' },
+      ],
+      '조건문': [
+        { question: 'if문의 역할은?', options: ['반복하기', '조건에 따라 다른 코드 실행', '변수 선언', '함수 호출'], correctAnswer: 1, explanation: 'if문은 조건이 참인지 거짓인지에 따라 다른 코드를 실행합니다.' },
+      ],
+      '반복문': [
+        { question: '반복문을 사용하는 이유는?', options: ['코드를 짧게', '같은 작업을 여러 번 수행', '에러 방지', '변수 저장'], correctAnswer: 1, explanation: '반복문은 같은 작업을 여러 번 수행해야 할 때 사용합니다.' },
+      ],
+      '함수': [
+        { question: '함수의 장점이 아닌 것은?', options: ['코드 재사용', '가독성 향상', '코드 길이 증가', '유지보수 용이'], correctAnswer: 2, explanation: '함수를 사용하면 코드가 더 짧고 관리하기 쉬워집니다.' },
+      ],
+      '리스트': [
+        { question: 'Python 리스트의 인덱스는 몇부터 시작하나요?', options: ['1', '0', '-1', '10'], correctAnswer: 1, explanation: 'Python 리스트의 인덱스는 0부터 시작합니다.' },
+      ],
+      // Unit 5: JavaScript
+      'javascript': [
+        { question: 'JavaScript에서 변수를 선언하는 키워드가 아닌 것은?', options: ['var', 'let', 'const', 'int'], correctAnswer: 3, explanation: 'JavaScript에서는 var, let, const를 사용합니다.' },
+        { question: 'JavaScript에서 주석을 작성하는 방법은?', options: ['# 주석', '// 주석', '<!-- 주석 -->', '** 주석 **'], correctAnswer: 1, explanation: 'JavaScript에서는 // 또는 /* */로 주석을 작성합니다.' },
+      ],
+      'dom': [
+        { question: 'DOM이란?', options: ['프로그래밍 언어', '문서 객체 모델', '데이터베이스', '서버'], correctAnswer: 1, explanation: 'DOM(Document Object Model)은 HTML 문서를 객체로 표현한 것입니다.' },
+      ],
+      '이벤트': [
+        { question: '이벤트 리스너란?', options: ['소리 듣기', '사용자 동작을 감지하는 함수', '화면 출력', '데이터 저장'], correctAnswer: 1, explanation: '이벤트 리스너는 클릭, 키보드 입력 등 사용자 동작을 감지합니다.' },
+      ],
+      // Unit 6: HTML/CSS
+      'html': [
+        { question: 'HTML의 역할은?', options: ['스타일 지정', '웹 페이지 구조 정의', '동적 기능', '데이터 저장'], correctAnswer: 1, explanation: 'HTML은 웹 페이지의 구조와 내용을 정의합니다.' },
+      ],
+      'css': [
+        { question: 'CSS의 역할은?', options: ['구조 정의', '스타일 지정', '프로그래밍', '데이터베이스'], correctAnswer: 1, explanation: 'CSS는 웹 페이지의 스타일(색상, 크기, 레이아웃 등)을 지정합니다.' },
+      ],
+      '선택자': [
+        { question: 'CSS에서 클래스 선택자는?', options: ['#name', '.name', 'name', '@name'], correctAnswer: 1, explanation: 'CSS에서 클래스 선택자는 점(.)으로 시작합니다.' },
+      ],
+      // Unit 8: AI
+      'ai': [
+        { question: 'AI란 무엇인가요?', options: ['인공 지능', '인터넷 주소', '앱 이름', '회사 이름'], correctAnswer: 0, explanation: 'AI는 Artificial Intelligence(인공 지능)의 약자입니다.' },
+      ],
+      '머신러닝': [
+        { question: '머신러닝이란?', options: ['기계 수리', '데이터에서 패턴을 학습하는 기술', '프로그래밍 언어', '운영체제'], correctAnswer: 1, explanation: '머신러닝은 컴퓨터가 데이터에서 패턴을 학습하는 기술입니다.' },
+      ],
+      '프롬프트': [
+        { question: '좋은 프롬프트의 특징은?', options: ['매우 짧음', '구체적이고 명확함', '모호함', '영어만 사용'], correctAnswer: 1, explanation: '좋은 프롬프트는 구체적이고 명확하게 원하는 것을 설명합니다.' },
+      ],
+      // Unit 9: 고급
+      '클로저': [
+        { question: '클로저란?', options: ['닫기 버튼', '함수가 생성될 때의 환경을 기억하는 것', '에러 종류', '파일 형식'], correctAnswer: 1, explanation: '클로저는 함수가 자신이 생성될 때의 변수 환경을 기억하는 것입니다.' },
+      ],
+      '비동기': [
+        { question: 'async/await의 목적은?', options: ['동기 처리', '비동기 코드를 동기처럼 작성', '에러 발생', '변수 선언'], correctAnswer: 1, explanation: 'async/await는 비동기 코드를 동기 코드처럼 읽기 쉽게 작성할 수 있게 합니다.' },
+      ],
+      'git': [
+        { question: 'Git의 역할은?', options: ['코드 에디터', '버전 관리', '웹 브라우저', '데이터베이스'], correctAnswer: 1, explanation: 'Git은 코드의 변경 이력을 관리하는 버전 관리 시스템입니다.' },
+      ],
+    };
+
+    // 미션 제목/개념/설명에서 키워드 찾기
+    let questions: Array<{question: string; options: string[]; correctAnswer: number; explanation: string}> = [];
+
+    for (const [keyword, quizzes] of Object.entries(quizDatabase)) {
+      if (concept.includes(keyword) || title.includes(keyword) || desc.includes(keyword)) {
+        questions = [...questions, ...quizzes];
+      }
+    }
+
+    // 매칭되는 문제가 없으면 기본 문제
+    if (questions.length === 0) {
+      questions = [
+        { question: mission.description || '이 내용을 이해했나요?', options: ['네, 이해했어요', '조금 어려워요', '다시 설명해주세요', '모르겠어요'], correctAnswer: 0, explanation: '학습 내용을 잘 이해하셨네요!' },
+      ];
+    }
+
+    return questions;
   };
+
+  const questions = generateQuizFromMission();
+  const quiz = questions[currentQuestion % questions.length];
 
   const handleSubmit = () => {
     setIsSubmitted(true);
     setAttempts(prev => prev + 1);
     if (selectedAnswer === quiz.correctAnswer) {
-      setTimeout(() => onComplete(attempts === 0), 2000);
+      setCorrectCount(prev => prev + 1);
+      // 다음 문제가 있으면 2초 후 이동, 마지막 문제면 완료
+      if (currentQuestion < questions.length - 1) {
+        setTimeout(() => {
+          setCurrentQuestion(prev => prev + 1);
+          setSelectedAnswer(null);
+          setIsSubmitted(false);
+        }, 1500);
+      } else {
+        setTimeout(() => onComplete(correctCount + 1 === questions.length), 2000);
+      }
     }
   };
 
@@ -547,13 +747,35 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
   };
 
   const handleSkip = () => {
-    onComplete(false);
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(prev => prev + 1);
+      setSelectedAnswer(null);
+      setIsSubmitted(false);
+    } else {
+      onComplete(false);
+    }
   };
 
   const isCorrect = selectedAnswer === quiz.correctAnswer;
 
   return (
     <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6">
+      {/* 진행률 표시 */}
+      {questions.length > 1 && (
+        <div className="mb-4">
+          <div className="flex justify-between text-sm text-slate-400 mb-2">
+            <span>문제 {currentQuestion + 1} / {questions.length}</span>
+            <span>정답 {correctCount}개</span>
+          </div>
+          <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-violet-500 to-purple-500 transition-all duration-300"
+              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      )}
+
       <h3 className="text-xl font-bold mb-6 text-white">{quiz.question}</h3>
 
       <div className="space-y-3 mb-6">
@@ -1973,39 +2195,155 @@ const VisualPuzzleMission: React.FC<{ mission: MissionType; onComplete: (perfect
   );
 };
 
-// Interactive/Generic Mission (fallback)
+// Interactive/Generic Mission (fallback) - hands-on, discussion 타입 지원
 const InteractiveMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
+  const [step, setStep] = useState(0);
+  const [userInput, setUserInput] = useState('');
+  const [completed, setCompleted] = useState(false);
+
+  // 미션 타입에 따른 단계별 콘텐츠 생성
+  const getSteps = () => {
+    const concept = mission.concept?.toLowerCase() || '';
+    const type = mission.type;
+
+    if (type === 'hands-on') {
+      // Hands-on: 실습 단계
+      return [
+        { title: '📖 개념 이해', content: mission.description, action: '이해했어요' },
+        { title: '🎯 실습 목표', content: mission.hints?.[0] || '직접 실습해보며 개념을 익혀보세요.', action: '확인했어요' },
+        { title: '✅ 실습 완료', content: '실습을 완료했다면 완료 버튼을 눌러주세요!', action: '완료하기' },
+      ];
+    }
+
+    if (type === 'discussion') {
+      // Discussion: 토론/생각하기 단계
+      return [
+        { title: '💭 생각해보기', content: mission.description, action: '다음' },
+        { title: '✍️ 내 생각 적기', content: `"${mission.title}"에 대한 나의 생각을 적어보세요.`, action: '제출하기', hasInput: true },
+        { title: '🎉 잘했어요!', content: '다양한 관점으로 생각해보는 것이 중요해요!', action: '완료하기' },
+      ];
+    }
+
+    // 기본 인터랙티브 레슨
+    return [
+      { title: '📚 학습하기', content: mission.description, action: '이해했어요' },
+    ];
+  };
+
+  const steps = getSteps();
+  const currentStep = steps[step];
+
+  const handleNext = () => {
+    if (step < steps.length - 1) {
+      setStep(step + 1);
+    } else {
+      setCompleted(true);
+      setTimeout(() => onComplete(true), 1000);
+    }
+  };
+
+  // 미션 타입에 따른 아이콘
+  const getIcon = () => {
+    switch (mission.type) {
+      case 'hands-on': return '🛠️';
+      case 'discussion': return '💬';
+      case 'audio-visual': return '🎵';
+      case 'interactive-lesson': return '📚';
+      default: return '📋';
+    }
+  };
+
+  // 미션 타입에 따른 색상
+  const getColor = () => {
+    switch (mission.type) {
+      case 'hands-on': return 'from-orange-500 to-amber-600';
+      case 'discussion': return 'from-cyan-500 to-blue-600';
+      default: return 'from-violet-500 to-purple-600';
+    }
+  };
+
   return (
-    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-8 text-center">
-      <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-5xl border-2 border-slate-600">
-        {mission.type === 'audio-visual' ? '🎵' :
-         mission.type === 'interactive-lesson' ? '📚' :
-         mission.type === 'hands-on' ? '🛠️' : '📋'}
-      </div>
-
-      <h3 className="text-2xl font-black mb-2 text-white">{mission.title}</h3>
-      <p className="text-slate-400 mb-6 max-w-lg mx-auto">
-        {mission.description}
-      </p>
-
-      {mission.concept && (
-        <div className="inline-block px-4 py-2 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-xl font-medium mb-6">
-          학습 개념: {mission.concept}
+    <div className="bg-slate-800 rounded-2xl border-2 border-slate-600 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)] p-6 md:p-8">
+      {/* 진행률 표시 */}
+      {steps.length > 1 && (
+        <div className="mb-6">
+          <div className="flex justify-between text-sm text-slate-400 mb-2">
+            <span>단계 {step + 1} / {steps.length}</span>
+            <span>{currentStep.title}</span>
+          </div>
+          <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+            <motion.div
+              className={`h-full bg-gradient-to-r ${getColor()}`}
+              animate={{ width: `${((step + 1) / steps.length) * 100}%` }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
         </div>
       )}
 
-      <div className="bg-slate-900/50 rounded-xl p-6 mb-6 border-2 border-slate-600">
-        <p className="text-sm text-slate-400 mb-4">
-          이 미션의 내용을 읽고 이해했다면 완료 버튼을 눌러주세요.
-        </p>
-      </div>
+      <div className="text-center">
+        <motion.div
+          key={step}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${getColor()} rounded-2xl flex items-center justify-center text-4xl border-2 border-slate-600`}
+        >
+          {getIcon()}
+        </motion.div>
 
-      <button
-        onClick={() => onComplete(true)}
-        className="px-8 py-4 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors"
-      >
-        이해했어요! 완료하기
-      </button>
+        <h3 className="text-2xl font-black mb-2 text-white">{mission.title}</h3>
+
+        {mission.concept && (
+          <div className="inline-block px-4 py-2 bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 rounded-xl font-medium mb-4">
+            학습 개념: {mission.concept}
+          </div>
+        )}
+
+        <motion.div
+          key={`content-${step}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="bg-slate-900/50 rounded-xl p-6 mb-6 border-2 border-slate-600 text-left"
+        >
+          <h4 className="text-lg font-bold text-violet-300 mb-3">{currentStep.title}</h4>
+          <p className="text-slate-300 leading-relaxed">{currentStep.content}</p>
+
+          {/* Discussion 타입에서 입력 필드 */}
+          {currentStep.hasInput && (
+            <textarea
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              placeholder="여기에 생각을 적어보세요..."
+              className="w-full mt-4 p-4 rounded-xl border-2 border-slate-600 bg-slate-700 text-white resize-none h-32 focus:outline-none focus:border-violet-500"
+            />
+          )}
+
+          {/* 힌트 표시 */}
+          {mission.hints && mission.hints.length > 0 && step === 0 && (
+            <div className="mt-4 p-3 bg-amber-900/30 rounded-lg border border-amber-700">
+              <p className="text-sm text-amber-300">💡 힌트: {mission.hints[0]}</p>
+            </div>
+          )}
+        </motion.div>
+
+        {completed ? (
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="p-4 bg-emerald-900/30 rounded-xl border border-emerald-500 text-emerald-300 font-bold"
+          >
+            ✅ 잘했어요! 학습 완료!
+          </motion.div>
+        ) : (
+          <button
+            onClick={handleNext}
+            disabled={currentStep.hasInput && !userInput.trim()}
+            className={`px-8 py-4 bg-gradient-to-r ${getColor()} text-white font-bold rounded-xl border-2 border-slate-600 hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed`}
+          >
+            {currentStep.action}
+          </button>
+        )}
+      </div>
     </div>
   );
 };
