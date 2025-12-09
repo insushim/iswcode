@@ -14,6 +14,8 @@ import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import Achievements from './pages/Achievements';
 import AITutor from './pages/AITutor';
+import AvatarCustomize from './pages/AvatarCustomize';
+import MyRoom from './pages/MyRoom';
 
 // Auth Pages
 import Login from './pages/Login';
@@ -141,6 +143,8 @@ const App: React.FC = () => {
         <Route path="/profile" element={<ProtectedRoute allowedRoles={['student']}><Profile /></ProtectedRoute>} />
         <Route path="/achievements" element={<ProtectedRoute allowedRoles={['student']}><Achievements /></ProtectedRoute>} />
         <Route path="/settings" element={<ProtectedRoute allowedRoles={['student']}><Settings /></ProtectedRoute>} />
+        <Route path="/avatar" element={<ProtectedRoute allowedRoles={['student']}><AvatarCustomize /></ProtectedRoute>} />
+        <Route path="/myroom" element={<ProtectedRoute allowedRoles={['student']}><MyRoom /></ProtectedRoute>} />
 
         {/* Teacher Routes */}
         <Route path="/teacher" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherDashboard /></ProtectedRoute>} />

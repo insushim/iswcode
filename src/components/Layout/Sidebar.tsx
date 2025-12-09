@@ -11,6 +11,8 @@ import {
   X,
   Bot,
   Settings,
+  Palette,
+  Home as HomeIcon,
 } from 'lucide-react';
 import { AppLogo } from '../Common';
 
@@ -26,6 +28,8 @@ const navItems = [
   { to: '/ai-tutor', icon: Bot, label: 'AI 튜터' },
   { to: '/games', icon: Gamepad2, label: '게임센터' },
   { to: '/achievements', icon: Trophy, label: '업적' },
+  { to: '/avatar', icon: Palette, label: '아바타 꾸미기' },
+  { to: '/myroom', icon: HomeIcon, label: '마이룸' },
   { to: '/profile', icon: User, label: '프로필' },
   { to: '/settings', icon: Settings, label: '설정' },
 ];

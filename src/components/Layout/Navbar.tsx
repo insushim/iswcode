@@ -14,10 +14,12 @@ import {
   LogOut,
   LayoutDashboard,
   Shield,
+  Coins,
 } from 'lucide-react';
 import { useUserStore } from '../../stores/userStore';
 import { useSettingsStore } from '../../stores/settingsStore';
 import { useAuthStore } from '../../stores/authStore';
+import { useCustomizationStore, avatarItems } from '../../stores/customizationStore';
 import { AppLogo } from '../Common';
 
 interface NavbarProps {
@@ -30,8 +32,11 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
   const { theme, setTheme, sidebarCollapsed, toggleSidebar, getEffectiveTheme } =
     useSettingsStore();
   const { authUser, isAuthenticated, logout } = useAuthStore();
+  const { coins, avatarConfig, getAvatarItem } = useCustomizationStore();
   const effectiveTheme = getEffectiveTheme();
   const expProgress = useUserStore((state) => state.getExpProgress());
+
+  const currentAvatar = getAvatarItem(avatarConfig.character);
 
   const handleLogout = async () => {
     await logout();
@@ -101,6 +106,17 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
                   />
                 </div>
               </div>
+
+              {/* Coins */}
+              <Link
+                to="/avatar"
+                className="hidden sm:flex items-center gap-1 px-3 py-1.5 bg-yellow-100 dark:bg-yellow-900/30 rounded-full hover:bg-yellow-200 dark:hover:bg-yellow-800/40 transition-colors"
+              >
+                <Coins className="w-4 h-4 text-yellow-500" />
+                <span className="text-sm font-medium text-yellow-700 dark:text-yellow-300">
+                  {coins.toLocaleString()}
+                </span>
+              </Link>
             </>
           )}
 
@@ -163,9 +179,9 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick }) => {
               </button>
 
               {/* User Avatar */}
-              <Link to="/profile" className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full flex items-center justify-center text-lg">
-                  {user?.avatar || authUser.displayName.charAt(0)}
+              <Link to="/avatar" className="flex items-center gap-2 group">
+                <div className="w-9 h-9 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-lg">
+                  {currentAvatar?.image || '🐱'}
                 </div>
               </Link>
             </>

@@ -373,3 +373,59 @@ export interface VibeCodingResponse {
   customizationIdeas: string[];
   nextSteps: string[];
 }
+
+// Avatar System Types
+export interface AvatarItem {
+  id: string;
+  name: string;
+  category: AvatarCategory;
+  image: string;
+  price: number;
+  rarity: 'common' | 'rare' | 'epic' | 'legendary';
+  unlockLevel?: number;
+  unlockBadge?: string;
+  owned: boolean;
+}
+
+export type AvatarCategory = 'character' | 'hair' | 'face' | 'outfit' | 'accessory' | 'pet' | 'background';
+
+export interface AvatarConfig {
+  character: string;
+  hair?: string;
+  face?: string;
+  outfit?: string;
+  accessory?: string;
+  pet?: string;
+  background: string;
+}
+
+// My Room Types
+export interface RoomItem {
+  id: string;
+  name: string;
+  category: RoomCategory;
+  image: string;
+  price: number;
+  rarity: 'common' | 'rare' | 'epic' | 'legendary';
+  unlockLevel?: number;
+  owned: boolean;
+  position?: { x: number; y: number };
+  size?: { width: number; height: number };
+}
+
+export type RoomCategory = 'wallpaper' | 'floor' | 'furniture' | 'decoration' | 'plant' | 'tech' | 'trophy';
+
+export interface RoomConfig {
+  wallpaper: string;
+  floor: string;
+  furniture: RoomPlacement[];
+  decorations: RoomPlacement[];
+}
+
+export interface RoomPlacement {
+  itemId: string;
+  x: number;
+  y: number;
+  rotation?: number;
+  scale?: number;
+}
