@@ -1,7 +1,7 @@
 import type { Unit } from '../../types';
 
 export const unit9: Unit = {
-  id: 'unit9',
+  id: 'unit-9',
   number: 9,
   title: '고급 주제 & 최종 프로젝트',
   description: '심화 학습과 최종 프로젝트로 코딩 여정을 완성해요!',

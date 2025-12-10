@@ -1,7 +1,7 @@
 import type { Unit } from '../../types';
 
 export const unit8: Unit = {
-  id: 'unit8',
+  id: 'unit-8',
   number: 8,
   title: 'AI와 바이브 코딩',
   description: 'AI 도구를 활용한 코딩과 자연어로 프로그래밍하는 바이브 코딩을 배워요!',
