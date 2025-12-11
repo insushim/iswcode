@@ -81,27 +81,64 @@ const RobotGridMission: React.FC<Props> = ({ mission, onComplete }) => {
     '2번 반복하기',
     '3번 반복하기',
     '5번 반복하기',
+    '반복 끝',
     '만약 벽이 앞에 있으면',
     '아니면',
-    '반복 끝',
     '조건 끝',
     '0.5초 기다리기',
     '아이템 줍기',
     '아이템 놓기',
   ];
 
-  // 미션에서 사용할 블록 필터링
-  const availableBlockTypes = missionBlocks.length > 0
-    ? allBlockTypes.filter(b =>
-        missionBlocks.some((mb: string) =>
-          b.includes(mb) || mb.includes(b.split(' ')[0]) ||
-          (mb === '앞으로' && b.includes('앞으로')) ||
-          (mb === '왼쪽회전' && b.includes('왼쪽')) ||
-          (mb === '오른쪽회전' && b.includes('오른쪽')) ||
-          (mb === '반복' && b.includes('반복'))
-        )
-      )
-    : allBlockTypes.slice(0, 6);
+  // 미션 타입에 따른 블록 필터링
+  const useConditional = (mission as any).useConditional || false;
+  const conceptExplanation = (mission as any).conceptExplanation || '';
+
+  // 미션에서 사용할 블록 필터링 (개선된 로직)
+  const availableBlockTypes = (() => {
+    const result: string[] = [];
+
+    missionBlocks.forEach((mb: string) => {
+      const mbLower = mb.toLowerCase();
+
+      // 앞으로 블록
+      if (mbLower.includes('앞으로') || mbLower === '앞으로') {
+        result.push('앞으로 1칸', '앞으로 2칸', '앞으로 3칸');
+      }
+      // 뒤로 블록
+      if (mbLower.includes('뒤로') || mbLower === '뒤로') {
+        result.push('뒤로 1칸');
+      }
+      // 왼쪽 회전
+      if (mbLower.includes('왼쪽') || mbLower.includes('왼쪽회전')) {
+        result.push('왼쪽으로 90° 회전');
+      }
+      // 오른쪽 회전
+      if (mbLower.includes('오른쪽') || mbLower.includes('오른쪽회전')) {
+        result.push('오른쪽으로 90° 회전');
+      }
+      // 반복문
+      if (mbLower.includes('반복')) {
+        result.push('2번 반복하기', '3번 반복하기', '5번 반복하기', '반복 끝');
+      }
+      // 조건문
+      if (mbLower.includes('조건') || useConditional) {
+        result.push('만약 벽이 앞에 있으면', '아니면', '조건 끝');
+      }
+      // 기다리기
+      if (mbLower.includes('기다')) {
+        result.push('0.5초 기다리기');
+      }
+    });
+
+    // 조건문 미션이면 조건문 블록 추가
+    if (useConditional && !result.includes('만약 벽이 앞에 있으면')) {
+      result.push('만약 벽이 앞에 있으면', '아니면', '조건 끝');
+    }
+
+    // 중복 제거
+    return [...new Set(result)];
+  })();
 
   const [robotPos, setRobotPos] = useState(startPos);
   const [robotDir, setRobotDir] = useState<'up' | 'down' | 'left' | 'right'>('up');
@@ -259,31 +296,114 @@ const RobotGridMission: React.FC<Props> = ({ mission, onComplete }) => {
       }
     };
 
-    // 블록 실행
-    for (let i = 0; i < assembledBlocks.length; i++) {
-      setExecutionStep(i);
-      const block = assembledBlocks[i];
+    // 앞에 벽이 있는지 확인하는 함수
+    const isWallAhead = () => {
+      let checkRow = currentPos.row;
+      let checkCol = currentPos.col;
+      if (currentDir === 'up') checkRow--;
+      else if (currentDir === 'down') checkRow++;
+      else if (currentDir === 'left') checkCol--;
+      else if (currentDir === 'right') checkCol++;
+      return !isValidMove(checkRow, checkCol);
+    };
 
-      // 반복문 처리
-      if (block.includes('반복하기')) {
-        const times = parseInt(block.match(/(\d+)/)?.[1] || '2');
-        const repeatEnd = assembledBlocks.findIndex((b, idx) => idx > i && b.includes('반복 끝'));
-        const repeatBlocks = repeatEnd > i ? assembledBlocks.slice(i + 1, repeatEnd) : [];
+    // 블록 실행 (조건문/반복문 포함)
+    const executeBlocks = async (blocks: string[], startIdx: number = 0): Promise<number> => {
+      let i = startIdx;
 
-        for (let t = 0; t < times; t++) {
-          for (const rb of repeatBlocks) {
-            await executeBlock(rb);
+      while (i < blocks.length) {
+        setExecutionStep(i);
+        const block = blocks[i];
+        const lower = block.toLowerCase();
+
+        // 반복문 처리
+        if (lower.includes('반복하기')) {
+          const times = parseInt(block.match(/(\d+)/)?.[1] || '2');
+
+          // 반복 끝 찾기 (중첩 반복문 고려)
+          let depth = 1;
+          let repeatEndIdx = i + 1;
+          while (repeatEndIdx < blocks.length && depth > 0) {
+            if (blocks[repeatEndIdx].includes('반복하기')) depth++;
+            if (blocks[repeatEndIdx].includes('반복 끝')) depth--;
+            if (depth > 0) repeatEndIdx++;
           }
+
+          const repeatBlocks = blocks.slice(i + 1, repeatEndIdx);
+
+          for (let t = 0; t < times; t++) {
+            for (const rb of repeatBlocks) {
+              // 반복 블록 내에서도 조건문/반복문 처리
+              if (rb.includes('반복하기') || rb.includes('만약')) {
+                // 재귀적으로 처리 (간단화를 위해 기본 블록만 실행)
+                await executeBlock(rb);
+              } else if (!rb.includes('반복 끝') && !rb.includes('조건 끝') && !rb.includes('아니면')) {
+                await executeBlock(rb);
+              }
+            }
+          }
+          i = repeatEndIdx;
         }
-        if (repeatEnd > i) {
-          i = repeatEnd;
+        // 조건문 처리
+        else if (lower.includes('만약') && lower.includes('벽')) {
+          const wallAhead = isWallAhead();
+
+          // 조건 끝 또는 아니면 찾기
+          let depth = 1;
+          let elseIdx = -1;
+          let condEndIdx = i + 1;
+
+          while (condEndIdx < blocks.length && depth > 0) {
+            const b = blocks[condEndIdx];
+            if (b.includes('만약')) depth++;
+            if (b.includes('조건 끝')) {
+              depth--;
+              if (depth === 0) break;
+            }
+            if (b.includes('아니면') && depth === 1) {
+              elseIdx = condEndIdx;
+            }
+            condEndIdx++;
+          }
+
+          if (wallAhead) {
+            // 벽이 있으면: 만약~아니면 사이 블록 실행
+            const ifBlocks = elseIdx > 0
+              ? blocks.slice(i + 1, elseIdx)
+              : blocks.slice(i + 1, condEndIdx);
+
+            for (const ib of ifBlocks) {
+              if (!ib.includes('만약') && !ib.includes('조건 끝') && !ib.includes('아니면')) {
+                await executeBlock(ib);
+              }
+            }
+          } else {
+            // 벽이 없으면: 아니면~조건 끝 사이 블록 실행
+            if (elseIdx > 0) {
+              const elseBlocks = blocks.slice(elseIdx + 1, condEndIdx);
+              for (const eb of elseBlocks) {
+                if (!eb.includes('조건 끝') && !eb.includes('아니면')) {
+                  await executeBlock(eb);
+                }
+              }
+            }
+          }
+          i = condEndIdx;
         }
-      } else if (!block.includes('반복 끝') && !block.includes('조건 끝') && !block.includes('아니면')) {
-        await executeBlock(block);
+        // 일반 블록 실행
+        else if (!lower.includes('반복 끝') && !lower.includes('조건 끝') && !lower.includes('아니면')) {
+          await executeBlock(block);
+        }
+
+        await new Promise(r => setTimeout(r, 100));
+        i++;
       }
 
-      await new Promise(r => setTimeout(r, 100));
-    }
+      return i;
+    };
+
+    // 메인 실행
+    await executeBlocks(assembledBlocks, 0);
 
     setExecutionStep(-1);
     setIsRunning(false);
@@ -369,6 +489,22 @@ const RobotGridMission: React.FC<Props> = ({ mission, onComplete }) => {
             </span>
           )}
         </div>
+        {/* 개념 설명 (튜토리얼) */}
+        {conceptExplanation && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-3 p-3 bg-gradient-to-r from-indigo-900/40 to-purple-900/40 rounded-xl border border-indigo-500/30"
+          >
+            <div className="flex items-start gap-2">
+              <span className="text-2xl">💡</span>
+              <div>
+                <p className="font-bold text-indigo-300 text-sm mb-1">오늘 배울 개념: {mission.concept}</p>
+                <p className="text-indigo-200 text-xs leading-relaxed">{conceptExplanation}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
 
       {/* 메인 레이아웃 - 엔트리 스타일: 좌측 좁게(블록+코드), 우측 넓게(실행창) */}

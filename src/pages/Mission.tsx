@@ -13,6 +13,8 @@ import { useUserStore } from '../stores/userStore';
 import type { Mission as MissionType } from '../types';
 import GeneralBlockMission from '../components/GeneralBlockMission';
 import InteractiveLessonMission from '../components/InteractiveLessonMission';
+import VariableMission from '../components/VariableMission';
+import GameMakerMission from '../components/GameMakerMission';
 
 const Mission: React.FC = () => {
   const { missionId } = useParams();
@@ -189,6 +191,10 @@ const Mission: React.FC = () => {
           <QuizMission mission={mission} onComplete={handleComplete} />
         ) : mission.type === 'visual-programming' ? (
           <VisualProgrammingMission mission={mission} onComplete={handleComplete} />
+        ) : mission.type === 'variable-programming' ? (
+          <VariableMission mission={mission} onComplete={handleComplete} />
+        ) : mission.type === 'game-maker' ? (
+          <GameMakerMission mission={mission} onComplete={handleComplete} />
         ) : mission.type === 'writing' ? (
           <WritingMission mission={mission} onComplete={handleComplete} />
         ) : mission.type === 'visual-puzzle' ? (

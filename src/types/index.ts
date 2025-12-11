@@ -131,6 +131,7 @@ export interface Mission {
   exp: number;
   estimatedMinutes: number;
   concept?: string;
+  conceptExplanation?: string; // 개념 설명 (튜토리얼용)
   starterCode?: string;
   solution?: string;
   expectedOutput?: string;
@@ -155,12 +156,27 @@ export interface Mission {
   expectedShape?: string;
   useConditional?: boolean;
   mazeWalls?: boolean;
+  // Variable programming properties
+  targetVariables?: { name: string; value: number | string }[];
+  initialVariables?: { name: string; value: number | string }[];
+  variableBlocks?: string[];
+  // Game maker properties
+  gameType?: GameType;
+  winCondition?: { type: string; target: number };
+  gameElements?: {
+    characters?: string[];
+    collectibles?: string[];
+    obstacles?: string[];
+  };
+  gameBlocks?: string[];
 }
 
 export type MissionType =
   | 'coding'
   | 'drag-drop'
   | 'visual-programming'
+  | 'variable-programming'
+  | 'game-maker'
   | 'writing'
   | 'pattern-recognition'
   | 'quiz'
@@ -169,6 +185,14 @@ export type MissionType =
   | 'interactive-lesson'
   | 'hands-on'
   | 'discussion';
+
+export type GameType =
+  | 'click-game'
+  | 'collect-game'
+  | 'dodge-game'
+  | 'timer-game'
+  | 'shooting-game'
+  | 'quiz-game';
 
 export interface TestCase {
   input: string;
