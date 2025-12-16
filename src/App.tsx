@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom';
 import { AppShell } from './components/Layout';
 import { useSettingsStore } from './stores/settingsStore';
 import { useAuthStore } from './stores/authStore';
@@ -8,6 +8,12 @@ import { useAuthStore } from './stores/authStore';
 import Home from './pages/Home';
 import Learn from './pages/Learn';
 import Mission from './pages/Mission';
+
+// Mission 래퍼 - missionId 변경 시 컴포넌트 완전 리마운트
+const MissionWrapper: React.FC = () => {
+  const { missionId } = useParams();
+  return <Mission key={missionId} />;
+};
 import VibeCoding from './pages/VibeCoding';
 import Games from './pages/Games';
 import Profile from './pages/Profile';
@@ -136,7 +142,7 @@ const App: React.FC = () => {
         <Route path="/learn" element={<ProtectedRoute allowedRoles={['student']}><Learn /></ProtectedRoute>} />
         <Route path="/learn/:unitId" element={<ProtectedRoute allowedRoles={['student']}><Learn /></ProtectedRoute>} />
         <Route path="/learn/:unitId/:weekId" element={<ProtectedRoute allowedRoles={['student']}><Learn /></ProtectedRoute>} />
-        <Route path="/mission/:missionId" element={<ProtectedRoute allowedRoles={['student']}><Mission /></ProtectedRoute>} />
+        <Route path="/mission/:missionId" element={<ProtectedRoute allowedRoles={['student']}><MissionWrapper /></ProtectedRoute>} />
         <Route path="/vibe-coding" element={<ProtectedRoute allowedRoles={['student']}><VibeCoding /></ProtectedRoute>} />
         <Route path="/games" element={<ProtectedRoute allowedRoles={['student']}><Games /></ProtectedRoute>} />
         <Route path="/ai-tutor" element={<ProtectedRoute allowedRoles={['student']}><AITutor /></ProtectedRoute>} />

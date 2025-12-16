@@ -36,6 +36,10 @@ const Mission: React.FC = () => {
         setMission(found);
         setCurrentMission(found);
         startTimer();
+        // 미션이 변경될 때 완료 모달 상태 리셋
+        setShowComplete(false);
+        setEarnedExp(0);
+        setNextMission(null);
       }
     }
   }, [missionId, setCurrentMission, startTimer]);
@@ -179,8 +183,8 @@ const Mission: React.FC = () => {
         </div>
       )}
 
-      {/* Mission Content */}
-      <div className="flex-1 min-h-[500px]">
+      {/* Mission Content - key로 미션 변경 시 전체 리마운트 */}
+      <div key={mission.id} className="flex-1 min-h-[500px]">
         {mission.type === 'coding' ? (
           <CodeWorkspace mission={mission} onComplete={handleComplete} />
         ) : mission.type === 'drag-drop' ? (
@@ -865,7 +869,8 @@ const QuizMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolea
 // Visual Programming Mission - 다양한 블록 코딩 활동
 const VisualProgrammingMission: React.FC<{ mission: MissionType; onComplete: (perfect: boolean) => void }> = ({ mission, onComplete }) => {
   // 모든 visual-programming 미션은 GeneralBlockMission 사용 (드래그/드롭 + 캐릭터 시각화)
-  return <GeneralBlockMission mission={mission} onComplete={onComplete} />;
+  // key prop으로 미션 변경 시 컴포넌트 리마운트
+  return <GeneralBlockMission key={mission.id} mission={mission} onComplete={onComplete} />;
 };
 
 // 블록 타입 정의
