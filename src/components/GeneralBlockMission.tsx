@@ -517,7 +517,7 @@ const RobotGridMission: React.FC<Props> = ({ mission, onComplete }) => {
               <span className="w-7 h-7 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg text-sm">🧱</span>
               블록 상자
             </p>
-            <div className="flex flex-col gap-1.5 max-h-[180px] overflow-y-auto custom-scrollbar pr-1">
+            <div className="grid grid-cols-2 gap-1.5 max-h-[200px] overflow-y-auto custom-scrollbar pr-1">
               {availableBlockTypes.map((block, i) => (
                 <motion.button
                   key={`block-${i}`}
@@ -2315,7 +2315,7 @@ const BlockCodingMission: React.FC<Props> = ({ mission, onComplete }) => {
               <span className="w-7 h-7 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg text-sm">🧱</span>
               블록 상자
             </p>
-            <div className="flex flex-col gap-1.5 max-h-[150px] overflow-y-auto custom-scrollbar pr-1">
+            <div className="grid grid-cols-2 gap-1.5 max-h-[200px] overflow-y-auto custom-scrollbar pr-1">
               {availableBlocks.length > 0 ? (
                 availableBlocks.map((block, i) => (
                   <motion.div
