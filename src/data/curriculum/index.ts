@@ -2,11 +2,11 @@ import { unit1 } from './unit1-thinking';
 import { unit2 } from './unit2-blocks';
 import { unit3 } from './unit3-python-basics';
 import { unit4 } from './unit4-python-advanced';
-import { unit5 } from './unit5-javascript';
-import { unit6 } from './unit6-html-css';
-import { unit7 } from './unit7-projects';
-import { unit8 } from './unit8-ai-vibe';
-import { unit9 } from './unit9-advanced';
+import { unit5 } from './unit5-html-css';
+import { unit6 } from './unit6-javascript';
+import { unit7 } from './unit7-web-projects';
+import { unit8 } from './unit8-ai-creative';
+import { unit9 } from './unit9-capstone';
 import type { Unit, Mission, Week } from '../../types';
 
 // 모든 유닛 통합
