@@ -143,6 +143,17 @@ export interface Mission {
   unlocked: boolean;
   completed: boolean;
   perfectScore: boolean;
+  // 실제 교육을 위한 추가 속성
+  videoUrl?: string; // 개념 설명 영상 URL
+  conceptCards?: ConceptCard[]; // 핵심 개념 카드
+  checkQuestions?: CheckQuestion[]; // 학습 확인 질문
+  solutionSequence?: string[]; // visual-programming 정답 시퀀스
+  learningObjectives?: string[]; // 학습 목표
+  prerequisiteKnowledge?: string[]; // 선수 지식
+  cstaStandard?: string; // CSTA 표준 코드
+  realWorldExample?: string; // 실생활 적용 예시
+  commonMistakes?: string[]; // 흔한 실수들
+  extensionActivities?: string[]; // 심화 활동
   // Visual programming grid properties
   gridSize?: { rows: number; cols: number };
   startPosition?: { row: number; col: number };
@@ -198,6 +209,26 @@ export interface TestCase {
   input: string;
   expectedOutput: string;
   description?: string;
+}
+
+// 핵심 개념 카드 (시각적 학습용)
+export interface ConceptCard {
+  title: string;
+  description: string;
+  icon?: string;
+  example?: string;
+  animation?: string; // 애니메이션 ID
+}
+
+// 학습 확인 질문 (즉각적 피드백용)
+export interface CheckQuestion {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  feedback: {
+    correct: string;
+    incorrect: string;
+  };
 }
 
 export interface Project {

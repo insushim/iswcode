@@ -31,10 +31,31 @@ export const unit3: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '블록 → 텍스트 전환 개념 이해',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '블록 코딩과 텍스트 코딩의 관계를 이해한다',
+            'Python이 어떤 언어인지 알 수 있다',
+            '텍스트 코딩의 장점을 설명할 수 있다'
+          ],
+          realWorldExample: '블록 코딩이 레고라면, 텍스트 코딩은 설계도를 직접 그리는 것과 같아요. 더 자유롭고 강력해요!',
+          conceptCards: [
+            {
+              title: '블록 → 텍스트',
+              description: '블록을 쌓는 것 = 코드를 줄마다 쓰는 것',
+              icon: '🧱→📝',
+              example: '"말하기" 블록 = print()'
+            },
+            {
+              title: 'Python이란?',
+              description: '세계에서 가장 인기 있는 프로그래밍 언어',
+              icon: '🐍',
+              example: 'AI, 게임, 웹 등 모든 곳에 사용!'
+            }
+          ],
           hints: [
-            '블록 코딩에서 배운 "말하기" 블록은 Python의 print()와 같아요',
-            '블록을 쌓는 것 = 코드를 줄마다 쓰는 것',
-            '색깔 블록 → 키워드(예약어)로 바뀌어요',
+            '💡 힌트 1: 블록 코딩에서 배운 "말하기" 블록은 Python의 print()와 같아요',
+            '💡 힌트 2: 블록을 쌓는 것 = 코드를 줄마다 쓰는 것',
+            '💡 힌트 3: 색깔 블록 → 키워드(예약어)로 바뀌어요'
           ],
           unlocked: true,
           completed: false,
@@ -50,13 +71,24 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 10,
           concept: 'print() 함수의 기본 사용법',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            'print() 함수의 기본 사용법을 익힌다',
+            '문자열을 따옴표로 감싸야 함을 이해한다'
+          ],
+          realWorldExample: '카카오톡에서 메시지를 보내면 상대방 화면에 나타나는 것처럼, print()는 결과를 화면에 보여줘요!',
           starterCode: '# 블록 코딩의 "말하기" 블록을 Python으로!\n# 아래에 print() 함수를 작성해보세요\n\n',
           solution: "print('안녕하세요!')",
           expectedOutput: '안녕하세요!',
           hints: [
-            'print()는 화면에 글자를 보여주는 함수예요',
-            "글자는 따옴표(' 또는 \")로 감싸야 해요",
-            "print('내용') 형식으로 작성해요",
+            '💡 힌트 1: print()는 화면에 글자를 보여주는 함수예요',
+            "💡 힌트 2: 글자는 따옴표(' 또는 \")로 감싸야 해요",
+            "💡 힌트 3: print('안녕하세요!') 형식으로 작성해요"
+          ],
+          commonMistakes: [
+            '따옴표를 빼먹는 경우',
+            '괄호를 닫지 않는 경우',
+            'Print(대문자)로 쓰는 경우 - Python은 대소문자를 구분해요!'
           ],
           testCases: [
             { input: '', expectedOutput: '안녕하세요!', description: '인사말 출력' },
@@ -67,7 +99,7 @@ export const unit3: Unit = {
         },
         {
           id: '3-17-3',
-          title: 'print() 연습 1',
+          title: 'print() 연습 1: 이름 출력',
           description: '자신의 이름을 출력해보세요',
           type: 'coding',
           language: 'python',
@@ -75,10 +107,27 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: 'print() 반복 연습',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            'print() 함수 사용법을 반복 연습한다',
+            '문자열을 직접 작성할 수 있다'
+          ],
+          realWorldExample: '게임에서 캐릭터 이름을 입력하면 화면에 표시되는 것처럼, 우리도 이름을 출력할 수 있어요!',
           starterCode: '# 여러분의 이름을 출력해보세요\n# 예: print("홍길동")\n\n',
+          solution: 'print("코딩왕")',
+          expectedOutput: '코딩왕',
+          testCases: [
+            { input: '', expectedOutput: '코딩왕', description: '이름 출력 확인' }
+          ],
           hints: [
-            '따옴표 안에 자신의 이름을 넣으세요',
-            '작은따옴표나 큰따옴표 둘 다 사용 가능해요',
+            '💡 힌트 1: print() 괄호 안에 이름을 넣어요',
+            '💡 힌트 2: 이름은 따옴표로 감싸야 해요 (작은따옴표 \' 또는 큰따옴표 ")',
+            '💡 힌트 3: print("홍길동") 형식으로 작성하면 돼요!'
+          ],
+          commonMistakes: [
+            '따옴표를 빼먹는 경우 - print(홍길동) ❌',
+            '괄호를 빼먹는 경우 - print "홍길동" ❌',
+            '한글 자음/모음이 아닌 한글 전체를 입력해야 해요'
           ],
           unlocked: true,
           completed: false,
@@ -86,7 +135,7 @@ export const unit3: Unit = {
         },
         {
           id: '3-17-4',
-          title: 'print() 연습 2',
+          title: 'print() 연습 2: 음식 출력',
           description: '좋아하는 음식을 출력해보세요',
           type: 'coding',
           language: 'python',
@@ -94,9 +143,26 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: 'print() 반복 연습',
-          starterCode: '# 좋아하는 음식을 출력해보세요\n\n',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            'print() 함수를 자유롭게 활용할 수 있다',
+            '다양한 문자열을 출력할 수 있다'
+          ],
+          realWorldExample: '배달 앱에서 음식 이름이 화면에 보이는 것처럼, 우리도 원하는 음식을 출력할 수 있어요!',
+          starterCode: '# 좋아하는 음식을 출력해보세요\n# 예: print("피자")\n\n',
+          solution: 'print("치킨")',
+          expectedOutput: '치킨',
+          testCases: [
+            { input: '', expectedOutput: '치킨', description: '음식 이름 출력 확인' }
+          ],
           hints: [
-            'print("피자") 처럼 작성해요',
+            '💡 힌트 1: 좋아하는 음식 이름을 생각해봐요',
+            '💡 힌트 2: print("음식이름") 형식으로 작성해요',
+            '💡 힌트 3: 예를 들어 print("피자"), print("치킨") 등!'
+          ],
+          commonMistakes: [
+            '영어 음식 이름을 쓸 때 대소문자 주의',
+            '따옴표 짝이 맞지 않는 경우 - print("피자\') ❌'
           ],
           unlocked: true,
           completed: false,
@@ -111,12 +177,27 @@ export const unit3: Unit = {
           difficulty: 'beginner',
           exp: 60,
           estimatedMinutes: 10,
-          concept: '여러 print() 문 사용',
+          concept: '여러 print() 문 사용 - 순차 실행',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '여러 개의 print() 문을 순서대로 사용할 수 있다',
+            '코드가 위에서 아래로 순차적으로 실행됨을 이해한다'
+          ],
+          realWorldExample: '카카오톡에서 메시지를 여러 개 보내면 순서대로 채팅창에 나타나듯이, print()도 순서대로 실행돼요!',
           starterCode: '# 3줄을 출력하세요\n# 1. 이름\n# 2. 나이\n# 3. 취미\n\n',
+          solution: 'print("코딩왕")\nprint("12살")\nprint("게임")',
+          expectedOutput: '코딩왕\n12살\n게임',
+          testCases: [
+            { input: '', expectedOutput: '코딩왕\n12살\n게임', description: '3줄 출력 확인' }
+          ],
           hints: [
-            'print()를 3번 사용하세요',
-            '각 print()는 새로운 줄에 출력해요',
-            '블록 코딩에서 "말하기" 블록을 3개 연결한 것과 같아요',
+            '💡 힌트 1: print()를 3번 사용하면 3줄이 출력돼요',
+            '💡 힌트 2: 각 print()는 자동으로 새 줄에 출력해요',
+            '💡 힌트 3: print("이름")\\nprint("나이")\\nprint("취미") 형식이에요!'
+          ],
+          commonMistakes: [
+            '하나의 print()에 모든 내용을 넣으려는 경우',
+            'print() 사이에 세미콜론(;)을 넣는 경우 - Python에서는 필요 없어요!'
           ],
           unlocked: true,
           completed: false,
@@ -132,16 +213,22 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '숫자와 문자열의 차이',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '숫자(정수)와 문자열의 차이를 이해한다',
+            '따옴표 사용 여부에 따른 데이터 타입 구분'
+          ],
+          realWorldExample: '계산기에서 숫자를 입력할 때는 숫자 그대로, 이름을 입력할 때는 문자로 인식하는 것과 같아요.',
           starterCode: '# 숫자 2024를 출력하세요\n# 힌트: 숫자는 따옴표 없이!\n\n',
           solution: 'print(2024)',
           expectedOutput: '2024',
-          hints: [
-            '숫자는 따옴표 없이 그대로 쓰면 돼요',
-            'print(2024)와 print("2024")는 다른 의미예요',
-            '첫 번째는 숫자, 두 번째는 글자(문자열)예요',
-          ],
           testCases: [
-            { input: '', expectedOutput: '2024', description: '숫자 출력' },
+            { input: '', expectedOutput: '2024', description: '숫자 출력 테스트' }
+          ],
+          hints: [
+            '💡 힌트 1: 숫자는 따옴표 없이 그대로 쓰면 돼요',
+            '💡 힌트 2: print(2024)와 print("2024")는 다른 의미예요',
+            '💡 힌트 3: 첫 번째는 숫자, 두 번째는 글자(문자열)예요',
           ],
           unlocked: true,
           completed: false,
@@ -157,15 +244,26 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: 'print() 안에서 계산하기',
-          starterCode: '# 3 + 5의 결과를 출력하세요\n\n',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            'print() 안에서 수식을 계산할 수 있다',
+            '덧셈 연산자(+)를 사용할 수 있다'
+          ],
+          realWorldExample: '계산기에서 3+5=를 누르면 8이 나오듯이, Python도 계산해서 결과를 보여줘요!',
+          starterCode: '# 3 + 5의 결과를 출력하세요\n# 숫자는 따옴표 없이!\n\n',
           solution: 'print(3 + 5)',
           expectedOutput: '8',
-          hints: [
-            'print() 안에 계산식을 넣을 수 있어요',
-            'print(3 + 5) 처럼 작성하면 결과가 출력돼요',
-          ],
           testCases: [
-            { input: '', expectedOutput: '8', description: '덧셈 결과' },
+            { input: '', expectedOutput: '8', description: '3+5 덧셈 결과' },
+          ],
+          hints: [
+            '💡 힌트 1: print() 안에 계산식을 넣을 수 있어요',
+            '💡 힌트 2: 숫자와 +는 따옴표 없이 그대로 써요',
+            '💡 힌트 3: print(3 + 5) 라고 작성하면 8이 출력돼요!'
+          ],
+          commonMistakes: [
+            'print("3 + 5")로 쓰면 계산 없이 "3 + 5"가 그대로 출력돼요',
+            '따옴표 안에 넣으면 문자열로 인식해요'
           ],
           unlocked: true,
           completed: false,
@@ -173,18 +271,34 @@ export const unit3: Unit = {
         },
         {
           id: '3-17-8',
-          title: '다양한 계산',
+          title: '다양한 계산: 사칙연산',
           description: '덧셈, 뺄셈, 곱셈, 나눗셈을 각각 출력해봐요',
           type: 'coding',
           language: 'python',
           difficulty: 'beginner',
           exp: 80,
           estimatedMinutes: 12,
-          concept: '사칙연산 기호',
+          concept: '사칙연산 기호 (+, -, *, /)',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '사칙연산 기호를 Python에서 사용할 수 있다',
+            '곱셈(*)과 나눗셈(/) 기호가 수학과 다름을 안다'
+          ],
+          realWorldExample: '계산기 앱에서 ×, ÷ 버튼 대신 *, /를 사용하는 것과 같아요!',
           starterCode: '# 10 + 3 의 결과\n\n# 10 - 3 의 결과\n\n# 10 * 3 의 결과 (곱셈은 *)\n\n# 10 / 2 의 결과 (나눗셈은 /)\n\n',
+          solution: 'print(10 + 3)\nprint(10 - 3)\nprint(10 * 3)\nprint(10 / 2)',
+          expectedOutput: '13\n7\n30\n5.0',
+          testCases: [
+            { input: '', expectedOutput: '13\n7\n30\n5.0', description: '사칙연산 4가지 결과' }
+          ],
           hints: [
-            '덧셈: +, 뺄셈: -, 곱셈: *, 나눗셈: /',
-            '각각 print()를 사용해서 출력하세요',
+            '💡 힌트 1: 덧셈 +, 뺄셈 -, 곱셈 *, 나눗셈 / 를 사용해요',
+            '💡 힌트 2: 각 계산마다 print()를 따로 사용해요',
+            '💡 힌트 3: 나눗셈 결과는 5.0처럼 소수점이 나와요!'
+          ],
+          commonMistakes: [
+            '곱셈에 × 또는 x를 쓰는 경우 - Python에서는 * 사용!',
+            '나눗셈에 ÷를 쓰는 경우 - Python에서는 / 사용!'
           ],
           unlocked: true,
           completed: false,
@@ -200,11 +314,26 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '주석(comment)의 사용',
+          cstaStandard: '1B-AP-15',
+          learningObjectives: [
+            '주석의 역할과 사용법을 이해한다',
+            '# 기호로 주석을 작성할 수 있다'
+          ],
+          realWorldExample: '책에 메모를 붙이는 것처럼, 코드에도 설명을 달 수 있어요! 나중에 보면 도움이 돼요.',
           starterCode: '# 이 줄은 주석이에요. 컴퓨터가 무시해요!\n\n# 아래에 자신만의 주석을 달고\n# 인사말을 출력하는 코드를 작성하세요\n\n',
+          solution: '# 인사말 출력하기\nprint("안녕하세요!")',
+          expectedOutput: '안녕하세요!',
+          testCases: [
+            { input: '', expectedOutput: '안녕하세요!', description: '주석과 함께 인사말 출력' }
+          ],
           hints: [
-            '# 으로 시작하는 줄은 컴퓨터가 실행하지 않아요',
-            '코드가 무엇을 하는지 설명할 때 사용해요',
-            '다른 사람이나 미래의 나에게 메모를 남기는 거예요',
+            '💡 힌트 1: # 으로 시작하는 줄은 컴퓨터가 실행하지 않아요',
+            '💡 힌트 2: 주석은 코드가 무엇을 하는지 설명해요',
+            '💡 힌트 3: # 내 인사말\\nprint("안녕하세요!") 처럼 써보세요!'
+          ],
+          commonMistakes: [
+            '주석 # 뒤에 바로 붙여 쓰는 것 - 띄어쓰기하면 읽기 좋아요',
+            '주석에 한글을 못 쓴다고 생각하는 경우 - 한글도 OK!'
           ],
           unlocked: true,
           completed: false,
@@ -219,12 +348,28 @@ export const unit3: Unit = {
           difficulty: 'beginner',
           exp: 100,
           estimatedMinutes: 15,
-          concept: 'print() 종합 활용',
-          starterCode: '# 자기소개 프로그램\n# 5줄을 출력하세요: 이름, 나이, 학교, 취미, 꿈\n\n',
+          concept: 'print()와 주석 종합 활용',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '여러 개의 print()를 조합해 프로그램을 만들 수 있다',
+            '주석을 활용해 코드를 설명할 수 있다',
+            'Week 17에서 배운 내용을 종합적으로 활용한다'
+          ],
+          realWorldExample: 'SNS 프로필처럼 나를 소개하는 프로그램을 만들어봐요! 첫 Python 프로젝트예요!',
+          starterCode: '# 자기소개 프로그램\n# 5줄을 출력하세요: 이름, 나이, 학교, 취미, 꿈\n\n# 이름\n\n# 나이\n\n# 학교\n\n# 취미\n\n# 꿈\n\n',
+          solution: '# 자기소개 프로그램\n# 이름\nprint("저는 코딩왕입니다")\n# 나이\nprint("12살이에요")\n# 학교\nprint("코딩초등학교 6학년")\n# 취미\nprint("취미는 게임과 코딩이에요")\n# 꿈\nprint("나중에 게임 개발자가 될 거예요!")',
+          expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!',
+          testCases: [
+            { input: '', expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!', description: '5줄 자기소개 출력' }
+          ],
           hints: [
-            'print()를 5번 사용하세요',
-            '각 줄에 다른 정보를 넣으세요',
-            '주석으로 각 줄이 무엇인지 설명해도 좋아요',
+            '💡 힌트 1: print()를 5번 사용해서 5줄을 출력해요',
+            '💡 힌트 2: 각 print() 위에 주석(#)으로 설명을 달아요',
+            '💡 힌트 3: 자신의 정보를 따옴표 안에 넣으면 완성!'
+          ],
+          commonMistakes: [
+            'print() 4번만 사용하는 경우 - 5개 모두 출력해요!',
+            '주석에도 print()를 쓰는 경우 - 주석은 # 만 사용!'
           ],
           unlocked: true,
           completed: false,
@@ -233,26 +378,43 @@ export const unit3: Unit = {
       ],
       quiz: {
         id: 'quiz-17',
-        title: 'Week 17 퀴즈',
+        title: 'Week 17 퀴즈: Python 첫걸음',
         questions: [
           {
             id: 'q17-1',
             question: 'Python에서 화면에 글자를 출력하는 함수는?',
             options: ['show()', 'print()', 'display()', 'write()'],
             correctAnswer: 1,
+            explanation: 'Python에서 화면에 출력하려면 print() 함수를 사용해요. 블록 코딩의 "말하기" 블록과 같은 역할이에요!'
           },
           {
             id: 'q17-2',
             question: '문자열을 감싸는 기호로 올바른 것은?',
             options: ['{ }', '( )', '" " 또는 \' \'', '[ ]'],
             correctAnswer: 2,
+            explanation: '문자열(글자)은 큰따옴표(") 또는 작은따옴표(\')로 감싸야 해요. 둘 다 사용 가능합니다!'
           },
           {
             id: 'q17-3',
             question: 'Python에서 주석을 시작하는 기호는?',
             options: ['//', '#', '--', '/*'],
             correctAnswer: 1,
+            explanation: '#으로 시작하는 줄은 주석이에요. 컴퓨터가 실행하지 않고 무시해요. 코드 설명에 사용해요!'
           },
+          {
+            id: 'q17-4',
+            question: 'print(3 + 5)를 실행하면 무엇이 출력되나요?',
+            options: ['3 + 5', '8', '35', '오류 발생'],
+            correctAnswer: 1,
+            explanation: 'print() 안에 계산식을 넣으면 계산 결과가 출력돼요. 3 + 5 = 8이 출력됩니다!'
+          },
+          {
+            id: 'q17-5',
+            question: 'print(2024)와 print("2024")의 차이는?',
+            options: ['차이 없음', '첫 번째는 숫자, 두 번째는 문자열', '첫 번째는 오류', '두 번째는 오류'],
+            correctAnswer: 1,
+            explanation: '따옴표 없이 쓰면 숫자(계산 가능), 따옴표로 감싸면 문자열(글자)로 인식해요!'
+          }
         ],
       },
     },
@@ -273,10 +435,30 @@ export const unit3: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '변수의 개념과 역할',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '변수가 데이터를 저장하는 공간임을 이해한다',
+            '블록 코딩의 변수와 Python 변수의 연관성을 안다'
+          ],
+          realWorldExample: '서랍에 이름표를 붙여 물건을 정리하듯, 변수는 데이터에 이름을 붙여 저장해요!',
+          conceptCards: [
+            {
+              title: '변수 = 이름표 붙은 상자',
+              description: '값을 넣고 꺼낼 수 있어요',
+              icon: '📦',
+              example: 'name = "코딩왕" → name 상자에 "코딩왕" 저장'
+            },
+            {
+              title: '블록 → Python',
+              description: '블록의 "변수 만들기" = Python의 변수 = 값',
+              icon: '🔄',
+              example: '[name ▾] 을(를) [코딩왕] (으)로 정하기 → name = "코딩왕"'
+            }
+          ],
           hints: [
-            '변수는 값을 담는 이름표가 붙은 상자예요',
-            '블록 코딩에서 "변수 만들기"와 같아요',
-            '나중에 값을 바꿀 수도 있어요',
+            '💡 힌트 1: 변수는 값을 담는 이름표가 붙은 상자예요',
+            '💡 힌트 2: 블록 코딩에서 "변수 만들기"와 같아요',
+            '💡 힌트 3: 나중에 값을 바꿀 수도 있어요'
           ],
           unlocked: true,
           completed: false,
@@ -292,11 +474,26 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '변수 선언과 할당',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '변수를 선언하고 값을 할당할 수 있다',
+            '= 기호가 "같다"가 아닌 "저장하다"임을 이해한다'
+          ],
+          realWorldExample: '게임에서 닉네임을 저장하면 계속 쓸 수 있듯이, 변수에 저장하면 계속 사용할 수 있어요!',
           starterCode: '# name 변수에 이름을 저장하세요\nname = \n\n# 변수 출력\nprint(name)\n',
+          solution: 'name = "코딩왕"\nprint(name)',
+          expectedOutput: '코딩왕',
+          testCases: [
+            { input: '', expectedOutput: '코딩왕', description: '이름 변수 출력' }
+          ],
           hints: [
-            '변수이름 = 값 형식으로 작성해요',
-            'name = "홍길동" 처럼요',
-            '문자열은 따옴표로 감싸야 해요',
+            '💡 힌트 1: 변수이름 = 값 형식으로 작성해요',
+            '💡 힌트 2: name = "홍길동" 처럼요',
+            '💡 힌트 3: 문자열은 따옴표로 감싸야 해요'
+          ],
+          commonMistakes: [
+            '= 를 == 로 쓰는 경우 (==는 비교할 때 사용해요)',
+            '따옴표 없이 이름을 쓰는 경우'
           ],
           unlocked: true,
           completed: false,
@@ -312,11 +509,26 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '정수형 변수',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '정수(int)형 변수를 만들 수 있다',
+            '문자열과 숫자의 저장 방법 차이를 안다'
+          ],
+          realWorldExample: '게임 캐릭터의 레벨처럼, 숫자 정보도 변수에 저장할 수 있어요!',
           starterCode: '# age 변수에 나이를 저장하세요\nage = \n\n# 변수 출력\nprint(age)\n',
           solution: 'age = 12\nprint(age)',
+          expectedOutput: '12',
+          testCases: [
+            { input: '', expectedOutput: '12', description: '나이 변수 출력' }
+          ],
           hints: [
-            '숫자는 따옴표 없이 저장해요',
-            'age = 12 처럼요',
+            '💡 힌트 1: 숫자는 따옴표 없이 저장해요',
+            '💡 힌트 2: age = 12 처럼 바로 숫자를 써요',
+            '💡 힌트 3: "12"는 문자열, 12는 숫자예요!'
+          ],
+          commonMistakes: [
+            '숫자를 따옴표로 감싸는 경우 - 계산이 안 돼요!',
+            'age = "12살" 처럼 단위를 붙이면 문자열이 돼요'
           ],
           unlocked: true,
           completed: false,
@@ -331,10 +543,32 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '변수 명명 규칙',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            'Python 변수 이름 규칙을 이해한다',
+            '올바른 변수 이름과 잘못된 변수 이름을 구분할 수 있다'
+          ],
+          realWorldExample: '파일 이름에 특수문자를 쓸 수 없는 것처럼, 변수 이름에도 규칙이 있어요!',
+          checkQuestions: [
+            {
+              question: '다음 중 올바른 변수 이름은?',
+              options: ['1st_name', 'my name', 'myName', '@age'],
+              correctAnswer: 2,
+              feedback: {
+                correct: '맞아요! 변수 이름은 문자나 밑줄(_)로 시작하고, 띄어쓰기나 특수문자는 쓸 수 없어요.',
+                incorrect: '변수 이름은 문자나 밑줄(_)로 시작해야 하고, 띄어쓰기나 @같은 특수문자는 쓸 수 없어요!'
+              }
+            }
+          ],
           hints: [
-            '변수 이름은 문자나 밑줄(_)로 시작해요',
-            '숫자로 시작하면 안 돼요',
-            '띄어쓰기 대신 밑줄을 사용해요',
+            '💡 힌트 1: 변수 이름은 문자나 밑줄(_)로 시작해요',
+            '💡 힌트 2: 숫자로 시작하면 안 돼요 (1st_name ❌)',
+            '💡 힌트 3: 띄어쓰기 대신 밑줄(_) 또는 카멜케이스(myName)를 사용해요'
+          ],
+          commonMistakes: [
+            '숫자로 시작하는 변수 이름 (1st, 2nd 등)',
+            '띄어쓰기가 있는 변수 이름 (my name)',
+            '특수문자가 있는 변수 이름 (@, #, $ 등)'
           ],
           unlocked: true,
           completed: false,
@@ -350,15 +584,26 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '변수를 이용한 연산',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '변수에 저장된 값으로 계산할 수 있다',
+            '변수를 사용하면 값을 쉽게 바꿀 수 있음을 이해한다'
+          ],
+          realWorldExample: '쇼핑몰에서 물건 가격을 변수에 저장하고 합계를 계산하는 것과 같아요!',
           starterCode: '# 두 숫자를 변수에 저장하세요\na = 10\nb = 20\n\n# a와 b를 더한 결과를 출력하세요\nprint()\n',
           solution: 'a = 10\nb = 20\nprint(a + b)',
           expectedOutput: '30',
-          hints: [
-            'print(a + b) 처럼 변수끼리 계산할 수 있어요',
-            '변수에 저장된 값으로 계산해요',
-          ],
           testCases: [
             { input: '', expectedOutput: '30', description: '변수 덧셈' },
+          ],
+          hints: [
+            '💡 힌트 1: print() 안에 a + b를 넣어요',
+            '💡 힌트 2: 변수끼리 계산하면 저장된 값으로 계산해요',
+            '💡 힌트 3: print(a + b)라고 작성하면 30이 출력돼요!'
+          ],
+          commonMistakes: [
+            'print("a + b")로 쓰면 "a + b"가 그대로 출력돼요',
+            '따옴표 없이 print(a + b)라고 써야 계산돼요'
           ],
           unlocked: true,
           completed: false,
@@ -374,14 +619,26 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '계산 결과 저장',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '계산 결과를 새 변수에 저장할 수 있다',
+            '여러 단계의 계산을 수행할 수 있다'
+          ],
+          realWorldExample: '용돈 + 세뱃돈 = 총액 처럼, 계산 결과를 새 변수에 저장해두면 나중에 쓸 수 있어요!',
           starterCode: 'a = 15\nb = 25\n\n# a와 b를 더한 결과를 total 변수에 저장하세요\ntotal = \n\nprint(total)\n',
           solution: 'a = 15\nb = 25\ntotal = a + b\nprint(total)',
           expectedOutput: '40',
-          hints: [
-            'total = a + b 처럼 계산 결과를 저장해요',
-          ],
           testCases: [
             { input: '', expectedOutput: '40', description: '결과 저장' },
+          ],
+          hints: [
+            '💡 힌트 1: total = 뒤에 a + b를 써요',
+            '💡 힌트 2: 계산 결과(40)가 total에 저장돼요',
+            '💡 힌트 3: total = a + b 라고 작성하면 돼요!'
+          ],
+          commonMistakes: [
+            'total = "a + b"로 쓰면 문자열이 저장돼요',
+            'print(total) 전에 total 변수가 있어야 해요'
           ],
           unlocked: true,
           completed: false,
@@ -397,11 +654,26 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '변수 재할당',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '변수의 값을 업데이트(재할당)할 수 있다',
+            '자기 자신을 활용한 계산을 이해한다'
+          ],
+          realWorldExample: '게임에서 점수가 올라갈 때마다 점수판이 업데이트되듯이, 변수 값도 바꿀 수 있어요!',
           starterCode: 'score = 0\nprint(score)  # 0 출력\n\n# score에 10을 더해서 다시 저장하세요\nscore = \n\nprint(score)  # 10 출력\n',
           solution: 'score = 0\nprint(score)\nscore = score + 10\nprint(score)',
+          expectedOutput: '0\n10',
+          testCases: [
+            { input: '', expectedOutput: '0\n10', description: '변수 값 업데이트' }
+          ],
           hints: [
-            'score = score + 10 처럼 작성해요',
-            '오른쪽의 계산 결과가 왼쪽 변수에 저장돼요',
+            '💡 힌트 1: score = score + 10 처럼 작성해요',
+            '💡 힌트 2: 오른쪽(score + 10)을 먼저 계산해요',
+            '💡 힌트 3: 계산 결과(10)가 왼쪽 score에 저장돼요!'
+          ],
+          commonMistakes: [
+            'score + 10만 쓰면 저장이 안 돼요 - score = score + 10',
+            '수학에서 x = x + 10은 불가능하지만, 프로그래밍에서는 가능해요!'
           ],
           unlocked: true,
           completed: false,
@@ -417,15 +689,26 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '문자열 연결(concatenation)',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '문자열 연결(concatenation)을 이해한다',
+            '+ 연산자가 문자열에서 다른 동작을 함을 안다'
+          ],
+          realWorldExample: '"안녕" + "하세요" = "안녕하세요" 처럼 문자열도 이어붙일 수 있어요!',
           starterCode: 'first_name = "김"\nlast_name = "코딩"\n\n# 두 이름을 연결해서 full_name에 저장하세요\nfull_name = \n\nprint(full_name)\n',
           solution: 'first_name = "김"\nlast_name = "코딩"\nfull_name = first_name + last_name\nprint(full_name)',
           expectedOutput: '김코딩',
-          hints: [
-            '문자열도 + 로 연결할 수 있어요',
-            'full_name = first_name + last_name',
-          ],
           testCases: [
             { input: '', expectedOutput: '김코딩', description: '문자열 연결' },
+          ],
+          hints: [
+            '💡 힌트 1: 문자열도 + 로 연결할 수 있어요',
+            '💡 힌트 2: full_name = first_name + last_name',
+            '💡 힌트 3: 숫자 + 는 덧셈, 문자열 + 는 이어붙이기!'
+          ],
+          commonMistakes: [
+            '숫자와 문자열을 + 로 연결하면 에러 - 타입이 같아야 해요!',
+            '문자열 사이에 공백이 필요하면 " " 를 추가해야 해요'
           ],
           unlocked: true,
           completed: false,
@@ -441,10 +724,26 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '기본 데이터 타입',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '기본 데이터 타입(int, str, float)을 구분할 수 있다',
+            'type() 함수로 데이터 타입을 확인할 수 있다'
+          ],
+          realWorldExample: '숫자, 글자, 소수점 숫자는 각각 다른 종류예요. 마치 물, 기름, 공기처럼요!',
           starterCode: 'number = 42\ntext = "Hello"\ndecimal = 3.14\n\n# 각 변수의 타입을 출력해보세요\nprint(type(number))\nprint(type(text))\nprint(type(decimal))\n',
+          solution: 'number = 42\ntext = "Hello"\ndecimal = 3.14\nprint(type(number))\nprint(type(text))\nprint(type(decimal))',
+          expectedOutput: "<class 'int'>\n<class 'str'>\n<class 'float'>",
+          testCases: [
+            { input: '', expectedOutput: "<class 'int'>\n<class 'str'>\n<class 'float'>", description: '데이터 타입 확인' }
+          ],
           hints: [
-            'int = 정수, str = 문자열, float = 소수',
-            'type() 함수가 데이터 종류를 알려줘요',
+            '💡 힌트 1: int = 정수(1, 2, 100 등)',
+            '💡 힌트 2: str = 문자열("hello", "안녕" 등)',
+            '💡 힌트 3: float = 소수(3.14, 2.5 등)'
+          ],
+          commonMistakes: [
+            '"42"는 str(문자열)이고, 42는 int(정수)예요!',
+            '따옴표 유무로 타입이 달라져요'
           ],
           unlocked: true,
           completed: false,
@@ -460,11 +759,27 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '변수 종합 활용',
-          starterCode: '# 나의 프로필\nname = ""\nage = 0\nschool = ""\nhobby = ""\n\n# 프로필 출력\nprint("===== 나의 프로필 =====")\nprint()\nprint()\nprint()\nprint()\nprint("=====================")\n',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '다양한 타입의 변수를 함께 사용할 수 있다',
+            '변수를 활용한 프로그램을 만들 수 있다',
+            'Week 18에서 배운 내용을 종합적으로 활용한다'
+          ],
+          realWorldExample: 'SNS 프로필이나 게임 캐릭터 정보처럼, 변수에 저장된 정보를 보여주는 프로그램이에요!',
+          starterCode: '# 나의 프로필\nname = ""\nage = 0\nschool = ""\nhobby = ""\n\n# 프로필 출력\nprint("===== 나의 프로필 =====")\nprint("이름: " + name)\nprint("나이: ")\nprint("학교: ")\nprint("취미: ")\nprint("=====================")\n',
+          solution: '# 나의 프로필\nname = "코딩왕"\nage = 12\nschool = "코딩초등학교"\nhobby = "게임"\n\n# 프로필 출력\nprint("===== 나의 프로필 =====")\nprint("이름: " + name)\nprint("나이: " + str(age))\nprint("학교: " + school)\nprint("취미: " + hobby)\nprint("=====================")',
+          expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================',
+          testCases: [
+            { input: '', expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================', description: '프로필 카드 출력' }
+          ],
           hints: [
-            '변수에 자신의 정보를 입력하세요',
-            'print() 안에 변수를 넣으면 값이 출력돼요',
-            '문자열과 변수를 + 로 연결할 수도 있어요',
+            '💡 힌트 1: 변수에 자신의 정보를 입력해요',
+            '💡 힌트 2: print("이름: " + name)처럼 문자열과 변수를 연결해요',
+            '💡 힌트 3: 숫자 변수는 str(age)로 문자열로 바꿔서 연결해요!'
+          ],
+          commonMistakes: [
+            '숫자 변수를 문자열과 + 로 연결하면 에러 - str()로 변환해요!',
+            '변수에 값을 넣지 않고 빈 상태로 두는 경우'
           ],
           unlocked: true,
           completed: false,
@@ -473,26 +788,43 @@ export const unit3: Unit = {
       ],
       quiz: {
         id: 'quiz-18',
-        title: 'Week 18 퀴즈',
+        title: 'Week 18 퀴즈: 변수 마스터',
         questions: [
           {
             id: 'q18-1',
             question: '변수에 값을 저장하는 기호는?',
             options: [':', '==', '=', '=>'],
             correctAnswer: 2,
+            explanation: '= 기호는 "저장하다"의 의미예요. name = "코딩왕" 처럼 사용해요. ==는 비교할 때 쓰는 기호예요!'
           },
           {
             id: 'q18-2',
             question: '올바른 변수 이름이 아닌 것은?',
             options: ['my_name', '_age', '1st_place', 'userName'],
             correctAnswer: 2,
+            explanation: '변수 이름은 숫자로 시작할 수 없어요! 1st_place (❌), first_place (✓). 문자나 밑줄(_)로 시작해야 해요.'
           },
           {
             id: 'q18-3',
             question: '정수를 나타내는 데이터 타입은?',
             options: ['str', 'float', 'int', 'bool'],
             correctAnswer: 2,
+            explanation: 'int = 정수(1, 100), str = 문자열("안녕"), float = 소수(3.14), bool = 참/거짓(True, False)이에요!'
           },
+          {
+            id: 'q18-4',
+            question: 'name = "김" + "코딩" 의 결과는?',
+            options: ['김 코딩', '김코딩', '에러 발생', '김+코딩'],
+            correctAnswer: 1,
+            explanation: '문자열 + 문자열은 두 문자열을 이어붙여요! "김" + "코딩" = "김코딩"이 됩니다.'
+          },
+          {
+            id: 'q18-5',
+            question: 'score = 10, score = score + 5 실행 후 score의 값은?',
+            options: ['10', '5', '15', '에러'],
+            correctAnswer: 2,
+            explanation: 'score = score + 5는 현재 score 값(10)에 5를 더해 다시 저장해요. 10 + 5 = 15!'
+          }
         ],
       },
     },
@@ -513,10 +845,30 @@ export const unit3: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: 'input() 함수 기본',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            'input() 함수의 역할을 이해한다',
+            '사용자 입력을 변수에 저장할 수 있다'
+          ],
+          realWorldExample: '카카오톡에서 메시지를 입력하고 보내기를 누르듯이, input()도 입력을 받아서 프로그램에 전달해요!',
+          conceptCards: [
+            {
+              title: 'input() = 입력받기',
+              description: '사용자가 키보드로 입력한 값을 받아요',
+              icon: '⌨️',
+              example: 'name = input("이름: ") → 사용자 입력을 name에 저장'
+            },
+            {
+              title: '블록 → Python',
+              description: '블록 코딩의 "묻고 기다리기" = Python의 input()',
+              icon: '🔄',
+              example: '"[이름을 입력하세요] 묻고 기다리기" → input("이름을 입력하세요")'
+            }
+          ],
           hints: [
-            'input()은 사용자가 키보드로 입력한 값을 받아요',
-            '블록 코딩의 "묻고 기다리기"와 같아요',
-            '입력받은 값은 변수에 저장해요',
+            '💡 힌트 1: input()은 사용자가 키보드로 입력한 값을 받아요',
+            '💡 힌트 2: 블록 코딩의 "묻고 기다리기"와 같아요',
+            '💡 힌트 3: 입력받은 값은 변수에 저장해요'
           ],
           unlocked: true,
           completed: false,
@@ -532,11 +884,22 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: 'input() 기본 사용',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            'input() 함수로 사용자 입력을 받을 수 있다',
+            '입력받은 값을 활용해 출력할 수 있다'
+          ],
+          realWorldExample: '게임 시작 시 닉네임을 입력받아 "○○○님 환영합니다!"라고 인사하는 것과 같아요!',
           starterCode: '# 이름을 입력받아 name 변수에 저장하세요\nname = input("이름을 입력하세요: ")\n\n# 인사 출력\nprint("안녕하세요, " + name + "님!")\n',
+          solution: 'name = input("이름을 입력하세요: ")\nprint("안녕하세요, " + name + "님!")',
           hints: [
-            'input("메시지") 형식으로 사용해요',
-            '괄호 안의 메시지가 먼저 출력돼요',
-            '사용자가 입력한 값이 변수에 저장돼요',
+            '💡 힌트 1: input("메시지") 형식으로 사용해요',
+            '💡 힌트 2: 괄호 안의 메시지가 먼저 출력돼요',
+            '💡 힌트 3: 사용자가 입력한 값이 name 변수에 저장돼요'
+          ],
+          commonMistakes: [
+            'input() 결과를 변수에 저장하지 않는 경우',
+            '괄호 안 메시지에 따옴표를 빼먹는 경우'
           ],
           unlocked: true,
           completed: false,
@@ -552,9 +915,22 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '다중 입력 처리',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '여러 개의 input()을 사용할 수 있다',
+            '여러 변수를 조합해 출력할 수 있다'
+          ],
+          realWorldExample: '회원가입 할 때 이름, 나이, 이메일 등 여러 정보를 입력받는 것과 같아요!',
           starterCode: '# 이름 입력\nname = input("이름: ")\n\n# 나이 입력\nage = input("나이: ")\n\n# 출력\nprint(name + "님은 " + age + "살입니다.")\n',
+          solution: 'name = input("이름: ")\nage = input("나이: ")\nprint(name + "님은 " + age + "살입니다.")',
           hints: [
-            'input()을 여러 번 사용하면 여러 값을 받을 수 있어요',
+            '💡 힌트 1: input()을 여러 번 사용하면 여러 값을 받을 수 있어요',
+            '💡 힌트 2: 각각 다른 변수에 저장해요',
+            '💡 힌트 3: + 로 문자열과 변수를 연결해요'
+          ],
+          commonMistakes: [
+            '같은 변수 이름을 사용하면 덮어써져요',
+            '각 입력마다 다른 변수 이름을 사용해야 해요'
           ],
           unlocked: true,
           completed: false,
@@ -569,10 +945,30 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 10,
           concept: 'input()의 반환 타입',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            'input()의 반환 타입이 항상 문자열(str)임을 이해한다',
+            '문자열 숫자로는 계산이 안 됨을 안다'
+          ],
+          realWorldExample: '"10" + "20" = "1020"이 되는 이유! 문자열은 이어붙이기가 되지 계산이 안 돼요!',
+          conceptCards: [
+            {
+              title: 'input()은 항상 문자열',
+              description: '10을 입력해도 "10"(문자열)으로 저장돼요',
+              icon: '🔤',
+              example: 'input으로 10 입력 → "10" (숫자 아님!)'
+            },
+            {
+              title: '문자열 + 문자열 = 이어붙이기',
+              description: '"10" + "20" = "1020" (계산 ❌)',
+              icon: '➕',
+              example: '계산하려면 int()로 변환해야 해요!'
+            }
+          ],
           hints: [
-            'input()으로 받은 값은 항상 문자열(str)이에요',
-            '숫자를 입력해도 "10"처럼 문자열이 돼요',
-            '계산하려면 숫자로 바꿔야 해요',
+            '💡 힌트 1: input()으로 받은 값은 항상 문자열(str)이에요',
+            '💡 힌트 2: 숫자를 입력해도 "10"처럼 문자열이 돼요',
+            '💡 힌트 3: 계산하려면 int()나 float()로 숫자로 바꿔야 해요'
           ],
           unlocked: true,
           completed: false,
@@ -588,11 +984,22 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '형변환 (type conversion)',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '형변환(type conversion)의 개념을 이해한다',
+            'int(), float(), str() 함수를 사용할 수 있다'
+          ],
+          realWorldExample: '문자를 숫자로 바꾸는 것은 외국어를 한국어로 번역하는 것과 비슷해요!',
           starterCode: '# 숫자를 입력받아 계산하기\nnum_str = input("숫자를 입력하세요: ")\n\n# 문자열을 정수로 변환\nnum = int(num_str)\n\n# 2배 계산\nresult = num * 2\nprint("2배:", result)\n',
+          solution: 'num_str = input("숫자를 입력하세요: ")\nnum = int(num_str)\nresult = num * 2\nprint("2배:", result)',
           hints: [
-            'int() = 정수로 변환',
-            'float() = 소수로 변환',
-            'str() = 문자열로 변환',
+            '💡 힌트 1: int("10") → 정수 10으로 변환',
+            '💡 힌트 2: float("3.14") → 소수 3.14로 변환',
+            '💡 힌트 3: str(42) → 문자열 "42"로 변환'
+          ],
+          commonMistakes: [
+            'int("abc")처럼 숫자가 아닌 문자열은 변환 불가 - 에러 발생!',
+            'int("3.14")는 에러 - 소수는 float() 먼저!'
           ],
           unlocked: true,
           completed: false,
@@ -608,10 +1015,22 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '입력 + 형변환 + 계산',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            'input()과 int()를 함께 사용할 수 있다',
+            '사용자 입력을 활용해 계산을 수행할 수 있다'
+          ],
+          realWorldExample: '스마트폰 계산기처럼 숫자를 입력받아 계산하는 프로그램을 만들어요!',
           starterCode: '# 두 숫자 입력받기\na = int(input("첫 번째 숫자: "))\nb = int(input("두 번째 숫자: "))\n\n# 더하기 결과 출력\nprint("합계:", a + b)\n',
+          solution: 'a = int(input("첫 번째 숫자: "))\nb = int(input("두 번째 숫자: "))\nprint("합계:", a + b)',
           hints: [
-            'input()과 int()를 함께 사용하면 편리해요',
-            'int(input("...")) 형식으로요',
+            '💡 힌트 1: input()과 int()를 함께 사용하면 편리해요',
+            '💡 힌트 2: int(input("...")) 형식으로 한 줄에 입력받고 변환!',
+            '💡 힌트 3: 변환된 숫자로 바로 계산할 수 있어요'
+          ],
+          commonMistakes: [
+            'int()를 빼먹으면 문자열 연결이 돼요: "10" + "20" = "1020"',
+            '숫자가 아닌 값을 입력하면 에러가 발생해요'
           ],
           unlocked: true,
           completed: false,
@@ -627,11 +1046,22 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: 'f-string 포맷팅',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            'f-string 문법을 이해한다',
+            '변수를 더 쉽게 출력할 수 있다'
+          ],
+          realWorldExample: '빈칸 채우기 문제처럼, {}에 변수 값이 자동으로 들어가요!',
           starterCode: 'name = "코딩"\nage = 12\n\n# f-string 사용하기\nprint(f"안녕하세요, {name}님! {age}살이시네요.")\n\n# 직접 해보세요\nfruit = "사과"\ncount = 5\nprint(f"")\n',
+          solution: 'name = "코딩"\nage = 12\nprint(f"안녕하세요, {name}님! {age}살이시네요.")\nfruit = "사과"\ncount = 5\nprint(f"{fruit}가 {count}개 있어요.")',
           hints: [
-            'f"문자열 {변수}" 형식으로 사용해요',
-            '중괄호 {} 안에 변수를 넣으면 값이 출력돼요',
-            '문자열 연결(+)보다 훨씬 편리해요',
+            '💡 힌트 1: f"문자열 {변수}" 형식으로 사용해요',
+            '💡 힌트 2: 중괄호 {} 안에 변수를 넣으면 값이 출력돼요',
+            '💡 힌트 3: 문자열 연결(+)보다 훨씬 편리해요!'
+          ],
+          commonMistakes: [
+            'f를 빼먹으면 {변수}가 그대로 출력돼요',
+            '따옴표 앞에 f를 꼭 붙여야 해요: f"..."'
           ],
           unlocked: true,
           completed: false,
@@ -647,10 +1077,21 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: 'f-string 내 표현식',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            'f-string 안에서 수식을 사용할 수 있다',
+            '복잡한 출력을 간단하게 작성할 수 있다'
+          ],
+          realWorldExample: '영수증처럼 "1,000원 x 3개 = 3,000원"을 한 줄로 출력할 수 있어요!',
           starterCode: 'price = 1000\nquantity = 3\n\n# f-string 안에서 계산하기\nprint(f"가격: {price}원 x {quantity}개 = {price * quantity}원")\n',
+          solution: 'price = 1000\nquantity = 3\nprint(f"가격: {price}원 x {quantity}개 = {price * quantity}원")',
           hints: [
-            '{} 안에서 계산식도 사용할 수 있어요',
-            '{price * quantity}처럼요',
+            '💡 힌트 1: {} 안에서 계산식도 사용할 수 있어요',
+            '💡 힌트 2: {price * quantity}처럼 변수와 연산자를 함께!',
+            '💡 힌트 3: 결과가 바로 계산되어 출력돼요'
+          ],
+          commonMistakes: [
+            '{}를 빼먹으면 계산 결과가 아닌 수식이 그대로 출력돼요'
           ],
           unlocked: true,
           completed: false,
@@ -665,9 +1106,30 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '에러와 예외 처리 개념',
+          cstaStandard: '1B-AP-11',
+          learningObjectives: [
+            '에러(오류)가 발생하는 상황을 이해한다',
+            '에러를 미리 예방하는 방법을 안다'
+          ],
+          realWorldExample: 'ATM에서 비밀번호를 잘못 입력하면 "다시 입력해주세요"라고 안내하듯이, 프로그램도 잘못된 입력을 처리할 수 있어요!',
+          conceptCards: [
+            {
+              title: '에러가 나는 상황',
+              description: '숫자가 아닌 값을 int()로 변환하면 에러!',
+              icon: '❌',
+              example: 'int("abc") → ValueError 에러 발생!'
+            },
+            {
+              title: '에러 예방하기',
+              description: 'try-except로 에러를 잡을 수 있어요',
+              icon: '🛡️',
+              example: 'try: ... except: "잘못된 입력입니다" (나중에 배워요!)'
+            }
+          ],
           hints: [
-            '숫자가 아닌 값을 int()로 바꾸면 에러가 나요',
-            'try-except로 에러를 처리할 수 있어요 (나중에 자세히 배워요)',
+            '💡 힌트 1: 숫자가 아닌 값을 int()로 바꾸면 에러가 나요',
+            '💡 힌트 2: 에러가 나면 프로그램이 멈춰요',
+            '💡 힌트 3: try-except로 에러를 처리할 수 있어요 (나중에 배워요!)'
           ],
           unlocked: true,
           completed: false,
@@ -683,10 +1145,23 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '입출력 종합',
-          starterCode: '# 대화형 자기소개 프로그램\nprint("=== 친구 알아가기 ==="")\n\nname = input("이름이 뭐예요? ")\nage = int(input("몇 살이에요? "))\nhobby = input("취미가 뭐예요? ")\n\nprint(f"\\n만나서 반가워요, {name}님!")\nprint(f"{age}살이고 {hobby}를 좋아하시는군요!")\nprint(f"{age + 10}살이 되면 어떤 사람이 될까요?")\n',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            'input(), int(), f-string을 종합적으로 활용할 수 있다',
+            '대화형 프로그램을 만들 수 있다',
+            'Week 19에서 배운 내용을 종합적으로 활용한다'
+          ],
+          realWorldExample: '챗봇처럼 대화하는 프로그램을 만들어요! 첫 대화형 프로젝트!',
+          starterCode: '# 대화형 자기소개 프로그램\nprint("=== 친구 알아가기 ===")\n\nname = input("이름이 뭐예요? ")\nage = int(input("몇 살이에요? "))\nhobby = input("취미가 뭐예요? ")\n\nprint(f"\\n만나서 반가워요, {name}님!")\nprint(f"{age}살이고 {hobby}를 좋아하시는군요!")\nprint(f"{age + 10}살이 되면 어떤 사람이 될까요?")\n',
+          solution: 'print("=== 친구 알아가기 ===")\nname = input("이름이 뭐예요? ")\nage = int(input("몇 살이에요? "))\nhobby = input("취미가 뭐예요? ")\nprint(f"\\n만나서 반가워요, {name}님!")\nprint(f"{age}살이고 {hobby}를 좋아하시는군요!")\nprint(f"{age + 10}살이 되면 어떤 사람이 될까요?")',
           hints: [
-            'input()으로 여러 정보를 입력받으세요',
-            'f-string으로 깔끔하게 출력하세요',
+            '💡 힌트 1: input()으로 여러 정보를 입력받아요',
+            '💡 힌트 2: 나이는 int()로 변환해서 계산에 사용해요',
+            '💡 힌트 3: f-string으로 깔끔하게 출력해요!'
+          ],
+          commonMistakes: [
+            '나이 입력에 int()를 빼먹으면 계산({age + 10})에서 에러!',
+            'f-string의 f를 빼먹으면 변수가 출력 안 돼요'
           ],
           unlocked: true,
           completed: false,
@@ -695,26 +1170,43 @@ export const unit3: Unit = {
       ],
       quiz: {
         id: 'quiz-19',
-        title: 'Week 19 퀴즈',
+        title: 'Week 19 퀴즈: 입출력 마스터',
         questions: [
           {
             id: 'q19-1',
             question: 'input()으로 받은 값의 데이터 타입은?',
             options: ['int', 'float', 'str', '입력에 따라 다름'],
             correctAnswer: 2,
+            explanation: 'input()으로 받은 값은 항상 문자열(str)이에요! 숫자를 입력해도 "10"처럼 문자열이 돼요.'
           },
           {
             id: 'q19-2',
             question: '문자열 "123"을 정수로 바꾸는 함수는?',
             options: ['str()', 'int()', 'float()', 'num()'],
             correctAnswer: 1,
+            explanation: 'int()는 문자열이나 소수를 정수로 변환해요. int("123") = 123!'
           },
           {
             id: 'q19-3',
             question: 'f-string에서 변수를 표시하는 기호는?',
             options: ['( )', '[ ]', '{ }', '< >'],
             correctAnswer: 2,
+            explanation: 'f-string에서 {}(중괄호) 안에 변수를 넣으면 값이 출력돼요. f"이름: {name}"'
           },
+          {
+            id: 'q19-4',
+            question: 'int(input("숫자: "))에서 "abc"를 입력하면?',
+            options: ['0이 저장됨', '"abc"가 저장됨', '에러 발생', 'None이 저장됨'],
+            correctAnswer: 2,
+            explanation: '숫자가 아닌 문자열을 int()로 변환하면 ValueError 에러가 발생해요!'
+          },
+          {
+            id: 'q19-5',
+            question: 'f"{10 + 20}"의 결과는?',
+            options: ['10 + 20', '30', '{10 + 20}', '1020'],
+            correctAnswer: 1,
+            explanation: 'f-string의 {} 안에서 계산도 할 수 있어요! {10 + 20}은 30을 출력해요.'
+          }
         ],
       },
     },
@@ -920,26 +1412,43 @@ export const unit3: Unit = {
       ],
       quiz: {
         id: 'quiz-20',
-        title: 'Week 20 퀴즈',
+        title: 'Week 20 퀴즈: 연산자 마스터',
         questions: [
           {
             id: 'q20-1',
             question: '17 % 5 의 결과는?',
             options: ['3', '2', '3.4', '12'],
             correctAnswer: 1,
+            explanation: '% 연산자는 나머지를 구해요. 17 ÷ 5 = 3 나머지 2. 그래서 답은 2!'
           },
           {
             id: 'q20-2',
             question: 'and 연산자의 결과가 True가 되려면?',
             options: ['둘 다 True', '하나만 True', '둘 다 False', '상관없음'],
             correctAnswer: 0,
+            explanation: 'and는 둘 다 True여야 True! True and True = True, 나머지는 모두 False'
           },
           {
             id: 'q20-3',
             question: 'score += 5 는 무엇과 같은가?',
             options: ['score = 5', 'score == 5', 'score = score + 5', 'score + 5'],
             correctAnswer: 2,
+            explanation: '+= 는 복합 대입 연산자예요. score += 5 는 score = score + 5 의 줄임말!'
           },
+          {
+            id: 'q20-4',
+            question: '2 ** 3 의 결과는?',
+            options: ['5', '6', '8', '9'],
+            correctAnswer: 2,
+            explanation: '** 는 거듭제곱 연산자예요. 2 ** 3 = 2 × 2 × 2 = 8!'
+          },
+          {
+            id: 'q20-5',
+            question: 'not True 의 결과는?',
+            options: ['True', 'False', '0', '에러'],
+            correctAnswer: 1,
+            explanation: 'not은 논리값을 반대로 뒤집어요. not True = False!'
+          }
         ],
       },
     },
@@ -1143,26 +1652,43 @@ export const unit3: Unit = {
       ],
       quiz: {
         id: 'quiz-21',
-        title: 'Week 21 퀴즈',
+        title: 'Week 21 퀴즈: 조건문 기초',
         questions: [
           {
             id: 'q21-1',
             question: 'if 문 뒤에 반드시 붙여야 하는 기호는?',
             options: [';', ':', '{', '('],
             correctAnswer: 1,
+            explanation: 'Python에서 if 조건: 형식으로 콜론(:)을 붙여야 해요!'
           },
           {
             id: 'q21-2',
             question: 'if 조건이 거짓일 때 실행되는 키워드는?',
             options: ['then', 'otherwise', 'else', 'false'],
             correctAnswer: 2,
+            explanation: 'else는 if 조건이 거짓(False)일 때 실행돼요. "아니면"이라는 뜻!'
           },
           {
             id: 'q21-3',
             question: 'Python에서 코드 블록을 구분하는 방법은?',
             options: ['{ }', '들여쓰기', '( )', '[ ]'],
             correctAnswer: 1,
+            explanation: 'Python은 들여쓰기로 코드 블록을 구분해요! 보통 스페이스 4칸을 사용해요.'
           },
+          {
+            id: 'q21-4',
+            question: '10 % 2 == 0 의 결과는? (10이 짝수인지 확인)',
+            options: ['True', 'False', '0', '10'],
+            correctAnswer: 0,
+            explanation: '10 % 2 = 0 (나머지가 0), 0 == 0 은 True! 10은 짝수예요!'
+          },
+          {
+            id: 'q21-5',
+            question: 'if 문에서 두 조건 모두 만족해야 할 때 사용하는 것은?',
+            options: ['or', 'and', 'not', 'both'],
+            correctAnswer: 1,
+            explanation: 'and는 두 조건 모두 True여야 True! if age >= 18 and has_ticket:'
+          }
         ],
       },
     },
@@ -1365,26 +1891,43 @@ export const unit3: Unit = {
       ],
       quiz: {
         id: 'quiz-22',
-        title: 'Week 22 퀴즈',
+        title: 'Week 22 퀴즈: 조건문 심화',
         questions: [
           {
             id: 'q22-1',
             question: 'elif는 무엇의 줄임말인가?',
             options: ['else only if', 'else if', 'element if', 'elif는 줄임말이 아님'],
             correctAnswer: 1,
+            explanation: 'elif = else if의 줄임말이에요. "아니면 만약~라면"이라는 뜻!'
           },
           {
             id: 'q22-2',
             question: 'if-elif-else에서 실행되는 블록의 수는?',
             options: ['조건에 맞는 모든 블록', '정확히 하나', '0개 또는 1개', 'else만'],
             correctAnswer: 1,
+            explanation: 'if-elif-else에서는 정확히 하나의 블록만 실행돼요! 첫 번째로 참인 조건만!'
           },
           {
             id: 'q22-3',
             question: '"hello" in "hello world"의 결과는?',
             options: ['True', 'False', '에러', '"hello"'],
             correctAnswer: 0,
+            explanation: 'in 연산자는 문자열이 포함되어 있는지 확인해요. "hello"가 있으니 True!'
           },
+          {
+            id: 'q22-4',
+            question: 'score = 85일 때 성적이 B인 조건은? (A: 90이상, B: 80이상)',
+            options: ['score >= 90', 'score >= 80 and score < 90', 'score == 85', 'score > 80'],
+            correctAnswer: 1,
+            explanation: 'B등급은 80 이상이면서 90 미만이어야 해요! elif에서 순서대로 체크하면 자동으로 처리됩니다.'
+          },
+          {
+            id: 'q22-5',
+            question: 'if 문 없이 elif만 쓸 수 있나요?',
+            options: ['예', '아니오', '조건에 따라 다름', 'else와 함께면 가능'],
+            correctAnswer: 1,
+            explanation: 'elif는 항상 if 뒤에 와야 해요! if 없이 elif만 쓰면 에러 발생!'
+          }
         ],
       },
     },
@@ -1592,26 +2135,43 @@ export const unit3: Unit = {
       ],
       quiz: {
         id: 'quiz-23',
-        title: 'Week 23 퀴즈',
+        title: 'Week 23 퀴즈: 반복문 기초',
         questions: [
           {
             id: 'q23-1',
             question: 'range(3)이 생성하는 숫자는?',
             options: ['1, 2, 3', '0, 1, 2', '0, 1, 2, 3', '1, 2'],
             correctAnswer: 1,
+            explanation: 'range(3)은 0부터 시작해서 3 직전까지! 0, 1, 2를 생성해요.'
           },
           {
             id: 'q23-2',
             question: '반복문을 즉시 종료하는 키워드는?',
             options: ['stop', 'exit', 'break', 'end'],
             correctAnswer: 2,
+            explanation: 'break는 반복문을 즉시 탈출해요! while과 for 모두에서 사용 가능!'
           },
           {
             id: 'q23-3',
             question: 'while True: 의 의미는?',
             options: ['한 번만 실행', '무한 반복', '조건부 실행', '실행 안 함'],
             correctAnswer: 1,
+            explanation: 'while True:는 조건이 항상 True라서 무한 반복해요! break로 탈출해야 해요.'
           },
+          {
+            id: 'q23-4',
+            question: '1부터 10까지 합을 구할 때 사용하는 range()는?',
+            options: ['range(10)', 'range(1, 10)', 'range(1, 11)', 'range(0, 10)'],
+            correctAnswer: 2,
+            explanation: 'range(1, 11)은 1부터 10까지예요. 끝 숫자(11)는 포함 안 됨!'
+          },
+          {
+            id: 'q23-5',
+            question: 'continue의 역할은?',
+            options: ['반복문 종료', '현재 반복 건너뛰기', '다음 함수로', '프로그램 종료'],
+            correctAnswer: 1,
+            explanation: 'continue는 현재 반복을 건너뛰고 다음 반복으로 넘어가요!'
+          }
         ],
       },
     },
@@ -1826,26 +2386,43 @@ export const unit3: Unit = {
       },
       quiz: {
         id: 'quiz-24',
-        title: 'Week 24 퀴즈 (Unit 3 최종)',
+        title: 'Week 24 퀴즈: Unit 3 종합 평가',
         questions: [
           {
             id: 'q24-1',
             question: 'for fruit in ["사과", "배"]에서 fruit에 들어가는 값은?',
             options: ['["사과", "배"]', '"사과"와 "배"가 차례로', '0과 1', '인덱스'],
             correctAnswer: 1,
+            explanation: 'for 문에서 리스트의 각 항목이 차례로 변수에 들어가요! 먼저 "사과", 그 다음 "배"'
           },
           {
             id: 'q24-2',
             question: '"*" * 3의 결과는?',
             options: ['3', '*3', '***', '에러'],
             correctAnswer: 2,
+            explanation: '문자열 * 숫자 = 문자열 반복! "*" * 3 = "***"'
           },
           {
             id: 'q24-3',
             question: '중첩 반복문에서 바깥이 3번, 안쪽이 4번이면 총 실행 횟수는?',
             options: ['7번', '12번', '3번', '4번'],
             correctAnswer: 1,
+            explanation: '바깥 × 안쪽 = 3 × 4 = 12번! 바깥 1번마다 안쪽이 4번 실행돼요.'
           },
+          {
+            id: 'q24-4',
+            question: 'enumerate(["A", "B"])의 결과는?',
+            options: ['["A", "B"]', '[(0, "A"), (1, "B")]', '[0, 1]', '["A", 0, "B", 1]'],
+            correctAnswer: 1,
+            explanation: 'enumerate()는 인덱스와 값을 함께 반환해요! (0, "A"), (1, "B")'
+          },
+          {
+            id: 'q24-5',
+            question: 'Python에서 들여쓰기를 잘못하면?',
+            options: ['무시됨', '경고만 나옴', 'IndentationError 발생', '자동 수정됨'],
+            correctAnswer: 2,
+            explanation: 'Python은 들여쓰기가 매우 중요해요! 잘못하면 IndentationError 에러 발생!'
+          }
         ],
       },
     },

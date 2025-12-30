@@ -47,7 +47,32 @@ export const unit2: Unit = {
           estimatedMinutes: 8,
           concept: '블록 코딩 소개',
           conceptExplanation: '블록 코딩은 레고처럼 블록을 끼워 맞춰 프로그램을 만드는 거예요. 글자를 입력하지 않아도 돼서 쉽게 시작할 수 있어요!',
-          hints: ['블록을 드래그해서 연결해요', '블록 색깔마다 다른 기능이 있어요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '블록 코딩의 개념과 특징을 이해한다',
+            '블록 코딩 환경의 구성 요소를 안다',
+            '블록 코딩의 장점을 설명할 수 있다'
+          ],
+          realWorldExample: '스크래치(Scratch)는 MIT에서 만든 블록 코딩 도구로, 전 세계 수백만 어린이가 사용해요!',
+          conceptCards: [
+            {
+              title: '블록 코딩이란?',
+              description: '블록을 끼워 맞춰 프로그램을 만드는 방식',
+              icon: '🧱',
+              example: '레고처럼 블록을 조립!'
+            },
+            {
+              title: '장점',
+              description: '타이핑 없이, 문법 오류 없이 프로그래밍',
+              icon: '✨',
+              example: '드래그 앤 드롭으로 쉽게 시작'
+            }
+          ],
+          hints: [
+            '💡 힌트 1: 블록을 드래그해서 연결해요',
+            '💡 힌트 2: 블록 색깔마다 다른 기능이 있어요',
+            '💡 힌트 3: 파란색은 동작, 보라색은 이벤트가 많아요'
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -63,7 +88,18 @@ export const unit2: Unit = {
           estimatedMinutes: 6,
           concept: '블록 사용법',
           conceptExplanation: '블록 팔레트에서 원하는 블록을 드래그해서 작업 영역에 놓으세요. 그리고 실행 버튼을 누르면 프로그램이 실행돼요!',
-          hints: ['"앞으로" 블록을 드래그하세요', '실행 버튼을 눌러보세요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '블록을 드래그 앤 드롭으로 배치할 수 있다',
+            '프로그램을 실행하는 방법을 안다'
+          ],
+          realWorldExample: '리모컨 버튼을 누르면 TV가 반응하듯이, 블록을 실행하면 로봇이 움직여요!',
+          hints: [
+            '💡 힌트 1: "앞으로" 블록을 드래그하세요',
+            '💡 힌트 2: 작업 영역에 놓으면 연결돼요',
+            '💡 힌트 3: 초록색 깃발 버튼을 눌러 실행하세요'
+          ],
+          solutionSequence: ['앞으로'],
           blocks: ['앞으로'],
           gridSize: { rows: 3, cols: 3 },
           startPosition: { row: 2, col: 1 },
@@ -71,6 +107,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [],
+          maxCommands: 3,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -86,7 +123,22 @@ export const unit2: Unit = {
           estimatedMinutes: 8,
           concept: '블록 연결',
           conceptExplanation: '블록을 위아래로 연결하면 순서대로 실행돼요. 위에서부터 아래로 차례로 실행됩니다!',
-          hints: ['"앞으로" 블록 2개를 연결하세요', '블록은 위에서 아래로 실행돼요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '블록을 순서대로 연결할 수 있다',
+            '블록이 위에서 아래로 순차 실행됨을 이해한다'
+          ],
+          realWorldExample: '레시피처럼 순서대로 따라하면 요리가 완성되듯이, 블록도 순서대로 실행돼요!',
+          hints: [
+            '💡 힌트 1: "앞으로" 블록 2개를 연결하세요',
+            '💡 힌트 2: 블록은 위에서 아래로 실행돼요',
+            '💡 힌트 3: 두 번째 블록을 첫 번째 아래에 붙이세요'
+          ],
+          commonMistakes: [
+            '블록을 연결하지 않고 따로 두는 경우',
+            '블록 순서를 잘못 배치하는 경우'
+          ],
+          solutionSequence: ['앞으로', '앞으로'],
           blocks: ['앞으로'],
           gridSize: { rows: 4, cols: 3 },
           startPosition: { row: 3, col: 1 },
@@ -94,6 +146,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [],
+          maxCommands: 4,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -109,7 +162,23 @@ export const unit2: Unit = {
           estimatedMinutes: 10,
           concept: '회전 블록',
           conceptExplanation: '로봇은 바라보는 방향으로만 앞으로 갈 수 있어요. 회전 블록으로 방향을 바꾼 다음 앞으로 가세요!',
-          hints: ['오른쪽으로 회전하면 →를 바라봐요', '회전 후 앞으로 가세요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '회전 블록의 기능을 이해한다',
+            '로봇의 현재 방향을 인식할 수 있다',
+            '회전 후 이동 방향이 바뀜을 이해한다'
+          ],
+          realWorldExample: '자동차가 교차로에서 우회전하는 것처럼, 로봇도 방향을 바꿀 수 있어요!',
+          hints: [
+            '💡 힌트 1: 로봇은 처음에 위쪽(↑)을 보고 있어요',
+            '💡 힌트 2: 오른쪽 회전하면 오른쪽(→)을 바라봐요',
+            '💡 힌트 3: 회전 후 "앞으로"를 3번 하면 도착!'
+          ],
+          commonMistakes: [
+            '회전 없이 바로 앞으로 가려는 경우',
+            '회전 후 이동 방향을 헷갈리는 경우'
+          ],
+          solutionSequence: ['오른쪽회전', '앞으로', '앞으로', '앞으로'],
           blocks: ['앞으로', '오른쪽회전'],
           gridSize: { rows: 3, cols: 4 },
           startPosition: { row: 1, col: 0 },
@@ -117,6 +186,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [],
+          maxCommands: 6,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -131,7 +201,22 @@ export const unit2: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '좌회전',
-          hints: ['왼쪽으로 회전하면 ←를 바라봐요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '왼쪽 회전과 오른쪽 회전의 차이를 이해한다',
+            '목표 방향에 맞는 회전을 선택할 수 있다'
+          ],
+          realWorldExample: '거울 속 글자처럼 왼쪽과 오른쪽은 반대예요. 잘 구분해야 해요!',
+          hints: [
+            '💡 힌트 1: 로봇은 처음에 위쪽(↑)을 보고 있어요',
+            '💡 힌트 2: 왼쪽 회전하면 왼쪽(←)을 바라봐요',
+            '💡 힌트 3: 왼쪽 회전 후 앞으로 3번!'
+          ],
+          commonMistakes: [
+            '왼쪽과 오른쪽을 헷갈리는 경우',
+            '회전 방향을 반대로 선택하는 경우'
+          ],
+          solutionSequence: ['왼쪽회전', '앞으로', '앞으로', '앞으로'],
           blocks: ['앞으로', '왼쪽회전'],
           gridSize: { rows: 3, cols: 4 },
           startPosition: { row: 1, col: 3 },
@@ -139,6 +224,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [],
+          maxCommands: 6,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -154,7 +240,22 @@ export const unit2: Unit = {
           estimatedMinutes: 12,
           concept: '경로 만들기',
           conceptExplanation: '앞으로 가다가 회전하면 꺾이는 경로를 만들 수 있어요!',
-          hints: ['앞으로 → 오른쪽 회전 → 앞으로 순서로 해보세요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '이동과 회전을 조합하여 복합 경로를 만들 수 있다',
+            '목표까지의 경로를 미리 계획할 수 있다'
+          ],
+          realWorldExample: '택배 배달 트럭이 여러 집을 돌며 경로를 따라가는 것처럼요!',
+          hints: [
+            '💡 힌트 1: 먼저 위로 2칸 이동해요',
+            '💡 힌트 2: 그다음 오른쪽으로 회전해요',
+            '💡 힌트 3: 앞으로 앞으로 → 오른쪽 회전 → 앞으로 앞으로'
+          ],
+          commonMistakes: [
+            '회전 타이밍을 놓치는 경우',
+            '이동 칸 수를 잘못 세는 경우'
+          ],
+          solutionSequence: ['앞으로', '앞으로', '오른쪽회전', '앞으로', '앞으로'],
           blocks: ['앞으로', '오른쪽회전'],
           gridSize: { rows: 4, cols: 4 },
           startPosition: { row: 3, col: 0 },
@@ -162,6 +263,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [],
+          maxCommands: 8,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -177,7 +279,22 @@ export const unit2: Unit = {
           estimatedMinutes: 12,
           concept: '장애물 회피',
           conceptExplanation: '장애물이 있으면 돌아가는 길을 찾아야 해요!',
-          hints: ['직선으로 갈 수 없어요', '회전해서 돌아가세요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '장애물을 인식하고 우회 경로를 계획할 수 있다',
+            '여러 가지 해결 경로 중 하나를 선택할 수 있다'
+          ],
+          realWorldExample: '공사 중인 길을 만나면 돌아가야 하는 것처럼요!',
+          hints: [
+            '💡 힌트 1: 가운데 길이 막혀있어요',
+            '💡 힌트 2: 왼쪽이나 오른쪽으로 돌아가야 해요',
+            '💡 힌트 3: 오른쪽 회전 → 앞으로 → 왼쪽 회전 → 앞으로 3번 → 왼쪽 회전 → 앞으로'
+          ],
+          commonMistakes: [
+            '장애물을 무시하고 직진하려는 경우',
+            '돌아가는 경로를 계획하지 않는 경우'
+          ],
+          solutionSequence: ['오른쪽회전', '앞으로', '왼쪽회전', '앞으로', '앞으로', '앞으로', '왼쪽회전', '앞으로'],
           blocks: ['앞으로', '왼쪽회전', '오른쪽회전'],
           gridSize: { rows: 4, cols: 4 },
           startPosition: { row: 3, col: 1 },
@@ -185,6 +302,7 @@ export const unit2: Unit = {
           obstacles: [{ row: 2, col: 1 }, { row: 1, col: 1 }],
           checkpoints: [],
           collectibles: [],
+          maxCommands: 12,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -200,7 +318,22 @@ export const unit2: Unit = {
           estimatedMinutes: 12,
           concept: '아이템 수집',
           conceptExplanation: '보석 위를 지나가면 자동으로 수집돼요. 가능하면 모든 보석을 모아보세요!',
-          hints: ['보석이 있는 칸을 지나가세요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '목표 달성과 추가 목표(보석 수집)를 구분할 수 있다',
+            '효율적인 경로와 최대 보상 경로를 비교할 수 있다'
+          ],
+          realWorldExample: '쇼핑할 때 사고 싶은 물건들이 있는 코너를 다 돌면서 계산대로 가는 것과 같아요!',
+          hints: [
+            '💡 힌트 1: 보석은 (2,1)과 (1,2)에 있어요',
+            '💡 힌트 2: 대각선으로 갈 수 없으니 지그재그로 가야 해요',
+            '💡 힌트 3: 앞으로 → 오른쪽 회전 → 앞으로 → 왼쪽 회전 → 앞으로... 반복!'
+          ],
+          commonMistakes: [
+            '보석을 지나치고 직접 목표로 가는 경우',
+            '대각선 이동이 가능하다고 착각하는 경우'
+          ],
+          solutionSequence: ['앞으로', '오른쪽회전', '앞으로', '왼쪽회전', '앞으로', '오른쪽회전', '앞으로', '왼쪽회전', '앞으로', '오른쪽회전', '앞으로'],
           blocks: ['앞으로', '왼쪽회전', '오른쪽회전'],
           gridSize: { rows: 4, cols: 4 },
           startPosition: { row: 3, col: 0 },
@@ -208,6 +341,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [{ row: 2, col: 1 }, { row: 1, col: 2 }],
+          maxCommands: 15,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -223,7 +357,22 @@ export const unit2: Unit = {
           estimatedMinutes: 15,
           concept: '필수 경유지',
           conceptExplanation: '체크포인트는 반드시 방문해야 미션이 완료돼요!',
-          hints: ['체크포인트를 먼저 방문하세요'],
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '필수 조건(체크포인트)을 만족하는 경로를 설계할 수 있다',
+            '제약 조건이 있는 문제를 해결할 수 있다'
+          ],
+          realWorldExample: '학교에 가기 전에 친구 집에 들러야 한다면, 친구 집을 경유하는 경로를 계획해야 해요!',
+          hints: [
+            '💡 힌트 1: 체크포인트(3,3)를 먼저 방문해야 해요',
+            '💡 힌트 2: 시작점에서 오른쪽으로 가면 체크포인트가 있어요',
+            '💡 힌트 3: 오른쪽 회전 → 앞으로 3번 → 왼쪽 회전 → 앞으로 3번'
+          ],
+          commonMistakes: [
+            '체크포인트를 건너뛰고 목표로 직행하는 경우',
+            '체크포인트 위치를 잘못 파악하는 경우'
+          ],
+          solutionSequence: ['오른쪽회전', '앞으로', '앞으로', '앞으로', '왼쪽회전', '앞으로', '앞으로', '앞으로'],
           blocks: ['앞으로', '왼쪽회전', '오른쪽회전'],
           gridSize: { rows: 4, cols: 4 },
           startPosition: { row: 3, col: 0 },
@@ -231,6 +380,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [{ row: 3, col: 3 }],
           collectibles: [],
+          maxCommands: 12,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -245,12 +395,58 @@ export const unit2: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '개념 확인',
+          cstaStandard: '1B-AP-08',
+          learningObjectives: [
+            '블록 코딩의 기본 개념을 확인한다',
+            '블록 연결과 실행 순서를 이해했는지 점검한다'
+          ],
           hints: [],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-9',
+        title: 'Week 9 블록 코딩 기초 퀴즈',
+        questions: [
+          {
+            id: 'q-2-9-1',
+            question: '블록 코딩의 가장 큰 장점은 무엇인가요?',
+            options: ['화려한 그래픽', '타이핑 없이 드래그 앤 드롭으로 프로그래밍', '인터넷 없이 사용 가능', '자동으로 코드 완성'],
+            correctAnswer: 1,
+            explanation: '블록 코딩은 글자를 타이핑하지 않고 블록을 드래그해서 끼워 맞추는 방식이라 문법 오류 없이 쉽게 시작할 수 있어요!'
+          },
+          {
+            id: 'q-2-9-2',
+            question: '블록을 위아래로 연결하면 어떻게 실행되나요?',
+            options: ['동시에 실행', '아래에서 위로 실행', '위에서 아래로 순서대로 실행', '무작위로 실행'],
+            correctAnswer: 2,
+            explanation: '블록은 위에서 아래로 순서대로 실행돼요. 이것을 순차 실행이라고 해요!'
+          },
+          {
+            id: 'q-2-9-3',
+            question: '로봇이 위쪽(↑)을 보고 있을 때 "오른쪽 회전"을 하면 어디를 바라보게 되나요?',
+            options: ['위쪽(↑)', '오른쪽(→)', '아래쪽(↓)', '왼쪽(←)'],
+            correctAnswer: 1,
+            explanation: '오른쪽 회전은 시계 방향으로 90도 회전해요. 위쪽을 보다가 오른쪽을 바라보게 됩니다!'
+          },
+          {
+            id: 'q-2-9-4',
+            question: '장애물이 있는 칸에서 로봇은 어떻게 해야 하나요?',
+            options: ['그냥 통과한다', '장애물을 부순다', '돌아서 피해간다', '제자리에서 멈춘다'],
+            correctAnswer: 2,
+            explanation: '장애물은 지나갈 수 없어요. 다른 경로를 찾아서 돌아가야 해요!'
+          },
+          {
+            id: 'q-2-9-5',
+            question: '체크포인트의 역할은 무엇인가요?',
+            options: ['보너스 점수를 준다', '반드시 방문해야 미션 완료', '로봇을 빠르게 만든다', '장애물을 제거한다'],
+            correctAnswer: 1,
+            explanation: '체크포인트는 필수 경유지예요. 반드시 방문해야만 미션이 완료됩니다!'
+          }
+        ]
+      },
     },
 
     // ============================================
@@ -274,7 +470,32 @@ export const unit2: Unit = {
           estimatedMinutes: 8,
           concept: '반복문 소개',
           conceptExplanation: '"앞으로" 블록을 10번 넣는 대신 "10번 반복하기 { 앞으로 }"라고 하면 훨씬 간단해요!',
-          hints: ['반복을 사용하면 코드가 짧아져요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '반복문의 필요성을 이해한다',
+            '동일한 작업을 효율적으로 표현할 수 있다',
+            '반복 블록의 구조를 이해한다'
+          ],
+          realWorldExample: '줄넘기 100번을 "줄넘기 줄넘기 줄넘기..."라고 100번 쓰는 대신 "줄넘기 100번"이라고 하면 간단해요!',
+          conceptCards: [
+            {
+              title: '반복문이란?',
+              description: '같은 동작을 여러 번 실행하는 구조',
+              icon: '🔄',
+              example: '"3번 반복 { 앞으로 }" = 앞으로 앞으로 앞으로'
+            },
+            {
+              title: '반복의 장점',
+              description: '코드가 짧아지고, 수정하기 쉬워져요',
+              icon: '✨',
+              example: '100칸 이동도 블록 2개면 OK!'
+            }
+          ],
+          hints: [
+            '💡 힌트 1: 같은 블록이 여러 번 나오면 반복을 써보세요',
+            '💡 힌트 2: 반복 블록 안에 반복할 내용을 넣어요',
+            '💡 힌트 3: 반복 횟수를 정할 수 있어요'
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -290,7 +511,22 @@ export const unit2: Unit = {
           estimatedMinutes: 10,
           concept: '반복 기초',
           conceptExplanation: '"3번 반복하기" 안에 "앞으로" 블록을 넣으면 3칸 이동해요!',
-          hints: ['"3번 반복하기" 안에 "앞으로"를 넣으세요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '반복 블록의 기본 사용법을 익힌다',
+            '반복 횟수와 실행 결과의 관계를 이해한다'
+          ],
+          realWorldExample: '계단 3칸 오르기를 "3번 반복 { 한 칸 오르기 }"로 표현할 수 있어요!',
+          hints: [
+            '💡 힌트 1: "앞으로" 블록 3개 대신 반복을 사용해요',
+            '💡 힌트 2: "3번 반복하기" 블록 안에 "앞으로"를 넣으세요',
+            '💡 힌트 3: 블록 2개만으로 3칸 이동!'
+          ],
+          commonMistakes: [
+            '반복 안에 블록을 넣지 않는 경우',
+            '반복 횟수를 잘못 설정하는 경우'
+          ],
+          solutionSequence: ['3번반복{앞으로}'],
           blocks: ['앞으로', '반복'],
           gridSize: { rows: 5, cols: 3 },
           startPosition: { row: 4, col: 1 },
@@ -313,7 +549,22 @@ export const unit2: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '반복 횟수',
-          hints: ['5번 반복을 사용하세요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '반복 횟수를 상황에 맞게 조절할 수 있다',
+            '목표까지의 거리와 반복 횟수의 관계를 파악한다'
+          ],
+          realWorldExample: '마라톤 선수가 트랙을 5바퀴 돌아야 한다면, "5번 반복 { 한 바퀴 돌기 }"!',
+          hints: [
+            '💡 힌트 1: 시작점에서 목표까지 몇 칸인지 세어보세요',
+            '💡 힌트 2: 5칸이니까 "5번 반복"이 필요해요',
+            '💡 힌트 3: "5번 반복하기 { 앞으로 }"로 해결!'
+          ],
+          commonMistakes: [
+            '칸 수를 잘못 세는 경우',
+            '반복 횟수를 너무 많이 또는 적게 설정하는 경우'
+          ],
+          solutionSequence: ['5번반복{앞으로}'],
           blocks: ['앞으로', '반복'],
           gridSize: { rows: 3, cols: 7 },
           startPosition: { row: 1, col: 0 },
@@ -337,7 +588,22 @@ export const unit2: Unit = {
           estimatedMinutes: 15,
           concept: '반복 패턴',
           conceptExplanation: '정사각형은 "앞으로 + 오른쪽 회전"을 4번 반복하면 만들 수 있어요!',
-          hints: ['"앞으로 + 오른쪽 회전"을 4번 반복하세요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '반복되는 패턴을 찾아 반복문으로 표현할 수 있다',
+            '도형의 규칙성과 반복의 관계를 이해한다'
+          ],
+          realWorldExample: '정사각형 액자를 만들 때 "한 변 붙이기 → 90도 꺾기"를 4번 반복하면 완성!',
+          hints: [
+            '💡 힌트 1: 정사각형은 변이 4개예요',
+            '💡 힌트 2: 한 변을 가고 90도 회전하는 것을 반복해요',
+            '💡 힌트 3: "4번 반복 { 앞으로 앞으로 + 오른쪽 회전 }"'
+          ],
+          commonMistakes: [
+            '반복 횟수를 3이나 5로 설정하는 경우',
+            '반복 안에 회전만 넣고 이동을 빼먹는 경우'
+          ],
+          solutionSequence: ['4번반복{앞으로,앞으로,오른쪽회전}'],
           blocks: ['앞으로', '오른쪽회전', '반복'],
           gridSize: { rows: 5, cols: 5 },
           startPosition: { row: 4, col: 0 },
@@ -362,7 +628,22 @@ export const unit2: Unit = {
           exp: 90,
           estimatedMinutes: 18,
           concept: '도형과 반복',
-          hints: ['삼각형은 3번 반복이에요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '다각형의 변 수와 반복 횟수의 관계를 이해한다',
+            '회전 각도를 계산하여 도형을 완성할 수 있다'
+          ],
+          realWorldExample: '삼각 김밥을 만들 때 김을 3번 접는 것처럼, 삼각형도 3번 반복!',
+          hints: [
+            '💡 힌트 1: 삼각형은 변이 3개예요',
+            '💡 힌트 2: 정삼각형의 외각은 120도예요',
+            '💡 힌트 3: "3번 반복 { 앞으로 + 120도 회전 }"'
+          ],
+          commonMistakes: [
+            '반복 횟수를 4로 하는 경우 (정사각형과 혼동)',
+            '회전 각도를 60도로 하는 경우 (내각과 외각 혼동)'
+          ],
+          solutionSequence: ['3번반복{앞으로,앞으로,오른쪽회전120도}'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
           gridSize: { rows: 5, cols: 5 },
           startPosition: { row: 4, col: 1 },
@@ -372,6 +653,7 @@ export const unit2: Unit = {
           collectibles: [],
           drawPath: true,
           expectedShape: 'triangle',
+          maxCommands: 4,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -386,7 +668,22 @@ export const unit2: Unit = {
           exp: 100,
           estimatedMinutes: 18,
           concept: '반복 패턴',
-          hints: ['"앞으로 + 왼쪽 회전 + 앞으로 + 오른쪽 회전"을 반복해보세요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '복잡한 패턴에서 반복 단위를 찾을 수 있다',
+            '여러 블록으로 구성된 반복 단위를 설계할 수 있다'
+          ],
+          realWorldExample: '계단을 오를 때 "한 칸 오르고 → 앞으로"를 반복하는 것처럼요!',
+          hints: [
+            '💡 힌트 1: 계단은 위-오른쪽-위-오른쪽 패턴이에요',
+            '💡 힌트 2: "앞으로 + 오른쪽 회전 + 앞으로 + 왼쪽 회전"이 한 계단',
+            '💡 힌트 3: 이 패턴을 4번 반복하면 도착!'
+          ],
+          commonMistakes: [
+            '반복 단위를 너무 작게 또는 크게 잡는 경우',
+            '회전 방향을 잘못 선택하는 경우'
+          ],
+          solutionSequence: ['4번반복{앞으로,오른쪽회전,앞으로,왼쪽회전}'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
           gridSize: { rows: 5, cols: 5 },
           startPosition: { row: 4, col: 0 },
@@ -394,6 +691,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [{ row: 3, col: 1 }, { row: 2, col: 2 }, { row: 1, col: 3 }],
+          maxCommands: 5,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -408,7 +706,22 @@ export const unit2: Unit = {
           exp: 100,
           estimatedMinutes: 18,
           concept: '복잡한 반복',
-          hints: ['지그재그는 방향을 번갈아 바꾸는 패턴이에요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '비대칭 패턴에서 반복 구조를 찾을 수 있다',
+            '반복과 개별 명령을 조합할 수 있다'
+          ],
+          realWorldExample: '스키장에서 지그재그로 내려오는 것처럼, 좌우로 방향을 바꾸며 이동해요!',
+          hints: [
+            '💡 힌트 1: 오른쪽으로 갔다가 왼쪽으로 돌아오는 패턴이에요',
+            '💡 힌트 2: "오른쪽 대각선 → 왼쪽 대각선"을 반복해요',
+            '💡 힌트 3: 모든 보석을 지나가려면 경로를 잘 계획하세요'
+          ],
+          commonMistakes: [
+            '보석을 하나라도 놓치는 경로를 선택하는 경우',
+            '지그재그 패턴을 찾지 못하는 경우'
+          ],
+          solutionSequence: ['오른쪽회전', '앞으로', '앞으로', '왼쪽회전', '앞으로', '왼쪽회전', '앞으로', '오른쪽회전', '앞으로', '오른쪽회전', '앞으로', '앞으로', '왼쪽회전', '앞으로'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
           gridSize: { rows: 4, cols: 5 },
           startPosition: { row: 3, col: 0 },
@@ -416,6 +729,7 @@ export const unit2: Unit = {
           obstacles: [],
           checkpoints: [],
           collectibles: [{ row: 3, col: 2 }, { row: 2, col: 1 }, { row: 2, col: 3 }, { row: 1, col: 2 }],
+          maxCommands: 16,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -431,7 +745,22 @@ export const unit2: Unit = {
           estimatedMinutes: 20,
           concept: '중첩 반복',
           conceptExplanation: '반복 안에 또 반복을 넣을 수 있어요. 정사각형 3개를 그리려면?',
-          hints: ['바깥 반복: 3번, 안쪽 반복: 정사각형 그리기'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '중첩 반복(반복 안의 반복)의 개념을 이해한다',
+            '바깥 반복과 안쪽 반복의 역할을 구분할 수 있다'
+          ],
+          realWorldExample: '건물 3층에 각 층마다 방 4개가 있다면: "3번 반복 { 4번 반복 { 방 만들기 } }"',
+          hints: [
+            '💡 힌트 1: 정사각형 하나 = 4번 반복 { 앞으로 + 회전 }',
+            '💡 힌트 2: 정사각형 3개 = 바깥 반복 3번',
+            '💡 힌트 3: "3번 반복 { 4번 반복 { ... } + 이동 }"'
+          ],
+          commonMistakes: [
+            '바깥 반복과 안쪽 반복의 순서를 바꾸는 경우',
+            '중첩 구조를 이해하지 못하는 경우'
+          ],
+          solutionSequence: ['3번반복{4번반복{앞으로,오른쪽회전},앞으로,앞으로,앞으로}'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
           gridSize: { rows: 6, cols: 10 },
           startPosition: { row: 5, col: 0 },
@@ -440,6 +769,7 @@ export const unit2: Unit = {
           checkpoints: [],
           collectibles: [],
           drawPath: true,
+          maxCommands: 8,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -454,7 +784,22 @@ export const unit2: Unit = {
           exp: 130,
           estimatedMinutes: 22,
           concept: '복잡한 도형',
-          hints: ['별은 5번 반복이에요', '큰 각도로 회전해야 해요'],
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '복잡한 도형도 반복으로 표현할 수 있음을 이해한다',
+            '별 모양의 규칙성을 발견하고 코드로 표현할 수 있다'
+          ],
+          realWorldExample: '별 모양 쿠키 틀처럼, 규칙적인 패턴으로 별을 만들 수 있어요!',
+          hints: [
+            '💡 힌트 1: 별은 꼭지점이 5개예요',
+            '💡 힌트 2: 한 선을 그리고 144도(360÷5×2) 회전해요',
+            '💡 힌트 3: "5번 반복 { 앞으로 + 144도 회전 }"'
+          ],
+          commonMistakes: [
+            '회전 각도를 72도(정오각형)로 하는 경우',
+            '반복 횟수를 6이나 4로 설정하는 경우'
+          ],
+          solutionSequence: ['5번반복{앞으로,앞으로,오른쪽회전144도}'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '반복'],
           gridSize: { rows: 7, cols: 7 },
           startPosition: { row: 6, col: 3 },
@@ -464,6 +809,7 @@ export const unit2: Unit = {
           collectibles: [],
           drawPath: true,
           expectedShape: 'star',
+          maxCommands: 4,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -478,12 +824,58 @@ export const unit2: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '개념 확인',
+          cstaStandard: '1B-AP-10',
+          learningObjectives: [
+            '반복문의 개념과 사용법을 확인한다',
+            '반복 횟수와 중첩 반복을 이해했는지 점검한다'
+          ],
           hints: [],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-10',
+        title: 'Week 10 반복 블록 퀴즈',
+        questions: [
+          {
+            id: 'q-2-10-1',
+            question: '반복 블록을 사용하는 가장 큰 이유는 무엇인가요?',
+            options: ['프로그램을 느리게 만들기 위해', '같은 코드를 여러 번 쓰지 않기 위해', '화면을 예쁘게 만들기 위해', '오류를 만들기 위해'],
+            correctAnswer: 1,
+            explanation: '반복 블록을 사용하면 같은 동작을 여러 번 쓰지 않아도 되어 코드가 짧고 깔끔해져요!'
+          },
+          {
+            id: 'q-2-10-2',
+            question: '"5번 반복하기 { 앞으로 }"는 무슨 의미인가요?',
+            options: ['앞으로 5칸 이동', '5초 동안 기다리기', '5개의 블록 만들기', '5번 회전하기'],
+            correctAnswer: 0,
+            explanation: '"앞으로" 블록이 5번 실행되므로 총 5칸 앞으로 이동해요!'
+          },
+          {
+            id: 'q-2-10-3',
+            question: '정사각형을 그리려면 몇 번 반복해야 하나요?',
+            options: ['2번', '3번', '4번', '5번'],
+            correctAnswer: 2,
+            explanation: '정사각형은 변이 4개이므로 "한 변 그리기 + 90도 회전"을 4번 반복해요!'
+          },
+          {
+            id: 'q-2-10-4',
+            question: '중첩 반복이란 무엇인가요?',
+            options: ['반복을 취소하는 것', '반복 안에 또 다른 반복을 넣는 것', '반복을 멈추는 것', '반복 횟수를 2배로 하는 것'],
+            correctAnswer: 1,
+            explanation: '중첩 반복은 반복 블록 안에 또 다른 반복 블록을 넣는 것이에요. 복잡한 패턴을 만들 수 있어요!'
+          },
+          {
+            id: 'q-2-10-5',
+            question: '"3번 반복 { 2번 반복 { 앞으로 } }"를 실행하면 총 몇 칸 이동하나요?',
+            options: ['2칸', '3칸', '5칸', '6칸'],
+            correctAnswer: 3,
+            explanation: '안쪽 반복이 2번 실행되고, 바깥 반복이 3번이므로 2×3=6칸 이동해요!'
+          }
+        ]
+      },
     },
 
     // ============================================
@@ -507,7 +899,32 @@ export const unit2: Unit = {
           estimatedMinutes: 8,
           concept: '조건문 소개',
           conceptExplanation: '"만약 앞에 벽이 있다면 오른쪽으로 회전해"처럼, 조건에 따라 다른 행동을 할 수 있어요!',
-          hints: ['조건이 참이면 안의 블록이 실행돼요'],
+          cstaStandard: '1B-AP-11',
+          learningObjectives: [
+            '조건문의 개념과 필요성을 이해한다',
+            '"만약~라면" 구조를 이해한다',
+            '조건에 따른 분기 실행을 이해한다'
+          ],
+          realWorldExample: '신호등이 빨간불이면 멈추고, 초록불이면 건너가는 것처럼 조건에 따라 행동이 달라져요!',
+          conceptCards: [
+            {
+              title: '조건문이란?',
+              description: '상황에 따라 다른 행동을 하는 구조',
+              icon: '❓',
+              example: '비가 오면 우산, 아니면 모자'
+            },
+            {
+              title: '만약~라면',
+              description: '조건이 참일 때만 실행',
+              icon: '✅',
+              example: '만약 벽이면 → 회전'
+            }
+          ],
+          hints: [
+            '💡 힌트 1: 조건은 "예/아니오"로 답할 수 있는 질문이에요',
+            '💡 힌트 2: 조건이 참이면 안의 블록이 실행돼요',
+            '💡 힌트 3: 조건이 거짓이면 그냥 넘어가요'
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -523,7 +940,22 @@ export const unit2: Unit = {
           estimatedMinutes: 12,
           concept: '조건 분기',
           conceptExplanation: '로봇이 벽을 감지하면 자동으로 방향을 바꿔요!',
-          hints: ['"만약 앞이 벽이면" 블록 안에 "오른쪽 회전"을 넣으세요'],
+          cstaStandard: '1B-AP-11',
+          learningObjectives: [
+            '조건 블록을 사용하여 장애물을 감지할 수 있다',
+            '조건에 따른 행동 변화를 구현할 수 있다'
+          ],
+          realWorldExample: '자율주행 자동차가 앞에 장애물이 있으면 방향을 바꾸는 것처럼요!',
+          hints: [
+            '💡 힌트 1: 벽이 있는지 먼저 확인해요',
+            '💡 힌트 2: "만약 앞이 벽이면" 안에 "회전"을 넣어요',
+            '💡 힌트 3: 반복 + 조건으로 벽을 자동 회피!'
+          ],
+          commonMistakes: [
+            '조건 확인 없이 무작정 앞으로 가는 경우',
+            '조건 안에 블록을 넣지 않는 경우'
+          ],
+          solutionSequence: ['반복{만약앞이벽이면{오른쪽회전},앞으로}'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '만약 앞이 벽이면'],
           gridSize: { rows: 4, cols: 5 },
           startPosition: { row: 2, col: 0 },
@@ -532,6 +964,7 @@ export const unit2: Unit = {
           checkpoints: [],
           collectibles: [],
           useConditional: true,
+          maxCommands: 10,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -547,7 +980,22 @@ export const unit2: Unit = {
           estimatedMinutes: 15,
           concept: 'if-else',
           conceptExplanation: '조건이 참이면 A를 하고, 거짓이면 B를 해요!',
-          hints: ['"만약 앞이 벽이면 회전, 아니면 앞으로"'],
+          cstaStandard: '1B-AP-11',
+          learningObjectives: [
+            'if-else 구조의 개념을 이해한다',
+            '조건이 참일 때와 거짓일 때 다른 행동을 구현할 수 있다'
+          ],
+          realWorldExample: '엘리베이터 문이 열려있으면 타고, 닫혀있으면 버튼을 눌러요!',
+          hints: [
+            '💡 힌트 1: 조건이 참이면 A, 거짓이면 B',
+            '💡 힌트 2: "만약 벽이면 회전, 아니면 앞으로"',
+            '💡 힌트 3: 반복하면서 매번 조건을 확인해요'
+          ],
+          commonMistakes: [
+            '"아니면" 블록을 사용하지 않는 경우',
+            '조건문 밖에서 행동을 정의하는 경우'
+          ],
+          solutionSequence: ['반복{만약앞이벽이면{오른쪽회전}아니면{앞으로}}'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '만약 앞이 벽이면', '아니면'],
           gridSize: { rows: 5, cols: 5 },
           startPosition: { row: 4, col: 0 },
@@ -556,6 +1004,7 @@ export const unit2: Unit = {
           checkpoints: [],
           collectibles: [],
           useConditional: true,
+          maxCommands: 8,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -570,7 +1019,22 @@ export const unit2: Unit = {
           exp: 90,
           estimatedMinutes: 18,
           concept: '아이템 조건',
-          hints: ['"만약 보석이 있다면" 블록을 사용하세요'],
+          cstaStandard: '1B-AP-11',
+          learningObjectives: [
+            '다양한 조건(보석 유무)을 활용할 수 있다',
+            '조건부 행동을 반복문과 결합할 수 있다'
+          ],
+          realWorldExample: '자판기가 동전이 있는지 확인하고, 있으면 음료를 주는 것처럼요!',
+          hints: [
+            '💡 힌트 1: 매 칸마다 보석이 있는지 확인해요',
+            '💡 힌트 2: "만약 보석이 있다면 수집하기"',
+            '💡 힌트 3: 이동 후 조건 확인을 반복해요'
+          ],
+          commonMistakes: [
+            '보석이 없는 곳에서도 수집하려는 경우',
+            '조건 확인 없이 무조건 수집하는 경우'
+          ],
+          solutionSequence: ['5번반복{앞으로,만약보석이있다면{수집하기}}'],
           blocks: ['앞으로', '오른쪽회전', '만약 보석이 있다면', '수집하기', '반복'],
           gridSize: { rows: 4, cols: 6 },
           startPosition: { row: 2, col: 0 },
@@ -579,6 +1043,7 @@ export const unit2: Unit = {
           checkpoints: [],
           collectibles: [{ row: 2, col: 1 }, { row: 2, col: 3 }, { row: 2, col: 4 }],
           useConditional: true,
+          maxCommands: 6,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -594,7 +1059,22 @@ export const unit2: Unit = {
           estimatedMinutes: 18,
           concept: '반복과 조건 결합',
           conceptExplanation: '"반복하기 { 만약 벽이면 회전, 아니면 앞으로 }"로 미로를 탈출할 수 있어요!',
-          hints: ['반복 안에 조건을 넣으세요'],
+          cstaStandard: '1B-AP-11',
+          learningObjectives: [
+            '반복문 안에서 조건문을 사용할 수 있다',
+            '동적인 상황에 대응하는 프로그램을 만들 수 있다'
+          ],
+          realWorldExample: '청소 로봇이 계속 청소하면서 벽을 만나면 방향을 바꾸는 것처럼요!',
+          hints: [
+            '💡 힌트 1: 반복 안에서 매번 벽을 확인해요',
+            '💡 힌트 2: 벽이면 회전, 아니면 앞으로',
+            '💡 힌트 3: 목표에 도착할 때까지 반복!'
+          ],
+          commonMistakes: [
+            '반복 밖에서 조건을 확인하는 경우',
+            '조건 확인 순서를 잘못 설정하는 경우'
+          ],
+          solutionSequence: ['목표까지반복{만약앞이벽이면{오른쪽회전}아니면{앞으로}}'],
           blocks: ['앞으로', '오른쪽회전', '왼쪽회전', '만약 앞이 벽이면', '아니면', '반복'],
           gridSize: { rows: 5, cols: 5 },
           startPosition: { row: 4, col: 0 },
@@ -606,6 +1086,7 @@ export const unit2: Unit = {
           checkpoints: [],
           collectibles: [],
           useConditional: true,
+          maxCommands: 6,
           unlocked: true,
           completed: false,
           perfectScore: false,
@@ -724,12 +1205,58 @@ export const unit2: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '개념 확인',
+          cstaStandard: '1B-AP-11',
+          learningObjectives: [
+            '조건문의 개념과 사용법을 확인한다',
+            'if-else 구조와 반복+조건 결합을 이해했는지 점검한다'
+          ],
           hints: [],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-11',
+        title: 'Week 11 조건 블록 퀴즈',
+        questions: [
+          {
+            id: 'q-2-11-1',
+            question: '조건문이 필요한 이유는 무엇인가요?',
+            options: ['코드를 길게 만들기 위해', '상황에 따라 다르게 행동하기 위해', '프로그램을 멈추기 위해', '색깔을 바꾸기 위해'],
+            correctAnswer: 1,
+            explanation: '조건문을 사용하면 상황에 따라 다른 행동을 할 수 있어요. 벽이 있으면 돌고, 없으면 직진하는 것처럼요!'
+          },
+          {
+            id: 'q-2-11-2',
+            question: '"만약~라면" 블록 안의 코드는 언제 실행되나요?',
+            options: ['항상 실행된다', '조건이 참일 때만 실행된다', '조건이 거짓일 때만 실행된다', '절대 실행되지 않는다'],
+            correctAnswer: 1,
+            explanation: '"만약~라면" 안의 코드는 조건이 참일 때만 실행돼요!'
+          },
+          {
+            id: 'q-2-11-3',
+            question: '"만약~라면~아니면" 구조에서 "아니면" 안의 코드는 언제 실행되나요?',
+            options: ['조건이 참일 때', '조건이 거짓일 때', '항상', '절대 안 됨'],
+            correctAnswer: 1,
+            explanation: '"아니면" 안의 코드는 조건이 거짓일 때 실행돼요. 참이면 "만약" 안, 거짓이면 "아니면" 안이 실행됩니다!'
+          },
+          {
+            id: 'q-2-11-4',
+            question: '반복 안에 조건을 넣으면 어떤 장점이 있나요?',
+            options: ['프로그램이 느려진다', '매번 상황을 확인하며 대응할 수 있다', '코드가 더 복잡해진다', '오류가 생긴다'],
+            correctAnswer: 1,
+            explanation: '반복하면서 매번 조건을 확인하면 변하는 상황에 동적으로 대응할 수 있어요!'
+          },
+          {
+            id: 'q-2-11-5',
+            question: '미로에서 "만약 앞이 벽이면 회전, 아니면 앞으로"를 반복하면 무슨 일이 일어나나요?',
+            options: ['제자리에서 회전만 한다', '벽을 피하면서 이동한다', '벽을 통과한다', '아무 일도 안 일어난다'],
+            correctAnswer: 1,
+            explanation: '벽이 있으면 회전하고, 없으면 앞으로 가므로 벽을 피하면서 미로를 탈출할 수 있어요!'
+          }
+        ]
+      },
     },
 
     // ============================================
@@ -931,12 +1458,58 @@ export const unit2: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '개념 확인',
+          cstaStandard: '1B-AP-09',
+          learningObjectives: [
+            '변수의 개념과 사용법을 확인한다',
+            '변수 값의 변경과 조건과의 결합을 이해했는지 점검한다'
+          ],
           hints: [],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-12',
+        title: 'Week 12 변수 블록 퀴즈',
+        questions: [
+          {
+            id: 'q-2-12-1',
+            question: '변수란 무엇인가요?',
+            options: ['프로그램의 이름', '값을 저장하는 이름 붙은 공간', '화면에 표시되는 글자', '블록의 색깔'],
+            correctAnswer: 1,
+            explanation: '변수는 값을 저장하는 이름 붙은 상자와 같아요. "점수"라는 상자에 100을 넣고 꺼내 쓸 수 있죠!'
+          },
+          {
+            id: 'q-2-12-2',
+            question: '"점수를 10으로 설정"과 "점수를 10만큼 바꾸기"의 차이는?',
+            options: ['같은 의미', '설정은 덮어쓰기, 바꾸기는 더하기', '설정은 더하기, 바꾸기는 덮어쓰기', '둘 다 빼기'],
+            correctAnswer: 1,
+            explanation: '"설정"은 값을 완전히 새로 넣는 것이고, "바꾸기"는 현재 값에 더하거나 빼는 것이에요!'
+          },
+          {
+            id: 'q-2-12-3',
+            question: '카운터 변수는 어떻게 만드나요?',
+            options: ['변수를 0으로 설정만 하면 됨', '반복할 때마다 1씩 증가시킴', '변수를 삭제함', '변수 이름을 바꿈'],
+            correctAnswer: 1,
+            explanation: '카운터는 변수를 0으로 설정하고, 반복할 때마다 1만큼 바꾸기를 하면 돼요!'
+          },
+          {
+            id: 'q-2-12-4',
+            question: '점수가 100이고 "점수를 -30만큼 바꾸기"를 하면 결과는?',
+            options: ['100', '70', '130', '-30'],
+            correctAnswer: 1,
+            explanation: '100에서 30을 빼면 70이 돼요. 음수만큼 바꾸면 빼기가 됩니다!'
+          },
+          {
+            id: 'q-2-12-5',
+            question: '변수를 조건문에서 사용할 수 있나요?',
+            options: ['불가능', '"만약 점수 > 10 이라면"처럼 사용 가능', '변수는 숫자만 저장', '조건문에서는 무시됨'],
+            correctAnswer: 1,
+            explanation: '변수 값을 조건에서 비교할 수 있어요. "만약 점수 > 10 이라면"처럼 사용하면 됩니다!'
+          }
+        ]
+      },
       project: {
         id: 'proj-2-1',
         title: '점수 수집 게임',
@@ -1126,12 +1699,58 @@ export const unit2: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '개념 확인',
+          cstaStandard: '1B-AP-12',
+          learningObjectives: [
+            '이벤트의 개념과 사용법을 확인한다',
+            '키보드, 클릭, 메시지 이벤트를 이해했는지 점검한다'
+          ],
           hints: [],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-13',
+        title: 'Week 13 이벤트 퀴즈',
+        questions: [
+          {
+            id: 'q-2-13-1',
+            question: '이벤트란 무엇인가요?',
+            options: ['프로그램의 오류', '특정 상황에서 코드를 실행시키는 신호', '화면의 색깔', '변수의 종류'],
+            correctAnswer: 1,
+            explanation: '이벤트는 "깃발 클릭", "키 누르기" 같은 특정 상황이 발생했을 때 코드를 실행시키는 신호예요!'
+          },
+          {
+            id: 'q-2-13-2',
+            question: '"깃발 클릭 시" 블록은 언제 실행되나요?',
+            options: ['프로그램이 종료될 때', '녹색 깃발 버튼을 클릭할 때', '빨간 정지 버튼을 클릭할 때', '언제나 실행됨'],
+            correctAnswer: 1,
+            explanation: '녹색 깃발 버튼을 클릭하면 프로그램이 시작되고 이 블록 아래의 코드가 실행돼요!'
+          },
+          {
+            id: 'q-2-13-3',
+            question: '여러 스프라이트가 서로 소통하려면 어떤 블록을 사용하나요?',
+            options: ['변수 블록', '메시지 방송하기 블록', '반복 블록', '조건 블록'],
+            correctAnswer: 1,
+            explanation: '"메시지 방송하기"로 신호를 보내고, "메시지를 받았을 때"로 받아서 스프라이트끼리 소통해요!'
+          },
+          {
+            id: 'q-2-13-4',
+            question: '충돌 감지를 하려면 어떤 조건을 사용하나요?',
+            options: ['"만약 앞이 벽이면"', '"만약 ~에 닿았다면"', '"만약 키를 눌렀다면"', '"만약 점수가 0이면"'],
+            correctAnswer: 1,
+            explanation: '"만약 ~에 닿았다면" 조건으로 다른 스프라이트나 색상과의 충돌을 감지할 수 있어요!'
+          },
+          {
+            id: 'q-2-13-5',
+            question: '키보드의 방향키로 캐릭터를 움직이려면 어떻게 해야 하나요?',
+            options: ['반복문만 사용', '각 방향키마다 이벤트 블록 사용', '변수만 사용', '조건문만 사용'],
+            correctAnswer: 1,
+            explanation: '"↑ 키를 눌렀을 때", "→ 키를 눌렀을 때" 등 각 방향키마다 이벤트 블록을 사용해요!'
+          }
+        ]
+      },
     },
 
     // ============================================
@@ -1299,12 +1918,58 @@ export const unit2: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '개념 확인',
+          cstaStandard: '1B-AP-12',
+          learningObjectives: [
+            '애니메이션 효과의 종류와 사용법을 확인한다',
+            '모양, 크기, 색상, 투명도 효과를 이해했는지 점검한다'
+          ],
           hints: [],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-14',
+        title: 'Week 14 애니메이션 퀴즈',
+        questions: [
+          {
+            id: 'q-2-14-1',
+            question: '캐릭터가 걷는 것처럼 보이게 하려면 어떻게 해야 하나요?',
+            options: ['크기만 바꾸기', '모양을 빠르게 바꾸기 반복', '색깔만 바꾸기', '회전만 하기'],
+            correctAnswer: 1,
+            explanation: '여러 모양을 빠르게 번갈아 보여주면 걷는 것처럼 애니메이션이 돼요!'
+          },
+          {
+            id: 'q-2-14-2',
+            question: '스프라이트가 점점 커지게 하려면 어떤 블록을 사용하나요?',
+            options: ['"10만큼 움직이기"', '"크기를 10만큼 바꾸기"', '"15도 회전하기"', '"색깔 효과를 10만큼 바꾸기"'],
+            correctAnswer: 1,
+            explanation: '"크기를 10만큼 바꾸기"를 반복하면 스프라이트가 점점 커져요!'
+          },
+          {
+            id: 'q-2-14-3',
+            question: '페이드 아웃(서서히 사라지기) 효과는 어떻게 만드나요?',
+            options: ['크기를 줄이기', '투명도 효과를 증가시키기', '색깔을 검정으로 바꾸기', '회전시키기'],
+            correctAnswer: 1,
+            explanation: '투명도 효과를 점점 높이면 스프라이트가 서서히 사라지는 페이드 아웃 효과가 돼요!'
+          },
+          {
+            id: 'q-2-14-4',
+            question: '펜 블록으로 선을 그리려면 먼저 무엇을 해야 하나요?',
+            options: ['"펜 올리기"', '"펜 내리기"', '"펜 색 정하기"만', '"펜 지우기"'],
+            correctAnswer: 1,
+            explanation: '"펜 내리기"를 하면 이동할 때 선이 그려져요. "펜 올리기"를 하면 선이 안 그려져요!'
+          },
+          {
+            id: 'q-2-14-5',
+            question: '무지개빛으로 변하는 캐릭터를 만들려면 어떤 효과를 사용하나요?',
+            options: ['크기 효과', '색깔 효과', '투명도 효과', '회전 효과'],
+            correctAnswer: 1,
+            explanation: '"색깔 효과를 바꾸기"를 반복하면 무지개처럼 색이 계속 변해요!'
+          }
+        ]
+      },
       project: {
         id: 'proj-2-2',
         title: '인터랙티브 스토리',
@@ -1497,12 +2162,58 @@ export const unit2: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '개념 확인',
+          cstaStandard: '1B-AP-15',
+          learningObjectives: [
+            '게임의 기본 구성요소를 확인한다',
+            '점수, 레벨, 생명 시스템을 이해했는지 점검한다'
+          ],
           hints: [],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-15',
+        title: 'Week 15 게임 만들기 I 퀴즈',
+        questions: [
+          {
+            id: 'q-2-15-1',
+            question: '게임에 반드시 필요한 요소가 아닌 것은?',
+            options: ['플레이어', '목표', '규칙', '100명의 캐릭터'],
+            correctAnswer: 3,
+            explanation: '게임은 플레이어, 목표, 규칙이 있으면 돼요. 캐릭터 수는 게임마다 달라요!'
+          },
+          {
+            id: 'q-2-15-2',
+            question: '클리커 게임에서 점수를 올리려면 무엇을 해야 하나요?',
+            options: ['키보드 누르기', '스프라이트 클릭', '마우스 움직이기', '기다리기'],
+            correctAnswer: 1,
+            explanation: '클리커 게임은 스프라이트를 클릭할 때마다 점수가 올라가는 게임이에요!'
+          },
+          {
+            id: 'q-2-15-3',
+            question: '게임에서 타이머를 만들려면 어떻게 해야 하나요?',
+            options: ['점수 변수 사용', '시간 변수를 만들고 매초 감소', '크기 변수 사용', '색상 변수 사용'],
+            correctAnswer: 1,
+            explanation: '시간 변수를 설정하고 "1초 기다리기" 후 "시간을 -1만큼 바꾸기"를 반복하면 타이머가 돼요!'
+          },
+          {
+            id: 'q-2-15-4',
+            question: '레벨 시스템은 언제 레벨이 올라가나요?',
+            options: ['게임 시작할 때', '일정 점수에 도달할 때', '게임이 끝날 때', '오류가 날 때'],
+            correctAnswer: 1,
+            explanation: '보통 점수가 특정 값(예: 10, 20, 30...)에 도달하면 레벨이 올라가요!'
+          },
+          {
+            id: 'q-2-15-5',
+            question: '생명 시스템에서 생명이 0이 되면 무슨 일이 일어나나요?',
+            options: ['점수가 올라감', '게임 오버', '레벨 업', '생명이 다시 채워짐'],
+            correctAnswer: 1,
+            explanation: '생명이 0이 되면 보통 게임 오버가 되고, 다시 시작해야 해요!'
+          }
+        ]
+      },
     },
 
     {
@@ -1682,12 +2393,93 @@ export const unit2: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '종합 평가',
+          cstaStandard: '1B-AP-15',
+          learningObjectives: [
+            'Unit 2에서 배운 모든 개념을 종합적으로 평가한다',
+            '블록 코딩의 핵심 개념들을 이해했는지 확인한다'
+          ],
           hints: ['순차, 반복, 조건, 변수, 이벤트, 게임을 복습하세요'],
           unlocked: true,
           completed: false,
           perfectScore: false,
         },
       ],
+      quiz: {
+        id: 'quiz-2-16',
+        title: 'Unit 2 블록 코딩 종합 평가',
+        questions: [
+          {
+            id: 'q-2-16-1',
+            question: '블록 코딩에서 순차 실행의 의미는?',
+            options: ['블록이 무작위로 실행됨', '블록이 위에서 아래로 차례로 실행됨', '블록이 동시에 실행됨', '블록이 거꾸로 실행됨'],
+            correctAnswer: 1,
+            explanation: '블록은 위에서 아래로 순서대로 하나씩 실행돼요. 이것을 순차 실행이라고 해요!'
+          },
+          {
+            id: 'q-2-16-2',
+            question: '반복문의 장점은 무엇인가요?',
+            options: ['코드를 더 길게 만듦', '같은 코드를 여러 번 쓰지 않아도 됨', '프로그램을 느리게 함', '오류를 발생시킴'],
+            correctAnswer: 1,
+            explanation: '반복문을 사용하면 같은 동작을 여러 번 쓰지 않아도 되어 코드가 짧고 효율적이에요!'
+          },
+          {
+            id: 'q-2-16-3',
+            question: '조건문은 언제 사용하나요?',
+            options: ['항상 같은 동작을 할 때', '상황에 따라 다른 동작을 할 때', '프로그램을 종료할 때', '변수를 만들 때'],
+            correctAnswer: 1,
+            explanation: '조건문은 상황에 따라 다른 행동을 해야 할 때 사용해요. "벽이 있으면 회전"처럼요!'
+          },
+          {
+            id: 'q-2-16-4',
+            question: '변수의 역할은 무엇인가요?',
+            options: ['블록의 색깔을 바꿈', '값을 저장하고 나중에 사용', '프로그램을 시작시킴', '화면을 지움'],
+            correctAnswer: 1,
+            explanation: '변수는 점수, 생명, 시간 같은 값을 저장하는 이름 붙은 상자예요!'
+          },
+          {
+            id: 'q-2-16-5',
+            question: '이벤트 블록은 어떤 역할을 하나요?',
+            options: ['반복을 멈춤', '특정 상황에서 코드를 시작시킴', '변수를 삭제함', '색깔을 바꿈'],
+            correctAnswer: 1,
+            explanation: '"깃발 클릭 시", "키 누를 때" 같은 이벤트는 특정 상황에서 코드가 실행되게 해요!'
+          },
+          {
+            id: 'q-2-16-6',
+            question: '게임에서 충돌 감지를 하려면 어떤 조건을 사용하나요?',
+            options: ['"만약 점수가 0이면"', '"만약 ~에 닿았다면"', '"만약 시간이 끝나면"', '"만약 키를 눌렀다면"'],
+            correctAnswer: 1,
+            explanation: '"만약 ~에 닿았다면" 조건으로 다른 스프라이트와의 충돌을 감지할 수 있어요!'
+          },
+          {
+            id: 'q-2-16-7',
+            question: '완성된 게임에 필요한 요소가 아닌 것은?',
+            options: ['시작 화면', '게임 플레이', '게임 오버 처리', '완벽한 3D 그래픽'],
+            correctAnswer: 3,
+            explanation: '시작 화면, 게임 플레이, 게임 오버 처리가 있으면 완성된 게임이에요. 3D 그래픽은 필수가 아니에요!'
+          },
+          {
+            id: 'q-2-16-8',
+            question: '중첩 반복이란 무엇인가요?',
+            options: ['반복을 취소하는 것', '반복 안에 또 다른 반복', '조건 안에 반복', '이벤트 안에 반복'],
+            correctAnswer: 1,
+            explanation: '중첩 반복은 반복 안에 또 다른 반복을 넣는 것이에요. 복잡한 패턴을 만들 때 유용해요!'
+          },
+          {
+            id: 'q-2-16-9',
+            question: '애니메이션을 만들 때 가장 중요한 것은?',
+            options: ['블록 개수', '모양이나 효과를 빠르게 반복적으로 바꾸기', '변수 사용', '조건문 사용'],
+            correctAnswer: 1,
+            explanation: '모양, 크기, 색깔 등을 빠르게 반복적으로 바꾸면 움직이는 것처럼 보이는 애니메이션이 돼요!'
+          },
+          {
+            id: 'q-2-16-10',
+            question: '블록 코딩에서 배운 개념 중 실제 프로그래밍 언어에도 있는 것은?',
+            options: ['드래그 앤 드롭만', '순차, 반복, 조건, 변수 모두', '색깔 블록만', '모양 바꾸기만'],
+            correctAnswer: 1,
+            explanation: '순차, 반복, 조건, 변수는 모든 프로그래밍 언어에 있는 핵심 개념이에요. Python, JavaScript 등에서도 같은 개념을 사용해요!'
+          }
+        ]
+      },
       project: {
         id: 'proj-2-final',
         title: '나만의 게임',

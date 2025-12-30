@@ -31,10 +31,37 @@ export const unit4: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '리스트 기본 복습',
+          cstaStandard: '1B-AP-13',
+          learningObjectives: [
+            '리스트가 여러 값을 순서대로 저장하는 자료구조임을 이해한다',
+            '리스트의 인덱스가 0부터 시작함을 설명할 수 있다',
+            '리스트를 활용하여 관련된 데이터를 효율적으로 관리할 수 있다'
+          ],
+          realWorldExample: '쇼핑 목록 앱에서 여러 물건을 리스트로 저장하고, 순서대로 보여주며, 원하는 항목을 찾을 수 있어요!',
+          conceptCards: [
+            {
+              title: '리스트란?',
+              description: '여러 값을 순서대로 저장하는 컨테이너',
+              icon: '📦',
+              example: 'fruits = ["사과", "바나나", "포도"]'
+            },
+            {
+              title: '인덱스',
+              description: '리스트의 각 위치를 나타내는 번호 (0부터 시작)',
+              icon: '🔢',
+              example: 'fruits[0] → "사과", fruits[1] → "바나나"'
+            },
+            {
+              title: '활용 예시',
+              description: '게임 점수 목록, 할 일 목록, 학생 명단 등',
+              icon: '🎯',
+              example: 'scores = [85, 90, 78, 92]'
+            }
+          ],
           hints: [
-            '리스트는 여러 값을 순서대로 저장하는 자료구조예요',
-            '[값1, 값2, 값3] 형식으로 만들어요',
-            '인덱스는 0부터 시작해요',
+            '💡 힌트 1: 리스트는 여러 값을 순서대로 저장하는 자료구조예요',
+            '💡 힌트 2: [값1, 값2, 값3] 형식으로 만들어요',
+            '💡 힌트 3: 인덱스는 0부터 시작해요 - 첫 번째 요소는 [0]이에요'
           ],
           unlocked: true,
           completed: false,
@@ -52,9 +79,14 @@ export const unit4: Unit = {
           concept: '슬라이싱 문법',
           starterCode: 'numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n\n# 처음 3개 가져오기\nprint(numbers[:3])  # [0, 1, 2]\n\n# 마지막 3개 가져오기\nprint(numbers[-3:])  # [7, 8, 9]\n\n# 짝수 인덱스만 가져오기 (간격 2)\nprint(numbers[::2])  # [0, 2, 4, 6, 8]\n\n# 역순으로 뒤집기\nprint(numbers[::-1])  # [9, 8, 7, ...]\n',
           hints: [
-            '[시작:끝:간격] 형식이에요',
-            '시작 생략하면 처음부터, 끝 생략하면 끝까지',
-            '음수 인덱스는 뒤에서부터 세요',
+            '💡 힌트 1: [시작:끝:간격] 형식이에요 - 끝 인덱스는 포함되지 않아요',
+            '💡 힌트 2: 시작 생략하면 처음부터, 끝 생략하면 끝까지',
+            '💡 힌트 3: 음수 인덱스는 뒤에서부터 세요 (-1이 마지막 요소)'
+          ],
+          commonMistakes: [
+            '끝 인덱스가 포함된다고 착각 - [0:3]은 0,1,2만 포함하고 3은 제외',
+            '음수 인덱스 혼동 - numbers[-1]은 마지막 요소, numbers[-2]는 끝에서 두 번째',
+            '간격을 음수로 주면 역순 - [::-1]은 리스트를 뒤집어요'
           ],
           unlocked: true,
           completed: false,
@@ -72,10 +104,15 @@ export const unit4: Unit = {
           concept: '리스트 메서드',
           starterCode: 'fruits = ["사과", "바나나", "포도"]\n\n# 추가\nfruits.append("딸기")       # 끝에 추가\nfruits.insert(1, "오렌지")  # 특정 위치에 추가\n\n# 제거\nfruits.remove("바나나")     # 값으로 제거\nlast = fruits.pop()         # 마지막 꺼내기\n\n# 정렬\nnums = [3, 1, 4, 1, 5, 9]\nnums.sort()                 # 오름차순 정렬\nnums.sort(reverse=True)     # 내림차순\n\n# 기타\nprint(len(nums))            # 길이\nprint(nums.count(1))        # 개수 세기\nprint(nums.index(5))        # 위치 찾기\n',
           hints: [
-            'append(): 끝에 추가',
-            'insert(위치, 값): 특정 위치에 추가',
-            'remove(값): 값 제거, pop(): 마지막 꺼내기',
-            'sort(): 정렬, reverse(): 뒤집기',
+            '💡 힌트 1: append()는 끝에 추가, insert(위치, 값)는 특정 위치에 추가',
+            '💡 힌트 2: remove(값)은 값으로 제거, pop()은 마지막 요소를 꺼내고 반환',
+            '💡 힌트 3: sort()는 정렬(원본 변경), sorted()는 정렬된 새 리스트 반환'
+          ],
+          commonMistakes: [
+            'append()에 여러 값을 주면 리스트 자체가 추가됨 - 대신 extend() 사용',
+            'remove()는 첫 번째로 발견된 값만 제거 - 모든 값을 제거하려면 반복문 필요',
+            'sort()는 None을 반환 - 정렬된 결과를 변수에 저장하려면 sorted() 사용',
+            'pop()에 인덱스를 주지 않으면 마지막 요소를 제거'
           ],
           unlocked: true,
           completed: false,
@@ -93,9 +130,15 @@ export const unit4: Unit = {
           concept: '리스트 컴프리헨션',
           starterCode: '# 기존 방식\nsquares = []\nfor i in range(1, 6):\n    squares.append(i ** 2)\nprint(squares)  # [1, 4, 9, 16, 25]\n\n# 컴프리헨션 방식\nsquares = [i ** 2 for i in range(1, 6)]\nprint(squares)  # [1, 4, 9, 16, 25]\n\n# 조건 추가: 짝수만\nevens = [i for i in range(10) if i % 2 == 0]\nprint(evens)  # [0, 2, 4, 6, 8]\n\n# 직접 해보세요: 1~10 중 3의 배수만 담기\nthrees = []\nprint(threes)\n',
           hints: [
-            '[표현식 for 변수 in 범위] 형식이에요',
-            '[표현식 for 변수 in 범위 if 조건] 으로 필터링',
-            '한 줄로 깔끔하게 리스트를 만들 수 있어요',
+            '💡 힌트 1: [표현식 for 변수 in 범위] 형식으로 한 줄에 작성',
+            '💡 힌트 2: [표현식 for 변수 in 범위 if 조건] 으로 필터링 가능',
+            '💡 힌트 3: for문 5줄을 1줄로 줄일 수 있어요!'
+          ],
+          commonMistakes: [
+            'for 키워드를 빼먹음 - [i ** 2 in range(5)] 는 에러!',
+            '조건문 위치 틀림 - if는 맨 뒤에 와야 해요',
+            '너무 복잡하게 만들면 가독성 저하 - 간단할 때만 사용',
+            '괄호를 ()로 쓰면 generator가 됨 - 리스트는 []'
           ],
           unlocked: true,
           completed: false,
@@ -113,9 +156,15 @@ export const unit4: Unit = {
           concept: '중첩 리스트',
           starterCode: '# 2차원 리스트 (3x3 행렬)\nmatrix = [\n    [1, 2, 3],\n    [4, 5, 6],\n    [7, 8, 9]\n]\n\n# 접근: matrix[행][열]\nprint(matrix[0][0])  # 1 (첫 행, 첫 열)\nprint(matrix[1][2])  # 6 (둘째 행, 셋째 열)\n\n# 전체 출력\nfor row in matrix:\n    print(row)\n\n# 개별 요소 출력\nfor row in matrix:\n    for item in row:\n        print(item, end=" ")\n    print()\n',
           hints: [
-            '행(row)과 열(column)로 접근해요',
-            '중첩 for문으로 순회해요',
-            '게임 맵, 성적표 등에 활용돼요',
+            '💡 힌트 1: matrix[행][열] 형식으로 접근 - 행이 먼저, 열이 나중',
+            '💡 힌트 2: 중첩 for문으로 순회 - 바깥 for는 행, 안쪽 for는 열',
+            '💡 힌트 3: 게임 맵, 틱택토, 성적표 등에 활용돼요'
+          ],
+          commonMistakes: [
+            '행과 열 순서 혼동 - [열][행]이 아니라 [행][열]',
+            '인덱스 범위 초과 - 3x3 행렬은 [0~2][0~2]까지만',
+            '얕은 복사 문제 - [[0]*3]*3 하면 같은 행이 복사됨',
+            '초기화 실수 - [[0]*3 for _ in range(3)]로 올바르게 초기화'
           ],
           unlocked: true,
           completed: false,
@@ -133,9 +182,14 @@ export const unit4: Unit = {
           concept: 'split, join',
           starterCode: '# 문자열 → 리스트 (split)\nsentence = "파이썬 공부는 재미있다"\nwords = sentence.split()  # 공백으로 분리\nprint(words)  # ["파이썬", "공부는", "재미있다"]\n\ndata = "사과,바나나,포도"\nfruits = data.split(",")  # 쉼표로 분리\nprint(fruits)  # ["사과", "바나나", "포도"]\n\n# 리스트 → 문자열 (join)\nresult = "-".join(fruits)\nprint(result)  # "사과-바나나-포도"\n\nresult = " ".join(words)\nprint(result)  # "파이썬 공부는 재미있다"\n',
           hints: [
-            'split(구분자): 문자열을 리스트로',
-            '"구분자".join(리스트): 리스트를 문자열로',
-            'CSV 데이터 처리에 유용해요',
+            '💡 힌트 1: split(구분자)로 문자열을 리스트로 변환',
+            '💡 힌트 2: "구분자".join(리스트)로 리스트를 문자열로 변환',
+            '💡 힌트 3: CSV 데이터 처리, 파일 읽기 등에 자주 사용돼요'
+          ],
+          commonMistakes: [
+            'join의 순서 혼동 - 리스트.join()이 아니라 "구분자".join(리스트)',
+            'split()과 split(" ")의 차이 - split()은 모든 공백 처리, split(" ")은 공백 하나만',
+            '숫자 리스트 join 에러 - 문자열 리스트만 가능, 숫자는 먼저 str()로 변환'
           ],
           unlocked: true,
           completed: false,
@@ -153,9 +207,14 @@ export const unit4: Unit = {
           concept: '리스트 복사',
           starterCode: '# 잘못된 복사 (같은 리스트를 가리킴)\na = [1, 2, 3]\nb = a  # 참조 복사!\nb.append(4)\nprint(a)  # [1, 2, 3, 4] - a도 변경됨!\n\n# 올바른 복사 방법들\na = [1, 2, 3]\nc = a.copy()     # 방법 1: copy()\nd = a[:]         # 방법 2: 슬라이싱\ne = list(a)      # 방법 3: list()\n\nc.append(100)\nprint(a)  # [1, 2, 3] - a는 그대로!\nprint(c)  # [1, 2, 3, 100]\n',
           hints: [
-            'b = a 는 같은 리스트를 가리키는 것!',
-            '.copy(), [:], list()로 복사해요',
-            '복사본을 수정해도 원본은 그대로',
+            '💡 힌트 1: b = a 는 같은 리스트를 가리키는 것 (참조 복사)!',
+            '💡 힌트 2: .copy(), [:], list()로 실제 복사 가능',
+            '💡 힌트 3: 복사본을 수정해도 원본은 그대로 유지돼요'
+          ],
+          commonMistakes: [
+            '= 연산자로 복사 시도 - 이것은 같은 리스트를 가리키는 것!',
+            '2차원 리스트의 얕은 복사 - copy()로도 안전하지 않음, deepcopy() 필요',
+            'is와 == 혼동 - is는 같은 객체인지, ==는 값이 같은지 확인'
           ],
           unlocked: true,
           completed: false,
@@ -173,9 +232,14 @@ export const unit4: Unit = {
           concept: 'map, filter, zip',
           starterCode: '# map: 각 요소에 함수 적용\nnums = [1, 2, 3, 4, 5]\nsquared = list(map(lambda x: x**2, nums))\nprint(squared)  # [1, 4, 9, 16, 25]\n\n# filter: 조건에 맞는 것만\nevens = list(filter(lambda x: x % 2 == 0, nums))\nprint(evens)  # [2, 4]\n\n# zip: 여러 리스트 묶기\nnames = ["철수", "영희", "민수"]\nscores = [85, 92, 78]\n\nfor name, score in zip(names, scores):\n    print(f"{name}: {score}점")\n',
           hints: [
-            'map(함수, 리스트): 각 요소에 함수 적용',
-            'filter(함수, 리스트): 조건 필터링',
-            'zip(리스트1, 리스트2): 묶어서 순회',
+            '💡 힌트 1: map(함수, 리스트)로 각 요소에 함수 적용',
+            '💡 힌트 2: filter(함수, 리스트)로 조건에 맞는 것만 필터링',
+            '💡 힌트 3: zip(리스트1, 리스트2)로 여러 리스트를 묶어서 순회'
+          ],
+          commonMistakes: [
+            'map/filter 결과를 list()로 변환 안 함 - map 객체 자체는 출력 안 됨',
+            'zip의 길이 불일치 - 짧은 리스트 기준으로 잘림',
+            'lambda 대신 일반 함수명을 괄호와 함께 사용 - map(func(), list)가 아니라 map(func, list)'
           ],
           unlocked: true,
           completed: false,
@@ -193,9 +257,14 @@ export const unit4: Unit = {
           concept: '튜플 기초',
           starterCode: '# 튜플: 수정 불가능한 리스트\npoint = (3, 5)\ncolors = ("빨강", "파랑", "초록")\n\nprint(point[0])   # 3\nprint(colors[1])  # 파랑\n\n# 언패킹\nx, y = point\nprint(f"x={x}, y={y}")\n\n# 튜플은 수정 불가!\n# point[0] = 10  # 에러!\n\n# 함수에서 여러 값 반환할 때 유용\ndef min_max(numbers):\n    return min(numbers), max(numbers)\n\nresult = min_max([3, 1, 4, 1, 5, 9])\nprint(result)  # (1, 9)\n',
           hints: [
-            '튜플은 ()로 만들고 수정 불가',
-            '언패킹으로 여러 변수에 할당',
-            '좌표, 색상 등 변하지 않는 데이터에 적합',
+            '💡 힌트 1: 튜플은 ()로 만들고 수정 불가 (immutable)',
+            '💡 힌트 2: 언패킹으로 여러 변수에 한 번에 할당 가능',
+            '💡 힌트 3: 좌표, 색상 등 변하지 않아야 하는 데이터에 적합'
+          ],
+          commonMistakes: [
+            '단일 요소 튜플 실수 - (1)은 정수, (1,)이 튜플',
+            '튜플 수정 시도 - 수정 불가하므로 새로 만들어야 함',
+            '빈 튜플은 ()로, 리스트는 []로 구분'
           ],
           unlocked: true,
           completed: false,
@@ -213,9 +282,14 @@ export const unit4: Unit = {
           concept: '리스트 종합',
           starterCode: '# 성적 관리 시스템\nstudents = []\nscores = []\n\nwhile True:\n    print("\\n=== 성적 관리 ===")\n    print("1. 학생 추가")\n    print("2. 성적 조회")\n    print("3. 평균/최고점")\n    print("4. 종료")\n    \n    choice = input("선택: ")\n    \n    if choice == "1":\n        name = input("학생 이름: ")\n        score = int(input("점수: "))\n        students.append(name)\n        scores.append(score)\n        print(f"{name} 학생이 추가되었습니다.")\n    \n    elif choice == "2":\n        for name, score in zip(students, scores):\n            print(f"{name}: {score}점")\n    \n    elif choice == "3":\n        if scores:\n            avg = sum(scores) / len(scores)\n            print(f"평균: {avg:.1f}점")\n            max_idx = scores.index(max(scores))\n            print(f"최고점: {students[max_idx]} ({max(scores)}점)")\n        else:\n            print("등록된 학생이 없습니다.")\n    \n    elif choice == "4":\n        print("종료합니다.")\n        break\n',
           hints: [
-            '두 개의 리스트를 병렬로 관리해요',
-            'zip()으로 함께 순회해요',
-            'sum(), max(), len()을 활용해요',
+            '💡 힌트 1: 두 개의 리스트를 병렬로 관리 - students와 scores',
+            '💡 힌트 2: zip()으로 함께 순회하여 이름과 점수 출력',
+            '💡 힌트 3: sum(), max(), len(), index()를 활용해요'
+          ],
+          commonMistakes: [
+            'index() 사용 전 max() 값이 여러 개일 때 처리 안 함',
+            '빈 리스트 체크 안 함 - scores가 비어있으면 평균 계산 시 에러',
+            'zip 사용 시 두 리스트 길이가 다르면 짧은 것 기준으로 잘림'
           ],
           unlocked: true,
           completed: false,
@@ -231,18 +305,35 @@ export const unit4: Unit = {
             question: '[1,2,3,4,5][1:4]의 결과는?',
             options: ['[1,2,3,4]', '[2,3,4]', '[2,3,4,5]', '[1,2,3]'],
             correctAnswer: 1,
+            explanation: '슬라이싱 [1:4]는 인덱스 1부터 3까지를 가져와요. 끝 인덱스 4는 포함되지 않아요! 따라서 [2,3,4]가 정답입니다.'
           },
           {
             id: 'q25-2',
             question: '리스트 끝에 요소를 추가하는 메서드는?',
             options: ['add()', 'append()', 'insert()', 'push()'],
             correctAnswer: 1,
+            explanation: 'Python 리스트에서 끝에 요소를 추가하려면 append() 메서드를 사용해요. add()는 집합(set)에서, push()는 JavaScript에서 사용해요.'
           },
           {
             id: 'q25-3',
             question: '[x*2 for x in range(3)]의 결과는?',
             options: ['[0,2,4]', '[2,4,6]', '[0,1,2]', '[1,2,3]'],
             correctAnswer: 0,
+            explanation: 'range(3)은 [0,1,2]를 생성하고, 각 요소에 *2를 하면 [0,2,4]가 돼요. 리스트 컴프리헨션의 기본 사용법입니다!'
+          },
+          {
+            id: 'q25-4',
+            question: '리스트를 올바르게 복사하는 방법은?',
+            options: ['b = a', 'b = a.copy()', 'b = copy(a)', 'b = a.clone()'],
+            correctAnswer: 1,
+            explanation: 'b = a는 같은 리스트를 가리키므로 복사가 아니에요! b = a.copy()나 b = a[:] 또는 b = list(a)로 복사해야 해요.'
+          },
+          {
+            id: 'q25-5',
+            question: '2차원 리스트 matrix = [[1,2],[3,4]]에서 숫자 4에 접근하려면?',
+            options: ['matrix[1][1]', 'matrix[2][2]', 'matrix[4]', 'matrix[1,1]'],
+            correctAnswer: 0,
+            explanation: '2차원 리스트는 [행][열] 형식으로 접근해요. 4는 두 번째 행(인덱스 1)의 두 번째 열(인덱스 1)이므로 matrix[1][1]이 정답입니다!'
           },
         ],
       },
@@ -264,10 +355,37 @@ export const unit4: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '딕셔너리 개념',
+          cstaStandard: '1B-AP-13',
+          learningObjectives: [
+            '딕셔너리가 키-값 쌍으로 데이터를 저장하는 자료구조임을 이해한다',
+            '리스트와 딕셔너리의 차이점을 설명할 수 있다',
+            '딕셔너리를 사용하면 좋은 상황을 판단할 수 있다'
+          ],
+          realWorldExample: '연락처 앱에서 이름(키)으로 전화번호(값)를 찾듯이, 딕셔너리는 키로 빠르게 값을 찾을 수 있어요!',
+          conceptCards: [
+            {
+              title: '딕셔너리',
+              description: '키-값 쌍으로 데이터를 저장하는 자료구조',
+              icon: '📕',
+              example: 'person = {"name": "김코딩", "age": 14}'
+            },
+            {
+              title: '리스트 vs 딕셔너리',
+              description: '리스트는 순서(인덱스), 딕셔너리는 이름(키)으로 접근',
+              icon: '⚖️',
+              example: 'list[0] vs dict["key"]'
+            },
+            {
+              title: '활용 예시',
+              description: '연락처, 설정, 게임 스탯, API 응답 등',
+              icon: '💡',
+              example: 'player = {"hp": 100, "mp": 50}'
+            }
+          ],
           hints: [
-            '딕셔너리는 {키: 값} 형태예요',
-            '실제 사전처럼 단어(키)로 뜻(값)을 찾아요',
-            '리스트는 인덱스로, 딕셔너리는 키로 접근해요',
+            '💡 힌트 1: 딕셔너리는 {키: 값} 형태로 저장해요',
+            '💡 힌트 2: 실제 사전처럼 단어(키)로 뜻(값)을 찾아요',
+            '💡 힌트 3: 리스트는 숫자 인덱스로, 딕셔너리는 의미있는 키로 접근해요'
           ],
           unlocked: true,
           completed: false,
@@ -285,9 +403,14 @@ export const unit4: Unit = {
           concept: '딕셔너리 생성과 접근',
           starterCode: '# 딕셔너리 생성\nstudent = {\n    "name": "김코딩",\n    "age": 14,\n    "grade": "중학교 2학년",\n    "scores": [85, 90, 78]\n}\n\n# 값 접근 (키 사용)\nprint(student["name"])   # 김코딩\nprint(student["age"])    # 14\nprint(student["scores"]) # [85, 90, 78]\n\n# get() 메서드 (키가 없어도 에러 안 남)\nprint(student.get("hobby"))        # None\nprint(student.get("hobby", "없음")) # 없음\n',
           hints: [
-            '{키1: 값1, 키2: 값2} 형식으로 만들어요',
-            '딕셔너리[키]로 값에 접근해요',
-            'get(키)는 키가 없으면 None을 반환해요',
+            '💡 힌트 1: {키1: 값1, 키2: 값2} 형식으로 딕셔너리 생성',
+            '💡 힌트 2: 딕셔너리[키]로 값에 접근 - 없는 키면 에러',
+            '💡 힌트 3: get(키)는 키가 없으면 None 반환 - 에러 대신 안전하게'
+          ],
+          commonMistakes: [
+            '없는 키 접근 시 KeyError - get()을 사용하거나 in으로 먼저 확인',
+            '키에 리스트 사용 시도 - 키는 immutable 해야 함 (문자열, 숫자, 튜플만)',
+            '딕셔너리 순서 의존 - Python 3.7+ 부터는 순서 유지하지만 인덱스 접근 불가'
           ],
           unlocked: true,
           completed: false,
@@ -305,9 +428,14 @@ export const unit4: Unit = {
           concept: '딕셔너리 조작',
           starterCode: 'person = {"name": "홍길동", "age": 25}\n\n# 추가\nperson["city"] = "서울"\nprint(person)  # {"name": "홍길동", "age": 25, "city": "서울"}\n\n# 수정\nperson["age"] = 26\nprint(person["age"])  # 26\n\n# 삭제\ndel person["city"]\nprint(person)  # {"name": "홍길동", "age": 26}\n\n# pop으로 삭제 (값 반환)\nremoved = person.pop("age")\nprint(f"제거된 나이: {removed}")\nprint(person)  # {"name": "홍길동"}\n',
           hints: [
-            '딕셔너리[새키] = 값 으로 추가',
-            '같은 키에 할당하면 수정',
-            'del 또는 pop()으로 삭제',
+            '💡 힌트 1: 딕셔너리[새키] = 값 으로 새 항목 추가',
+            '💡 힌트 2: 같은 키에 할당하면 기존 값이 덮어씌워져요 (수정)',
+            '💡 힌트 3: del dict[키] 또는 dict.pop(키)로 삭제'
+          ],
+          commonMistakes: [
+            'del과 pop() 혼동 - del은 반환값 없음, pop()은 삭제된 값 반환',
+            '없는 키 삭제 시 에러 - pop(키, 기본값)으로 안전하게 삭제',
+            '딕셔너리 순회 중 수정/삭제 - 런타임 에러, 리스트로 변환 후 수정'
           ],
           unlocked: true,
           completed: false,
@@ -325,9 +453,14 @@ export const unit4: Unit = {
           concept: '딕셔너리 순회',
           starterCode: 'scores = {"국어": 85, "영어": 90, "수학": 78}\n\n# 키만 순회\nfor subject in scores.keys():\n    print(subject)\n\n# 값만 순회\nfor score in scores.values():\n    print(score)\n\n# 키와 값 함께 순회 (가장 많이 씀!)\nfor subject, score in scores.items():\n    print(f"{subject}: {score}점")\n',
           hints: [
-            'keys(): 모든 키 반환',
-            'values(): 모든 값 반환',
-            'items(): (키, 값) 쌍 반환',
+            '💡 힌트 1: keys()로 모든 키 반환 - for key in dict.keys()',
+            '💡 힌트 2: values()로 모든 값 반환 - for val in dict.values()',
+            '💡 힌트 3: items()로 (키, 값) 쌍 반환 - 가장 많이 사용!'
+          ],
+          commonMistakes: [
+            'items() 언패킹 실수 - for item in dict.items()하면 튜플, for k, v in dict.items()로 분리',
+            'dict 자체를 순회하면 키만 나옴 - for key in dict와 동일',
+            'keys()/values() 결과를 리스트로 착각 - dict_keys/dict_values 객체, list()로 변환 가능'
           ],
           unlocked: true,
           completed: false,
@@ -345,9 +478,14 @@ export const unit4: Unit = {
           concept: '딕셔너리 메서드',
           starterCode: 'd1 = {"a": 1, "b": 2}\nd2 = {"c": 3, "d": 4}\n\n# update: 합치기\nd1.update(d2)\nprint(d1)  # {"a": 1, "b": 2, "c": 3, "d": 4}\n\n# 키/값 존재 확인\nprint("a" in d1)      # True\nprint("z" in d1)      # False\nprint(1 in d1.values())  # True\n\n# clear: 모두 삭제\nd1.clear()\nprint(d1)  # {}\n\n# 딕셔너리 컴프리헨션\nsquares = {x: x**2 for x in range(1, 6)}\nprint(squares)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}\n',
           hints: [
-            'update(): 다른 딕셔너리 합치기',
-            'in 연산자로 키 존재 확인',
-            '딕셔너리 컴프리헨션도 가능해요',
+            '💡 힌트 1: update()로 다른 딕셔너리를 합치기 - 중복 키는 덮어쓰기',
+            '💡 힌트 2: in 연산자로 키 존재 확인 - "key" in dict',
+            '💡 힌트 3: 딕셔너리 컴프리헨션도 가능 - {k: v for ...}'
+          ],
+          commonMistakes: [
+            'update() 반환값 착각 - None 반환, 원본 수정',
+            'in으로 값 확인 시도 - in은 키만 확인, 값은 in dict.values()',
+            '딕셔너리 컴프리헨션 문법 실수 - 콜론(:) 빼먹지 않기'
           ],
           unlocked: true,
           completed: false,
@@ -443,9 +581,14 @@ export const unit4: Unit = {
           concept: '딕셔너리 종합',
           starterCode: '# 전화번호부\nphonebook = {}\n\nwhile True:\n    print("\\n=== 전화번호부 ===")\n    print("1. 연락처 추가")\n    print("2. 연락처 검색")\n    print("3. 연락처 삭제")\n    print("4. 전체 목록")\n    print("5. 종료")\n    \n    choice = input("선택: ")\n    \n    if choice == "1":\n        name = input("이름: ")\n        phone = input("전화번호: ")\n        phonebook[name] = phone\n        print(f"{name} 님이 추가되었습니다.")\n    \n    elif choice == "2":\n        name = input("검색할 이름: ")\n        if name in phonebook:\n            print(f"{name}: {phonebook[name]}")\n        else:\n            print("등록되지 않은 이름입니다.")\n    \n    elif choice == "3":\n        name = input("삭제할 이름: ")\n        if name in phonebook:\n            del phonebook[name]\n            print(f"{name} 님이 삭제되었습니다.")\n        else:\n            print("등록되지 않은 이름입니다.")\n    \n    elif choice == "4":\n        if phonebook:\n            for name, phone in phonebook.items():\n                print(f"{name}: {phone}")\n        else:\n            print("연락처가 없습니다.")\n    \n    elif choice == "5":\n        print("종료합니다.")\n        break\n',
           hints: [
-            '이름을 키로, 전화번호를 값으로 저장',
-            'in 연산자로 존재 확인',
-            'del로 삭제, items()로 순회',
+            '💡 힌트 1: 이름을 키로, 전화번호를 값으로 저장',
+            '💡 힌트 2: in 연산자로 키 존재 확인 후 처리',
+            '💡 힌트 3: del로 삭제, items()로 순회하여 전체 출력'
+          ],
+          commonMistakes: [
+            '존재 확인 없이 바로 접근 - KeyError 발생',
+            '빈 딕셔너리 체크 안 함 - if phonebook:로 먼저 확인',
+            '무한 루프 탈출 조건 빠뜨리기 - break 잊지 말기'
           ],
           unlocked: true,
           completed: false,
@@ -461,18 +604,35 @@ export const unit4: Unit = {
             question: '딕셔너리에서 키가 없을 때 에러 없이 값을 가져오는 메서드는?',
             options: ['find()', 'search()', 'get()', 'fetch()'],
             correctAnswer: 2,
+            explanation: 'dict.get(key)는 키가 없을 때 None을 반환하거나 기본값을 지정할 수 있어요. dict[key]는 KeyError가 발생하지만 get()은 안전해요!'
           },
           {
             id: 'q26-2',
             question: '딕셔너리의 키와 값을 함께 순회하는 메서드는?',
             options: ['keys()', 'values()', 'items()', 'pairs()'],
             correctAnswer: 2,
+            explanation: 'items() 메서드는 (키, 값) 튜플을 반환해요. for k, v in dict.items(): 형식으로 가장 많이 사용됩니다!'
           },
           {
             id: 'q26-3',
             question: '집합(set)의 특징으로 틀린 것은?',
             options: ['중복 불가', '순서 없음', '인덱스로 접근', '수학 연산 지원'],
             correctAnswer: 2,
+            explanation: '집합(set)은 순서가 없어서 인덱스로 접근할 수 없어요! 중복을 허용하지 않고, 합집합/교집합 등 수학 연산을 지원해요.'
+          },
+          {
+            id: 'q26-4',
+            question: 'd = {"a": 1}에서 d["b"]를 실행하면?',
+            options: ['None', '0', 'KeyError 발생', 'False'],
+            correctAnswer: 2,
+            explanation: '없는 키에 []로 접근하면 KeyError가 발생해요. 에러를 방지하려면 get()을 사용하거나 in으로 먼저 확인해야 해요!'
+          },
+          {
+            id: 'q26-5',
+            question: '딕셔너리에서 사용할 수 없는 키는?',
+            options: ['문자열', '숫자', '리스트', '튜플'],
+            correctAnswer: 2,
+            explanation: '딕셔너리의 키는 불변(immutable)이어야 해요. 리스트는 변경 가능하므로 키로 사용할 수 없지만, 튜플은 불변이라 가능해요!'
           },
         ],
       },
@@ -494,10 +654,37 @@ export const unit4: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '함수의 개념',
+          cstaStandard: '1B-AP-12',
+          learningObjectives: [
+            '함수가 특정 작업을 수행하는 코드 묶음임을 이해한다',
+            '함수를 사용하면 코드 재사용이 가능함을 설명할 수 있다',
+            '내장 함수와 사용자 정의 함수의 차이를 구분할 수 있다'
+          ],
+          realWorldExample: '리모컨의 버튼처럼, 함수는 복잡한 작업을 이름 하나로 실행할 수 있어요. "전원 켜기" 버튼 하나로 TV가 켜지는 것처럼요!',
+          conceptCards: [
+            {
+              title: '함수란?',
+              description: '특정 작업을 수행하는 코드 묶음',
+              icon: '📦',
+              example: 'def greet():\n    print("안녕!")'
+            },
+            {
+              title: '코드 재사용',
+              description: '한 번 만들면 여러 번 호출 가능',
+              icon: '♻️',
+              example: 'greet()를 10번 호출해도 코드는 한 번만 작성'
+            },
+            {
+              title: '내장 vs 사용자 정의',
+              description: 'print()는 내장, 내가 만든 함수는 사용자 정의',
+              icon: '🔧',
+              example: 'print() vs def my_func():'
+            }
+          ],
           hints: [
-            '함수는 특정 작업을 수행하는 코드 묶음이에요',
-            'print(), len(), input()도 모두 함수예요',
-            '한 번 만들어두면 여러 번 사용할 수 있어요',
+            '💡 힌트 1: 함수는 특정 작업을 수행하는 코드 묶음이에요',
+            '💡 힌트 2: print(), len(), input()도 모두 함수예요 (내장 함수)',
+            '💡 힌트 3: 한 번 만들어두면 여러 번 호출하여 사용할 수 있어요'
           ],
           unlocked: true,
           completed: false,
@@ -693,18 +880,35 @@ export const unit4: Unit = {
             question: '함수를 정의하는 키워드는?',
             options: ['function', 'def', 'func', 'define'],
             correctAnswer: 1,
+            explanation: 'Python에서 함수는 def 키워드로 정의해요. def 함수이름(): 형식으로 작성합니다. function은 JavaScript에서 사용해요!'
           },
           {
             id: 'q27-2',
             question: '함수가 값을 반환하는 키워드는?',
             options: ['give', 'send', 'return', 'output'],
             correctAnswer: 2,
+            explanation: 'return 키워드로 값을 반환해요. return이 없으면 함수는 None을 반환합니다. return 값을 만나면 함수가 즉시 종료돼요!'
           },
           {
             id: 'q27-3',
             question: 'lambda a, b: a + b 의 의미는?',
             options: ['a와 b를 출력', 'a + b를 반환하는 함수', '변수 선언', '에러'],
             correctAnswer: 1,
+            explanation: 'lambda는 익명 함수(이름 없는 함수)를 만들어요. lambda a, b: a + b는 def add(a, b): return a + b와 같은 기능을 한 줄로 표현한 것입니다!'
+          },
+          {
+            id: 'q27-4',
+            question: 'def func(a, b=10): 에서 b=10의 의미는?',
+            options: ['b에 10 할당', 'b의 기본값은 10', 'b는 10만 가능', 'b와 10 비교'],
+            correctAnswer: 1,
+            explanation: 'b=10은 기본값(default parameter)이에요. func(5)처럼 b를 안 주면 b=10이 자동으로 사용되고, func(5, 20)처럼 주면 20이 사용됩니다!'
+          },
+          {
+            id: 'q27-5',
+            question: '함수 안에서 만든 변수의 범위는?',
+            options: ['전역', '지역', '모듈', '클래스'],
+            correctAnswer: 1,
+            explanation: '함수 안에서 만든 변수는 지역 변수(local variable)예요. 함수 밖에서는 접근할 수 없고, 함수가 끝나면 사라져요!'
           },
         ],
       },
@@ -726,10 +930,37 @@ export const unit4: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '모듈 개념',
+          cstaStandard: '1B-AP-16',
+          learningObjectives: [
+            '모듈이 재사용 가능한 코드 묶음임을 이해한다',
+            'import 문을 사용하여 모듈을 가져올 수 있다',
+            '표준 라이브러리와 외부 패키지의 차이를 설명할 수 있다'
+          ],
+          realWorldExample: '레고 블록처럼, 다른 사람이 만든 모듈(블록)을 가져와서 나만의 프로그램을 빠르게 만들 수 있어요!',
+          conceptCards: [
+            {
+              title: '모듈',
+              description: '함수와 변수가 담긴 .py 파일',
+              icon: '📦',
+              example: 'import math\nmath.pi'
+            },
+            {
+              title: '표준 라이브러리',
+              description: 'Python에 기본으로 포함된 모듈들',
+              icon: '📚',
+              example: 'math, random, datetime, os 등'
+            },
+            {
+              title: '코드 재사용',
+              description: '바퀴를 다시 발명하지 않아도 돼요',
+              icon: '♻️',
+              example: 'import로 가져오면 바로 사용 가능'
+            }
+          ],
           hints: [
-            '모듈은 함수와 변수가 담긴 파이썬 파일이에요',
-            'import로 가져와서 사용해요',
-            '바퀴를 다시 발명하지 않아도 돼요!',
+            '💡 힌트 1: 모듈은 함수와 변수가 담긴 파이썬 파일(.py)이에요',
+            '💡 힌트 2: import 키워드로 모듈을 가져와서 사용해요',
+            '💡 힌트 3: 바퀴를 다시 발명하지 않아도 돼요 - 이미 만들어진 것 활용!'
           ],
           unlocked: true,
           completed: false,
@@ -924,18 +1155,35 @@ export const unit4: Unit = {
             question: '파일을 읽기 모드로 열 때 사용하는 모드는?',
             options: ['"w"', '"r"', '"a"', '"x"'],
             correctAnswer: 1,
+            explanation: '"r"은 read(읽기) 모드예요. "w"는 쓰기, "a"는 추가, "x"는 새로 만들기 모드입니다. open("파일", "r")로 읽기 모드로 열어요!'
           },
           {
             id: 'q28-2',
             question: 'JSON 파일을 딕셔너리로 읽는 함수는?',
             options: ['json.read()', 'json.load()', 'json.parse()', 'json.get()'],
             correctAnswer: 1,
+            explanation: 'json.load()는 JSON 파일을 읽어서 Python 딕셔너리로 변환해요. json.dump()는 딕셔너리를 JSON으로 저장합니다!'
           },
           {
             id: 'q28-3',
             question: 'with 문을 사용하는 이유는?',
             options: ['속도 향상', '자동 파일 닫기', '에러 무시', '필수 문법'],
             correctAnswer: 1,
+            explanation: 'with 문은 블록이 끝나면 파일을 자동으로 닫아줘요. f.close()를 깜빡해도 안전하고, 에러가 나도 파일이 제대로 닫혀요!'
+          },
+          {
+            id: 'q28-4',
+            question: 'import math 후 원주율 pi에 접근하려면?',
+            options: ['pi', 'math.pi', 'math(pi)', 'import.pi'],
+            correctAnswer: 1,
+            explanation: '모듈을 import하면 모듈명.함수명 형식으로 접근해요. math.pi, math.sqrt() 처럼 사용합니다!'
+          },
+          {
+            id: 'q28-5',
+            question: 'from random import randint의 의미는?',
+            options: ['random 전체 가져오기', 'randint만 가져오기', 'random 이름 바꾸기', '에러'],
+            correctAnswer: 1,
+            explanation: 'from 모듈 import 함수는 특정 함수만 가져와요. 이후 random.randint()가 아니라 randint()로 바로 사용할 수 있어요!'
           },
         ],
       },
@@ -957,12 +1205,37 @@ export const unit4: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '에러 종류',
+          cstaStandard: '1B-AP-14',
+          learningObjectives: [
+            '파이썬의 주요 에러 유형을 구분할 수 있다',
+            '에러 메시지를 읽고 문제를 파악할 수 있다',
+            '에러가 발생하는 상황을 예측할 수 있다'
+          ],
+          realWorldExample: '자동차 계기판의 경고등처럼, 에러 메시지는 무엇이 잘못되었는지 알려줘요. SyntaxError는 빨간불, ValueError는 노란불처럼요!',
+          conceptCards: [
+            {
+              title: 'SyntaxError',
+              description: '문법 오류 - 코드가 잘못 작성됨',
+              icon: '❌',
+              example: 'print("안녕"  # 괄호 안 닫음'
+            },
+            {
+              title: 'NameError',
+              description: '정의되지 않은 변수 사용',
+              icon: '🔍',
+              example: 'print(x)  # x가 없음'
+            },
+            {
+              title: 'ValueError',
+              description: '잘못된 값 - 타입은 맞지만 값이 이상함',
+              icon: '⚠️',
+              example: 'int("abc")  # 숫자 아님'
+            }
+          ],
           hints: [
-            'SyntaxError: 문법 오류',
-            'NameError: 정의되지 않은 변수',
-            'TypeError: 타입 불일치',
-            'ValueError: 잘못된 값',
-            'ZeroDivisionError: 0으로 나눔',
+            '💡 힌트 1: SyntaxError - 문법 오류 (괄호, 콜론 등)',
+            '💡 힌트 2: NameError - 정의되지 않은 변수 사용',
+            '💡 힌트 3: TypeError - 타입 불일치, ValueError - 잘못된 값, ZeroDivisionError - 0으로 나눔'
           ],
           unlocked: true,
           completed: false,
@@ -1157,18 +1430,35 @@ export const unit4: Unit = {
             question: 'try 블록에서 에러가 나면 실행되는 블록은?',
             options: ['else', 'except', 'finally', 'catch'],
             correctAnswer: 1,
+            explanation: 'except 블록은 try에서 에러가 발생했을 때 실행돼요. catch는 JavaScript에서 사용하는 키워드입니다!'
           },
           {
             id: 'q29-2',
             question: '에러 유무와 관계없이 항상 실행되는 블록은?',
             options: ['else', 'except', 'finally', 'always'],
             correctAnswer: 2,
+            explanation: 'finally 블록은 에러가 있든 없든 항상 실행돼요. 파일 닫기, 연결 종료 등 정리 작업에 사용해요!'
           },
           {
             id: 'q29-3',
             question: '의도적으로 에러를 발생시키는 키워드는?',
             options: ['throw', 'raise', 'error', 'exception'],
             correctAnswer: 1,
+            explanation: 'raise 키워드로 의도적으로 예외를 발생시켜요. raise ValueError("잘못된 값")처럼 사용합니다. throw는 JavaScript에서 사용해요!'
+          },
+          {
+            id: 'q29-4',
+            question: 'except Exception as e: 에서 e는?',
+            options: ['에러 메시지', '에러 객체', '에러 코드', '에러 라인'],
+            correctAnswer: 1,
+            explanation: 'as e로 에러 객체를 변수에 저장해요. str(e)로 에러 메시지를 볼 수 있고, type(e)로 에러 타입을 확인할 수 있어요!'
+          },
+          {
+            id: 'q29-5',
+            question: 'try-except가 필요한 상황은?',
+            options: ['모든 코드', '사용자 입력', '수학 계산', '변수 선언'],
+            correctAnswer: 1,
+            explanation: '사용자 입력은 예측할 수 없어서 try-except가 필요해요! 파일 읽기, 네트워크 통신 등 실패할 수 있는 작업에 사용합니다.'
           },
         ],
       },
@@ -1190,10 +1480,37 @@ export const unit4: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '프로젝트 기획',
+          cstaStandard: '2-AP-13',
+          learningObjectives: [
+            '문제를 작은 단위로 분해하여 계획할 수 있다',
+            '프로젝트에 필요한 자료구조와 함수를 설계할 수 있다',
+            '배운 개념들을 통합하여 실제 프로그램을 구현할 수 있다'
+          ],
+          realWorldExample: '집을 지을 때 설계도를 먼저 그리듯이, 프로그램도 기획과 설계가 중요해요. 어떤 기능이 필요하고, 어떻게 만들지 계획해요!',
+          conceptCards: [
+            {
+              title: '문제 분해',
+              description: '큰 문제를 작은 기능으로 나누기',
+              icon: '🧩',
+              example: '성적 관리 = 추가 + 조회 + 통계 + 저장'
+            },
+            {
+              title: '자료구조 선택',
+              description: '어떤 데이터를 어떻게 저장할지',
+              icon: '📊',
+              example: '학생 이름 → 딕셔너리 키, 점수 → 리스트'
+            },
+            {
+              title: '기능 설계',
+              description: '각 기능을 함수로 분리',
+              icon: '⚙️',
+              example: 'add_student(), view_all(), calculate_average()'
+            }
+          ],
           hints: [
-            '목표: 리스트, 딕셔너리, 함수, 파일을 모두 활용',
-            '아이디어: 학생 성적 관리, 가계부, 단어장 등',
-            '작은 기능부터 시작해서 점점 확장',
+            '💡 힌트 1: 목표 - 리스트, 딕셔너리, 함수, 파일을 모두 활용',
+            '💡 힌트 2: 아이디어 - 학생 성적 관리, 가계부, 단어장, 할 일 목록 등',
+            '💡 힌트 3: 작은 기능부터 시작해서 점점 확장하세요'
           ],
           unlocked: true,
           completed: false,
@@ -1314,18 +1631,35 @@ export const unit4: Unit = {
             question: '딕셔너리에서 모든 키-값 쌍을 순회하는 메서드는?',
             options: ['keys()', 'values()', 'items()', 'all()'],
             correctAnswer: 2,
+            explanation: 'items() 메서드로 모든 키-값 쌍을 (key, value) 튜플로 순회할 수 있어요. keys()는 키만, values()는 값만 반환합니다!'
           },
           {
             id: 'q30-2',
             question: '함수에서 값을 반환하는 키워드는?',
             options: ['give', 'return', 'send', 'output'],
             correctAnswer: 1,
+            explanation: 'return 키워드로 함수에서 값을 반환해요. return을 만나면 함수가 즉시 종료되고 값이 반환됩니다!'
           },
           {
             id: 'q30-3',
             question: 'JSON 파일을 읽어서 딕셔너리로 변환하는 함수는?',
             options: ['json.read()', 'json.load()', 'json.parse()', 'json.decode()'],
             correctAnswer: 1,
+            explanation: 'json.load()는 파일에서 JSON을 읽어 딕셔너리로 변환해요. json.dump()는 딕셔너리를 JSON 파일로 저장합니다!'
+          },
+          {
+            id: 'q30-4',
+            question: 'Unit 4에서 배운 자료구조가 아닌 것은?',
+            options: ['리스트', '딕셔너리', '튜플', '배열'],
+            correctAnswer: 3,
+            explanation: 'Python에는 배열이 없어요! 리스트, 딕셔너리, 튜플, 집합(set)이 주요 자료구조입니다. 배열은 NumPy 같은 라이브러리에서 사용해요!'
+          },
+          {
+            id: 'q30-5',
+            question: '다음 중 불변(immutable) 자료구조는?',
+            options: ['리스트', '딕셔너리', '튜플', '집합'],
+            correctAnswer: 2,
+            explanation: '튜플은 불변이라 생성 후 수정할 수 없어요! 리스트, 딕셔너리, 집합은 모두 가변(mutable)입니다.'
           },
         ],
       },

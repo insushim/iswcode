@@ -662,9 +662,25 @@ export const unit5: Unit = {
           estimatedMinutes: 10,
           concept: '태그 선택자',
           conceptExplanation: '태그이름 { } 으로 해당 태그를 모두 선택해요!',
+          cstaStandard: '2-AP-16',
+          learningObjectives: [
+            'CSS 선택자의 기본 개념을 이해한다',
+            '태그 선택자로 모든 같은 태그에 스타일을 적용할 수 있다',
+            '선택자와 스타일 규칙의 구조를 안다'
+          ],
+          realWorldExample: '네이버나 유튜브에서 모든 제목(h1)을 같은 스타일로 꾸밀 때 태그 선택자를 사용해요!',
           starterCode: '/* 모든 p 태그를 파란색으로 만드세요 */\n',
           solution: 'p {\n  color: blue;\n}',
-          hints: ['태그 이름만 쓰면 돼요'],
+          hints: [
+            '💡 힌트 1: 태그 이름만 쓰면 돼요',
+            '💡 힌트 2: p { } 형태로 중괄호 안에 스타일을 넣어요',
+            '💡 힌트 3: color: blue; 로 파란색을 지정해요'
+          ],
+          commonMistakes: [
+            '태그 이름 앞에 < >를 쓰는 경우 (<p>가 아니라 p)',
+            '중괄호 {}를 빼먹는 경우',
+            '세미콜론(;)을 빼먹는 경우'
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
