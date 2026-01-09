@@ -34,7 +34,7 @@ import {
 } from '../services/authService';
 import type { AuthUser, Teacher, Student, ClassRoom } from '../types';
 
-type TabType = 'pending' | 'all';
+type TabType = 'pending' | 'teachers' | 'students' | 'classes';
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -285,12 +285,17 @@ const AdminDashboard: React.FC = () => {
           )}
         </AnimatePresence>
 
-        {/* 통계 카드 */}
+        {/* 통계 카드 - 클릭 가능 */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <motion.div
+          <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 p-5"
+            onClick={() => setActiveTab('pending')}
+            className={`bg-slate-800/50 backdrop-blur-xl rounded-2xl border p-5 text-left transition-all hover:scale-[1.02] ${
+              activeTab === 'pending'
+                ? 'border-amber-500/50 ring-2 ring-amber-500/20'
+                : 'border-slate-700/50 hover:border-amber-500/30'
+            }`}
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-amber-500/20 rounded-xl flex items-center justify-center">
@@ -301,13 +306,18 @@ const AdminDashboard: React.FC = () => {
                 <p className="text-sm text-slate-400">승인 대기</p>
               </div>
             </div>
-          </motion.div>
+          </motion.button>
 
-          <motion.div
+          <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 p-5"
+            onClick={() => setActiveTab('teachers')}
+            className={`bg-slate-800/50 backdrop-blur-xl rounded-2xl border p-5 text-left transition-all hover:scale-[1.02] ${
+              activeTab === 'teachers'
+                ? 'border-emerald-500/50 ring-2 ring-emerald-500/20'
+                : 'border-slate-700/50 hover:border-emerald-500/30'
+            }`}
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center">
@@ -318,13 +328,18 @@ const AdminDashboard: React.FC = () => {
                 <p className="text-sm text-slate-400">승인된 선생님</p>
               </div>
             </div>
-          </motion.div>
+          </motion.button>
 
-          <motion.div
+          <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 p-5"
+            onClick={() => setActiveTab('students')}
+            className={`bg-slate-800/50 backdrop-blur-xl rounded-2xl border p-5 text-left transition-all hover:scale-[1.02] ${
+              activeTab === 'students'
+                ? 'border-blue-500/50 ring-2 ring-blue-500/20'
+                : 'border-slate-700/50 hover:border-blue-500/30'
+            }`}
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
@@ -335,13 +350,18 @@ const AdminDashboard: React.FC = () => {
                 <p className="text-sm text-slate-400">전체 학생</p>
               </div>
             </div>
-          </motion.div>
+          </motion.button>
 
-          <motion.div
+          <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 p-5"
+            onClick={() => setActiveTab('classes')}
+            className={`bg-slate-800/50 backdrop-blur-xl rounded-2xl border p-5 text-left transition-all hover:scale-[1.02] ${
+              activeTab === 'classes'
+                ? 'border-purple-500/50 ring-2 ring-purple-500/20'
+                : 'border-slate-700/50 hover:border-purple-500/30'
+            }`}
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
@@ -352,11 +372,11 @@ const AdminDashboard: React.FC = () => {
                 <p className="text-sm text-slate-400">전체 학급</p>
               </div>
             </div>
-          </motion.div>
+          </motion.button>
         </div>
 
         {/* 탭 네비게이션 */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => setActiveTab('pending')}
             className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all ${
@@ -376,21 +396,44 @@ const AdminDashboard: React.FC = () => {
             )}
           </button>
           <button
-            onClick={() => setActiveTab('all')}
+            onClick={() => setActiveTab('teachers')}
             className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all ${
-              activeTab === 'all'
-                ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/25'
+              activeTab === 'teachers'
+                ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'
+                : 'bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <GraduationCap className="w-4 h-4" />
+            선생님 관리
+          </button>
+          <button
+            onClick={() => setActiveTab('students')}
+            className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all ${
+              activeTab === 'students'
+                ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25'
                 : 'bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
             <Users className="w-4 h-4" />
-            전체 관리
+            학생 관리
+          </button>
+          <button
+            onClick={() => setActiveTab('classes')}
+            className={`flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all ${
+              activeTab === 'classes'
+                ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/25'
+                : 'bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <BookOpen className="w-4 h-4" />
+            학급 관리
           </button>
         </div>
 
         {/* 컨텐츠 영역 */}
         <AnimatePresence mode="wait">
-          {activeTab === 'pending' ? (
+          {/* 승인 대기 탭 */}
+          {activeTab === 'pending' && (
             <motion.div
               key="pending"
               initial={{ opacity: 0, x: -20 }}
@@ -433,6 +476,9 @@ const AdminDashboard: React.FC = () => {
                               <h3 className="text-lg font-semibold text-white">
                                 {teacher.displayName}
                               </h3>
+                              <p className="text-xs text-slate-500 font-mono mt-0.5">
+                                ID: {teacher.uid}
+                              </p>
                               <div className="flex flex-wrap items-center gap-3 text-sm text-slate-400 mt-1">
                                 <span className="flex items-center gap-1">
                                   <Mail className="w-4 h-4" />
@@ -481,9 +527,12 @@ const AdminDashboard: React.FC = () => {
                 </div>
               )}
             </motion.div>
-          ) : (
+          )}
+
+          {/* 선생님 관리 탭 */}
+          {activeTab === 'teachers' && (
             <motion.div
-              key="all"
+              key="teachers"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -497,7 +546,7 @@ const AdminDashboard: React.FC = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="선생님 이름, 이메일, 학교로 검색..."
-                  className="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
                 />
               </div>
 
@@ -506,9 +555,9 @@ const AdminDashboard: React.FC = () => {
                 <div className="p-6 border-b border-slate-700/50">
                   <h2 className="text-lg font-bold text-white flex items-center gap-2">
                     <GraduationCap className="w-5 h-5 text-emerald-400" />
-                    선생님 및 학생 관리
+                    승인된 선생님 목록
                     <span className="text-sm font-normal text-slate-400">
-                      ({filteredTeachers.length}명의 선생님)
+                      ({filteredTeachers.length}명)
                     </span>
                   </h2>
                 </div>
@@ -516,7 +565,7 @@ const AdminDashboard: React.FC = () => {
                 {filteredTeachers.length === 0 ? (
                   <div className="p-16 text-center">
                     <div className="w-20 h-20 mx-auto mb-4 bg-slate-700/50 rounded-full flex items-center justify-center">
-                      <Users className="w-10 h-10 text-slate-500" />
+                      <GraduationCap className="w-10 h-10 text-slate-500" />
                     </div>
                     <p className="text-slate-400 text-lg">
                       {searchQuery ? '검색 결과가 없습니다' : '승인된 선생님이 없습니다'}
@@ -553,6 +602,9 @@ const AdminDashboard: React.FC = () => {
                                       선생님
                                     </span>
                                   </div>
+                                  <p className="text-xs text-slate-500 font-mono mt-0.5">
+                                    ID: {teacher.uid}
+                                  </p>
                                   <div className="flex items-center gap-3 text-sm text-slate-400 mt-1">
                                     <span>{teacher.email}</span>
                                     {(teacher as any).school && (
@@ -627,6 +679,9 @@ const AdminDashboard: React.FC = () => {
                                                 <h4 className="font-medium text-white">
                                                   {classroom.name}
                                                 </h4>
+                                                <p className="text-xs text-slate-500 font-mono">
+                                                  ID: {classroom.id}
+                                                </p>
                                                 <p className="text-sm text-slate-400">
                                                   참여 코드: {classroom.joinCode}
                                                 </p>
@@ -638,19 +693,24 @@ const AdminDashboard: React.FC = () => {
                                           </div>
 
                                           {classStudents.length > 0 && (
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-3">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
                                               {classStudents.map((student) => (
                                                 <div
                                                   key={student.uid}
                                                   className="flex items-center justify-between p-3 bg-slate-900/50 rounded-lg group"
                                                 >
-                                                  <div className="flex items-center gap-3">
-                                                    <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                                  <div className="flex items-center gap-3 min-w-0">
+                                                    <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                                                       <User className="w-4 h-4 text-blue-400" />
                                                     </div>
-                                                    <span className="text-sm text-slate-300">
-                                                      {student.displayName}
-                                                    </span>
+                                                    <div className="min-w-0">
+                                                      <span className="text-sm text-slate-300 block">
+                                                        {student.displayName}
+                                                      </span>
+                                                      <span className="text-xs text-slate-500 font-mono truncate block">
+                                                        ID: {student.uid}
+                                                      </span>
+                                                    </div>
                                                   </div>
                                                   <button
                                                     onClick={() =>
@@ -661,7 +721,7 @@ const AdminDashboard: React.FC = () => {
                                                       )
                                                     }
                                                     disabled={processingId === student.uid}
-                                                    className="p-1.5 text-slate-600 hover:text-red-400 hover:bg-red-500/10 rounded-md transition-colors opacity-0 group-hover:opacity-100"
+                                                    className="p-1.5 text-slate-600 hover:text-red-400 hover:bg-red-500/10 rounded-md transition-colors opacity-0 group-hover:opacity-100 flex-shrink-0"
                                                     title="학생 삭제"
                                                   >
                                                     <Trash2 className="w-3.5 h-3.5" />
@@ -681,6 +741,193 @@ const AdminDashboard: React.FC = () => {
                         </div>
                       );
                     })}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
+
+          {/* 학생 관리 탭 */}
+          {activeTab === 'students' && (
+            <motion.div
+              key="students"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="space-y-6"
+            >
+              {/* 검색 */}
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="학생 이름으로 검색..."
+                  className="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
+                />
+              </div>
+
+              {/* 학생 목록 */}
+              <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 overflow-hidden">
+                <div className="p-6 border-b border-slate-700/50">
+                  <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                    <Users className="w-5 h-5 text-blue-400" />
+                    전체 학생 목록
+                    <span className="text-sm font-normal text-slate-400">
+                      ({students.filter(s =>
+                        s.displayName.toLowerCase().includes(searchQuery.toLowerCase())
+                      ).length}명)
+                    </span>
+                  </h2>
+                </div>
+
+                {students.length === 0 ? (
+                  <div className="p-16 text-center">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-slate-700/50 rounded-full flex items-center justify-center">
+                      <Users className="w-10 h-10 text-slate-500" />
+                    </div>
+                    <p className="text-slate-400 text-lg">등록된 학생이 없습니다</p>
+                  </div>
+                ) : (
+                  <div className="p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {students
+                        .filter(s => s.displayName.toLowerCase().includes(searchQuery.toLowerCase()))
+                        .map((student) => {
+                          const studentClass = allClasses.find(c => c.id === student.classId);
+                          const teacher = approvedTeachers.find(t => t.uid === studentClass?.teacherId);
+                          return (
+                            <div
+                              key={student.uid}
+                              className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/50 hover:border-blue-500/30 transition-colors group"
+                            >
+                              <div className="flex items-start justify-between">
+                                <div className="flex items-center gap-3 min-w-0">
+                                  <div className="w-10 h-10 bg-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <User className="w-5 h-5 text-blue-400" />
+                                  </div>
+                                  <div className="min-w-0">
+                                    <h4 className="font-medium text-white">{student.displayName}</h4>
+                                    <p className="text-xs text-slate-500 font-mono truncate">
+                                      ID: {student.uid}
+                                    </p>
+                                  </div>
+                                </div>
+                                <button
+                                  onClick={() =>
+                                    handleDeleteStudent(student.uid, student.classId, student.displayName)
+                                  }
+                                  disabled={processingId === student.uid}
+                                  className="p-1.5 text-slate-600 hover:text-red-400 hover:bg-red-500/10 rounded-md transition-colors opacity-0 group-hover:opacity-100 flex-shrink-0"
+                                  title="학생 삭제"
+                                >
+                                  <Trash2 className="w-4 h-4" />
+                                </button>
+                              </div>
+                              <div className="mt-3 pt-3 border-t border-slate-700/50 space-y-1">
+                                <p className="text-xs text-slate-400">
+                                  <span className="text-slate-500">학급:</span> {studentClass?.name || '-'}
+                                </p>
+                                <p className="text-xs text-slate-400">
+                                  <span className="text-slate-500">담당 선생님:</span> {teacher?.displayName || '-'}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
+
+          {/* 학급 관리 탭 */}
+          {activeTab === 'classes' && (
+            <motion.div
+              key="classes"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="space-y-6"
+            >
+              {/* 검색 */}
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="학급명 또는 참여 코드로 검색..."
+                  className="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-700/50 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 transition-colors"
+                />
+              </div>
+
+              {/* 학급 목록 */}
+              <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-slate-700/50 overflow-hidden">
+                <div className="p-6 border-b border-slate-700/50">
+                  <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                    <BookOpen className="w-5 h-5 text-purple-400" />
+                    전체 학급 목록
+                    <span className="text-sm font-normal text-slate-400">
+                      ({allClasses.filter(c =>
+                        c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        c.joinCode.toLowerCase().includes(searchQuery.toLowerCase())
+                      ).length}개)
+                    </span>
+                  </h2>
+                </div>
+
+                {allClasses.length === 0 ? (
+                  <div className="p-16 text-center">
+                    <div className="w-20 h-20 mx-auto mb-4 bg-slate-700/50 rounded-full flex items-center justify-center">
+                      <BookOpen className="w-10 h-10 text-slate-500" />
+                    </div>
+                    <p className="text-slate-400 text-lg">생성된 학급이 없습니다</p>
+                  </div>
+                ) : (
+                  <div className="p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {allClasses
+                        .filter(c =>
+                          c.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          c.joinCode.toLowerCase().includes(searchQuery.toLowerCase())
+                        )
+                        .map((classroom) => {
+                          const teacher = approvedTeachers.find(t => t.uid === classroom.teacherId);
+                          const classStudents = getClassStudents(classroom.id);
+                          return (
+                            <div
+                              key={classroom.id}
+                              className="p-4 bg-slate-900/50 rounded-xl border border-slate-700/50 hover:border-purple-500/30 transition-colors"
+                            >
+                              <div className="flex items-start gap-3">
+                                <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                  <BookOpen className="w-5 h-5 text-purple-400" />
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                  <h4 className="font-medium text-white">{classroom.name}</h4>
+                                  <p className="text-xs text-slate-500 font-mono truncate">
+                                    ID: {classroom.id}
+                                  </p>
+                                  <p className="text-sm text-purple-400 mt-1">
+                                    참여 코드: <span className="font-mono">{classroom.joinCode}</span>
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="mt-3 pt-3 border-t border-slate-700/50 space-y-1">
+                                <p className="text-xs text-slate-400">
+                                  <span className="text-slate-500">담당 선생님:</span> {teacher?.displayName || '-'}
+                                </p>
+                                <p className="text-xs text-slate-400">
+                                  <span className="text-slate-500">학생 수:</span> {classStudents.length}명
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                    </div>
                   </div>
                 )}
               </div>

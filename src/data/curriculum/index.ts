@@ -7,6 +7,15 @@ import { unit6 } from './unit6-javascript';
 import { unit7 } from './unit7-web-projects';
 import { unit8 } from './unit8-ai-creative';
 import { unit9 } from './unit9-capstone';
+import {
+  debuggingMissions,
+  codeReviewMissions,
+  algorithmMissions,
+  commonMistakesMissions,
+  realWorldProjects,
+  allAdvancedMissions,
+  advancedMissionStats
+} from './advanced-missions';
 import type { Unit, Mission, Week } from '../../types';
 
 // 모든 유닛 통합
@@ -46,6 +55,33 @@ export const getUnlockedUnits = (userLevel: number): Unit[] => {
 };
 
 export { unit1, unit2, unit3, unit4, unit5, unit6, unit7, unit8, unit9 };
+
+// 고급 연습 미션 (AI 추천 커리큘럼)
+export {
+  debuggingMissions,
+  codeReviewMissions,
+  algorithmMissions,
+  commonMistakesMissions,
+  realWorldProjects,
+  allAdvancedMissions,
+  advancedMissionStats
+};
+
+// 고급 미션 헬퍼 함수
+export const getAdvancedMissionById = (missionId: string): Mission | undefined => {
+  return allAdvancedMissions.find(m => m.id === missionId);
+};
+
+export const getAdvancedMissionsByCategory = (category: 'debugging' | 'codeReview' | 'algorithm' | 'commonMistakes' | 'realWorld'): Mission[] => {
+  switch (category) {
+    case 'debugging': return debuggingMissions;
+    case 'codeReview': return codeReviewMissions;
+    case 'algorithm': return algorithmMissions;
+    case 'commonMistakes': return commonMistakesMissions;
+    case 'realWorld': return realWorldProjects;
+    default: return [];
+  }
+};
 
 // Re-export badges from progressStore
 export { badges } from '../../stores/progressStore';

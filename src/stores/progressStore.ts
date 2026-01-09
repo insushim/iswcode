@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import type { Progress, UnitProgress, Badge, Achievement, Challenge, Activity } from '../types';
+import { getUnitById } from '../data/curriculum';
 
 interface ProgressState {
   progress: Progress;
@@ -23,6 +24,11 @@ interface ProgressState {
   getMissionStatus: (missionId: string) => { completed: boolean; perfect: boolean };
   getUnitProgress: (unitId: string) => UnitProgress | undefined;
   resetProgress: () => void;
+
+  // Mastery Gate System
+  getWeekKeyMissionProgress: (unitId: string, weekId: string) => { completed: number; total: number; percent: number };
+  isWeekUnlocked: (unitId: string, weekId: string) => boolean;
+  isMissionUnlocked: (missionId: string, unitId: string, weekId: string) => boolean;
 }
 
 const defaultProgress: Progress = {
@@ -482,6 +488,75 @@ export const useProgressStore = create<ProgressState>()(
           state.weeklyChallenge = null;
           state.activities = [];
         });
+      },
+
+      // 주차의 핵심 미션 완료율 계산
+      getWeekKeyMissionProgress: (unitId: string, weekId: string) => {
+        const unit = getUnitById(unitId);
+        if (!unit) return { completed: 0, total: 0, percent: 0 };
+
+        const week = unit.weeks.find(w => w.id === weekId);
+        if (!week) return { completed: 0, total: 0, percent: 0 };
+
+        const keyMissions = week.missions.filter(m => m.isKeyMission === true);
+        const total = keyMissions.length;
+
+        if (total === 0) return { completed: 0, total: 0, percent: 0 };
+
+        const { completedMissions } = get().progress;
+        const completed = keyMissions.filter(m => completedMissions.includes(m.id)).length;
+        const percent = Math.round((completed / total) * 100);
+
+        return { completed, total, percent };
+      },
+
+      // 주차 해금 여부 확인 (이전 주차 핵심 미션 80% 이상 완료 필요)
+      isWeekUnlocked: (unitId: string, weekId: string) => {
+        const unit = getUnitById(unitId);
+        if (!unit) return false;
+
+        const weekIndex = unit.weeks.findIndex(w => w.id === weekId);
+        if (weekIndex === -1) return false;
+
+        // 첫 번째 주차는 항상 해금됨
+        if (weekIndex === 0) return true;
+
+        // 이전 주차의 핵심 미션 완료율 확인
+        const previousWeek = unit.weeks[weekIndex - 1];
+        const progress = get().getWeekKeyMissionProgress(unitId, previousWeek.id);
+
+        // 이전 주차에 핵심 미션이 없으면 해금
+        if (progress.total === 0) return true;
+
+        // 80% 이상 완료 필요
+        return progress.percent >= 80;
+      },
+
+      // 미션 해금 여부 확인
+      isMissionUnlocked: (missionId: string, unitId: string, weekId: string) => {
+        const unit = getUnitById(unitId);
+        if (!unit) return false;
+
+        const week = unit.weeks.find(w => w.id === weekId);
+        if (!week) return false;
+
+        const mission = week.missions.find(m => m.id === missionId);
+        if (!mission) return false;
+
+        // 주차가 해금되지 않았으면 미션도 잠김
+        if (!get().isWeekUnlocked(unitId, weekId)) return false;
+
+        // 선행 미션이 있는지 확인
+        if (mission.prerequisiteMissions && mission.prerequisiteMissions.length > 0) {
+          const { completedMissions } = get().progress;
+          // 모든 선행 미션이 완료되어야 함
+          return mission.prerequisiteMissions.every(prereqId =>
+            completedMissions.includes(prereqId)
+          );
+        }
+
+        // 선행 미션이 없으면 주차만 해금되면 됨
+        return true;
       },
     })),
     {

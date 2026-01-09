@@ -134,8 +134,14 @@ export interface Mission {
   conceptExplanation?: string; // 개념 설명 (튜토리얼용)
   starterCode?: string;
   solution?: string;
-  expectedOutput?: string;
+  expectedOutput?: string | null; // null for free-response
   hints: string[];
+  // Use-Modify-Create 진행 단계
+  phase?: 'use' | 'modify' | 'create';
+  // 마스터리 시스템
+  isKeyMission?: boolean;  // 핵심 미션 (80% 통과 필요)
+  isWeeklyProject?: boolean;  // 주간 프로젝트
+  prerequisiteMissions?: string[];  // 선행 미션 ID 목록
   testCases?: TestCase[];
   requirements?: string[];
   blocks?: string[];

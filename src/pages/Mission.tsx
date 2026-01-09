@@ -6,10 +6,11 @@ import {
   Play, CheckCircle, XCircle, Shuffle, GripVertical
 } from 'lucide-react';
 import { CodeWorkspace } from '../components/Editor';
-import { getMissionById, allUnits } from '../data/curriculum';
+import { getMissionById, allUnits, getAdvancedMissionById } from '../data/curriculum';
 import { useMissionStore } from '../stores/missionStore';
 import { useProgressStore } from '../stores/progressStore';
 import { useUserStore } from '../stores/userStore';
+import { usePortfolioStore } from '../stores/portfolioStore';
 import type { Mission as MissionType } from '../types';
 import GeneralBlockMission from '../components/GeneralBlockMission';
 import InteractiveLessonMission from '../components/InteractiveLessonMission';
@@ -19,19 +20,28 @@ import GameMakerMission from '../components/GameMakerMission';
 const Mission: React.FC = () => {
   const { missionId } = useParams();
   const navigate = useNavigate();
-  const { setCurrentMission, startTimer, stopTimer, hintsUsed, useHint } = useMissionStore();
+  const { setCurrentMission, startTimer, stopTimer, hintsUsed, useHint, code, output } = useMissionStore();
   const { completeMission, earnBadge } = useProgressStore();
   const { addExp, user } = useUserStore();
+  const { saveProject } = usePortfolioStore();
 
   const [mission, setMission] = useState<MissionType | null>(null);
   const [showComplete, setShowComplete] = useState(false);
   const [earnedExp, setEarnedExp] = useState(0);
   const [nextMission, setNextMission] = useState<MissionType | null>(null);
   const [showHints, setShowHints] = useState(false);
+  const [savedToPortfolio, setSavedToPortfolio] = useState(false);
+  const [completedCode, setCompletedCode] = useState<string>('');
+  const [completedOutput, setCompletedOutput] = useState<string>('');
 
   useEffect(() => {
     if (missionId) {
-      const found = getMissionById(missionId);
+      // 먼저 일반 커리큘럼에서 찾기
+      let found = getMissionById(missionId);
+      // 없으면 고급 미션에서 찾기
+      if (!found) {
+        found = getAdvancedMissionById(missionId);
+      }
       if (found) {
         setMission(found);
         setCurrentMission(found);
@@ -40,6 +50,9 @@ const Mission: React.FC = () => {
         setShowComplete(false);
         setEarnedExp(0);
         setNextMission(null);
+        setSavedToPortfolio(false);
+        setCompletedCode('');
+        setCompletedOutput('');
       }
     }
   }, [missionId, setCurrentMission, startTimer]);
@@ -63,6 +76,12 @@ const Mission: React.FC = () => {
 
     if (user && user.stats.totalMissionsCompleted === 0) {
       earnBadge('first_code');
+    }
+
+    // 코딩 미션일 경우 완료된 코드와 출력 저장
+    if (mission.type === 'coding') {
+      setCompletedCode(code);
+      setCompletedOutput(output);
     }
 
     const next = findNextMission(mission.id);
@@ -93,6 +112,45 @@ const Mission: React.FC = () => {
           if (weekIndex < unit.weeks.length - 1) {
             return unit.weeks[weekIndex + 1].missions[0];
           }
+        }
+      }
+    }
+    return null;
+  };
+
+  const handleSaveToPortfolio = () => {
+    if (!mission || !completedCode) return;
+
+    const unitId = findUnitForMission(mission.id);
+    const weekId = findWeekForMission(mission.id);
+
+    if (!unitId || !weekId) return;
+
+    const missionType = mission.type === 'coding' ?
+      (mission.concept?.includes('python') ? 'python' :
+       mission.concept?.includes('javascript') ? 'javascript' :
+       mission.concept?.includes('html') ? 'html' : 'project') : 'project';
+
+    saveProject({
+      missionId: mission.id,
+      missionTitle: mission.title,
+      unitId,
+      weekId,
+      type: missionType as 'python' | 'html' | 'javascript' | 'project',
+      code: completedCode,
+      output: completedOutput,
+      isPublic: false,
+      tags: mission.concept ? [mission.concept] : [],
+    });
+
+    setSavedToPortfolio(true);
+  };
+
+  const findWeekForMission = (missionId: string): string | null => {
+    for (const unit of allUnits) {
+      for (const week of unit.weeks) {
+        if (week.missions.some(m => m.id === missionId)) {
+          return week.id;
         }
       }
     }
@@ -247,6 +305,23 @@ const Mission: React.FC = () => {
                 )}
               </div>
             </div>
+
+            {/* 포트폴리오 저장 버튼 (코딩 미션일 때만 표시) */}
+            {mission.type === 'coding' && completedCode && (
+              <div className="mb-4">
+                <button
+                  onClick={handleSaveToPortfolio}
+                  disabled={savedToPortfolio}
+                  className={`w-full px-4 py-3 font-bold rounded-xl border-2 transition-colors ${
+                    savedToPortfolio
+                      ? 'bg-emerald-600 text-white border-emerald-500 cursor-not-allowed'
+                      : 'bg-blue-600 text-white border-blue-500 hover:bg-blue-700'
+                  }`}
+                >
+                  {savedToPortfolio ? '✓ 포트폴리오에 저장됨' : '📁 포트폴리오에 저장'}
+                </button>
+              </div>
+            )}
 
             <div className="flex gap-3">
               <button

@@ -8,6 +8,7 @@ import { useAuthStore } from './stores/authStore';
 import Home from './pages/Home';
 import Learn from './pages/Learn';
 import Mission from './pages/Mission';
+import Portfolio from './pages/Portfolio';
 
 // Mission 래퍼 - missionId 변경 시 컴포넌트 완전 리마운트
 const MissionWrapper: React.FC = () => {
@@ -22,6 +23,8 @@ import Achievements from './pages/Achievements';
 import AITutor from './pages/AITutor';
 import AvatarCustomize from './pages/AvatarCustomize';
 import MyRoom from './pages/MyRoom';
+import Analytics from './pages/Analytics';
+import Practice from './pages/Practice';
 
 // Auth Pages
 import Login from './pages/Login';
@@ -148,9 +151,13 @@ const App: React.FC = () => {
         <Route path="/ai-tutor" element={<ProtectedRoute allowedRoles={['student']}><AITutor /></ProtectedRoute>} />
         <Route path="/profile" element={<ProtectedRoute allowedRoles={['student']}><Profile /></ProtectedRoute>} />
         <Route path="/achievements" element={<ProtectedRoute allowedRoles={['student']}><Achievements /></ProtectedRoute>} />
+        <Route path="/portfolio" element={<ProtectedRoute allowedRoles={['student']}><Portfolio /></ProtectedRoute>} />
         <Route path="/settings" element={<ProtectedRoute allowedRoles={['student']}><Settings /></ProtectedRoute>} />
         <Route path="/avatar" element={<ProtectedRoute allowedRoles={['student']}><AvatarCustomize /></ProtectedRoute>} />
         <Route path="/myroom" element={<ProtectedRoute allowedRoles={['student']}><MyRoom /></ProtectedRoute>} />
+        <Route path="/analytics" element={<ProtectedRoute allowedRoles={['student']}><Analytics /></ProtectedRoute>} />
+        <Route path="/practice" element={<ProtectedRoute allowedRoles={['student']}><Practice /></ProtectedRoute>} />
+        <Route path="/mission/advanced/:missionId" element={<ProtectedRoute allowedRoles={['student']}><MissionWrapper /></ProtectedRoute>} />
 
         {/* Teacher Routes */}
         <Route path="/teacher" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherDashboard /></ProtectedRoute>} />

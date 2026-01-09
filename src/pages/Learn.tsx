@@ -111,8 +111,17 @@ const UnitHeader: React.FC<{ unit: Unit; progressPercent: number; completedMissi
 };
 
 // Lesson Item Component
-const LessonItem: React.FC<{ lesson: Week; index: number; onExpand: () => void; isExpanded: boolean; weekProgress: { completed: number; total: number } }> = ({
-  lesson, index, onExpand, isExpanded, weekProgress
+const LessonItem: React.FC<{
+  lesson: Week;
+  index: number;
+  onExpand: () => void;
+  isExpanded: boolean;
+  weekProgress: { completed: number; total: number };
+  unitId: string;
+  isLocked: boolean;
+  keyMissionProgress?: { completed: number; total: number; percent: number };
+}> = ({
+  lesson, index, onExpand, isExpanded, weekProgress, unitId, isLocked, keyMissionProgress
 }) => {
   const isCompleted = weekProgress.completed === weekProgress.total && weekProgress.total > 0;
   const hasProgress = weekProgress.completed > 0;
@@ -121,36 +130,57 @@ const LessonItem: React.FC<{ lesson: Week; index: number; onExpand: () => void; 
   return (
     <div
       className={`
-        group relative flex items-center gap-5 p-5 rounded-2xl border transition-all duration-300 cursor-pointer
-        ${isActive
-          ? 'bg-slate-700/80 border-indigo-500/50 shadow-[0_4px_20px_rgba(79,70,229,0.15)] ring-1 ring-indigo-500/20 translate-x-1'
-          : 'bg-slate-700/40 border-slate-600/50 hover:bg-slate-700/60 hover:border-slate-500'}
+        group relative flex items-center gap-5 p-5 rounded-2xl border transition-all duration-300
+        ${isLocked
+          ? 'bg-slate-800/40 border-slate-700 opacity-60 cursor-not-allowed'
+          : 'cursor-pointer ' + (isActive
+            ? 'bg-slate-700/80 border-indigo-500/50 shadow-[0_4px_20px_rgba(79,70,229,0.15)] ring-1 ring-indigo-500/20 translate-x-1'
+            : 'bg-slate-700/40 border-slate-600/50 hover:bg-slate-700/60 hover:border-slate-500')
+        }
       `}
-      onClick={onExpand}
+      onClick={!isLocked ? onExpand : undefined}
     >
       {/* Number Badge */}
       <div className={`
         flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-xl font-bold border-2 transition-transform duration-300 group-hover:scale-105
-        ${isActive ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-500/40' : ''}
-        ${isCompleted ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : ''}
-        ${!isActive && !isCompleted ? 'bg-slate-700 text-slate-300 border-slate-600 group-hover:border-slate-500 group-hover:text-white' : ''}
+        ${isLocked ? 'bg-slate-700 text-slate-500 border-slate-600' : ''}
+        ${!isLocked && isActive ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-500/40' : ''}
+        ${!isLocked && isCompleted ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : ''}
+        ${!isLocked && !isActive && !isCompleted ? 'bg-slate-700 text-slate-300 border-slate-600 group-hover:border-slate-500 group-hover:text-white' : ''}
       `}>
-        {isCompleted ? <CheckCircle2 className="w-7 h-7" /> : <span className="font-logo">{lesson.number}</span>}
+        {isLocked ? (
+          <Lock className="w-6 h-6" />
+        ) : isCompleted ? (
+          <CheckCircle2 className="w-7 h-7" />
+        ) : (
+          <span className="font-logo">{lesson.number}</span>
+        )}
       </div>
 
       {/* Content */}
       <div className="flex-1 min-w-0 py-1">
         <div className="flex items-center gap-3 mb-1.5">
-          <h3 className={`text-lg font-bold truncate tracking-tight ${isActive ? 'text-white' : 'text-slate-200 group-hover:text-white'}`}>
+          <h3 className={`text-lg font-bold truncate tracking-tight ${
+            isLocked ? 'text-slate-500' : isActive ? 'text-white' : 'text-slate-200 group-hover:text-white'
+          }`}>
             {lesson.title}
           </h3>
-          {isActive && (
+          {isActive && !isLocked && (
             <span className="text-[10px] font-bold text-indigo-300 bg-indigo-500/20 px-2.5 py-0.5 rounded-full border border-indigo-500/30 animate-pulse tracking-wide">
               학습 중
             </span>
           )}
+          {isLocked && (
+            <span className="text-[10px] font-bold text-amber-400 bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-500/30 tracking-wide">
+              잠김
+            </span>
+          )}
         </div>
-        <p className="text-sm text-slate-500 truncate font-medium group-hover:text-slate-400 transition-colors">{lesson.description}</p>
+        <p className={`text-sm truncate font-medium ${
+          isLocked ? 'text-slate-600' : 'text-slate-500 group-hover:text-slate-400'
+        } transition-colors`}>
+          {isLocked ? '핵심 미션 80% 완료 필요' : lesson.description}
+        </p>
 
         {/* Progress Bar for Lesson */}
         <div className="mt-4 flex items-center gap-3 max-w-md">
@@ -164,11 +194,23 @@ const LessonItem: React.FC<{ lesson: Week; index: number; onExpand: () => void; 
             {weekProgress.completed} <span className="text-slate-500">/ {weekProgress.total}</span>
           </span>
         </div>
+
+        {/* Key Mission Progress for previous week if current is locked */}
+        {isLocked && keyMissionProgress && keyMissionProgress.total > 0 && (
+          <div className="mt-2 flex items-center gap-2 text-xs text-amber-400">
+            <Star className="w-3 h-3" />
+            <span>이전 주차 핵심 미션: {keyMissionProgress.completed}/{keyMissionProgress.total} ({keyMissionProgress.percent}%)</span>
+          </div>
+        )}
       </div>
 
       {/* Action Button */}
       <div className="flex-shrink-0">
-        <ChevronDown className={`w-6 h-6 text-slate-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+        {isLocked ? (
+          <Lock className="w-5 h-5 text-slate-600" />
+        ) : (
+          <ChevronDown className={`w-6 h-6 text-slate-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+        )}
       </div>
     </div>
   );
@@ -194,6 +236,32 @@ const UnitList: React.FC = () => {
           총 <span className="text-slate-300">{allUnits.length}개</span> 유닛
         </div>
       </div>
+
+      {/* Practice Mode Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-6 p-4 rounded-xl bg-gradient-to-r from-indigo-900/50 to-purple-900/50 border border-indigo-500/30 cursor-pointer hover:border-indigo-400/50 transition-all group"
+        onClick={() => navigate('/practice')}
+      >
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center text-2xl">
+              🎯
+            </div>
+            <div>
+              <h3 className="text-white font-bold flex items-center gap-2">
+                고급 연습 모드
+                <span className="px-2 py-0.5 text-xs rounded bg-indigo-500 text-white">NEW</span>
+              </h3>
+              <p className="text-slate-400 text-sm">
+                디버깅, 코드 리뷰, 알고리즘 - 실력 향상 미션!
+              </p>
+            </div>
+          </div>
+          <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors" />
+        </div>
+      </motion.div>
 
       <div className="space-y-4">
         {allUnits.map((unit, index) => {
@@ -304,7 +372,7 @@ const UnitList: React.FC = () => {
 // Week List Component
 const WeekList: React.FC<{ unit: Unit }> = ({ unit }) => {
   const navigate = useNavigate();
-  const { progress } = useProgressStore();
+  const { progress, isWeekUnlocked, getWeekKeyMissionProgress } = useProgressStore();
   const [expandedWeek, setExpandedWeek] = useState<string | null>(null);
 
   const getWeekProgress = (week: Week) => {
@@ -360,6 +428,14 @@ const WeekList: React.FC<{ unit: Unit }> = ({ unit }) => {
         {unit.weeks.map((week, index) => {
           const weekProgress = getWeekProgress(week);
           const isExpanded = expandedWeek === week.id;
+          const isLocked = !isWeekUnlocked(unit.id, week.id);
+
+          // Get previous week's key mission progress if current week is locked
+          let keyMissionProgress;
+          if (isLocked && index > 0) {
+            const previousWeek = unit.weeks[index - 1];
+            keyMissionProgress = getWeekKeyMissionProgress(unit.id, previousWeek.id);
+          }
 
           return (
             <motion.div
@@ -374,10 +450,13 @@ const WeekList: React.FC<{ unit: Unit }> = ({ unit }) => {
                 onExpand={() => setExpandedWeek(isExpanded ? null : week.id)}
                 isExpanded={isExpanded}
                 weekProgress={weekProgress}
+                unitId={unit.id}
+                isLocked={isLocked}
+                keyMissionProgress={keyMissionProgress}
               />
 
               <AnimatePresence>
-                {isExpanded && (
+                {isExpanded && !isLocked && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
@@ -387,22 +466,39 @@ const WeekList: React.FC<{ unit: Unit }> = ({ unit }) => {
                     <div className="ml-8 mt-2 p-4 bg-slate-700/30 rounded-xl border border-slate-600/30 space-y-2">
                       {week.missions.map((mission, mIndex) => {
                         const missionCompleted = progress.completedMissions.includes(mission.id);
+                        const missionLocked = isLocked; // Week is already locked, so all missions are locked
 
                         return (
                           <button
                             key={mission.id}
-                            onClick={() => navigate(`/mission/${mission.id}`)}
-                            className="w-full p-4 flex items-center gap-4 rounded-xl border border-slate-600/50 hover:border-indigo-500/50 hover:bg-slate-700/50 transition-all text-left group"
+                            onClick={() => !missionLocked && navigate(`/mission/${mission.id}`)}
+                            disabled={missionLocked}
+                            className={`w-full p-4 flex items-center gap-4 rounded-xl border transition-all text-left group ${
+                              missionLocked
+                                ? 'border-slate-700 bg-slate-800/40 opacity-50 cursor-not-allowed'
+                                : 'border-slate-600/50 hover:border-indigo-500/50 hover:bg-slate-700/50'
+                            }`}
                           >
                             {missionCompleted ? (
                               <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+                            ) : missionLocked ? (
+                              <Lock className="w-5 h-5 text-slate-600 flex-shrink-0" />
                             ) : (
                               <div className="w-5 h-5 rounded-full border-2 border-slate-500 flex-shrink-0 group-hover:border-indigo-400 transition-colors" />
                             )}
                             <div className="flex-1 min-w-0">
-                              <p className={`font-bold truncate ${missionCompleted ? 'text-slate-400' : 'text-slate-200'}`}>
-                                {mission.title}
-                              </p>
+                              <div className="flex items-center gap-2">
+                                <p className={`font-bold truncate ${
+                                  missionLocked ? 'text-slate-600' : missionCompleted ? 'text-slate-400' : 'text-slate-200'
+                                }`}>
+                                  {mission.title}
+                                </p>
+                                {mission.isKeyMission && (
+                                  <span className="text-[10px] font-bold text-amber-400 bg-amber-500/20 px-1.5 py-0.5 rounded border border-amber-500/30">
+                                    핵심
+                                  </span>
+                                )}
+                              </div>
                               <div className="flex items-center gap-2 mt-1">
                                 <span className={`text-xs font-bold px-2 py-0.5 rounded ${
                                   mission.difficulty === 'beginner' ? 'bg-emerald-500/20 text-emerald-400' :
@@ -418,8 +514,12 @@ const WeekList: React.FC<{ unit: Unit }> = ({ unit }) => {
                               </div>
                             </div>
                             <div className="flex items-center gap-2">
-                              <span className="text-xs font-bold text-yellow-500">+{mission.exp} XP</span>
-                              <PlayCircle className="w-5 h-5 text-slate-500 group-hover:text-indigo-400 transition-colors" />
+                              <span className={`text-xs font-bold ${missionLocked ? 'text-slate-600' : 'text-yellow-500'}`}>
+                                +{mission.exp} XP
+                              </span>
+                              {!missionLocked && (
+                                <PlayCircle className="w-5 h-5 text-slate-500 group-hover:text-indigo-400 transition-colors" />
+                              )}
                             </div>
                           </button>
                         );
@@ -468,7 +568,10 @@ const WeekList: React.FC<{ unit: Unit }> = ({ unit }) => {
 // Mission List Component
 const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
   const navigate = useNavigate();
-  const { progress } = useProgressStore();
+  const { progress, isWeekUnlocked, isMissionUnlocked, getWeekKeyMissionProgress } = useProgressStore();
+
+  const weekIsLocked = !isWeekUnlocked(unit.id, week.id);
+  const keyMissionProgress = getWeekKeyMissionProgress(unit.id, week.id);
 
   return (
     <div className="animate-fade-in-up">
@@ -481,16 +584,52 @@ const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
           <ArrowLeft className="w-4 h-4" />
           {unit.title}
         </button>
-        <h1 className="text-2xl font-bold text-white">
-          Week {week.number}: {week.title}
-        </h1>
-        <p className="text-slate-400">{week.description}</p>
+        <div className="flex items-center gap-3 mb-2">
+          <h1 className="text-2xl font-bold text-white">
+            Week {week.number}: {week.title}
+          </h1>
+          {weekIsLocked && (
+            <span className="text-xs font-bold text-amber-400 bg-amber-500/20 px-3 py-1 rounded-lg border border-amber-500/30 flex items-center gap-1">
+              <Lock className="w-3 h-3" />
+              잠김
+            </span>
+          )}
+        </div>
+        <p className="text-slate-400">{weekIsLocked ? '이전 주차의 핵심 미션을 80% 이상 완료해야 합니다.' : week.description}</p>
+
+        {/* Key Mission Progress */}
+        {keyMissionProgress.total > 0 && (
+          <div className="mt-4 p-4 bg-slate-700/40 rounded-xl border border-slate-600/50">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <Star className="w-4 h-4 text-amber-400" />
+                <span className="text-sm font-bold text-slate-300">핵심 미션 진행률</span>
+              </div>
+              <span className="text-sm font-bold text-slate-300">
+                {keyMissionProgress.completed} / {keyMissionProgress.total} ({keyMissionProgress.percent}%)
+              </span>
+            </div>
+            <div className="h-2 bg-slate-600/50 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-amber-500 to-yellow-500 transition-all duration-500"
+                style={{ width: `${keyMissionProgress.percent}%` }}
+              />
+            </div>
+            {keyMissionProgress.percent >= 80 && (
+              <p className="text-xs text-emerald-400 mt-2 flex items-center gap-1">
+                <CheckCircle2 className="w-3 h-3" />
+                다음 주차가 해금되었습니다!
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Missions */}
       <div className="space-y-3">
         {week.missions.map((mission, index) => {
           const isCompleted = progress.completedMissions.includes(mission.id);
+          const missionIsLocked = weekIsLocked || !isMissionUnlocked(mission.id, unit.id, week.id);
 
           return (
             <motion.div
@@ -500,17 +639,35 @@ const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
               transition={{ delay: index * 0.05 }}
             >
               <button
-                onClick={() => navigate(`/mission/${mission.id}`)}
-                className="w-full text-left p-5 rounded-2xl border border-slate-600/50 bg-slate-700/40 hover:bg-slate-700/60 hover:border-slate-500 transition-all group"
+                onClick={() => {
+                  if (missionIsLocked) {
+                    alert('이 미션은 아직 잠겨있습니다. 이전 주차의 핵심 미션을 먼저 완료해주세요.');
+                  } else {
+                    navigate(`/mission/${mission.id}`);
+                  }
+                }}
+                disabled={missionIsLocked}
+                className={`w-full text-left p-5 rounded-2xl border transition-all group ${
+                  missionIsLocked
+                    ? 'border-slate-700 bg-slate-800/40 opacity-60 cursor-not-allowed'
+                    : 'border-slate-600/50 bg-slate-700/40 hover:bg-slate-700/60 hover:border-slate-500'
+                }`}
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className={`w-14 h-14 rounded-xl flex items-center justify-center border-2 transition-transform duration-300 group-hover:scale-105
-                      ${isCompleted
+                    className={`w-14 h-14 rounded-xl flex items-center justify-center border-2 transition-transform duration-300 ${
+                      !missionIsLocked && 'group-hover:scale-105'
+                    } ${
+                      missionIsLocked
+                        ? 'bg-slate-800 border-slate-700'
+                        : isCompleted
                         ? 'bg-emerald-500/10 border-emerald-500/30'
-                        : 'bg-slate-700 border-slate-600'}`}
+                        : 'bg-slate-700 border-slate-600'
+                    }`}
                   >
-                    {isCompleted ? (
+                    {missionIsLocked ? (
+                      <Lock className="w-6 h-6 text-slate-600" />
+                    ) : isCompleted ? (
                       <CheckCircle2 className="w-7 h-7 text-emerald-500" />
                     ) : (
                       <span className="text-2xl">
@@ -528,8 +685,18 @@ const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="font-bold text-white">{mission.title}</h3>
-                    <p className="text-sm text-slate-400 line-clamp-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className={`font-bold ${missionIsLocked ? 'text-slate-600' : 'text-white'}`}>
+                        {mission.title}
+                      </h3>
+                      {mission.isKeyMission && (
+                        <span className="text-[10px] font-bold text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded border border-amber-500/30 flex items-center gap-1">
+                          <Star className="w-3 h-3" />
+                          핵심
+                        </span>
+                      )}
+                    </div>
+                    <p className={`text-sm line-clamp-1 ${missionIsLocked ? 'text-slate-600' : 'text-slate-400'}`}>
                       {mission.description}
                     </p>
                     <div className="flex items-center gap-3 mt-2">
@@ -544,21 +711,27 @@ const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
                          mission.difficulty === 'intermediate' ? '중급' : '고급'}
                       </span>
                       {mission.concept && (
-                        <span className="text-xs text-slate-500">
+                        <span className={`text-xs ${missionIsLocked ? 'text-slate-600' : 'text-slate-500'}`}>
                           {mission.concept}
                         </span>
                       )}
-                      <span className="text-xs text-slate-500 flex items-center gap-1">
+                      <span className={`text-xs flex items-center gap-1 ${missionIsLocked ? 'text-slate-600' : 'text-slate-500'}`}>
                         <Clock className="w-3 h-3" /> {mission.estimatedMinutes}분
                       </span>
                     </div>
                   </div>
 
                   <div className="text-right flex-shrink-0">
-                    <p className="text-sm font-bold text-yellow-500">+{mission.exp} XP</p>
+                    <p className={`text-sm font-bold ${missionIsLocked ? 'text-slate-600' : 'text-yellow-500'}`}>
+                      +{mission.exp} XP
+                    </p>
                   </div>
 
-                  <ChevronRight className="w-5 h-5 text-slate-500 group-hover:text-slate-300 transition-colors" />
+                  {missionIsLocked ? (
+                    <Lock className="w-5 h-5 text-slate-600" />
+                  ) : (
+                    <ChevronRight className="w-5 h-5 text-slate-500 group-hover:text-slate-300 transition-colors" />
+                  )}
                 </div>
               </button>
             </motion.div>

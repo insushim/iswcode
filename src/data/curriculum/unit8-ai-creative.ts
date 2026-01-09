@@ -316,6 +316,9 @@ export const unit8: Unit = {
           exp: 40,
           estimatedMinutes: 25,
           concept: '종합 실습',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           cstaStandard: '2-AP-17',
           learningObjectives: [
             'AI 도구를 프로젝트에 통합할 수 있다',
@@ -710,6 +713,9 @@ export const unit8: Unit = {
           exp: 50,
           estimatedMinutes: 30,
           concept: '종합 작품',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           cstaStandard: '2-AP-18',
           learningObjectives: [
             '여러 코딩 기법을 창의적으로 조합할 수 있다',
@@ -1076,6 +1082,9 @@ export const unit8: Unit = {
           exp: 50,
           estimatedMinutes: 30,
           concept: '게임 완성',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           cstaStandard: '2-AP-18',
           learningObjectives: [
             '게임의 모든 요소를 통합할 수 있다',

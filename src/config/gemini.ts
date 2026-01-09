@@ -10,8 +10,8 @@ if (!apiKey) {
 // Initialize Gemini AI
 const genAI = apiKey ? new GoogleGenerativeAI(apiKey) : null;
 
-// Get the Gemini Pro model for text generation
-export const getGeminiModel = (modelName: string = 'gemini-pro') => {
+// Get the Gemini model for text generation
+export const getGeminiModel = (modelName: string = 'gemini-2.5-flash-lite') => {
   if (!genAI) {
     throw new Error('Gemini API is not configured');
   }
@@ -27,7 +27,7 @@ export const generateText = async (prompt: string): Promise<string> => {
 };
 
 // Helper function for chat conversations
-export const createChat = (modelName: string = 'gemini-pro') => {
+export const createChat = (modelName: string = 'gemini-2.5-flash-lite') => {
   const model = getGeminiModel(modelName);
   return model.startChat();
 };

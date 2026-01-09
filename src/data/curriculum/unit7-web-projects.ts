@@ -387,6 +387,9 @@ export const unit7: Unit = {
           exp: 50,
           estimatedMinutes: 25,
           concept: '프로젝트 완성',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           cstaStandard: '2-AP-16',
           learningObjectives: [
             'HTML, CSS, JavaScript를 통합하여 완전한 웹 애플리케이션을 만들 수 있다',
@@ -605,6 +608,8 @@ export const unit7: Unit = {
           exp: 45,
           estimatedMinutes: 25,
           concept: '날씨 API',
+          phase: 'create',
+          isKeyMission: true,
           starterCode: 'const API_KEY = "your_api_key";\n\nasync function getWeather(city) {\n  // 날씨 API를 호출하세요\n}',
           solution: 'const API_KEY = "your_api_key";\n\nasync function getWeather(city) {\n  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=kr`;\n  \n  try {\n    const response = await fetch(url);\n    if (!response.ok) throw new Error("도시를 찾을 수 없습니다");\n    const data = await response.json();\n    return data;\n  } catch (error) {\n    console.log("에러:", error);\n    return null;\n  }\n}',
           hints: ['템플릿 리터럴로 URL을 만들어요', 'units=metric은 섭씨 온도'],
@@ -711,6 +716,17 @@ export const unit7: Unit = {
             explanation: 'response.json()으로 JSON 변환해요'
           }
         ]
+      },
+      project: {
+        id: 'project-w46',
+        title: '실시간 날씨 앱',
+        description: 'OpenWeatherMap API를 활용하여 실시간 날씨 정보를 보여주는 앱을 만드세요.',
+        difficulty: 'intermediate',
+        duration: '3-4시간',
+        requirements: ['도시 검색 기능', 'API 데이터 표시', '에러 처리', '반응형 디자인'],
+        tech: ['HTML', 'CSS', 'JavaScript', 'API'],
+        exp: 100,
+        badge: 'API 마스터'
       }
     },
     // Week 47: 그림판 앱 프로젝트
@@ -864,6 +880,9 @@ export const unit7: Unit = {
           exp: 35,
           estimatedMinutes: 15,
           concept: '이미지 저장',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           solution: 'document.getElementById("save-btn").addEventListener("click", () => {\n  const link = document.createElement("a");\n  link.download = "my-drawing.png";\n  link.href = canvas.toDataURL();\n  link.click();\n});',
           hints: ['toDataURL()로 캔버스를 이미지 URL로 변환해요'],
           unlocked: true,
@@ -946,6 +965,8 @@ export const unit7: Unit = {
           exp: 40,
           estimatedMinutes: 25,
           concept: 'HTML 구조화',
+          phase: 'create',
+          isKeyMission: true,
           hints: ['시맨틱 태그를 사용해요'],
           unlocked: true,
           completed: false,
@@ -961,6 +982,8 @@ export const unit7: Unit = {
           exp: 40,
           estimatedMinutes: 25,
           concept: 'CSS 디자인',
+          phase: 'create',
+          isKeyMission: true,
           hints: ['일관된 색상 테마를 사용해요'],
           unlocked: true,
           completed: false,
@@ -976,6 +999,9 @@ export const unit7: Unit = {
           exp: 45,
           estimatedMinutes: 30,
           concept: 'JS 핵심 기능',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           hints: ['가장 중요한 기능부터 만들어요'],
           unlocked: true,
           completed: false,
@@ -991,6 +1017,8 @@ export const unit7: Unit = {
           exp: 45,
           estimatedMinutes: 30,
           concept: 'JS 추가 기능',
+          phase: 'create',
+          isKeyMission: true,
           hints: ['사용자 경험을 개선하는 기능을 추가해요'],
           unlocked: true,
           completed: false,

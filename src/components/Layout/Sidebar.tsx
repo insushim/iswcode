@@ -13,6 +13,7 @@ import {
   Settings,
   Palette,
   Home as HomeIcon,
+  BarChart3,
 } from 'lucide-react';
 import { AppLogo } from '../Common';
 
@@ -24,6 +25,7 @@ interface SidebarProps {
 const navItems = [
   { to: '/', icon: Home, label: '홈' },
   { to: '/learn', icon: BookOpen, label: '학습하기' },
+  { to: '/analytics', icon: BarChart3, label: '학습 분석' },
   { to: '/vibe-coding', icon: Sparkles, label: '바이브코딩' },
   { to: '/ai-tutor', icon: Bot, label: 'AI 튜터' },
   { to: '/games', icon: Gamepad2, label: '게임센터' },

@@ -106,6 +106,8 @@ export const unit9: Unit = {
           exp: 40,
           estimatedMinutes: 20,
           concept: '시맨틱 HTML',
+          phase: 'create',
+          isKeyMission: true,
           conceptExplanation: 'header, nav, main, section, footer 등 시맨틱 태그를 사용하면 구조가 명확해져요!',
           cstaStandard: '2-AP-17',
           learningObjectives: [
@@ -153,6 +155,8 @@ export const unit9: Unit = {
           exp: 45,
           estimatedMinutes: 25,
           concept: 'CSS 변수와 그라데이션',
+          phase: 'create',
+          isKeyMission: true,
           conceptExplanation: 'CSS 변수(:root)로 색상을 관리하고, linear-gradient로 멋진 배경을 만들어요!',
           cstaStandard: '2-AP-16',
           learningObjectives: [
@@ -294,6 +298,9 @@ export const unit9: Unit = {
           exp: 45,
           estimatedMinutes: 20,
           concept: 'CSS 애니메이션',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           conceptExplanation: '@keyframes와 animation 속성으로 요소에 움직임을 줄 수 있어요!',
           cstaStandard: '2-AP-16',
           learningObjectives: [
@@ -488,6 +495,8 @@ export const unit9: Unit = {
           exp: 45,
           estimatedMinutes: 25,
           concept: '프로젝트 HTML',
+          phase: 'create',
+          isKeyMission: true,
           conceptExplanation: '기획서와 와이어프레임을 바탕으로 HTML 구조를 만들어요.',
           cstaStandard: '2-AP-17',
           learningObjectives: [
@@ -572,6 +581,9 @@ export const unit9: Unit = {
           exp: 50,
           estimatedMinutes: 30,
           concept: 'DOM 조작',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           conceptExplanation: 'querySelector와 addEventListener로 요소를 선택하고 이벤트를 처리해요.',
           cstaStandard: '2-AP-17',
           learningObjectives: [
@@ -886,6 +898,9 @@ export const unit9: Unit = {
           exp: 45,
           estimatedMinutes: 25,
           concept: '코드 개선',
+          phase: 'create',
+          isKeyMission: true,
+          isWeeklyProject: true,
           conceptExplanation: '피드백을 분석하고 우선순위를 정해 개선해요.',
           cstaStandard: '2-AP-17',
           learningObjectives: [
