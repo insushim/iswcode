@@ -100,15 +100,69 @@ export const unit6: Unit = {
             '대소문자 틀림: Console.log() ✗ (C는 소문자!)'
           ],
           testCases: [
+            { input: '', expectedOutput: '안녕하세요!', description: '문자열 출력', errorHint: 'console.log("안녕하세요!") 사용했나요?' },
+            { input: '', expectedOutput: '2025', description: '숫자 출력', errorHint: 'console.log(2025) 사용했나요?' }
+          ],
+          challenges: [
             {
-              input: 'console.log() 사용',
-              expectedOutput: '안녕하세요!',
-              description: '문자열 출력 확인'
+              id: 'w39-m2-c1',
+              title: '연습 1: "Hello"',
+              description: '"Hello"를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '// Hello 출력\n',
+              solution: 'console.log("Hello");',
+              testCases: [{ input: '', expectedOutput: 'Hello', description: 'Hello 출력' }],
+              hints: ['console.log("Hello");'],
+              estimatedMinutes: 1,
+              feedback: { perfect: 'Hello World의 시작! 🎉', good: '잘했어요!', partial: '따옴표 확인', wrong: 'console.log() 사용' }
             },
             {
-              input: '숫자 출력',
-              expectedOutput: '2025',
-              description: '숫자 출력 확인'
+              id: 'w39-m2-c2',
+              title: '연습 2: 숫자 100',
+              description: '숫자 100을 출력하세요',
+              difficulty: 'easy',
+              starterCode: '// 100 출력\n',
+              solution: 'console.log(100);',
+              testCases: [{ input: '', expectedOutput: '100', description: '100 출력' }],
+              hints: ['숫자는 따옴표 없이'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '숫자 출력 성공! 🎉', good: '잘했어요!', partial: '따옴표 없이', wrong: 'console.log(100)' }
+            },
+            {
+              id: 'w39-m2-c3',
+              title: '연습 3: 계산 결과',
+              description: '5 + 3의 결과를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '// 5 + 3 결과\n',
+              solution: 'console.log(5 + 3);',
+              testCases: [{ input: '', expectedOutput: '8', description: '계산' }],
+              hints: ['console.log(5 + 3);'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '계산까지 완벽! 🎉', good: '잘했어요!', partial: '연산자 확인', wrong: 'console.log() 안에서 계산' }
+            },
+            {
+              id: 'w39-m2-c4',
+              title: '연습 4: 문자+숫자',
+              description: '"점수: ", 100을 한 줄에 출력하세요',
+              difficulty: 'medium',
+              starterCode: '// 점수: 100\n',
+              solution: 'console.log("점수: ", 100);',
+              testCases: [{ input: '', expectedOutput: '점수:  100', description: '조합' }],
+              hints: ['쉼표로 여러 값을 연결'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '여러 값 출력! 🎉', good: '잘했어요!', partial: '쉼표 사용', wrong: 'console.log("텍스트", 숫자)' }
+            },
+            {
+              id: 'w39-m2-c5',
+              title: '연습 5: 템플릿 리터럴',
+              description: '`점수: ${50 + 50}`을 출력하세요',
+              difficulty: 'hard',
+              starterCode: '// 템플릿 리터럴 사용\n',
+              solution: 'console.log(`점수: ${50 + 50}`);',
+              testCases: [{ input: '', expectedOutput: '점수: 100', description: '템플릿' }],
+              hints: ['백틱(`)과 ${} 사용'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '템플릿 리터럴 마스터! 🎉', good: '잘했어요!', partial: '백틱 확인', wrong: '백틱과 ${}를 사용하세요' }
             }
           ],
           unlocked: true,

@@ -384,6 +384,68 @@ export const unit3: Unit = {
           testCases: [
             { input: '', expectedOutput: '코딩왕\n12살\n게임', description: '3줄 출력 확인' }
           ],
+          challenges: [
+            {
+              id: '3-17-5-c1',
+              title: '연습 1: 2줄 출력',
+              description: '"안녕"과 "반가워"를 각각 다른 줄에 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 2줄 출력\n',
+              solution: 'print("안녕")\nprint("반가워")',
+              testCases: [{ input: '', expectedOutput: '안녕\n반가워', description: '2줄 출력' }],
+              hints: ['print()를 2번 사용해요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '2줄 출력 성공! 🎉', good: '잘했어요!', partial: 'print() 2번 사용했나요?', wrong: '각 줄마다 print()를 사용하세요' }
+            },
+            {
+              id: '3-17-5-c2',
+              title: '연습 2: 숫자 3줄',
+              description: '1, 2, 3을 각각 다른 줄에 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 1, 2, 3 각 줄에 출력\n',
+              solution: 'print(1)\nprint(2)\nprint(3)',
+              testCases: [{ input: '', expectedOutput: '1\n2\n3', description: '숫자 3줄' }],
+              hints: ['숫자는 따옴표 없이'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '숫자도 완벽! 🎉', good: '잘했어요!', partial: '숫자마다 print()', wrong: 'print(1) print(2) print(3)' }
+            },
+            {
+              id: '3-17-5-c3',
+              title: '연습 3: 가족 소개',
+              description: '"아빠", "엄마", "나", "동생"을 각각 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 가족 4명 출력\n',
+              solution: 'print("아빠")\nprint("엄마")\nprint("나")\nprint("동생")',
+              testCases: [{ input: '', expectedOutput: '아빠\n엄마\n나\n동생', description: '4줄 출력' }],
+              hints: ['print()를 4번 사용해요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '가족 소개 완성! 🎉', good: '잘했어요!', partial: '4명 모두 출력했나요?', wrong: 'print() 4번 사용' }
+            },
+            {
+              id: '3-17-5-c4',
+              title: '연습 4: 카운트다운',
+              description: '5, 4, 3, 2, 1, "발사!"를 각각 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 카운트다운\n',
+              solution: 'print(5)\nprint(4)\nprint(3)\nprint(2)\nprint(1)\nprint("발사!")',
+              testCases: [{ input: '', expectedOutput: '5\n4\n3\n2\n1\n발사!', description: '카운트다운' }],
+              hints: ['숫자는 따옴표 없이, 문자는 따옴표로'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '발사 성공! 🚀', good: '잘했어요!', partial: '숫자와 문자 구분', wrong: '6줄 모두 출력하세요' }
+            },
+            {
+              id: '3-17-5-c5',
+              title: '연습 5: 주소 출력',
+              description: '"서울시", "강남구", "코딩로 123"을 각각 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 주소 출력\n',
+              solution: 'print("서울시")\nprint("강남구")\nprint("코딩로 123")',
+              testCases: [{ input: '', expectedOutput: '서울시\n강남구\n코딩로 123', description: '주소 3줄' }],
+              hints: ['문자열 안에 숫자도 넣을 수 있어요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '주소 출력 완벽! 🎉', good: '잘했어요!', partial: '3줄 모두 확인', wrong: '각 줄마다 print()' }
+            }
+          ],
           hints: [
             '💡 힌트 1: print()를 3번 사용하면 3줄이 출력돼요',
             '💡 힌트 2: 각 print()는 자동으로 새 줄에 출력해요',
@@ -420,6 +482,68 @@ export const unit3: Unit = {
           testCases: [
             { input: '', expectedOutput: '2024', description: '숫자 출력 테스트' }
           ],
+          challenges: [
+            {
+              id: '3-17-6-c1',
+              title: '연습 1: 나이 출력',
+              description: '숫자 12를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 숫자 12 출력\n',
+              solution: 'print(12)',
+              testCases: [{ input: '', expectedOutput: '12', description: '12 출력' }],
+              hints: ['숫자는 따옴표 없이'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '숫자 출력 성공! 🎉', good: '잘했어요!', partial: '따옴표 없이 쓰세요', wrong: 'print(12)' }
+            },
+            {
+              id: '3-17-6-c2',
+              title: '연습 2: 큰 숫자',
+              description: '1000000 (백만)을 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 백만 출력\n',
+              solution: 'print(1000000)',
+              testCases: [{ input: '', expectedOutput: '1000000', description: '백만' }],
+              hints: ['숫자는 콤마 없이 그대로'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '큰 숫자도 OK! 🎉', good: '잘했어요!', partial: '콤마 없이 쓰세요', wrong: 'print(1000000)' }
+            },
+            {
+              id: '3-17-6-c3',
+              title: '연습 3: 소수점',
+              description: '3.14를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 파이 값 출력\n',
+              solution: 'print(3.14)',
+              testCases: [{ input: '', expectedOutput: '3.14', description: '소수점' }],
+              hints: ['소수점도 따옴표 없이'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '소수점도 완벽! 🎉', good: '잘했어요!', partial: '점(.)을 사용하세요', wrong: 'print(3.14)' }
+            },
+            {
+              id: '3-17-6-c4',
+              title: '연습 4: 음수',
+              description: '-10을 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 음수 출력\n',
+              solution: 'print(-10)',
+              testCases: [{ input: '', expectedOutput: '-10', description: '음수' }],
+              hints: ['마이너스 기호도 그대로'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '음수도 완벽! 🎉', good: '잘했어요!', partial: '- 기호 확인', wrong: 'print(-10)' }
+            },
+            {
+              id: '3-17-6-c5',
+              title: '연습 5: 숫자 vs 문자열',
+              description: '숫자 100과 문자열 "100"을 각각 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 숫자와 문자열 출력\n',
+              solution: 'print(100)\nprint("100")',
+              testCases: [{ input: '', expectedOutput: '100\n100', description: '둘 다 출력' }],
+              hints: ['결과는 같아 보이지만 타입이 달라요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '차이를 이해했어요! 🎉', good: '잘했어요!', partial: '둘 다 출력해요', wrong: '따옴표 유무 차이' }
+            }
+          ],
           hints: [
             '💡 힌트 1: 숫자는 따옴표 없이 그대로 쓰면 돼요',
             '💡 힌트 2: print(2024)와 print("2024")는 다른 의미예요',
@@ -452,6 +576,68 @@ export const unit3: Unit = {
           expectedOutput: '8',
           testCases: [
             { input: '', expectedOutput: '8', description: '3+5 덧셈 결과' },
+          ],
+          challenges: [
+            {
+              id: '3-17-7-c1',
+              title: '연습 1: 10 + 20',
+              description: '10 + 20의 결과를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 10 + 20\n',
+              solution: 'print(10 + 20)',
+              testCases: [{ input: '', expectedOutput: '30', description: '덧셈' }],
+              hints: ['print(10 + 20)'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '덧셈 성공! 🎉', good: '잘했어요!', partial: '따옴표 없이', wrong: 'print(10 + 20)' }
+            },
+            {
+              id: '3-17-7-c2',
+              title: '연습 2: 100 - 30',
+              description: '100 - 30의 결과를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 100 - 30\n',
+              solution: 'print(100 - 30)',
+              testCases: [{ input: '', expectedOutput: '70', description: '뺄셈' }],
+              hints: ['print(100 - 30)'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '뺄셈 성공! 🎉', good: '잘했어요!', partial: '- 기호 사용', wrong: 'print(100 - 30)' }
+            },
+            {
+              id: '3-17-7-c3',
+              title: '연습 3: 7 * 8',
+              description: '7 * 8 (구구단 7단)의 결과를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 7 * 8\n',
+              solution: 'print(7 * 8)',
+              testCases: [{ input: '', expectedOutput: '56', description: '곱셈' }],
+              hints: ['곱셈은 * 기호'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '곱셈 성공! 🎉', good: '잘했어요!', partial: '* 기호 사용', wrong: 'print(7 * 8)' }
+            },
+            {
+              id: '3-17-7-c4',
+              title: '연습 4: 연속 계산',
+              description: '1 + 2 + 3 + 4 + 5의 결과를 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 1부터 5까지 더하기\n',
+              solution: 'print(1 + 2 + 3 + 4 + 5)',
+              testCases: [{ input: '', expectedOutput: '15', description: '연속 덧셈' }],
+              hints: ['+ 기호를 계속 사용할 수 있어요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '연속 계산 완벽! 🎉', good: '잘했어요!', partial: '모든 숫자 더하기', wrong: 'print(1+2+3+4+5)' }
+            },
+            {
+              id: '3-17-7-c5',
+              title: '연습 5: 복합 계산',
+              description: '10 + 5 * 2의 결과를 출력하세요',
+              difficulty: 'hard',
+              starterCode: '# 10 + 5 * 2 (곱셈 먼저!)\n',
+              solution: 'print(10 + 5 * 2)',
+              testCases: [{ input: '', expectedOutput: '20', description: '복합 계산' }],
+              hints: ['수학처럼 곱셈이 먼저 계산돼요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '연산 순서도 완벽! 🎉', good: '잘했어요!', partial: '곱셈이 먼저', wrong: '5*2=10, 10+10=20' }
+            }
           ],
           hints: [
             '💡 힌트 1: print() 안에 계산식을 넣을 수 있어요',
@@ -489,6 +675,68 @@ export const unit3: Unit = {
           testCases: [
             { input: '', expectedOutput: '13\n7\n30\n5.0', description: '사칙연산 4가지 결과' }
           ],
+          challenges: [
+            {
+              id: '3-17-8-c1',
+              title: '연습 1: 구구단 9단',
+              description: '9 * 1부터 9 * 9까지 결과를 각각 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 9단 출력\n',
+              solution: 'print(9 * 1)\nprint(9 * 2)\nprint(9 * 3)\nprint(9 * 4)\nprint(9 * 5)\nprint(9 * 6)\nprint(9 * 7)\nprint(9 * 8)\nprint(9 * 9)',
+              testCases: [{ input: '', expectedOutput: '9\n18\n27\n36\n45\n54\n63\n72\n81', description: '9단' }],
+              hints: ['9 * 1, 9 * 2, ... 순서로'],
+              estimatedMinutes: 5,
+              feedback: { perfect: '9단 마스터! 🎉', good: '잘했어요!', partial: '모든 결과 출력', wrong: 'print(9 * n)' }
+            },
+            {
+              id: '3-17-8-c2',
+              title: '연습 2: 나눗셈 연습',
+              description: '20 / 4의 결과를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 20 나누기 4\n',
+              solution: 'print(20 / 4)',
+              testCases: [{ input: '', expectedOutput: '5.0', description: '나눗셈' }],
+              hints: ['결과는 5.0이에요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '나눗셈 성공! 🎉', good: '잘했어요!', partial: '/ 기호 사용', wrong: 'print(20 / 4)' }
+            },
+            {
+              id: '3-17-8-c3',
+              title: '연습 3: 몫 계산 (//))',
+              description: '17 // 5의 결과 (몫만)를 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 17을 5로 나눈 몫\n',
+              solution: 'print(17 // 5)',
+              testCases: [{ input: '', expectedOutput: '3', description: '몫' }],
+              hints: ['//는 몫만 계산해요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '몫 계산 성공! 🎉', good: '잘했어요!', partial: '// 두 개 사용', wrong: 'print(17 // 5)' }
+            },
+            {
+              id: '3-17-8-c4',
+              title: '연습 4: 나머지 계산 (%)',
+              description: '17 % 5의 결과 (나머지)를 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 17을 5로 나눈 나머지\n',
+              solution: 'print(17 % 5)',
+              testCases: [{ input: '', expectedOutput: '2', description: '나머지' }],
+              hints: ['%는 나머지를 계산해요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '나머지 계산 성공! 🎉', good: '잘했어요!', partial: '% 기호 사용', wrong: 'print(17 % 5)' }
+            },
+            {
+              id: '3-17-8-c5',
+              title: '연습 5: 거듭제곱 (**)',
+              description: '2 ** 10 (2의 10승)의 결과를 출력하세요',
+              difficulty: 'hard',
+              starterCode: '# 2의 10승\n',
+              solution: 'print(2 ** 10)',
+              testCases: [{ input: '', expectedOutput: '1024', description: '거듭제곱' }],
+              hints: ['**는 거듭제곱이에요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '거듭제곱도 완벽! 🎉', good: '잘했어요!', partial: '** 두 개 사용', wrong: 'print(2 ** 10)' }
+            }
+          ],
           hints: [
             '💡 힌트 1: 덧셈 +, 뺄셈 -, 곱셈 *, 나눗셈 / 를 사용해요',
             '💡 힌트 2: 각 계산마다 print()를 따로 사용해요',
@@ -524,6 +772,68 @@ export const unit3: Unit = {
           expectedOutput: '안녕하세요!',
           testCases: [
             { input: '', expectedOutput: '안녕하세요!', description: '주석과 함께 인사말 출력' }
+          ],
+          challenges: [
+            {
+              id: '3-17-9-c1',
+              title: '연습 1: 첫 주석',
+              description: '# 이것은 주석입니다 라고 쓰고, 다음 줄에 "Hello"를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 주석 연습\n',
+              solution: '# 이것은 주석입니다\nprint("Hello")',
+              testCases: [{ input: '', expectedOutput: 'Hello', description: '주석과 출력' }],
+              hints: ['#으로 시작하면 주석'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '주석 이해 완료! 🎉', good: '잘했어요!', partial: '# 기호 확인', wrong: '# 주석 후 print()' }
+            },
+            {
+              id: '3-17-9-c2',
+              title: '연습 2: 코드 설명',
+              description: '# 나이 출력 주석 후, print(12)를 작성하세요',
+              difficulty: 'easy',
+              starterCode: '',
+              solution: '# 나이 출력\nprint(12)',
+              testCases: [{ input: '', expectedOutput: '12', description: '설명 주석' }],
+              hints: ['주석으로 코드를 설명해요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '설명 주석 완료! 🎉', good: '잘했어요!', partial: '주석 추가', wrong: '# 설명 후 코드' }
+            },
+            {
+              id: '3-17-9-c3',
+              title: '연습 3: 인라인 주석',
+              description: 'print(100)  # 백점 형식으로 작성하세요',
+              difficulty: 'medium',
+              starterCode: '# 코드 뒤에 주석 달기\n',
+              solution: 'print(100)  # 백점',
+              testCases: [{ input: '', expectedOutput: '100', description: '인라인 주석' }],
+              hints: ['코드 뒤에도 # 주석 가능'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '인라인 주석 성공! 🎉', good: '잘했어요!', partial: '코드 뒤에 #', wrong: 'print() 뒤에 # 주석' }
+            },
+            {
+              id: '3-17-9-c4',
+              title: '연습 4: 주석으로 코드 비활성화',
+              description: '# print("이건 실행 안됨") 을 쓰고, print("이건 실행됨")을 작성하세요',
+              difficulty: 'medium',
+              starterCode: '# 주석 처리 연습\n',
+              solution: '# print("이건 실행 안됨")\nprint("이건 실행됨")',
+              testCases: [{ input: '', expectedOutput: '이건 실행됨', description: '주석 처리' }],
+              hints: ['# 붙이면 그 줄은 실행 안 됨'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '주석 처리 이해! 🎉', good: '잘했어요!', partial: '첫 줄에 #', wrong: '# print()는 실행 안 됨' }
+            },
+            {
+              id: '3-17-9-c5',
+              title: '연습 5: 여러 줄 주석',
+              description: '3줄 주석(# 첫째, # 둘째, # 셋째) 후 print("완료!")를 작성하세요',
+              difficulty: 'medium',
+              starterCode: '',
+              solution: '# 첫째\n# 둘째\n# 셋째\nprint("완료!")',
+              testCases: [{ input: '', expectedOutput: '완료!', description: '여러 줄 주석' }],
+              hints: ['각 줄마다 # 사용'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '여러 줄 주석 완벽! 🎉', good: '잘했어요!', partial: '매 줄 #', wrong: '각 줄 앞에 #' }
+            }
           ],
           hints: [
             '💡 힌트 1: # 으로 시작하는 줄은 컴퓨터가 실행하지 않아요',
@@ -563,6 +873,43 @@ export const unit3: Unit = {
           expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!',
           testCases: [
             { input: '', expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!', description: '5줄 자기소개 출력' }
+          ],
+          projectCheckpoints: [
+            {
+              id: '3-17-10-cp1',
+              title: '기본 구조',
+              description: 'print() 함수를 5번 사용했나요?',
+              criteria: ['print() 5회 사용', '각 줄에 서로 다른 내용'],
+              points: 20
+            },
+            {
+              id: '3-17-10-cp2',
+              title: '주석 사용',
+              description: '각 print() 위에 주석을 달았나요?',
+              criteria: ['# 주석 5개 이상', '각 항목 설명'],
+              points: 20
+            },
+            {
+              id: '3-17-10-cp3',
+              title: '필수 정보',
+              description: '이름, 나이, 학교, 취미, 꿈 정보가 포함됐나요?',
+              criteria: ['5가지 정보 모두 포함', '실제 자신의 정보'],
+              points: 20
+            },
+            {
+              id: '3-17-10-cp4',
+              title: '문법 정확성',
+              description: '따옴표, 괄호가 올바르게 사용됐나요?',
+              criteria: ['따옴표 짝 맞음', '괄호 짝 맞음', '오류 없이 실행'],
+              points: 20
+            },
+            {
+              id: '3-17-10-cp5',
+              title: '창의성',
+              description: '자신만의 개성이 담긴 내용인가요?',
+              criteria: ['이모지 사용 (선택)', '재미있는 표현', '자신만의 스타일'],
+              points: 20
+            }
           ],
           hints: [
             '💡 힌트 1: print()를 5번 사용해서 5줄을 출력해요',
@@ -690,6 +1037,68 @@ export const unit3: Unit = {
           testCases: [
             { input: '', expectedOutput: '코딩왕', description: '이름 변수 출력' }
           ],
+          challenges: [
+            {
+              id: '3-18-2-c1',
+              title: '연습 1: 영어 이름 변수',
+              description: 'name = "Kim"으로 저장하고 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 영어 이름 저장\n',
+              solution: 'name = "Kim"\nprint(name)',
+              testCases: [{ input: '', expectedOutput: 'Kim', description: '영어 이름' }],
+              hints: ['큰따옴표로 감싸요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '변수 저장 성공! 🎉', good: '잘했어요!', partial: '따옴표 확인', wrong: 'name = "Kim"' }
+            },
+            {
+              id: '3-18-2-c2',
+              title: '연습 2: 음식 변수',
+              description: 'food = "피자"로 저장하고 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 음식 저장\n',
+              solution: 'food = "피자"\nprint(food)',
+              testCases: [{ input: '', expectedOutput: '피자', description: '음식' }],
+              hints: ['변수명을 food로'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '다른 변수명도 OK! 🎉', good: '잘했어요!', partial: '변수명 확인', wrong: 'food = "피자"' }
+            },
+            {
+              id: '3-18-2-c3',
+              title: '연습 3: 두 개 변수',
+              description: 'name = "철수", food = "치킨"을 저장하고 둘 다 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 이름과 음식 저장\n',
+              solution: 'name = "철수"\nfood = "치킨"\nprint(name)\nprint(food)',
+              testCases: [{ input: '', expectedOutput: '철수\n치킨', description: '두 변수' }],
+              hints: ['변수를 두 개 만들어요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '여러 변수 완벽! 🎉', good: '잘했어요!', partial: '두 변수 모두 출력', wrong: '각각 저장 후 출력' }
+            },
+            {
+              id: '3-18-2-c4',
+              title: '연습 4: 변수 덮어쓰기',
+              description: 'name = "A"를 저장 후 name = "B"로 변경하고 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 변수 값 변경\n',
+              solution: 'name = "A"\nname = "B"\nprint(name)',
+              testCases: [{ input: '', expectedOutput: 'B', description: '값 변경' }],
+              hints: ['같은 변수에 새 값을 저장하면 덮어써요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '덮어쓰기 이해! 🎉', good: '잘했어요!', partial: '마지막 값 출력', wrong: '같은 변수에 다시 저장' }
+            },
+            {
+              id: '3-18-2-c5',
+              title: '연습 5: 변수 활용',
+              description: 'greeting = "안녕하세요"를 저장하고, 3번 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 변수로 반복 출력\n',
+              solution: 'greeting = "안녕하세요"\nprint(greeting)\nprint(greeting)\nprint(greeting)',
+              testCases: [{ input: '', expectedOutput: '안녕하세요\n안녕하세요\n안녕하세요', description: '3회 출력' }],
+              hints: ['변수는 여러 번 사용 가능해요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '변수 재사용 완벽! 🎉', good: '잘했어요!', partial: '3번 출력', wrong: 'print(greeting) 3번' }
+            }
+          ],
           hints: [
             '💡 힌트 1: 변수이름 = 값 형식으로 작성해요',
             '💡 힌트 2: name = "홍길동" 처럼요',
@@ -725,6 +1134,68 @@ export const unit3: Unit = {
           expectedOutput: '12',
           testCases: [
             { input: '', expectedOutput: '12', description: '나이 변수 출력' }
+          ],
+          challenges: [
+            {
+              id: '3-18-3-c1',
+              title: '연습 1: 학년 변수',
+              description: 'grade = 6으로 저장하고 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 학년 저장\n',
+              solution: 'grade = 6\nprint(grade)',
+              testCases: [{ input: '', expectedOutput: '6', description: '학년' }],
+              hints: ['숫자는 따옴표 없이'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '숫자 변수 성공! 🎉', good: '잘했어요!', partial: '따옴표 없이', wrong: 'grade = 6' }
+            },
+            {
+              id: '3-18-3-c2',
+              title: '연습 2: 점수 변수',
+              description: 'score = 100으로 저장하고 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 점수 저장\n',
+              solution: 'score = 100\nprint(score)',
+              testCases: [{ input: '', expectedOutput: '100', description: '점수' }],
+              hints: ['큰 숫자도 그대로'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '백점 만세! 🎉', good: '잘했어요!', partial: '숫자 그대로', wrong: 'score = 100' }
+            },
+            {
+              id: '3-18-3-c3',
+              title: '연습 3: 소수점 변수',
+              description: 'height = 150.5로 저장하고 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 키 저장 (cm)\n',
+              solution: 'height = 150.5\nprint(height)',
+              testCases: [{ input: '', expectedOutput: '150.5', description: '소수점' }],
+              hints: ['소수점도 따옴표 없이'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '소수점도 OK! 🎉', good: '잘했어요!', partial: '점(.) 사용', wrong: 'height = 150.5' }
+            },
+            {
+              id: '3-18-3-c4',
+              title: '연습 4: 음수 변수',
+              description: 'temperature = -5로 저장하고 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 온도 저장\n',
+              solution: 'temperature = -5\nprint(temperature)',
+              testCases: [{ input: '', expectedOutput: '-5', description: '음수' }],
+              hints: ['마이너스 기호 그대로'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '음수도 완벽! 🎉', good: '잘했어요!', partial: '- 기호 사용', wrong: 'temperature = -5' }
+            },
+            {
+              id: '3-18-3-c5',
+              title: '연습 5: 여러 숫자 변수',
+              description: 'a = 10, b = 20, c = 30을 저장하고 각각 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 3개 숫자 저장\n',
+              solution: 'a = 10\nb = 20\nc = 30\nprint(a)\nprint(b)\nprint(c)',
+              testCases: [{ input: '', expectedOutput: '10\n20\n30', description: '3개 변수' }],
+              hints: ['각각 저장하고 출력'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '여러 변수 완벽! 🎉', good: '잘했어요!', partial: '3개 모두 출력', wrong: '각각 저장 후 출력' }
+            }
           ],
           hints: [
             '💡 힌트 1: 숫자는 따옴표 없이 저장해요',
@@ -803,6 +1274,68 @@ export const unit3: Unit = {
           testCases: [
             { input: '', expectedOutput: '30', description: '변수 덧셈' },
           ],
+          challenges: [
+            {
+              id: '3-18-5-c1',
+              title: '연습 1: 뺄셈',
+              description: 'x = 50, y = 20일 때 x - y를 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'x = 50\ny = 20\n# x - y 출력\n',
+              solution: 'x = 50\ny = 20\nprint(x - y)',
+              testCases: [{ input: '', expectedOutput: '30', description: '뺄셈' }],
+              hints: ['print(x - y)'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '뺄셈 성공! 🎉', good: '잘했어요!', partial: '- 기호 사용', wrong: 'print(x - y)' }
+            },
+            {
+              id: '3-18-5-c2',
+              title: '연습 2: 곱셈',
+              description: 'a = 7, b = 8일 때 a * b를 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'a = 7\nb = 8\n# a * b 출력\n',
+              solution: 'a = 7\nb = 8\nprint(a * b)',
+              testCases: [{ input: '', expectedOutput: '56', description: '곱셈' }],
+              hints: ['* 기호로 곱셈'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '곱셈 성공! 🎉', good: '잘했어요!', partial: '* 기호 사용', wrong: 'print(a * b)' }
+            },
+            {
+              id: '3-18-5-c3',
+              title: '연습 3: 나눗셈',
+              description: 'total = 100, people = 4일 때 total / people을 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'total = 100\npeople = 4\n# 나누기\n',
+              solution: 'total = 100\npeople = 4\nprint(total / people)',
+              testCases: [{ input: '', expectedOutput: '25.0', description: '나눗셈' }],
+              hints: ['/ 기호로 나눗셈'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '나눗셈 성공! 🎉', good: '잘했어요!', partial: '/ 기호 사용', wrong: 'print(total / people)' }
+            },
+            {
+              id: '3-18-5-c4',
+              title: '연습 4: 세 수 계산',
+              description: 'a = 10, b = 20, c = 30일 때 a + b + c를 출력하세요',
+              difficulty: 'medium',
+              starterCode: 'a = 10\nb = 20\nc = 30\n# 세 수 더하기\n',
+              solution: 'a = 10\nb = 20\nc = 30\nprint(a + b + c)',
+              testCases: [{ input: '', expectedOutput: '60', description: '세 수 덧셈' }],
+              hints: ['+ 기호를 연속 사용'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '세 수도 OK! 🎉', good: '잘했어요!', partial: '세 변수 모두 더하기', wrong: 'print(a + b + c)' }
+            },
+            {
+              id: '3-18-5-c5',
+              title: '연습 5: 복합 계산',
+              description: 'price = 1000, qty = 3, discount = 500일 때 price * qty - discount를 출력하세요',
+              difficulty: 'hard',
+              starterCode: 'price = 1000\nqty = 3\ndiscount = 500\n# 총액 계산\n',
+              solution: 'price = 1000\nqty = 3\ndiscount = 500\nprint(price * qty - discount)',
+              testCases: [{ input: '', expectedOutput: '2500', description: '복합 계산' }],
+              hints: ['곱하고 빼기'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '실생활 계산 완벽! 🎉', good: '잘했어요!', partial: '연산 순서 확인', wrong: '가격*수량-할인' }
+            }
+          ],
           hints: [
             '💡 힌트 1: print() 안에 a + b를 넣어요',
             '💡 힌트 2: 변수끼리 계산하면 저장된 값으로 계산해요',
@@ -838,6 +1371,68 @@ export const unit3: Unit = {
           expectedOutput: '40',
           testCases: [
             { input: '', expectedOutput: '40', description: '결과 저장' },
+          ],
+          challenges: [
+            {
+              id: '3-18-6-c1',
+              title: '연습 1: 평균 계산',
+              description: 'a = 80, b = 100일 때 평균을 average에 저장하고 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'a = 80\nb = 100\n# 평균 저장\naverage = \nprint(average)',
+              solution: 'a = 80\nb = 100\naverage = (a + b) / 2\nprint(average)',
+              testCases: [{ input: '', expectedOutput: '90.0', description: '평균' }],
+              hints: ['(a + b) / 2'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '평균 계산 성공! 🎉', good: '잘했어요!', partial: '괄호 사용', wrong: 'average = (a + b) / 2' }
+            },
+            {
+              id: '3-18-6-c2',
+              title: '연습 2: 넓이 계산',
+              description: 'width = 5, height = 3일 때 넓이를 area에 저장하고 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'width = 5\nheight = 3\n# 넓이 저장\narea = \nprint(area)',
+              solution: 'width = 5\nheight = 3\narea = width * height\nprint(area)',
+              testCases: [{ input: '', expectedOutput: '15', description: '넓이' }],
+              hints: ['가로 * 세로'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '넓이 계산 성공! 🎉', good: '잘했어요!', partial: '곱셈 사용', wrong: 'area = width * height' }
+            },
+            {
+              id: '3-18-6-c3',
+              title: '연습 3: 둘레 계산',
+              description: 'width = 4, height = 6일 때 둘레를 perimeter에 저장하고 출력하세요',
+              difficulty: 'medium',
+              starterCode: 'width = 4\nheight = 6\n# 둘레 = (가로 + 세로) * 2\nperimeter = \nprint(perimeter)',
+              solution: 'width = 4\nheight = 6\nperimeter = (width + height) * 2\nprint(perimeter)',
+              testCases: [{ input: '', expectedOutput: '20', description: '둘레' }],
+              hints: ['(가로 + 세로) * 2'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '둘레 계산 성공! 🎉', good: '잘했어요!', partial: '괄호 사용', wrong: '(width + height) * 2' }
+            },
+            {
+              id: '3-18-6-c4',
+              title: '연습 4: 연쇄 계산',
+              description: 'a = 10, b = 5, sum = a + b, diff = a - b를 저장하고 sum과 diff를 출력하세요',
+              difficulty: 'medium',
+              starterCode: 'a = 10\nb = 5\n# sum과 diff 저장\n',
+              solution: 'a = 10\nb = 5\nsum = a + b\ndiff = a - b\nprint(sum)\nprint(diff)',
+              testCases: [{ input: '', expectedOutput: '15\n5', description: '두 결과' }],
+              hints: ['변수 두 개 만들기'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '연쇄 계산 완벽! 🎉', good: '잘했어요!', partial: '두 변수 모두', wrong: 'sum = a+b, diff = a-b' }
+            },
+            {
+              id: '3-18-6-c5',
+              title: '연습 5: 거리 계산',
+              description: 'speed = 60, time = 3일 때 거리(speed * time)를 distance에 저장하고 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'speed = 60  # km/h\ntime = 3    # 시간\n# 거리 저장\ndistance = \nprint(distance)',
+              solution: 'speed = 60\ntime = 3\ndistance = speed * time\nprint(distance)',
+              testCases: [{ input: '', expectedOutput: '180', description: '거리' }],
+              hints: ['속도 * 시간 = 거리'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '거리 계산 완벽! 🎉', good: '잘했어요!', partial: '곱셈', wrong: 'distance = speed * time' }
+            }
           ],
           hints: [
             '💡 힌트 1: total = 뒤에 a + b를 써요',
@@ -875,6 +1470,68 @@ export const unit3: Unit = {
           testCases: [
             { input: '', expectedOutput: '0\n10', description: '변수 값 업데이트' }
           ],
+          challenges: [
+            {
+              id: '3-18-7-c1',
+              title: '연습 1: 10씩 증가',
+              description: 'count = 0에서 시작해서 10씩 3번 증가시키고 각각 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'count = 0\nprint(count)\n# 10 더하기 3번\n',
+              solution: 'count = 0\nprint(count)\ncount = count + 10\nprint(count)\ncount = count + 10\nprint(count)\ncount = count + 10\nprint(count)',
+              testCases: [{ input: '', expectedOutput: '0\n10\n20\n30', description: '10씩 증가' }],
+              hints: ['count = count + 10을 3번'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '증가 완벽! 🎉', good: '잘했어요!', partial: '3번 반복', wrong: 'count = count + 10' }
+            },
+            {
+              id: '3-18-7-c2',
+              title: '연습 2: 5씩 감소',
+              description: 'lives = 15에서 5씩 감소시키며 출력하세요 (15, 10, 5 순서)',
+              difficulty: 'easy',
+              starterCode: 'lives = 15\nprint(lives)\n# 5씩 감소\n',
+              solution: 'lives = 15\nprint(lives)\nlives = lives - 5\nprint(lives)\nlives = lives - 5\nprint(lives)',
+              testCases: [{ input: '', expectedOutput: '15\n10\n5', description: '5씩 감소' }],
+              hints: ['lives = lives - 5'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '감소도 OK! 🎉', good: '잘했어요!', partial: '- 5 반복', wrong: 'lives = lives - 5' }
+            },
+            {
+              id: '3-18-7-c3',
+              title: '연습 3: 2배씩',
+              description: 'num = 1에서 2배씩 늘리며 출력하세요 (1, 2, 4, 8 순서)',
+              difficulty: 'medium',
+              starterCode: 'num = 1\nprint(num)\n# 2배씩\n',
+              solution: 'num = 1\nprint(num)\nnum = num * 2\nprint(num)\nnum = num * 2\nprint(num)\nnum = num * 2\nprint(num)',
+              testCases: [{ input: '', expectedOutput: '1\n2\n4\n8', description: '2배씩' }],
+              hints: ['num = num * 2'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '2배도 완벽! 🎉', good: '잘했어요!', partial: '* 2 반복', wrong: 'num = num * 2' }
+            },
+            {
+              id: '3-18-7-c4',
+              title: '연습 4: += 사용',
+              description: 'score = 0에서 += 10을 사용해 20까지 증가시키세요',
+              difficulty: 'medium',
+              starterCode: 'score = 0\nprint(score)\n# += 사용 (score = score + 10과 같음)\n',
+              solution: 'score = 0\nprint(score)\nscore += 10\nprint(score)\nscore += 10\nprint(score)',
+              testCases: [{ input: '', expectedOutput: '0\n10\n20', description: '+= 사용' }],
+              hints: ['+=는 더해서 저장하는 축약형'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '+= 마스터! 🎉', good: '잘했어요!', partial: '+= 사용', wrong: 'score += 10' }
+            },
+            {
+              id: '3-18-7-c5',
+              title: '연습 5: 복합 업데이트',
+              description: 'money = 1000에서 +500, -200, *2를 순서대로 적용하고 출력하세요',
+              difficulty: 'hard',
+              starterCode: 'money = 1000\nprint(money)\n# +500, -200, *2\n',
+              solution: 'money = 1000\nprint(money)\nmoney = money + 500\nprint(money)\nmoney = money - 200\nprint(money)\nmoney = money * 2\nprint(money)',
+              testCases: [{ input: '', expectedOutput: '1000\n1500\n1300\n2600', description: '복합 연산' }],
+              hints: ['순서대로 연산 적용'],
+              estimatedMinutes: 4,
+              feedback: { perfect: '복합 연산 완벽! 🎉', good: '잘했어요!', partial: '순서대로', wrong: '각 연산 후 출력' }
+            }
+          ],
           hints: [
             '💡 힌트 1: score = score + 10 처럼 작성해요',
             '💡 힌트 2: 오른쪽(score + 10)을 먼저 계산해요',
@@ -911,6 +1568,68 @@ export const unit3: Unit = {
           expectedOutput: '김코딩',
           testCases: [
             { input: '', expectedOutput: '김코딩', description: '문자열 연결' },
+          ],
+          challenges: [
+            {
+              id: '3-18-8-c1',
+              title: '연습 1: 인사말 연결',
+              description: 'a = "안녕", b = "하세요"를 연결해서 출력하세요',
+              difficulty: 'easy',
+              starterCode: 'a = "안녕"\nb = "하세요"\n# 연결해서 출력\n',
+              solution: 'a = "안녕"\nb = "하세요"\nprint(a + b)',
+              testCases: [{ input: '', expectedOutput: '안녕하세요', description: '인사말' }],
+              hints: ['print(a + b)'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '연결 성공! 🎉', good: '잘했어요!', partial: '+ 사용', wrong: 'print(a + b)' }
+            },
+            {
+              id: '3-18-8-c2',
+              title: '연습 2: 공백 추가',
+              description: 'first = "Hello", last = "World"를 공백과 함께 연결하세요',
+              difficulty: 'easy',
+              starterCode: 'first = "Hello"\nlast = "World"\n# 공백 추가 연결\n',
+              solution: 'first = "Hello"\nlast = "World"\nprint(first + " " + last)',
+              testCases: [{ input: '', expectedOutput: 'Hello World', description: '공백 연결' }],
+              hints: ['" " 추가'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '공백도 OK! 🎉', good: '잘했어요!', partial: '+ " " + 사용', wrong: 'first + " " + last' }
+            },
+            {
+              id: '3-18-8-c3',
+              title: '연습 3: 세 개 연결',
+              description: 'a = "나는", b = "코딩을", c = "좋아해"를 연결하세요',
+              difficulty: 'medium',
+              starterCode: 'a = "나는 "\nb = "코딩을 "\nc = "좋아해"\n# 세 개 연결\n',
+              solution: 'a = "나는 "\nb = "코딩을 "\nc = "좋아해"\nprint(a + b + c)',
+              testCases: [{ input: '', expectedOutput: '나는 코딩을 좋아해', description: '세 개 연결' }],
+              hints: ['+ 를 2번 사용'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '세 개도 완벽! 🎉', good: '잘했어요!', partial: '+ + 사용', wrong: 'a + b + c' }
+            },
+            {
+              id: '3-18-8-c4',
+              title: '연습 4: 문자열 반복',
+              description: 'star = "★"를 5번 반복해서 출력하세요',
+              difficulty: 'medium',
+              starterCode: 'star = "★"\n# 5번 반복\n',
+              solution: 'star = "★"\nprint(star * 5)',
+              testCases: [{ input: '', expectedOutput: '★★★★★', description: '반복' }],
+              hints: ['* 숫자로 반복'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '반복도 마스터! 🎉', good: '잘했어요!', partial: '* 5 사용', wrong: 'star * 5' }
+            },
+            {
+              id: '3-18-8-c5',
+              title: '연습 5: 복합 연결',
+              description: 'name = "철수", age = 12일 때 "이름: 철수, 나이: 12"를 출력하세요',
+              difficulty: 'hard',
+              starterCode: 'name = "철수"\nage = 12\n# 복합 연결 (숫자는 str()로 변환)\n',
+              solution: 'name = "철수"\nage = 12\nprint("이름: " + name + ", 나이: " + str(age))',
+              testCases: [{ input: '', expectedOutput: '이름: 철수, 나이: 12', description: '복합 연결' }],
+              hints: ['str(age)로 숫자를 문자열로 변환'],
+              estimatedMinutes: 4,
+              feedback: { perfect: '타입 변환까지! 🎉', good: '잘했어요!', partial: 'str() 사용', wrong: 'str(숫자)로 변환' }
+            }
           ],
           hints: [
             '💡 힌트 1: 문자열도 + 로 연결할 수 있어요',

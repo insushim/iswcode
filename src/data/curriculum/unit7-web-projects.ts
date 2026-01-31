@@ -419,6 +419,50 @@ export const unit7: Unit = {
               description: '점수가 정확하게 계산되는지 확인'
             }
           ],
+          projectCheckpoints: [
+            {
+              id: 'w45-m9-cp1',
+              title: 'HTML 구조 완성',
+              description: '세 화면(시작, 퀴즈, 결과)이 올바르게 구성됐나요?',
+              criteria: ['시작 화면에 제목과 시작 버튼', '퀴즈 화면에 문제/선택지 영역', '결과 화면에 점수와 다시하기 버튼'],
+              points: 20
+            },
+            {
+              id: 'w45-m9-cp2',
+              title: 'CSS 스타일 적용',
+              description: '앱이 보기 좋게 스타일링 됐나요?',
+              criteria: ['가운데 정렬', '버튼 호버 효과', '적절한 색상과 여백'],
+              points: 15
+            },
+            {
+              id: 'w45-m9-cp3',
+              title: '퀴즈 데이터 구조',
+              description: '5개 이상의 문제가 배열로 저장됐나요?',
+              criteria: ['5개 이상 문제', '각 문제에 선택지 4개', '정답 인덱스 포함'],
+              points: 15
+            },
+            {
+              id: 'w45-m9-cp4',
+              title: '화면 전환 기능',
+              description: '버튼 클릭 시 화면이 전환되나요?',
+              criteria: ['시작 → 퀴즈 전환', '마지막 문제 후 → 결과 전환', '다시하기 → 시작 전환'],
+              points: 20
+            },
+            {
+              id: 'w45-m9-cp5',
+              title: '점수 계산 로직',
+              description: '정답/오답이 올바르게 계산되나요?',
+              criteria: ['정답 시 score 증가', '오답 시 score 유지', '결과 화면에 최종 점수 표시'],
+              points: 20
+            },
+            {
+              id: 'w45-m9-cp6',
+              title: '완성도 및 테스트',
+              description: '모든 기능이 오류 없이 작동하나요?',
+              criteria: ['콘솔 에러 없음', '모든 흐름 테스트 통과', '다양한 시나리오 동작 확인'],
+              points: 10
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -885,6 +929,50 @@ export const unit7: Unit = {
           isWeeklyProject: true,
           solution: 'document.getElementById("save-btn").addEventListener("click", () => {\n  const link = document.createElement("a");\n  link.download = "my-drawing.png";\n  link.href = canvas.toDataURL();\n  link.click();\n});',
           hints: ['toDataURL()로 캔버스를 이미지 URL로 변환해요'],
+          projectCheckpoints: [
+            {
+              id: 'w47-m9-cp1',
+              title: 'Canvas 설정',
+              description: 'Canvas 요소가 올바르게 설정됐나요?',
+              criteria: ['canvas 요소 존재', 'getContext("2d") 호출', '적절한 크기 설정'],
+              points: 15
+            },
+            {
+              id: 'w47-m9-cp2',
+              title: '그리기 기능',
+              description: '마우스로 그림을 그릴 수 있나요?',
+              criteria: ['mousedown, mousemove, mouseup 이벤트', 'beginPath, lineTo, stroke 사용', '부드러운 선 그리기'],
+              points: 25
+            },
+            {
+              id: 'w47-m9-cp3',
+              title: '색상 변경',
+              description: '다양한 색상으로 그릴 수 있나요?',
+              criteria: ['색상 선택 UI', 'strokeStyle 변경', '최소 5가지 색상'],
+              points: 15
+            },
+            {
+              id: 'w47-m9-cp4',
+              title: '브러시/지우개',
+              description: '브러시 크기와 지우개가 작동하나요?',
+              criteria: ['lineWidth 조절', '지우개 모드 전환', '전체 지우기 버튼'],
+              points: 20
+            },
+            {
+              id: 'w47-m9-cp5',
+              title: '이미지 저장',
+              description: '그림을 이미지 파일로 다운로드할 수 있나요?',
+              criteria: ['toDataURL() 사용', 'a태그 download 속성', 'PNG 형식 저장'],
+              points: 15
+            },
+            {
+              id: 'w47-m9-cp6',
+              title: 'UI 완성도',
+              description: '사용하기 편하게 디자인됐나요?',
+              criteria: ['도구 버튼 배치', '색상 팔레트 UI', '직관적인 사용 경험'],
+              points: 10
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -1003,6 +1091,50 @@ export const unit7: Unit = {
           isKeyMission: true,
           isWeeklyProject: true,
           hints: ['가장 중요한 기능부터 만들어요'],
+          projectCheckpoints: [
+            {
+              id: 'w48-m5-cp1',
+              title: '아이디어 선정',
+              description: '나만의 웹 앱 아이디어를 정했나요?',
+              criteria: ['명확한 목적 정의', '대상 사용자 설정', '기능 목록 작성'],
+              points: 10
+            },
+            {
+              id: 'w48-m5-cp2',
+              title: 'HTML 구조',
+              description: '의미있는 HTML 구조를 작성했나요?',
+              criteria: ['시맨틱 태그 사용', '접근성 고려', '논리적 구조'],
+              points: 15
+            },
+            {
+              id: 'w48-m5-cp3',
+              title: 'CSS 디자인',
+              description: '일관된 디자인을 적용했나요?',
+              criteria: ['색상 팔레트 통일', '반응형 레이아웃', '사용자 친화적 UI'],
+              points: 15
+            },
+            {
+              id: 'w48-m5-cp4',
+              title: '핵심 JavaScript 기능',
+              description: '앱의 핵심 기능이 작동하나요?',
+              criteria: ['메인 기능 구현', '이벤트 처리', 'DOM 조작'],
+              points: 25
+            },
+            {
+              id: 'w48-m5-cp5',
+              title: '추가 기능',
+              description: '사용자 경험을 개선하는 기능이 있나요?',
+              criteria: ['보조 기능 1개 이상', '에러 처리', '피드백 제공'],
+              points: 15
+            },
+            {
+              id: 'w48-m5-cp6',
+              title: '테스트 및 완성도',
+              description: '앱이 오류 없이 작동하나요?',
+              criteria: ['모든 기능 테스트', '버그 수정 완료', '배포 가능 상태'],
+              points: 20
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
