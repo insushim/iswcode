@@ -40,6 +40,14 @@ import AttendanceSystem from './components/AttendanceSystem';
 import GradeReport from './components/GradeReport';
 import ParentView from './pages/ParentView';
 
+// World-class Features
+import StoryMode from './pages/StoryMode';
+import ProjectGallery from './pages/ProjectGallery';
+import MultiplayerLobby from './pages/MultiplayerLobby';
+
+// i18n
+import './i18n';
+
 // 보호된 라우트 컴포넌트
 const ProtectedRoute: React.FC<{ children: React.ReactNode; allowedRoles?: ('student' | 'teacher' | 'admin')[] }> = ({ children, allowedRoles }) => {
   const { isAuthenticated, authUser, isLoading } = useAuthStore();
@@ -165,6 +173,11 @@ const App: React.FC = () => {
         <Route path="/analytics" element={<ProtectedRoute allowedRoles={['student']}><Analytics /></ProtectedRoute>} />
         <Route path="/practice" element={<ProtectedRoute allowedRoles={['student']}><Practice /></ProtectedRoute>} />
         <Route path="/mission/advanced/:missionId" element={<ProtectedRoute allowedRoles={['student']}><MissionWrapper /></ProtectedRoute>} />
+
+        {/* World-class Features */}
+        <Route path="/story" element={<ProtectedRoute allowedRoles={['student']}><StoryMode /></ProtectedRoute>} />
+        <Route path="/gallery" element={<ProtectedRoute allowedRoles={['student']}><ProjectGallery /></ProtectedRoute>} />
+        <Route path="/multiplayer" element={<ProtectedRoute allowedRoles={['student']}><MultiplayerLobby /></ProtectedRoute>} />
 
         {/* LMS Routes - 출석, 성적 */}
         <Route path="/grades" element={<ProtectedRoute allowedRoles={['student', 'teacher']}><GradeReport /></ProtectedRoute>} />
