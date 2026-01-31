@@ -33,6 +33,7 @@ const Mission: React.FC = () => {
   const [savedToPortfolio, setSavedToPortfolio] = useState(false);
   const [completedCode, setCompletedCode] = useState<string>('');
   const [completedOutput, setCompletedOutput] = useState<string>('');
+  const [autoProgressCountdown, setAutoProgressCountdown] = useState(3);
 
   useEffect(() => {
     if (missionId) {
@@ -87,7 +88,22 @@ const Mission: React.FC = () => {
     const next = findNextMission(mission.id);
     setNextMission(next);
     setShowComplete(true);
+    setAutoProgressCountdown(3);
   };
+
+  // 자동 다음 미션 진행 타이머
+  useEffect(() => {
+    if (showComplete && nextMission && autoProgressCountdown > 0) {
+      const timer = setTimeout(() => {
+        setAutoProgressCountdown(prev => prev - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else if (showComplete && nextMission && autoProgressCountdown === 0) {
+      // 자동으로 다음 미션으로 이동
+      setShowComplete(false);
+      navigate(`/mission/${nextMission.id}`);
+    }
+  }, [showComplete, nextMission, autoProgressCountdown, navigate]);
 
   const findUnitForMission = (missionId: string): string | null => {
     for (const unit of allUnits) {
@@ -323,9 +339,37 @@ const Mission: React.FC = () => {
               </div>
             )}
 
+            {/* 자동 진행 안내 */}
+            {nextMission && (
+              <div className="mb-4 p-3 bg-violet-900/30 rounded-xl border border-violet-700">
+                <div className="flex items-center justify-between">
+                  <span className="text-violet-300 text-sm">
+                    🚀 {autoProgressCountdown}초 후 자동으로 다음 미션 시작
+                  </span>
+                  <button
+                    onClick={() => setAutoProgressCountdown(-1)}
+                    className="text-xs text-violet-400 hover:text-violet-200"
+                  >
+                    취소
+                  </button>
+                </div>
+                <div className="mt-2 h-1 bg-violet-900 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-violet-500"
+                    initial={{ width: '100%' }}
+                    animate={{ width: `${(autoProgressCountdown / 3) * 100}%` }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </div>
+              </div>
+            )}
+
             <div className="flex gap-3">
               <button
-                onClick={() => navigate('/learn')}
+                onClick={() => {
+                  setAutoProgressCountdown(-1);
+                  navigate('/learn');
+                }}
                 className="flex-1 px-4 py-3 bg-slate-700 text-slate-200 font-bold rounded-xl border-2 border-slate-600 hover:bg-slate-600 transition-colors"
               >
                 학습 목록
@@ -333,12 +377,13 @@ const Mission: React.FC = () => {
               {nextMission ? (
                 <button
                   onClick={() => {
+                    setAutoProgressCountdown(-1);
                     setShowComplete(false);
                     navigate(`/mission/${nextMission.id}`);
                   }}
                   className="flex-1 px-4 py-3 bg-violet-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:bg-violet-700 transition-colors flex items-center justify-center gap-2"
                 >
-                  다음 미션 <ChevronRight className="w-4 h-4" />
+                  지금 이동 <ChevronRight className="w-4 h-4" />
                 </button>
               ) : (
                 <button

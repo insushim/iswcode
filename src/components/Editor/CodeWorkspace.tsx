@@ -20,7 +20,13 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
   const [testPassed, setTestPassed] = useState<boolean | null>(null);
   const [loadingHint, setLoadingHint] = useState(false);
 
+  // Challenges 상태
+  const [currentChallengeIndex, setCurrentChallengeIndex] = useState(0);
+  const [completedChallenges, setCompletedChallenges] = useState<Set<number>>(new Set());
+  const [showChallenges, setShowChallenges] = useState(false);
+
   const language = mission.language || 'python';
+  const challenges = mission.challenges || [];
 
   const handleRun = async () => {
     setIsRunning(true);
@@ -31,8 +37,13 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
     try {
       let result;
 
-      if (mission.testCases && mission.testCases.length > 0) {
-        result = await runTestCases(code, mission.testCases, language as 'python' | 'javascript');
+      // 현재 활성화된 테스트 케이스와 예상 출력 결정
+      const currentChallenge = showChallenges && challenges.length > 0 ? challenges[currentChallengeIndex] : null;
+      const activeTestCases = currentChallenge?.testCases || mission.testCases;
+      const activeExpectedOutput = currentChallenge?.testCases?.[0]?.expectedOutput || mission.expectedOutput;
+
+      if (activeTestCases && activeTestCases.length > 0) {
+        result = await runTestCases(code, activeTestCases, language as 'python' | 'javascript');
       } else if (language === 'python') {
         result = await runPython(code);
       } else {
@@ -42,23 +53,47 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
       // 실제 출력 결과 표시
       setOutput(result.output);
 
-      if (mission.expectedOutput) {
-        const passed = result.output.trim() === mission.expectedOutput.trim();
+      if (activeExpectedOutput) {
+        const passed = result.output.trim() === activeExpectedOutput.trim();
         setTestPassed(passed);
 
         if (passed) {
-          // 성공 시 2초 후 자동으로 다음 레슨으로 이동
-          setTimeout(() => {
-            onComplete(hintsUsed === 0);
-          }, 2000);
+          // 연습문제 모드인지 확인
+          if (showChallenges && challenges.length > 0) {
+            // 현재 연습문제 완료 표시
+            setCompletedChallenges(prev => new Set([...prev, currentChallengeIndex]));
+
+            // 다음 연습문제로 이동 또는 모두 완료 시 메인 미션 완료
+            setTimeout(() => {
+              if (currentChallengeIndex < challenges.length - 1) {
+                const nextIdx = currentChallengeIndex + 1;
+                setCurrentChallengeIndex(nextIdx);
+                setCode(challenges[nextIdx].starterCode || '');
+                setOutput('');
+                setTestPassed(null);
+              } else {
+                // 모든 연습문제 완료 - 메인 미션 완료 처리
+                onComplete(hintsUsed === 0);
+              }
+            }, 1500);
+          } else {
+            // 기본 미션 성공 시 2초 후 자동으로 다음 레슨으로 이동
+            setTimeout(() => {
+              onComplete(hintsUsed === 0);
+            }, 2000);
+          }
         } else {
-          // 실패 시 힌트 자동 표시
-          if (mission.hints && mission.hints.length > 0) {
+          // 실패 시 피드백 표시
+          if (currentChallenge?.feedback) {
+            setCurrentHint(`💡 ${currentChallenge.feedback.wrong}`);
+          } else if (currentChallenge?.hints && currentChallenge.hints.length > 0) {
+            setCurrentHint(`💡 힌트: ${currentChallenge.hints[0]}`);
+          } else if (mission.hints && mission.hints.length > 0) {
             const hintIndex = Math.min(currentHintIndex, mission.hints.length - 1);
             setCurrentHint(`💡 힌트: ${mission.hints[hintIndex]}`);
           } else {
             // 기본 힌트 제공
-            setCurrentHint(`💡 힌트: 예상 출력은 "${mission.expectedOutput}" 입니다. 코드를 다시 확인해보세요!`);
+            setCurrentHint(`💡 힌트: 예상 출력은 "${activeExpectedOutput}" 입니다. 코드를 다시 확인해보세요!`);
           }
         }
       } else if (result.success && result.output && result.output !== '(실행 완료 - 출력 없음)') {
@@ -239,6 +274,85 @@ const CodeWorkspace: React.FC<CodeWorkspaceProps> = ({ mission, onComplete }) =>
               <span className={`text-xs font-bold ${testPassed ? 'text-emerald-400' : 'text-indigo-400'}`}>+{mission.exp} XP</span>
             </div>
           </div>
+
+          {/* Challenges Section */}
+          {challenges.length > 0 && (
+            <div className="mt-4 border-t border-slate-700 pt-4">
+              <button
+                onClick={() => setShowChallenges(!showChallenges)}
+                className="w-full flex items-center justify-between p-3 bg-violet-500/10 rounded-xl border border-violet-500/30 hover:bg-violet-500/20 transition-colors"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">🏆</span>
+                  <span className="font-bold text-violet-300">연습 문제</span>
+                  <span className="text-xs bg-violet-500/30 px-2 py-0.5 rounded-full text-violet-200">
+                    {completedChallenges.size}/{challenges.length}
+                  </span>
+                </div>
+                <span className="text-violet-400">{showChallenges ? '▲' : '▼'}</span>
+              </button>
+
+              <AnimatePresence>
+                {showChallenges && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-3 space-y-2 overflow-hidden"
+                  >
+                    {challenges.map((challenge, idx) => (
+                      <motion.div
+                        key={challenge.id}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        onClick={() => {
+                          setCurrentChallengeIndex(idx);
+                          setCode(challenge.starterCode || '');
+                          setOutput('');
+                          setTestPassed(null);
+                        }}
+                        className={`p-3 rounded-lg border cursor-pointer transition-all ${
+                          completedChallenges.has(idx)
+                            ? 'bg-emerald-500/10 border-emerald-500/30'
+                            : currentChallengeIndex === idx
+                            ? 'bg-violet-500/20 border-violet-500/50'
+                            : 'bg-slate-800/50 border-slate-700 hover:border-violet-500/30'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            {completedChallenges.has(idx) ? (
+                              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                            ) : (
+                              <span className={`w-5 h-5 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+                                challenge.difficulty === 'easy' ? 'border-emerald-500 text-emerald-400' :
+                                challenge.difficulty === 'medium' ? 'border-yellow-500 text-yellow-400' :
+                                'border-red-500 text-red-400'
+                              }`}>
+                                {idx + 1}
+                              </span>
+                            )}
+                            <span className={`text-sm font-medium ${completedChallenges.has(idx) ? 'text-emerald-300' : 'text-slate-300'}`}>
+                              {challenge.title}
+                            </span>
+                          </div>
+                          <span className={`text-xs px-2 py-0.5 rounded ${
+                            challenge.difficulty === 'easy' ? 'bg-emerald-500/20 text-emerald-400' :
+                            challenge.difficulty === 'medium' ? 'bg-yellow-500/20 text-yellow-400' :
+                            'bg-red-500/20 text-red-400'
+                          }`}>
+                            {challenge.difficulty === 'easy' ? '쉬움' : challenge.difficulty === 'medium' ? '보통' : '어려움'}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate-400 mt-1 ml-7">{challenge.description}</p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )}
         </div>
 
         {/* Right: Code Editor & Terminal */}
