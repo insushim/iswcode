@@ -93,7 +93,71 @@ export const unit3: Unit = {
             'Print(대문자)로 쓰는 경우 - Python은 대소문자를 구분해요!'
           ],
           testCases: [
-            { input: '', expectedOutput: '안녕하세요!', description: '인사말 출력' },
+            { input: '', expectedOutput: '안녕하세요!', description: '기본 출력', errorHint: 'print() 함수를 사용했나요?' },
+            { input: '', expectedOutput: '안녕하세요!', description: '따옴표 확인', isHidden: true },
+          ],
+          // 추가 연습문제 (5개)
+          challenges: [
+            {
+              id: '3-17-2-c1',
+              title: '연습 1: "반가워요" 출력',
+              description: '"반가워요"를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 반가워요를 출력하세요\n',
+              solution: 'print("반가워요")',
+              testCases: [{ input: '', expectedOutput: '반가워요', description: '출력 확인' }],
+              hints: ['print("텍스트") 형식이에요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '완벽해요! 🎉', good: '거의 다 됐어요!', partial: '따옴표를 확인하세요', wrong: 'print()를 사용하세요' }
+            },
+            {
+              id: '3-17-2-c2',
+              title: '연습 2: 숫자 출력',
+              description: '숫자 2024를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 2024를 출력하세요\n',
+              solution: 'print(2024)',
+              testCases: [{ input: '', expectedOutput: '2024', description: '숫자 출력' }],
+              hints: ['숫자는 따옴표 없이 써요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '숫자 출력 성공! 🎉', good: '잘했어요!', partial: '숫자는 따옴표가 필요없어요', wrong: 'print(2024)를 사용하세요' }
+            },
+            {
+              id: '3-17-2-c3',
+              title: '연습 3: 문자+숫자',
+              description: '"나는 12살이에요"를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 나는 12살이에요 출력\n',
+              solution: 'print("나는 12살이에요")',
+              testCases: [{ input: '', expectedOutput: '나는 12살이에요', description: '문자열 출력' }],
+              hints: ['전체를 문자열로 감싸세요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '문자열 마스터! 🎉', good: '잘했어요!', partial: '따옴표 위치 확인', wrong: '전체를 따옴표로 감싸세요' }
+            },
+            {
+              id: '3-17-2-c4',
+              title: '연습 4: 이모지 출력',
+              description: '"😀 안녕!"을 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 이모지와 함께 출력\n',
+              solution: 'print("😀 안녕!")',
+              testCases: [{ input: '', expectedOutput: '😀 안녕!', description: '이모지 출력' }],
+              hints: ['이모지도 문자열 안에 넣을 수 있어요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '이모지까지 완벽! 🎉', good: '잘했어요!', partial: '이모지 복사가 잘 됐나요?', wrong: '문자열 안에 이모지를 넣으세요' }
+            },
+            {
+              id: '3-17-2-c5',
+              title: '연습 5: 계산 결과 출력',
+              description: '10 + 20의 결과를 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 10 + 20 결과 출력\n',
+              solution: 'print(10 + 20)',
+              testCases: [{ input: '', expectedOutput: '30', description: '계산 결과' }],
+              hints: ['print() 안에서 계산을 할 수 있어요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '계산까지 완벽! 🎉', good: '잘했어요!', partial: '따옴표 없이 계산식을 넣으세요', wrong: 'print(10 + 20)을 사용하세요' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -120,7 +184,69 @@ export const unit3: Unit = {
           solution: 'print("코딩왕")',
           expectedOutput: '코딩왕',
           testCases: [
-            { input: '', expectedOutput: '코딩왕', description: '이름 출력 확인' }
+            { input: '', expectedOutput: '코딩왕', description: '이름 출력', errorHint: 'print("이름")을 사용했나요?' }
+          ],
+          challenges: [
+            {
+              id: '3-17-3-c1',
+              title: '연습 1: 영어 이름',
+              description: '"Kim"을 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 영어 이름 출력\n',
+              solution: 'print("Kim")',
+              testCases: [{ input: '', expectedOutput: 'Kim', description: '영어 출력' }],
+              hints: ['영어도 따옴표 안에 넣어요'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '영어 이름 출력 성공! 🎉', good: '잘했어요!', partial: '대소문자 확인', wrong: 'print()를 사용하세요' }
+            },
+            {
+              id: '3-17-3-c2',
+              title: '연습 2: 별명 출력',
+              description: '자신의 별명을 출력하세요',
+              difficulty: 'easy',
+              starterCode: '# 별명 출력\n',
+              solution: 'print("코딩천재")',
+              testCases: [{ input: '', expectedOutput: '코딩천재', description: '별명 출력' }],
+              hints: ['좋아하는 별명을 넣으세요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '멋진 별명이에요! 🎉', good: '좋아요!', partial: '따옴표 확인', wrong: 'print("별명")' }
+            },
+            {
+              id: '3-17-3-c3',
+              title: '연습 3: 작은따옴표 사용',
+              description: "작은따옴표로 '홍길동'을 출력하세요",
+              difficulty: 'easy',
+              starterCode: '# 작은따옴표 사용\n',
+              solution: "print('홍길동')",
+              testCases: [{ input: '', expectedOutput: '홍길동', description: '작은따옴표' }],
+              hints: ["큰따옴표 대신 '를 사용해요"],
+              estimatedMinutes: 2,
+              feedback: { perfect: '작은따옴표도 마스터! 🎉', good: '잘했어요!', partial: '따옴표 종류 확인', wrong: "print('텍스트')" }
+            },
+            {
+              id: '3-17-3-c4',
+              title: '연습 4: 띄어쓰기 포함',
+              description: '"홍 길동"을 출력하세요 (띄어쓰기 포함)',
+              difficulty: 'medium',
+              starterCode: '# 띄어쓰기 포함 출력\n',
+              solution: 'print("홍 길동")',
+              testCases: [{ input: '', expectedOutput: '홍 길동', description: '띄어쓰기' }],
+              hints: ['띄어쓰기도 문자열 안에 그대로 넣어요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '띄어쓰기 완벽! 🎉', good: '잘했어요!', partial: '띄어쓰기 확인', wrong: '문자열 안에 띄어쓰기를 넣으세요' }
+            },
+            {
+              id: '3-17-3-c5',
+              title: '연습 5: 특수문자 포함',
+              description: '"안녕! 나는 코딩왕!"을 출력하세요',
+              difficulty: 'medium',
+              starterCode: '# 특수문자 포함 출력\n',
+              solution: 'print("안녕! 나는 코딩왕!")',
+              testCases: [{ input: '', expectedOutput: '안녕! 나는 코딩왕!', description: '특수문자' }],
+              hints: ['느낌표도 문자열 안에 넣어요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '특수문자까지 완벽! 🎉', good: '잘했어요!', partial: '느낌표 확인', wrong: '따옴표 안에 전체를 넣으세요' }
+            }
           ],
           hints: [
             '💡 힌트 1: print() 괄호 안에 이름을 넣어요',
@@ -158,7 +284,69 @@ export const unit3: Unit = {
           solution: 'print("치킨")',
           expectedOutput: '치킨',
           testCases: [
-            { input: '', expectedOutput: '치킨', description: '음식 이름 출력 확인' }
+            { input: '', expectedOutput: '치킨', description: '음식 출력', errorHint: '좋아하는 음식을 따옴표 안에 넣었나요?' }
+          ],
+          challenges: [
+            {
+              id: '3-17-4-c1',
+              title: '연습 1: 피자',
+              description: '"피자"를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '',
+              solution: 'print("피자")',
+              testCases: [{ input: '', expectedOutput: '피자', description: '피자' }],
+              hints: ['print("피자")'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '🍕 피자 출력! 🎉', good: '잘했어요!', partial: '확인', wrong: 'print()' }
+            },
+            {
+              id: '3-17-4-c2',
+              title: '연습 2: 햄버거',
+              description: '"햄버거"를 출력하세요',
+              difficulty: 'easy',
+              starterCode: '',
+              solution: 'print("햄버거")',
+              testCases: [{ input: '', expectedOutput: '햄버거', description: '햄버거' }],
+              hints: ['print("햄버거")'],
+              estimatedMinutes: 1,
+              feedback: { perfect: '🍔 햄버거! 🎉', good: '좋아요!', partial: '확인', wrong: 'print()' }
+            },
+            {
+              id: '3-17-4-c3',
+              title: '연습 3: 음식 + 이모지',
+              description: '"🍕 피자 맛있다!"를 출력하세요',
+              difficulty: 'medium',
+              starterCode: '',
+              solution: 'print("🍕 피자 맛있다!")',
+              testCases: [{ input: '', expectedOutput: '🍕 피자 맛있다!', description: '이모지' }],
+              hints: ['이모지를 복사해서 넣어요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '이모지 마스터! 🎉', good: '좋아요!', partial: '이모지 확인', wrong: '이모지를 포함하세요' }
+            },
+            {
+              id: '3-17-4-c4',
+              title: '연습 4: 긴 문장',
+              description: '"오늘 저녁은 치킨을 먹고 싶어요"를 출력하세요',
+              difficulty: 'medium',
+              starterCode: '',
+              solution: 'print("오늘 저녁은 치킨을 먹고 싶어요")',
+              testCases: [{ input: '', expectedOutput: '오늘 저녁은 치킨을 먹고 싶어요', description: '긴 문장' }],
+              hints: ['전체 문장을 따옴표로 감싸요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '긴 문장도 완벽! 🎉', good: '잘했어요!', partial: '전체 입력 확인', wrong: '따옴표로 감싸세요' }
+            },
+            {
+              id: '3-17-4-c5',
+              title: '연습 5: 가격 포함',
+              description: '"치킨 18,000원"을 출력하세요',
+              difficulty: 'medium',
+              starterCode: '',
+              solution: 'print("치킨 18,000원")',
+              testCases: [{ input: '', expectedOutput: '치킨 18,000원', description: '숫자 포함' }],
+              hints: ['숫자도 문자열 안에 그대로 넣어요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '가격까지 완벽! 🎉', good: '잘했어요!', partial: '콤마 확인', wrong: '전체를 따옴표 안에' }
+            }
           ],
           hints: [
             '💡 힌트 1: 좋아하는 음식 이름을 생각해봐요',
