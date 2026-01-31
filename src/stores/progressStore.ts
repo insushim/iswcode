@@ -301,6 +301,11 @@ export const useProgressStore = create<ProgressState>()(
           if (!state.progress.completedMissions.includes(missionId)) {
             state.progress.completedMissions.push(missionId);
 
+            // Track perfect score separately
+            if (perfect) {
+              state.progress.completedMissions.push(`${missionId}_perfect`);
+            }
+
             // Update unit progress
             if (!state.progress.unitsProgress[unitId]) {
               state.progress.unitsProgress[unitId] = {

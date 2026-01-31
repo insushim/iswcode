@@ -16,6 +16,7 @@ import GeneralBlockMission from '../components/GeneralBlockMission';
 import InteractiveLessonMission from '../components/InteractiveLessonMission';
 import VariableMission from '../components/VariableMission';
 import GameMakerMission from '../components/GameMakerMission';
+import ProjectCheckpoints from '../components/ProjectCheckpoints';
 
 const Mission: React.FC = () => {
   const { missionId } = useParams();
@@ -34,6 +35,7 @@ const Mission: React.FC = () => {
   const [completedCode, setCompletedCode] = useState<string>('');
   const [completedOutput, setCompletedOutput] = useState<string>('');
   const [autoProgressCountdown, setAutoProgressCountdown] = useState(3);
+  const [completedCheckpoints, setCompletedCheckpoints] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     if (missionId) {
@@ -54,6 +56,7 @@ const Mission: React.FC = () => {
         setSavedToPortfolio(false);
         setCompletedCode('');
         setCompletedOutput('');
+        setCompletedCheckpoints(new Set());
       }
     }
   }, [missionId, setCurrentMission, startTimer]);
@@ -132,6 +135,18 @@ const Mission: React.FC = () => {
       }
     }
     return null;
+  };
+
+  const handleCheckpointToggle = (checkpointId: string) => {
+    setCompletedCheckpoints(prev => {
+      const next = new Set(prev);
+      if (next.has(checkpointId)) {
+        next.delete(checkpointId);
+      } else {
+        next.add(checkpointId);
+      }
+      return next;
+    });
   };
 
   const handleSaveToPortfolio = () => {
@@ -255,6 +270,15 @@ const Mission: React.FC = () => {
             </motion.div>
           )}
         </div>
+      )}
+
+      {/* Project Checkpoints Section */}
+      {mission.isWeeklyProject && mission.projectCheckpoints && mission.projectCheckpoints.length > 0 && (
+        <ProjectCheckpoints
+          checkpoints={mission.projectCheckpoints}
+          completedIds={completedCheckpoints}
+          onToggle={handleCheckpointToggle}
+        />
       )}
 
       {/* Mission Content - key로 미션 변경 시 전체 리마운트 */}

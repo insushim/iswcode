@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   User, Trophy, Target, Flame, Calendar, Clock,
-  Star, BookOpen, Code, Award, TrendingUp, Zap
+  Star, BookOpen, Code, Award, TrendingUp, Zap, BarChart3
 } from 'lucide-react';
-import { Card, ProgressRing } from '../components/Common';
+import { Card, ProgressRing, Button } from '../components/Common';
+import AchievementReport from '../components/AchievementReport';
 import { useUserStore } from '../stores/userStore';
 import { useProgressStore } from '../stores/progressStore';
 import { allUnits, badges } from '../data/curriculum';
 
 const Profile: React.FC = () => {
+  const [showReport, setShowReport] = useState(false);
   const { user } = useUserStore();
   const { progress, activities } = useProgressStore();
   const expProgress = useUserStore((state) => state.getExpProgress());
@@ -44,12 +46,46 @@ const Profile: React.FC = () => {
 
   return (
     <div className="max-w-5xl mx-auto space-y-6">
-      {/* Profile Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <Card className="p-6">
+      {/* Tab Navigation */}
+      <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-700">
+        <button
+          onClick={() => setShowReport(false)}
+          className={`px-4 py-3 font-medium border-b-2 transition-colors ${
+            !showReport
+              ? 'border-primary-500 text-primary-600 dark:text-primary-400'
+              : 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <User className="w-4 h-4" />
+            프로필
+          </div>
+        </button>
+        <button
+          onClick={() => setShowReport(true)}
+          className={`px-4 py-3 font-medium border-b-2 transition-colors ${
+            showReport
+              ? 'border-primary-500 text-primary-600 dark:text-primary-400'
+              : 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <BarChart3 className="w-4 h-4" />
+            성취도 리포트
+          </div>
+        </button>
+      </div>
+
+      {showReport ? (
+        <AchievementReport />
+      ) : (
+        <>
+          {/* Profile Header */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <Card className="p-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
             {/* Avatar */}
             <div className="relative">
@@ -220,6 +256,8 @@ const Profile: React.FC = () => {
           )}
         </Card>
       </div>
+        </>
+      )}
     </div>
   );
 };

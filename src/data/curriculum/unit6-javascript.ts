@@ -224,6 +224,68 @@ export const unit6: Unit = {
               description: '올바른 키워드로 선언했는지 확인'
             }
           ],
+          challenges: [
+            {
+              id: 'w39-m3-c1',
+              title: '연습 1: 기본 연습',
+              description: '기본 개념을 연습해보세요',
+              difficulty: 'easy',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['기본 문법을 사용하세요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '완벽해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
+            },
+            {
+              id: 'w39-m3-c2',
+              title: '연습 2: 응용 연습',
+              description: '조금 더 응용해보세요',
+              difficulty: 'easy',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['이전 연습을 참고하세요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '훌륭해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
+            },
+            {
+              id: 'w39-m3-c3',
+              title: '연습 3: 중급 연습',
+              description: '중급 난이도 문제를 풀어보세요',
+              difficulty: 'medium',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['개념을 조합해보세요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '대단해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '힌트를 참고하세요' }
+            },
+            {
+              id: 'w39-m3-c4',
+              title: '연습 4: 심화 연습',
+              description: '좀 더 복잡한 문제를 풀어보세요',
+              difficulty: 'medium',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['여러 개념을 함께 사용하세요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '최고예요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '천천히 다시 생각해보세요' }
+            },
+            {
+              id: 'w39-m3-c5',
+              title: '연습 5: 고급 챌린지',
+              description: '고급 난이도 챌린지입니다',
+              difficulty: 'hard',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['모든 개념을 종합적으로 활용하세요'],
+              estimatedMinutes: 5,
+              feedback: { perfect: '완벽한 마스터! 🎉', good: '잘했어요!', partial: '조금만 더!', wrong: '힌트를 다시 읽어보세요' }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -682,6 +744,68 @@ export const unit6: Unit = {
               input: 'if 문 사용',
               expectedOutput: 'if와 비교 연산자 사용',
               description: 'if 문을 올바르게 작성했는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'w39-m4-c1',
+              title: '연습 1: 기본 연습',
+              description: '기본 개념을 연습해보세요',
+              difficulty: 'easy',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['기본 문법을 사용하세요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '완벽해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
+            },
+            {
+              id: 'w39-m4-c2',
+              title: '연습 2: 응용 연습',
+              description: '조금 더 응용해보세요',
+              difficulty: 'easy',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['이전 연습을 참고하세요'],
+              estimatedMinutes: 2,
+              feedback: { perfect: '훌륭해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
+            },
+            {
+              id: 'w39-m4-c3',
+              title: '연습 3: 중급 연습',
+              description: '중급 난이도 문제를 풀어보세요',
+              difficulty: 'medium',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['개념을 조합해보세요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '대단해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '힌트를 참고하세요' }
+            },
+            {
+              id: 'w39-m4-c4',
+              title: '연습 4: 심화 연습',
+              description: '좀 더 복잡한 문제를 풀어보세요',
+              difficulty: 'medium',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['여러 개념을 함께 사용하세요'],
+              estimatedMinutes: 3,
+              feedback: { perfect: '최고예요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '천천히 다시 생각해보세요' }
+            },
+            {
+              id: 'w39-m4-c5',
+              title: '연습 5: 고급 챌린지',
+              description: '고급 난이도 챌린지입니다',
+              difficulty: 'hard',
+              starterCode: '# 여기에 코드를 작성하세요\n',
+              solution: '# 정답 코드',
+              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
+              hints: ['모든 개념을 종합적으로 활용하세요'],
+              estimatedMinutes: 5,
+              feedback: { perfect: '완벽한 마스터! 🎉', good: '잘했어요!', partial: '조금만 더!', wrong: '힌트를 다시 읽어보세요' }
             }
           ],
           unlocked: true,

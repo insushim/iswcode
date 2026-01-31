@@ -31,6 +31,7 @@ import Login from './pages/Login';
 import RegisterStudent from './pages/RegisterStudent';
 import RegisterTeacher from './pages/RegisterTeacher';
 import TeacherDashboard from './pages/TeacherDashboard';
+import TeacherAnalytics from './pages/TeacherAnalytics';
 import AdminDashboard from './pages/AdminDashboard';
 
 // 보호된 라우트 컴포넌트
@@ -161,6 +162,7 @@ const App: React.FC = () => {
 
         {/* Teacher Routes */}
         <Route path="/teacher" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherDashboard /></ProtectedRoute>} />
+        <Route path="/teacher/analytics" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherAnalytics /></ProtectedRoute>} />
 
         {/* Admin Routes */}
         <Route path="/admin" element={<ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>} />

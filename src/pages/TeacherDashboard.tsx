@@ -361,6 +361,15 @@ const TeacherDashboard: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
+              {hasClass && (
+                <button
+                  onClick={() => navigate('/teacher/analytics')}
+                  className="flex items-center gap-2 px-4 py-2.5 bg-violet-500/10 hover:bg-violet-500/20 border border-violet-500/30 text-violet-400 rounded-xl transition-all"
+                >
+                  <BarChart3 className="w-4 h-4" />
+                  <span className="hidden sm:inline">학습 분석</span>
+                </button>
+              )}
               {!hasClass && (
                 <button
                   onClick={() => setIsCreatingClass(true)}
