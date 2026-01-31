@@ -1,20 +1,44 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   User, Trophy, Target, Flame, Calendar, Clock,
-  Star, BookOpen, Code, Award, TrendingUp, Zap, BarChart3
+  Star, BookOpen, Code, Award, TrendingUp, Zap, BarChart3, MessageSquare
 } from 'lucide-react';
 import { Card, ProgressRing, Button } from '../components/Common';
 import AchievementReport from '../components/AchievementReport';
 import { useUserStore } from '../stores/userStore';
 import { useProgressStore } from '../stores/progressStore';
+import { useAuthStore } from '../stores/authStore';
 import { allUnits, badges } from '../data/curriculum';
+import { getStudentFeedbacks, markFeedbackAsRead } from '../services/assignmentService';
+import type { TeacherFeedback } from '../types';
 
 const Profile: React.FC = () => {
   const [showReport, setShowReport] = useState(false);
   const { user } = useUserStore();
+  const { authUser } = useAuthStore();
   const { progress, activities } = useProgressStore();
   const expProgress = useUserStore((state) => state.getExpProgress());
+  const [feedbacks, setFeedbacks] = useState<TeacherFeedback[]>([]);
+  const [expandedFeedback, setExpandedFeedback] = useState<string | null>(null);
+
+  // 피드백 로드
+  useEffect(() => {
+    if (authUser?.role === 'student') {
+      loadFeedbacks();
+    }
+  }, [authUser]);
+
+  const loadFeedbacks = async () => {
+    if (!authUser) return;
+    const data = await getStudentFeedbacks(authUser.uid);
+    setFeedbacks(data);
+  };
+
+  const handleReadFeedback = async (feedbackId: string) => {
+    await markFeedbackAsRead(feedbackId);
+    loadFeedbacks();
+  };
 
   if (!user) {
     return (
@@ -217,6 +241,80 @@ const Profile: React.FC = () => {
             })}
           </div>
         </Card>
+
+        {/* Teacher Feedbacks */}
+        {authUser?.role === 'student' && feedbacks.length > 0 && (
+          <Card className="p-6 lg:col-span-2">
+            <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+              <MessageSquare className="w-5 h-5 text-indigo-500" />
+              선생님 피드백
+              {feedbacks.filter(f => !f.isRead).length > 0 && (
+                <span className="px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-full">
+                  {feedbacks.filter(f => !f.isRead).length}
+                </span>
+              )}
+            </h2>
+            <div className="space-y-3">
+              {feedbacks.slice(0, 5).map((feedback) => (
+                <div
+                  key={feedback.id}
+                  className={`p-4 rounded-xl border transition-all ${
+                    !feedback.isRead
+                      ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-200 dark:border-indigo-800'
+                      : 'bg-slate-50 dark:bg-dark-surfaceHover border-slate-200 dark:border-slate-700'
+                  }`}
+                >
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          className={`w-4 h-4 ${
+                            star <= feedback.rating
+                              ? 'fill-yellow-400 text-yellow-400'
+                              : 'text-slate-300 dark:text-slate-600'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    {!feedback.isRead && (
+                      <span className="px-2 py-1 bg-red-500 text-white text-xs font-bold rounded">
+                        새 피드백
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => {
+                      setExpandedFeedback(
+                        expandedFeedback === feedback.id ? null : feedback.id
+                      );
+                      if (!feedback.isRead) {
+                        handleReadFeedback(feedback.id);
+                      }
+                    }}
+                    className="w-full text-left"
+                  >
+                    <p className={`text-sm ${
+                      expandedFeedback === feedback.id
+                        ? 'line-clamp-none'
+                        : 'line-clamp-2'
+                    }`}>
+                      {feedback.content}
+                    </p>
+                  </button>
+                  <p className="text-xs text-slate-400 mt-2">
+                    {new Date(feedback.createdAt).toLocaleString('ko-KR')}
+                  </p>
+                </div>
+              ))}
+            </div>
+            {feedbacks.length > 5 && (
+              <p className="text-center text-sm text-slate-500 mt-4">
+                총 {feedbacks.length}개의 피드백
+              </p>
+            )}
+          </Card>
+        )}
 
         {/* Recent Activity */}
         <Card className="p-6 lg:col-span-2">

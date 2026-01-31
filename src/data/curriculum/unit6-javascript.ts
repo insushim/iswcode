@@ -61,6 +61,183 @@ export const unit6: Unit = {
               description: 'Python: print(), JavaScript: console.log(). Python: 들여쓰기, JavaScript: 중괄호 {}'
             }
           ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "Core Concept 이해하기",
+                              "description": "JavaScript 기초에서 배운 Core Concept의 핵심을 확인합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "강의 내용을 다시 읽어보세요",
+                                        "핵심 개념에 집중하세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "feedback": {
+                                        "perfect": "완벽해요! 개념을 정확히 이해했어요.",
+                                        "good": "잘했어요! 이해도가 높아요.",
+                                        "partial": "기본은 이해했어요. 세부 사항을 확인하세요.",
+                                        "wrong": "강의를 다시 복습한 후 시도해보세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "예제로 배우기",
+                              "description": "강의의 예제를 직접 실습해봅니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 그대로 따라하세요",
+                                        "한 단계씩 진행하세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "feedback": {
+                                        "perfect": "예제를 완벽하게 이해했어요!",
+                                        "good": "좋아요! 실습을 잘 따라했어요.",
+                                        "partial": "일부만 맞았어요. 예제를 다시 확인하세요.",
+                                        "wrong": "예제를 단계별로 천천히 따라해보세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "개념 적용하기",
+                              "description": "배운 개념을 비슷한 상황에 적용합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "강의 예제와 비슷하게 생각하세요",
+                                        "개념을 새로운 상황에 적용하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "feedback": {
+                                        "perfect": "개념 적용을 완벽하게 했어요!",
+                                        "good": "잘 적용했어요!",
+                                        "partial": "방향은 맞아요. 조금 더 정확하게 해보세요.",
+                                        "wrong": "강의 예제를 참고해서 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실생활 연결하기",
+                              "description": "배운 개념을 실생활 문제에 적용합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "일상생활에서 비슷한 경우를 찾아보세요",
+                                        "개념을 실제 상황에 연결하세요"
+                              ],
+                              "estimatedMinutes": 6,
+                              "feedback": {
+                                        "perfect": "실생활 적용이 완벽해요!",
+                                        "good": "좋은 연결이에요!",
+                                        "partial": "개념은 맞는데 적용이 부족해요.",
+                                        "wrong": "실생활 예시를 생각하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 문제",
+                              "description": "개념을 활용한 응용 문제를 풉니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "기본 개념을 먼저 떠올리세요",
+                                        "단계별로 접근하세요",
+                                        "비슷한 문제를 생각해보세요"
+                              ],
+                              "estimatedMinutes": 8,
+                              "feedback": {
+                                        "perfect": "응용력이 뛰어나요!",
+                                        "good": "잘 응용했어요!",
+                                        "partial": "접근은 좋아요. 마무리를 다듬어보세요.",
+                                        "wrong": "기본 개념부터 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "심화 학습",
+                              "description": "개념을 더 깊이 이해하는 문제입니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "왜 그런지 생각해보세요",
+                                        "다른 방법도 고려하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "feedback": {
+                                        "perfect": "심화 개념까지 완벽해요!",
+                                        "good": "깊이 있게 이해했어요!",
+                                        "partial": "좋은 시도예요. 더 깊이 생각해보세요.",
+                                        "wrong": "기본부터 차근차근 다시 학습하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "창의적 문제",
+                              "description": "배운 내용을 창의적으로 활용합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "여러 방법을 시도해보세요",
+                                        "창의적으로 접근하세요",
+                                        "정답은 하나가 아닐 수 있어요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "feedback": {
+                                        "perfect": "창의력이 뛰어나요!",
+                                        "good": "독창적인 접근이에요!",
+                                        "partial": "좋은 아이디어예요. 더 발전시켜보세요.",
+                                        "wrong": "자유롭게 생각하며 시도해보세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "종합 문제 1",
+                              "description": "여러 개념을 종합하는 문제입니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "배운 내용을 모두 떠올려보세요",
+                                        "단계를 나눠 해결하세요",
+                                        "하나씩 차근차근 진행하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "feedback": {
+                                        "perfect": "종합적 사고력이 뛰어나요!",
+                                        "good": "여러 개념을 잘 통합했어요!",
+                                        "partial": "일부는 맞았어요. 나머지도 완성하세요.",
+                                        "wrong": "각 부분을 나눠서 하나씩 해결해보세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "종합 문제 2",
+                              "description": "고급 종합 문제에 도전합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 학습 내용을 활용하세요",
+                                        "문제를 작은 부분으로 나누세요",
+                                        "포기하지 마세요!"
+                              ],
+                              "estimatedMinutes": 18,
+                              "feedback": {
+                                        "perfect": "최고예요! 모든 개념을 마스터했어요!",
+                                        "good": "어려운 문제를 잘 해결했어요!",
+                                        "partial": "좋은 진전이에요. 계속 시도하세요.",
+                                        "wrong": "어려워도 괜찮아요. 힌트를 활용하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "마스터 챌린지",
+                              "description": "최종 마스터 레벨 문제입니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "지금까지 배운 모든 것을 활용하세요",
+                                        "천천히, 꼼꼼하게 접근하세요",
+                                        "막히면 쉬었다가 다시 시도하세요"
+                              ],
+                              "estimatedMinutes": 20,
+                              "feedback": {
+                                        "perfect": "전설이에요! 완벽한 마스터예요!",
+                                        "good": "대단해요! 최고 난이도를 해결했어요!",
+                                        "partial": "거의 다 왔어요! 조금만 더 노력하세요.",
+                                        "wrong": "최고 난이도예요. 이전 문제를 다시 풀어보고 도전하세요."
+                              }
+                    }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -103,67 +280,188 @@ export const unit6: Unit = {
             { input: '', expectedOutput: '안녕하세요!', description: '문자열 출력', errorHint: 'console.log("안녕하세요!") 사용했나요?' },
             { input: '', expectedOutput: '2025', description: '숫자 출력', errorHint: 'console.log(2025) 사용했나요?' }
           ],
-          challenges: [
-            {
-              id: 'w39-m2-c1',
-              title: '연습 1: "Hello"',
-              description: '"Hello"를 출력하세요',
-              difficulty: 'easy',
-              starterCode: '// Hello 출력\n',
-              solution: 'console.log("Hello");',
-              testCases: [{ input: '', expectedOutput: 'Hello', description: 'Hello 출력' }],
-              hints: ['console.log("Hello");'],
-              estimatedMinutes: 1,
-              feedback: { perfect: 'Hello World의 시작! 🎉', good: '잘했어요!', partial: '따옴표 확인', wrong: 'console.log() 사용' }
-            },
-            {
-              id: 'w39-m2-c2',
-              title: '연습 2: 숫자 100',
-              description: '숫자 100을 출력하세요',
-              difficulty: 'easy',
-              starterCode: '// 100 출력\n',
-              solution: 'console.log(100);',
-              testCases: [{ input: '', expectedOutput: '100', description: '100 출력' }],
-              hints: ['숫자는 따옴표 없이'],
-              estimatedMinutes: 1,
-              feedback: { perfect: '숫자 출력 성공! 🎉', good: '잘했어요!', partial: '따옴표 없이', wrong: 'console.log(100)' }
-            },
-            {
-              id: 'w39-m2-c3',
-              title: '연습 3: 계산 결과',
-              description: '5 + 3의 결과를 출력하세요',
-              difficulty: 'easy',
-              starterCode: '// 5 + 3 결과\n',
-              solution: 'console.log(5 + 3);',
-              testCases: [{ input: '', expectedOutput: '8', description: '계산' }],
-              hints: ['console.log(5 + 3);'],
-              estimatedMinutes: 2,
-              feedback: { perfect: '계산까지 완벽! 🎉', good: '잘했어요!', partial: '연산자 확인', wrong: 'console.log() 안에서 계산' }
-            },
-            {
-              id: 'w39-m2-c4',
-              title: '연습 4: 문자+숫자',
-              description: '"점수: ", 100을 한 줄에 출력하세요',
-              difficulty: 'medium',
-              starterCode: '// 점수: 100\n',
-              solution: 'console.log("점수: ", 100);',
-              testCases: [{ input: '', expectedOutput: '점수:  100', description: '조합' }],
-              hints: ['쉼표로 여러 값을 연결'],
-              estimatedMinutes: 2,
-              feedback: { perfect: '여러 값 출력! 🎉', good: '잘했어요!', partial: '쉼표 사용', wrong: 'console.log("텍스트", 숫자)' }
-            },
-            {
-              id: 'w39-m2-c5',
-              title: '연습 5: 템플릿 리터럴',
-              description: '`점수: ${50 + 50}`을 출력하세요',
-              difficulty: 'hard',
-              starterCode: '// 템플릿 리터럴 사용\n',
-              solution: 'console.log(`점수: ${50 + 50}`);',
-              testCases: [{ input: '', expectedOutput: '점수: 100', description: '템플릿' }],
-              hints: ['백틱(`)과 ${} 사용'],
-              estimatedMinutes: 3,
-              feedback: { perfect: '템플릿 리터럴 마스터! 🎉', good: '잘했어요!', partial: '백틱 확인', wrong: '백틱과 ${}를 사용하세요' }
-            }
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
           ],
           unlocked: true,
           completed: false,
@@ -224,67 +522,188 @@ export const unit6: Unit = {
               description: '올바른 키워드로 선언했는지 확인'
             }
           ],
-          challenges: [
-            {
-              id: 'w39-m3-c1',
-              title: '연습 1: 기본 연습',
-              description: '기본 개념을 연습해보세요',
-              difficulty: 'easy',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['기본 문법을 사용하세요'],
-              estimatedMinutes: 2,
-              feedback: { perfect: '완벽해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
-            },
-            {
-              id: 'w39-m3-c2',
-              title: '연습 2: 응용 연습',
-              description: '조금 더 응용해보세요',
-              difficulty: 'easy',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['이전 연습을 참고하세요'],
-              estimatedMinutes: 2,
-              feedback: { perfect: '훌륭해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
-            },
-            {
-              id: 'w39-m3-c3',
-              title: '연습 3: 중급 연습',
-              description: '중급 난이도 문제를 풀어보세요',
-              difficulty: 'medium',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['개념을 조합해보세요'],
-              estimatedMinutes: 3,
-              feedback: { perfect: '대단해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '힌트를 참고하세요' }
-            },
-            {
-              id: 'w39-m3-c4',
-              title: '연습 4: 심화 연습',
-              description: '좀 더 복잡한 문제를 풀어보세요',
-              difficulty: 'medium',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['여러 개념을 함께 사용하세요'],
-              estimatedMinutes: 3,
-              feedback: { perfect: '최고예요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '천천히 다시 생각해보세요' }
-            },
-            {
-              id: 'w39-m3-c5',
-              title: '연습 5: 고급 챌린지',
-              description: '고급 난이도 챌린지입니다',
-              difficulty: 'hard',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['모든 개념을 종합적으로 활용하세요'],
-              estimatedMinutes: 5,
-              feedback: { perfect: '완벽한 마스터! 🎉', good: '잘했어요!', partial: '조금만 더!', wrong: '힌트를 다시 읽어보세요' }
-            }
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
           ],
           unlocked: true,
           completed: false,
@@ -343,6 +762,189 @@ export const unit6: Unit = {
               description: 'typeof로 자료형 확인'
             }
           ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -385,6 +987,189 @@ export const unit6: Unit = {
               expectedOutput: '30, 70, 30, 1',
               description: '산술 연산이 올바른지 확인'
             }
+          ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
           ],
           unlocked: true,
           completed: false,
@@ -444,6 +1229,189 @@ export const unit6: Unit = {
               description: '문자열을 올바르게 합쳤는지 확인'
             }
           ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -500,6 +1468,189 @@ export const unit6: Unit = {
               expectedOutput: '단일/다중 줄 주석 모두 사용',
               description: '주석을 올바르게 작성했는지 확인'
             }
+          ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
           ],
           unlocked: true,
           completed: false,
@@ -558,6 +1709,189 @@ export const unit6: Unit = {
               description: 'script를 올바르게 추가했는지 확인'
             }
           ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -614,6 +1948,189 @@ export const unit6: Unit = {
               expectedOutput: 'alert, prompt, confirm 모두 사용',
               description: '세 가지 대화상자를 올바르게 사용했는지 확인'
             }
+          ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
           ],
           unlocked: true,
           completed: false,
@@ -677,6 +2194,189 @@ export const unit6: Unit = {
               expectedOutput: 'console.log와 alert 사용',
               description: '결과를 적절히 출력했는지 확인'
             }
+          ],
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
           ],
           unlocked: true,
           completed: false,
@@ -746,67 +2446,188 @@ export const unit6: Unit = {
               description: 'if 문을 올바르게 작성했는지 확인'
             }
           ],
-          challenges: [
-            {
-              id: 'w39-m4-c1',
-              title: '연습 1: 기본 연습',
-              description: '기본 개념을 연습해보세요',
-              difficulty: 'easy',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['기본 문법을 사용하세요'],
-              estimatedMinutes: 2,
-              feedback: { perfect: '완벽해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
-            },
-            {
-              id: 'w39-m4-c2',
-              title: '연습 2: 응용 연습',
-              description: '조금 더 응용해보세요',
-              difficulty: 'easy',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['이전 연습을 참고하세요'],
-              estimatedMinutes: 2,
-              feedback: { perfect: '훌륭해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '다시 시도해보세요' }
-            },
-            {
-              id: 'w39-m4-c3',
-              title: '연습 3: 중급 연습',
-              description: '중급 난이도 문제를 풀어보세요',
-              difficulty: 'medium',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['개념을 조합해보세요'],
-              estimatedMinutes: 3,
-              feedback: { perfect: '대단해요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '힌트를 참고하세요' }
-            },
-            {
-              id: 'w39-m4-c4',
-              title: '연습 4: 심화 연습',
-              description: '좀 더 복잡한 문제를 풀어보세요',
-              difficulty: 'medium',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['여러 개념을 함께 사용하세요'],
-              estimatedMinutes: 3,
-              feedback: { perfect: '최고예요! 🎉', good: '잘했어요!', partial: '거의 다 됐어요', wrong: '천천히 다시 생각해보세요' }
-            },
-            {
-              id: 'w39-m4-c5',
-              title: '연습 5: 고급 챌린지',
-              description: '고급 난이도 챌린지입니다',
-              difficulty: 'hard',
-              starterCode: '# 여기에 코드를 작성하세요\n',
-              solution: '# 정답 코드',
-              testCases: [{ input: '', expectedOutput: '결과', description: '테스트' }],
-              hints: ['모든 개념을 종합적으로 활용하세요'],
-              estimatedMinutes: 5,
-              feedback: { perfect: '완벽한 마스터! 🎉', good: '잘했어요!', partial: '조금만 더!', wrong: '힌트를 다시 읽어보세요' }
-            }
+                    challenges: [
+                    {
+                              "id": "c1",
+                              "title": "기본 실습",
+                              "description": "Core Concept의 기본 문법을 연습합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "제시된 예제를 따라하세요",
+                                        "문법을 정확히 지키세요"
+                              ],
+                              "estimatedMinutes": 3,
+                              "starterCode": "# Core Concept 기본 연습\n",
+                              "feedback": {
+                                        "perfect": "완벽한 코드예요!",
+                                        "good": "문법을 잘 이해했어요!",
+                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
+                                        "wrong": "문법을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c2",
+                              "title": "코드 수정하기",
+                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "에러 메시지를 잘 읽으세요",
+                                        "문법 오류를 찾으세요"
+                              ],
+                              "estimatedMinutes": 4,
+                              "starterCode": "# 이 코드를 수정하세요\n",
+                              "feedback": {
+                                        "perfect": "버그를 완벽하게 수정했어요!",
+                                        "good": "오류를 잘 찾았어요!",
+                                        "partial": "일부 오류만 수정했어요.",
+                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
+                              }
+                    },
+                    {
+                              "id": "c3",
+                              "title": "코드 완성하기",
+                              "description": "빈 칸을 채워 코드를 완성합니다.",
+                              "difficulty": "easy",
+                              "hints": [
+                                        "빈 칸에 들어갈 내용을 추론하세요",
+                                        "전체 흐름을 파악하세요"
+                              ],
+                              "estimatedMinutes": 5,
+                              "starterCode": "# 빈 칸을 채우세요\n",
+                              "feedback": {
+                                        "perfect": "코드를 완벽하게 완성했어요!",
+                                        "good": "논리적으로 잘 채웠어요!",
+                                        "partial": "일부 빈 칸이 틀렸어요.",
+                                        "wrong": "코드의 흐름을 다시 생각해보세요."
+                              }
+                    },
+                    {
+                              "id": "c4",
+                              "title": "실용 코드 작성",
+                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "문제를 단계별로 나누세요",
+                                        "이전 예제를 참고하세요"
+                              ],
+                              "estimatedMinutes": 7,
+                              "starterCode": "# 실용적인 코드를 작성하세요\n",
+                              "feedback": {
+                                        "perfect": "실용적인 코드예요!",
+                                        "good": "잘 작동하는 코드예요!",
+                                        "partial": "기능은 하는데 개선이 필요해요.",
+                                        "wrong": "단계별로 다시 접근해보세요."
+                              }
+                    },
+                    {
+                              "id": "c5",
+                              "title": "응용 프로그램",
+                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "여러 개념을 조합하세요",
+                                        "창의적으로 접근하세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 응용 프로그램 만들기\n",
+                              "feedback": {
+                                        "perfect": "훌륭한 프로그램이에요!",
+                                        "good": "개념을 잘 응용했어요!",
+                                        "partial": "기본은 맞는데 기능이 부족해요.",
+                                        "wrong": "기본 개념을 다시 복습하세요."
+                              }
+                    },
+                    {
+                              "id": "c6",
+                              "title": "알고리즘 구현",
+                              "description": "주어진 알고리즘을 코드로 구현합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "알고리즘을 단계별로 분석하세요",
+                                        "의사코드로 먼저 생각하세요"
+                              ],
+                              "estimatedMinutes": 12,
+                              "starterCode": "# 알고리즘 구현\n",
+                              "feedback": {
+                                        "perfect": "알고리즘을 완벽히 구현했어요!",
+                                        "good": "논리가 정확해요!",
+                                        "partial": "로직에 일부 오류가 있어요.",
+                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
+                              }
+                    },
+                    {
+                              "id": "c7",
+                              "title": "최적화 도전",
+                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
+                              "difficulty": "medium",
+                              "hints": [
+                                        "불필요한 코드를 제거하세요",
+                                        "더 간결한 방법을 찾으세요"
+                              ],
+                              "estimatedMinutes": 10,
+                              "starterCode": "# 코드를 최적화하세요\n",
+                              "feedback": {
+                                        "perfect": "최적화를 완벽하게 했어요!",
+                                        "good": "효율적인 코드예요!",
+                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
+                                        "wrong": "기본 기능부터 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c8",
+                              "title": "프로젝트 1단계",
+                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "전체 구조를 먼저 설계하세요",
+                                        "한 기능씩 완성하세요"
+                              ],
+                              "estimatedMinutes": 15,
+                              "starterCode": "# 프로젝트 시작\n",
+                              "feedback": {
+                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
+                                        "good": "좋은 출발이에요!",
+                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
+                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
+                              }
+                    },
+                    {
+                              "id": "c9",
+                              "title": "프로젝트 2단계",
+                              "description": "프로젝트에 추가 기능을 구현합니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "기존 코드를 활용하세요",
+                                        "새 기능을 통합하세요"
+                              ],
+                              "estimatedMinutes": 18,
+                              "starterCode": "# 기능 추가\n",
+                              "feedback": {
+                                        "perfect": "모든 기능이 완벽해요!",
+                                        "good": "기능이 잘 작동해요!",
+                                        "partial": "일부 기능이 미완성이에요.",
+                                        "wrong": "한 기능씩 차근차근 추가하세요."
+                              }
+                    },
+                    {
+                              "id": "c10",
+                              "title": "최종 프로젝트",
+                              "description": "완성된 프로젝트를 만듭니다.",
+                              "difficulty": "hard",
+                              "hints": [
+                                        "모든 요구사항을 확인하세요",
+                                        "테스트를 해보세요",
+                                        "코드를 정리하세요"
+                              ],
+                              "estimatedMinutes": 25,
+                              "starterCode": "# 최종 프로젝트\n",
+                              "feedback": {
+                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
+                                        "good": "훌륭한 프로젝트예요!",
+                                        "partial": "거의 완성이에요! 마무리하세요.",
+                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
+                              }
+                    }
           ],
           unlocked: true,
           completed: false,

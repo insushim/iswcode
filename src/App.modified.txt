@@ -1,0 +1,20 @@
+The following code sections need to be added to App.tsx:
+
+1. After line 27 (after "import Practice from './pages/Practice';"), add:
+```typescript
+import ParentView from './pages/ParentView';
+
+// LMS Components
+import AttendanceSystem from './components/AttendanceSystem';
+import GradeReport from './components/GradeReport';
+```
+
+2. After line 162 (after mission/advanced route), before Teacher Routes comment, add:
+```typescript
+        {/* LMS Routes - Students and Teachers */}
+        <Route path="/grades" element={<ProtectedRoute allowedRoles={['student', 'teacher']}><GradeReport /></ProtectedRoute>} />
+        <Route path="/attendance" element={<ProtectedRoute allowedRoles={['student', 'teacher']}><AttendanceSystem /></ProtectedRoute>} />
+
+        {/* Public Parent View - No authentication required */}
+        <Route path="/parent/:shareCode" element={<ParentView />} />
+```

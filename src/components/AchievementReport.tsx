@@ -96,25 +96,12 @@ const AchievementReport: React.FC = () => {
       .slice(0, 3);
   }, [conceptAnalysis]);
 
-  // Calculate learning heatmap for last 30 days
+  // Calculate learning heatmap for last 30 days from real data
   const learningHeatmap = useMemo(() => {
-    const days: LearningDay[] = [];
-    const today = new Date();
-
-    for (let i = 29; i >= 0; i--) {
-      const date = new Date(today);
-      date.setDate(date.getDate() - i);
-      const dateStr = date.toISOString().split('T')[0];
-
-      // Count missions completed on this date (would need timestamp tracking in real app)
-      days.push({
-        date: dateStr,
-        missions: 0, // Placeholder - would need activity timestamps
-      });
-    }
-
-    return days;
-  }, []);
+    // Get real activity data from progressStore
+    const getLast30DaysActivity = useProgressStore.getState().getLast30DaysActivity;
+    return getLast30DaysActivity();
+  }, [progress.completedMissions]); // Recalculate when missions change
 
   // Get earned and upcoming badges
   const earnedBadges = badges.filter(b => progress.earnedBadges.includes(b.id));

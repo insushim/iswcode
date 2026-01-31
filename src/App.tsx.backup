@@ -35,11 +35,6 @@ import TeacherAnalytics from './pages/TeacherAnalytics';
 import TeacherAssignments from './pages/TeacherAssignments';
 import AdminDashboard from './pages/AdminDashboard';
 
-// LMS Components
-import AttendanceSystem from './components/AttendanceSystem';
-import GradeReport from './components/GradeReport';
-import ParentView from './pages/ParentView';
-
 // 보호된 라우트 컴포넌트
 const ProtectedRoute: React.FC<{ children: React.ReactNode; allowedRoles?: ('student' | 'teacher' | 'admin')[] }> = ({ children, allowedRoles }) => {
   const { isAuthenticated, authUser, isLoading } = useAuthStore();
@@ -166,10 +161,6 @@ const App: React.FC = () => {
         <Route path="/practice" element={<ProtectedRoute allowedRoles={['student']}><Practice /></ProtectedRoute>} />
         <Route path="/mission/advanced/:missionId" element={<ProtectedRoute allowedRoles={['student']}><MissionWrapper /></ProtectedRoute>} />
 
-        {/* LMS Routes - 출석, 성적 */}
-        <Route path="/grades" element={<ProtectedRoute allowedRoles={['student', 'teacher']}><GradeReport /></ProtectedRoute>} />
-        <Route path="/attendance" element={<ProtectedRoute allowedRoles={['student', 'teacher']}><AttendanceSystem /></ProtectedRoute>} />
-
         {/* Teacher Routes */}
         <Route path="/teacher" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherDashboard /></ProtectedRoute>} />
         <Route path="/teacher/analytics" element={<ProtectedRoute allowedRoles={['teacher']}><TeacherAnalytics /></ProtectedRoute>} />
@@ -177,9 +168,6 @@ const App: React.FC = () => {
 
         {/* Admin Routes */}
         <Route path="/admin" element={<ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>} />
-
-        {/* Public Routes - 학부모 뷰 (인증 불필요) */}
-        <Route path="/parent/:shareCode" element={<ParentView />} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/login" replace />} />

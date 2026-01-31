@@ -537,3 +537,39 @@ export interface RoomPlacement {
   rotation?: number;
   scale?: number;
 }
+
+// Assignment & Feedback Types
+export interface Assignment {
+  id: string;
+  title: string;
+  description: string;
+  missionIds: string[];
+  dueDate: string;
+  classId: string;
+  teacherId: string;
+  createdAt: string;
+  status: 'active' | 'closed';
+}
+
+export interface StudentSubmission {
+  id: string;
+  assignmentId: string;
+  studentId: string;
+  studentName: string;
+  submittedAt: string;
+  completedMissions: string[];
+  totalMissions: number;
+  score: number;
+  feedback?: TeacherFeedback;
+}
+
+export interface TeacherFeedback {
+  id: string;
+  assignmentId: string;
+  studentId: string;
+  teacherId: string;
+  content: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  createdAt: string;
+  isRead: boolean;
+}

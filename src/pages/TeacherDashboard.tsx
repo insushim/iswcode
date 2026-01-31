@@ -5,7 +5,7 @@ import {
   Users, Plus, Copy, CheckCircle, TrendingUp, Clock, Target,
   ChevronRight, Flame, Award, BookOpen, BarChart3, Settings,
   RefreshCw, Search, Filter, LogOut, GraduationCap, UserPlus,
-  Trash2, AlertCircle, X, Download, Upload
+  Trash2, AlertCircle, X, Download, Upload, ClipboardList
 } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
 import {
@@ -362,13 +362,22 @@ const TeacherDashboard: React.FC = () => {
             </div>
             <div className="flex items-center gap-3">
               {hasClass && (
-                <button
-                  onClick={() => navigate('/teacher/analytics')}
-                  className="flex items-center gap-2 px-4 py-2.5 bg-violet-500/10 hover:bg-violet-500/20 border border-violet-500/30 text-violet-400 rounded-xl transition-all"
-                >
-                  <BarChart3 className="w-4 h-4" />
-                  <span className="hidden sm:inline">학습 분석</span>
-                </button>
+                <>
+                  <button
+                    onClick={() => navigate('/teacher/assignments')}
+                    className="flex items-center gap-2 px-4 py-2.5 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 rounded-xl transition-all"
+                  >
+                    <ClipboardList className="w-4 h-4" />
+                    <span className="hidden sm:inline">과제 관리</span>
+                  </button>
+                  <button
+                    onClick={() => navigate('/teacher/analytics')}
+                    className="flex items-center gap-2 px-4 py-2.5 bg-violet-500/10 hover:bg-violet-500/20 border border-violet-500/30 text-violet-400 rounded-xl transition-all"
+                  >
+                    <BarChart3 className="w-4 h-4" />
+                    <span className="hidden sm:inline">학습 분석</span>
+                  </button>
+                </>
               )}
               {!hasClass && (
                 <button

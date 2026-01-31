@@ -21,66 +21,55 @@ import {
   ArrowLeft,
 } from 'lucide-react';
 import { useAuthStore } from '../stores/authStore';
-import { getClassStudents, getStudentProgressData } from '../services/authService';
+import { getClassStudents, subscribeToClassProgress } from '../services/authService';
+import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
+import { db } from '../config/firebase';
+import { allUnits } from '../data/curriculum';
 import type { StudentProgress } from '../types';
+import type { MissionHistory } from '../stores/progressStore';
 
-// Demo 데이터 생성 함수
-const generateDemoStudents = (): StudentProgress[] => {
-  const names = [
-    '김민준', '이서연', '박지호', '최유나', '정도윤',
-    '강서우', '윤지민', '임채원', '한예준', '오서진',
-    '신우진', '배수아', '권민서', '조현우', '송지우',
-    '황시윤', '구하늘', '홍하린', '노예은', '서준혁'
-  ];
-
-  return names.map((name, idx) => {
-    const level = Math.floor(Math.random() * 8) + 1;
-    const totalMissions = 100 + Math.floor(Math.random() * 50);
-    const completedMissions = Math.floor(Math.random() * totalMissions * 0.7);
-    const streak = Math.floor(Math.random() * 30);
-    const daysAgo = Math.floor(Math.random() * 7);
-    const lastActiveDate = new Date();
-    lastActiveDate.setDate(lastActiveDate.getDate() - daysAgo);
-
-    return {
-      studentId: `student-${idx}`,
-      studentName: name,
-      studentAvatar: '',
-      level,
-      totalExp: level * 1000 + Math.floor(Math.random() * 1000),
-      completedMissions,
-      totalMissions,
-      streak,
-      lastActiveDate: lastActiveDate.toISOString(),
-      weeklyProgress: Math.floor(Math.random() * 15),
-    };
-  });
-};
-
-// 개념별 데이터 (데모)
+// 개념별 데이터
 interface ConceptData {
   concept: string;
   avgAccuracy: number;
   totalAttempts: number;
 }
 
-const demoConceptData: ConceptData[] = [
-  { concept: '변수와 자료형', avgAccuracy: 87, totalAttempts: 145 },
-  { concept: '조건문 (if/else)', avgAccuracy: 82, totalAttempts: 132 },
-  { concept: '반복문 (for/while)', avgAccuracy: 68, totalAttempts: 98 },
-  { concept: '함수 정의', avgAccuracy: 75, totalAttempts: 112 },
-  { concept: '리스트와 배열', avgAccuracy: 71, totalAttempts: 89 },
-  { concept: '문자열 처리', avgAccuracy: 91, totalAttempts: 156 },
-  { concept: '딕셔너리', avgAccuracy: 63, totalAttempts: 67 },
-];
+// Firebase에서 학생의 진행 데이터를 가져오는 헬퍼 함수
+const getStudentProgressFromFirebase = async (studentId: string) => {
+  try {
+    // Zustand persist storage에서 progress 데이터 가져오기
+    const progressDoc = await getDoc(doc(db, 'progress', studentId));
 
-// 주간 활동 데이터 (데모)
-const generateWeeklyData = () => {
-  const days = ['월', '화', '수', '목', '금', '토', '일'];
-  return days.map(day => ({
-    day,
-    count: Math.floor(Math.random() * 50) + 10,
-  }));
+    if (!progressDoc.exists()) {
+      return {
+        completedMissions: [],
+        missionHistory: [],
+        unitsProgress: {},
+      };
+    }
+
+    return progressDoc.data();
+  } catch (error) {
+    console.error('Error fetching student progress:', error);
+    return {
+      completedMissions: [],
+      missionHistory: [],
+      unitsProgress: {},
+    };
+  }
+};
+
+// 사용자 데이터 가져오기
+const getUserData = async (studentId: string) => {
+  try {
+    const userDoc = await getDoc(doc(db, 'users', studentId));
+    if (!userDoc.exists()) return null;
+    return userDoc.data();
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    return null;
+  }
 };
 
 // Stat Card Component
@@ -157,6 +146,9 @@ const TeacherAnalytics: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [sortBy, setSortBy] = useState<'name' | 'level' | 'progress' | 'lastActive'>('progress');
   const [filterSlow, setFilterSlow] = useState(false);
+  const [conceptData, setConceptData] = useState<ConceptData[]>([]);
+  const [weeklyData, setWeeklyData] = useState<{ day: string; count: number }[]>([]);
+  const [topMissions, setTopMissions] = useState<{ name: string; count: number }[]>([]);
 
   useEffect(() => {
     loadStudentData();
@@ -165,40 +157,215 @@ const TeacherAnalytics: React.FC = () => {
   const loadStudentData = async () => {
     setIsLoading(true);
 
-    // Demo 데이터 사용
-    setTimeout(() => {
-      setStudents(generateDemoStudents());
+    if (classes.length === 0) {
       setIsLoading(false);
-    }, 500);
+      return;
+    }
 
-    // 실제 데이터 로딩 (주석 처리)
-    /*
-    if (classes.length > 0) {
-      try {
-        const classStudents = await getClassStudents(classes[0].id);
-        const progressData = await Promise.all(
-          classStudents.map(async (student) => {
-            const progress = await getStudentProgressData(student.uid);
-            return {
-              studentId: student.uid,
-              studentName: student.displayName,
-              studentAvatar: student.photoURL || '',
-              level: progress?.level || 1,
-              totalExp: progress?.totalExp || 0,
-              completedMissions: progress?.completedMissions?.length || 0,
-              totalMissions: 100,
-              streak: progress?.streak || 0,
-              lastActiveDate: progress?.lastActiveDate || new Date().toISOString(),
-              weeklyProgress: progress?.weeklyProgress || 0,
-            };
-          })
-        );
-        setStudents(progressData);
-      } catch (error) {
-        console.error('Failed to load student data:', error);
+    try {
+      // 첫 번째 학급의 학생들 가져오기
+      const classStudents = await getClassStudents(classes[0].id);
+
+      if (classStudents.length === 0) {
+        setStudents([]);
+        setIsLoading(false);
+        return;
+      }
+
+      // 전체 미션 수 계산
+      const totalMissions = allUnits.reduce(
+        (sum, unit) => sum + unit.weeks.reduce((wSum, w) => wSum + w.missions.length, 0),
+        0
+      );
+
+      // 각 학생의 진행 데이터 가져오기
+      const progressData = await Promise.all(
+        classStudents.map(async (student) => {
+          const progress = await getStudentProgressFromFirebase(student.uid);
+          const userData = await getUserData(student.uid);
+
+          // 완료된 미션 수 (중복 제거 - _perfect 제외)
+          const completedMissions = progress.completedMissions?.filter(
+            (m: string) => !m.includes('_perfect')
+          ) || [];
+
+          // 미션 히스토리에서 최근 활동 날짜 가져오기
+          const missionHistory: MissionHistory[] = progress.missionHistory || [];
+          const lastActiveDate = missionHistory.length > 0
+            ? missionHistory[missionHistory.length - 1].completedAt
+            : new Date().toISOString();
+
+          // 최근 7일간 완료한 미션 수
+          const weekAgo = new Date();
+          weekAgo.setDate(weekAgo.getDate() - 7);
+          const weeklyProgress = missionHistory.filter(
+            (h: MissionHistory) => new Date(h.completedAt) >= weekAgo
+          ).length;
+
+          // 스트릭 계산 (연속 학습 일수)
+          const streak = calculateStreak(missionHistory);
+
+          // 레벨 계산 (userData에서 가져오거나 기본값)
+          const level = userData?.level || Math.floor(completedMissions.length / 10) + 1;
+          const totalExp = userData?.totalExp || completedMissions.length * 100;
+
+          return {
+            studentId: student.uid,
+            studentName: student.displayName,
+            studentAvatar: student.photoURL || '',
+            level,
+            totalExp,
+            completedMissions: completedMissions.length,
+            totalMissions,
+            streak,
+            lastActiveDate,
+            weeklyProgress,
+          };
+        })
+      );
+
+      setStudents(progressData);
+
+      // 개념별 분석 데이터 계산
+      await calculateConceptAnalysis(classStudents);
+
+      // 주간 활동 데이터 계산
+      await calculateWeeklyActivity(classStudents);
+
+      // 인기 미션 계산
+      await calculateTopMissions(classStudents);
+
+    } catch (error) {
+      console.error('Failed to load student data:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // 스트릭 계산 함수
+  const calculateStreak = (history: MissionHistory[]): number => {
+    if (history.length === 0) return 0;
+
+    const dates = history
+      .map(h => h.completedAt.split('T')[0])
+      .filter((date, index, self) => self.indexOf(date) === index)
+      .sort()
+      .reverse();
+
+    let streak = 0;
+    const today = new Date().toISOString().split('T')[0];
+    let currentDate = new Date(today);
+
+    for (const date of dates) {
+      const checkDate = currentDate.toISOString().split('T')[0];
+      if (date === checkDate) {
+        streak++;
+        currentDate.setDate(currentDate.getDate() - 1);
+      } else {
+        break;
       }
     }
-    */
+
+    return streak;
+  };
+
+  // 개념별 분석 계산
+  const calculateConceptAnalysis = async (classStudents: any[]) => {
+    const conceptMap = new Map<string, { totalScore: number; count: number }>();
+
+    for (const student of classStudents) {
+      const progress = await getStudentProgressFromFirebase(student.uid);
+      const missionHistory: MissionHistory[] = progress.missionHistory || [];
+
+      // 각 미션의 개념별로 점수 집계
+      missionHistory.forEach((history: MissionHistory) => {
+        const mission = allUnits
+          .flatMap(u => u.weeks.flatMap(w => w.missions))
+          .find(m => m.id === history.missionId);
+
+        if (mission?.concept) {
+          const existing = conceptMap.get(mission.concept) || { totalScore: 0, count: 0 };
+          conceptMap.set(mission.concept, {
+            totalScore: existing.totalScore + history.score,
+            count: existing.count + 1,
+          });
+        }
+      });
+    }
+
+    const conceptAnalysis: ConceptData[] = Array.from(conceptMap.entries()).map(([concept, data]) => ({
+      concept,
+      avgAccuracy: Math.round(data.totalScore / data.count),
+      totalAttempts: data.count,
+    })).sort((a, b) => b.totalAttempts - a.totalAttempts);
+
+    setConceptData(conceptAnalysis);
+  };
+
+  // 주간 활동 계산
+  const calculateWeeklyActivity = async (classStudents: any[]) => {
+    const dayMap = new Map<string, number>();
+    const days = ['일', '월', '화', '수', '목', '금', '토'];
+
+    // 지난 7일 초기화
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      const dayName = days[date.getDay()];
+      dayMap.set(dayName, 0);
+    }
+
+    // 학생들의 활동 집계
+    for (const student of classStudents) {
+      const progress = await getStudentProgressFromFirebase(student.uid);
+      const missionHistory: MissionHistory[] = progress.missionHistory || [];
+
+      const weekAgo = new Date();
+      weekAgo.setDate(weekAgo.getDate() - 7);
+
+      missionHistory.forEach((history: MissionHistory) => {
+        const completedDate = new Date(history.completedAt);
+        if (completedDate >= weekAgo) {
+          const dayName = days[completedDate.getDay()];
+          dayMap.set(dayName, (dayMap.get(dayName) || 0) + 1);
+        }
+      });
+    }
+
+    const weeklyActivity = Array.from(dayMap.entries()).map(([day, count]) => ({ day, count }));
+    setWeeklyData(weeklyActivity);
+  };
+
+  // 인기 미션 TOP 5 계산
+  const calculateTopMissions = async (classStudents: any[]) => {
+    const missionMap = new Map<string, { name: string; count: number }>();
+
+    for (const student of classStudents) {
+      const progress = await getStudentProgressFromFirebase(student.uid);
+      const completedMissions = progress.completedMissions?.filter(
+        (m: string) => !m.includes('_perfect')
+      ) || [];
+
+      completedMissions.forEach((missionId: string) => {
+        const mission = allUnits
+          .flatMap(u => u.weeks.flatMap(w => w.missions))
+          .find(m => m.id === missionId);
+
+        if (mission) {
+          const existing = missionMap.get(missionId) || { name: mission.title, count: 0 };
+          missionMap.set(missionId, {
+            name: mission.title,
+            count: existing.count + 1,
+          });
+        }
+      });
+    }
+
+    const topMissionsList = Array.from(missionMap.values())
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
+    setTopMissions(topMissionsList);
   };
 
   // 통계 계산
@@ -254,27 +421,46 @@ const TeacherAnalytics: React.FC = () => {
     return sorted;
   }, [students, sortBy, filterSlow]);
 
-  // 주간 데이터
-  const weeklyData = useMemo(() => generateWeeklyData(), []);
+  // 주간 데이터 최대값 계산
   const maxWeeklyCount = Math.max(...weeklyData.map(d => d.count), 1);
-
-  // 상위 미션
-  const topMissions = useMemo(() => {
-    return [
-      { name: 'Hello World 출력', count: 18 },
-      { name: '변수 선언 연습', count: 16 },
-      { name: '조건문 기초', count: 15 },
-      { name: '반복문 마스터', count: 13 },
-      { name: 'HTML 기초', count: 12 },
-    ];
-  }, []);
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-white text-lg">학습 데이터 분석 중...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // 빈 상태 처리
+  if (students.length === 0) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6">
+        <div className="max-w-7xl mx-auto">
+          <button
+            onClick={() => navigate('/teacher')}
+            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span className="text-sm">학급 관리로 돌아가기</span>
+          </button>
+          <div className="flex flex-col items-center justify-center py-20">
+            <Users className="w-20 h-20 text-slate-700 mb-6" />
+            <h2 className="text-2xl font-bold text-white mb-3">학생 데이터가 없습니다</h2>
+            <p className="text-slate-400 text-center mb-8 max-w-md">
+              학급에 학생을 추가하고 학생들이 미션을 완료하면<br />
+              여기에 학습 분석 데이터가 표시됩니다.
+            </p>
+            <button
+              onClick={() => navigate('/teacher')}
+              className="px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-xl font-medium transition-colors"
+            >
+              학급 관리로 이동
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -400,7 +586,14 @@ const TeacherAnalytics: React.FC = () => {
               가장 많이 완료된 미션 TOP 5
             </h2>
             <div className="space-y-4">
-              {topMissions.map((mission, index) => (
+              {topMissions.length === 0 ? (
+                <div className="text-center py-12 text-slate-500">
+                  <Award className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                  <p>아직 완료된 미션이 없습니다</p>
+                  <p className="text-sm mt-1">학생들이 미션을 완료하면 데이터가 표시됩니다</p>
+                </div>
+              ) : (
+                topMissions.map((mission, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -431,7 +624,8 @@ const TeacherAnalytics: React.FC = () => {
                     </div>
                   </div>
                 </motion.div>
-              ))}
+                ))
+              )}
             </div>
           </motion.div>
         </div>
@@ -448,7 +642,14 @@ const TeacherAnalytics: React.FC = () => {
             개념별 평균 이해도
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {demoConceptData.map((concept, index) => (
+            {conceptData.length === 0 ? (
+              <div className="col-span-2 text-center py-12 text-slate-500">
+                <BookOpen className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                <p>아직 개념별 데이터가 없습니다</p>
+                <p className="text-sm mt-1">학생들이 미션을 완료하면 데이터가 표시됩니다</p>
+              </div>
+            ) : (
+              conceptData.map((concept, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
@@ -493,7 +694,8 @@ const TeacherAnalytics: React.FC = () => {
                   </div>
                 )}
               </motion.div>
-            ))}
+              ))
+            )}
           </div>
         </motion.div>
 

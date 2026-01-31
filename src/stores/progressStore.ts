@@ -3,6 +3,17 @@ import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import type { Progress, UnitProgress, Badge, Achievement, Challenge, Activity } from '../types';
 import { getUnitById } from '../data/curriculum';
+import { syncProgressToFirebase, recordMissionCompletion } from '../services/progressService';
+import { auth } from '../config/firebase';
+
+export interface MissionHistory {
+  missionId: string;
+  completedAt: string;
+  attempts: number;
+  score: number;
+  perfect: boolean;
+  timeSpent?: number; // in seconds
+}
 
 interface ProgressState {
   progress: Progress;
@@ -11,9 +22,10 @@ interface ProgressState {
   dailyChallenge: Challenge | null;
   weeklyChallenge: Challenge | null;
   activities: Activity[];
+  missionHistory: MissionHistory[];
 
   // Actions
-  completeMission: (missionId: string, unitId: string, perfect: boolean) => void;
+  completeMission: (missionId: string, unitId: string, perfect: boolean, attempts?: number, score?: number, timeSpent?: number) => void;
   completeProject: (projectId: string) => void;
   earnBadge: (badgeId: string) => void;
   updateAchievement: (achievementId: string, progress: number) => void;
@@ -24,6 +36,8 @@ interface ProgressState {
   getMissionStatus: (missionId: string) => { completed: boolean; perfect: boolean };
   getUnitProgress: (unitId: string) => UnitProgress | undefined;
   resetProgress: () => void;
+  getMissionHistory: (missionId?: string) => MissionHistory[];
+  getLast30DaysActivity: () => { date: string; missions: number }[];
 
   // Mastery Gate System
   getWeekKeyMissionProgress: (unitId: string, weekId: string) => { completed: number; total: number; percent: number };
@@ -294,8 +308,9 @@ export const useProgressStore = create<ProgressState>()(
       dailyChallenge: null,
       weeklyChallenge: null,
       activities: [],
+      missionHistory: [],
 
-      completeMission: (missionId: string, unitId: string, perfect: boolean) => {
+      completeMission: (missionId: string, unitId: string, perfect: boolean, attempts: number = 1, score: number = perfect ? 100 : 80, timeSpent?: number) => {
         set((state) => {
           // Add to completed missions if not already there
           if (!state.progress.completedMissions.includes(missionId)) {
@@ -305,6 +320,17 @@ export const useProgressStore = create<ProgressState>()(
             if (perfect) {
               state.progress.completedMissions.push(`${missionId}_perfect`);
             }
+
+            // Add to mission history
+            const historyEntry: MissionHistory = {
+              missionId,
+              completedAt: new Date().toISOString(),
+              attempts,
+              score,
+              perfect,
+              timeSpent,
+            };
+            state.missionHistory.push(historyEntry);
 
             // Update unit progress
             if (!state.progress.unitsProgress[unitId]) {
@@ -330,6 +356,16 @@ export const useProgressStore = create<ProgressState>()(
               timestamp: new Date().toISOString(),
               icon: perfect ? '💯' : '✅',
             });
+
+            // Sync to Firebase if user is logged in
+            const currentUser = auth.currentUser;
+            if (currentUser) {
+              // Record this specific mission completion
+              recordMissionCompletion(currentUser.uid, historyEntry);
+
+              // Sync full progress
+              syncProgressToFirebase(currentUser.uid, state.progress, state.missionHistory);
+            }
           }
 
           // Update achievements
@@ -492,7 +528,37 @@ export const useProgressStore = create<ProgressState>()(
           state.dailyChallenge = null;
           state.weeklyChallenge = null;
           state.activities = [];
+          state.missionHistory = [];
         });
+      },
+
+      getMissionHistory: (missionId?: string) => {
+        const history = get().missionHistory;
+        if (missionId) {
+          return history.filter(h => h.missionId === missionId);
+        }
+        return history;
+      },
+
+      getLast30DaysActivity: () => {
+        const history = get().missionHistory;
+        const today = new Date();
+        const days: { date: string; missions: number }[] = [];
+
+        for (let i = 29; i >= 0; i--) {
+          const date = new Date(today);
+          date.setDate(date.getDate() - i);
+          const dateStr = date.toISOString().split('T')[0];
+
+          const missionsOnDay = history.filter(h => {
+            const completedDate = h.completedAt.split('T')[0];
+            return completedDate === dateStr;
+          }).length;
+
+          days.push({ date: dateStr, missions: missionsOnDay });
+        }
+
+        return days;
       },
 
       // 주차의 핵심 미션 완료율 계산
