@@ -1,14 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ChevronRight, Lock, CheckCircle2, Clock, Star, ChevronDown,
-  BookOpen, Target, ArrowLeft, Play, PlayCircle, Bot, Layers
+  BookOpen, Target, ArrowLeft, Play, PlayCircle, Bot, Layers,
+  TrendingUp, Award, Flame, Map, Filter, Sparkles, GraduationCap,
+  Code2, Palette, Brain, Rocket, Zap, Trophy
 } from 'lucide-react';
 import { allUnits, getUnitById } from '../data/curriculum';
 import { useProgressStore } from '../stores/progressStore';
 import { useUserStore } from '../stores/userStore';
 import type { Unit, Week, Mission } from '../types';
+
+// 학년 그룹 정의
+const GRADE_GROUPS = [
+  { id: 'all', label: '전체', grades: [1,2,3,4,5,6,7,8,9,10,11,12], color: 'from-indigo-500 to-purple-500' },
+  { id: 'elementary-low', label: '초등 저학년', grades: [1,2,3], color: 'from-green-400 to-emerald-500', icon: '🌱' },
+  { id: 'elementary-high', label: '초등 고학년', grades: [4,5,6], color: 'from-blue-400 to-cyan-500', icon: '🌿' },
+  { id: 'middle', label: '중학교', grades: [7,8,9], color: 'from-purple-400 to-pink-500', icon: '🌳' },
+  { id: 'high', label: '고등학교', grades: [10,11,12], color: 'from-orange-400 to-red-500', icon: '🏔️' },
+];
+
+// 유닛별 학년 매핑 (2022 개정교육과정 기반)
+const UNIT_GRADE_MAP: Record<string, { grades: number[]; standard: string; skills: string[] }> = {
+  'unit-1': {
+    grades: [3,4],
+    standard: '[4정01-01] 컴퓨터 과학의 기초 개념',
+    skills: ['논리적 사고', '문제 분해', '패턴 인식']
+  },
+  'unit-2': {
+    grades: [3,4,5],
+    standard: '[4정02-01] 블록형 프로그래밍',
+    skills: ['순차', '반복', '조건']
+  },
+  'unit-3': {
+    grades: [5,6],
+    standard: '[6정02-01] 텍스트 프로그래밍 기초',
+    skills: ['변수', '자료형', '입출력']
+  },
+  'unit-4': {
+    grades: [6,7],
+    standard: '[6정02-02] 프로그래밍 심화',
+    skills: ['함수', '리스트', '알고리즘']
+  },
+  'unit-5': {
+    grades: [5,6,7],
+    standard: '[6정03-01] 웹 기초',
+    skills: ['HTML', 'CSS', '웹구조']
+  },
+  'unit-6': {
+    grades: [7,8,9],
+    standard: '[9정02-01] 자바스크립트',
+    skills: ['DOM', '이벤트', '웹앱']
+  },
+  'unit-7': {
+    grades: [8,9,10],
+    standard: '[9정03-01] 웹 프로젝트',
+    skills: ['프론트엔드', 'API', '배포']
+  },
+  'unit-8': {
+    grades: [9,10,11],
+    standard: '[고정02-01] AI/창작 코딩',
+    skills: ['AI API', '창작', '자동화']
+  },
+  'unit-9': {
+    grades: [10,11,12],
+    standard: '[고정03-01] 캡스톤 프로젝트',
+    skills: ['설계', '구현', '협업']
+  },
+};
 
 const Learn: React.FC = () => {
   const { unitId, weekId } = useParams();
@@ -216,24 +276,319 @@ const LessonItem: React.FC<{
   );
 };
 
+// 진도 통계 대시보드 컴포넌트
+const ProgressDashboard: React.FC<{
+  totalMissions: number;
+  completedMissions: number;
+  totalUnits: number;
+  completedUnits: number;
+  streak: number;
+  level: number;
+}> = ({ totalMissions, completedMissions, totalUnits, completedUnits, streak, level }) => {
+  const overallProgress = totalMissions > 0 ? Math.round((completedMissions / totalMissions) * 100) : 0;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="mb-8 p-6 rounded-2xl bg-gradient-to-br from-slate-800 via-slate-800 to-slate-700 border border-slate-600/50 relative overflow-hidden"
+    >
+      {/* 배경 데코레이션 */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+      <div className="relative z-10">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-xl font-bold text-white flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-indigo-400" />
+              나의 학습 현황
+            </h2>
+            <p className="text-slate-400 text-sm mt-1">꾸준히 성장하고 있어요!</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="px-3 py-1.5 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center gap-1.5">
+              <Flame className="w-4 h-4 text-orange-400" />
+              <span className="text-sm font-bold text-orange-300">{streak}일 연속</span>
+            </div>
+            <div className="px-3 py-1.5 rounded-lg bg-cyan-500/20 border border-cyan-500/30 flex items-center gap-1.5">
+              <Award className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm font-bold text-cyan-300">Lv.{level}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 진행률 바 */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between text-sm mb-2">
+            <span className="text-slate-400">전체 진행률</span>
+            <span className="font-bold text-white">{overallProgress}%</span>
+          </div>
+          <div className="h-3 bg-slate-700 rounded-full overflow-hidden">
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: `${overallProgress}%` }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+              className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full relative"
+            >
+              <div className="absolute inset-0 bg-white/20 animate-pulse" />
+            </motion.div>
+          </div>
+        </div>
+
+        {/* 통계 카드 */}
+        <div className="grid grid-cols-4 gap-4">
+          <div className="p-4 rounded-xl bg-slate-700/50 border border-slate-600/50 text-center">
+            <div className="text-2xl font-bold text-white mb-1">{completedMissions}</div>
+            <div className="text-xs text-slate-400">완료한 미션</div>
+            <div className="text-[10px] text-slate-500 mt-1">/ {totalMissions}개</div>
+          </div>
+          <div className="p-4 rounded-xl bg-slate-700/50 border border-slate-600/50 text-center">
+            <div className="text-2xl font-bold text-emerald-400 mb-1">{completedUnits}</div>
+            <div className="text-xs text-slate-400">완료한 유닛</div>
+            <div className="text-[10px] text-slate-500 mt-1">/ {totalUnits}개</div>
+          </div>
+          <div className="p-4 rounded-xl bg-slate-700/50 border border-slate-600/50 text-center">
+            <div className="text-2xl font-bold text-amber-400 mb-1">{Math.round(totalMissions * 10 * (overallProgress / 100))}</div>
+            <div className="text-xs text-slate-400">획득 XP</div>
+            <div className="text-[10px] text-slate-500 mt-1">총 예상</div>
+          </div>
+          <div className="p-4 rounded-xl bg-slate-700/50 border border-slate-600/50 text-center">
+            <div className="text-2xl font-bold text-purple-400 mb-1">
+              {Math.ceil((totalMissions - completedMissions) * 8 / 60)}h
+            </div>
+            <div className="text-xs text-slate-400">남은 학습</div>
+            <div className="text-[10px] text-slate-500 mt-1">예상 시간</div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// 학년 필터 컴포넌트
+const GradeFilter: React.FC<{
+  selectedGrade: string;
+  onSelectGrade: (grade: string) => void;
+}> = ({ selectedGrade, onSelectGrade }) => {
+  return (
+    <div className="flex items-center gap-2 mb-6 overflow-x-auto pb-2 scrollbar-hide">
+      {GRADE_GROUPS.map((group) => (
+        <button
+          key={group.id}
+          onClick={() => onSelectGrade(group.id)}
+          className={`
+            flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all
+            ${selectedGrade === group.id
+              ? `bg-gradient-to-r ${group.color} text-white shadow-lg`
+              : 'bg-slate-700/50 text-slate-400 hover:bg-slate-700 hover:text-white border border-slate-600/50'
+            }
+          `}
+        >
+          {group.icon && <span>{group.icon}</span>}
+          {group.label}
+        </button>
+      ))}
+    </div>
+  );
+};
+
+// 학습 경로 로드맵 컴포넌트
+const LearningRoadmap: React.FC<{
+  units: Unit[];
+  progress: Record<string, { missionsCompleted: number }>;
+  userLevel: number;
+  onSelectUnit: (unitId: string) => void;
+}> = ({ units, progress, userLevel, onSelectUnit }) => {
+  return (
+    <div className="mb-8 p-6 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+      <div className="flex items-center gap-2 mb-6">
+        <Map className="w-5 h-5 text-indigo-400" />
+        <h3 className="text-lg font-bold text-white">학습 경로</h3>
+        <span className="text-xs text-slate-500">클릭하여 바로 이동</span>
+      </div>
+
+      <div className="relative">
+        {/* 연결선 */}
+        <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-700 -translate-y-1/2 z-0" />
+
+        <div className="flex items-center justify-between relative z-10">
+          {units.slice(0, 9).map((unit, index) => {
+            const isLocked = userLevel < unit.unlockLevel;
+            const unitProgress = progress[unit.id];
+            const percent = unitProgress
+              ? Math.round((unitProgress.missionsCompleted / unit.totalMissions) * 100)
+              : 0;
+            const isCompleted = percent === 100;
+            const isInProgress = percent > 0 && percent < 100;
+
+            return (
+              <motion.button
+                key={unit.id}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+                onClick={() => !isLocked && onSelectUnit(unit.id)}
+                disabled={isLocked}
+                className={`
+                  relative flex flex-col items-center group
+                  ${isLocked ? 'cursor-not-allowed' : 'cursor-pointer'}
+                `}
+              >
+                {/* 노드 */}
+                <div
+                  className={`
+                    w-12 h-12 rounded-full flex items-center justify-center text-xl border-2 transition-all
+                    ${isCompleted
+                      ? 'bg-emerald-500 border-emerald-400 shadow-lg shadow-emerald-500/30'
+                      : isInProgress
+                      ? 'bg-indigo-500 border-indigo-400 shadow-lg shadow-indigo-500/30 animate-pulse'
+                      : isLocked
+                      ? 'bg-slate-700 border-slate-600 opacity-50'
+                      : 'bg-slate-700 border-slate-600 group-hover:border-indigo-400 group-hover:bg-slate-600'
+                    }
+                  `}
+                >
+                  {isCompleted ? (
+                    <CheckCircle2 className="w-6 h-6 text-white" />
+                  ) : isLocked ? (
+                    <Lock className="w-5 h-5 text-slate-500" />
+                  ) : (
+                    <span>{unit.icon}</span>
+                  )}
+                </div>
+
+                {/* 진행률 링 */}
+                {!isLocked && !isCompleted && percent > 0 && (
+                  <svg className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-14 -rotate-90">
+                    <circle
+                      cx="28"
+                      cy="28"
+                      r="24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      className="text-indigo-500/30"
+                    />
+                    <circle
+                      cx="28"
+                      cy="28"
+                      r="24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeDasharray={`${percent * 1.5} 150`}
+                      className="text-indigo-400"
+                    />
+                  </svg>
+                )}
+
+                {/* 라벨 */}
+                <div className="mt-2 text-center">
+                  <div className={`text-[10px] font-bold ${isLocked ? 'text-slate-600' : 'text-slate-400'}`}>
+                    Unit {unit.number}
+                  </div>
+                  {!isLocked && percent > 0 && (
+                    <div className="text-[9px] text-indigo-400">{percent}%</div>
+                  )}
+                </div>
+
+                {/* 툴팁 */}
+                <div className="absolute bottom-full mb-2 px-3 py-2 bg-slate-900 rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-slate-700 shadow-xl z-20">
+                  <div className="font-bold text-white">{unit.title}</div>
+                  <div className="text-slate-400">{unit.totalMissions}개 미션</div>
+                </div>
+              </motion.button>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Unit List Component
 const UnitList: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useUserStore();
   const { progress } = useProgressStore();
+  const [selectedGrade, setSelectedGrade] = useState('all');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
+
+  // 필터링된 유닛
+  const filteredUnits = useMemo(() => {
+    if (selectedGrade === 'all') return allUnits;
+    const gradeGroup = GRADE_GROUPS.find(g => g.id === selectedGrade);
+    if (!gradeGroup) return allUnits;
+
+    return allUnits.filter(unit => {
+      const unitGrades = UNIT_GRADE_MAP[unit.id]?.grades || [];
+      return unitGrades.some(g => gradeGroup.grades.includes(g));
+    });
+  }, [selectedGrade]);
+
+  // 전체 통계 계산
+  const stats = useMemo(() => {
+    const totalMissions = allUnits.reduce((sum, u) => sum + u.totalMissions, 0);
+    const completedMissions = Object.values(progress.unitsProgress).reduce(
+      (sum, p) => sum + (p?.missionsCompleted || 0), 0
+    );
+    const completedUnits = allUnits.filter(u => {
+      const p = progress.unitsProgress[u.id];
+      return p && p.missionsCompleted === u.totalMissions;
+    }).length;
+    return { totalMissions, completedMissions, totalUnits: allUnits.length, completedUnits };
+  }, [progress]);
 
   return (
     <div className="animate-fade-in-up">
-      {/* Top Controls */}
+      {/* 진도 통계 대시보드 */}
+      <ProgressDashboard
+        totalMissions={stats.totalMissions}
+        completedMissions={stats.completedMissions}
+        totalUnits={stats.totalUnits}
+        completedUnits={stats.completedUnits}
+        streak={user?.streak || 0}
+        level={user?.level || 1}
+      />
+
+      {/* 학습 경로 로드맵 */}
+      <LearningRoadmap
+        units={allUnits}
+        progress={progress.unitsProgress}
+        userLevel={user?.level || 1}
+        onSelectUnit={(unitId) => navigate(`/learn/${unitId}`)}
+      />
+
+      {/* 학년 필터 */}
+      <div className="flex items-center justify-between mb-4">
+        <GradeFilter selectedGrade={selectedGrade} onSelectGrade={setSelectedGrade} />
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setViewMode('list')}
+            className={`p-2 rounded-lg transition-colors ${viewMode === 'list' ? 'bg-indigo-500 text-white' : 'bg-slate-700 text-slate-400'}`}
+          >
+            <Layers className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => setViewMode('grid')}
+            className={`p-2 rounded-lg transition-colors ${viewMode === 'grid' ? 'bg-indigo-500 text-white' : 'bg-slate-700 text-slate-400'}`}
+          >
+            <Target className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      {/* 필터 결과 정보 */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <span className="px-3 py-1.5 bg-slate-700 rounded-lg text-[11px] font-bold text-slate-400 border border-slate-600 tracking-wide flex items-center gap-1.5">
-            <Layers className="w-3.5 h-3.5" />
-            전체 유닛
+            <Filter className="w-3.5 h-3.5" />
+            {selectedGrade === 'all' ? '전체' : GRADE_GROUPS.find(g => g.id === selectedGrade)?.label} 커리큘럼
           </span>
         </div>
         <div className="text-xs font-medium text-slate-500">
-          총 <span className="text-slate-300">{allUnits.length}개</span> 유닛
+          총 <span className="text-slate-300">{filteredUnits.length}개</span> 유닛
         </div>
       </div>
 
@@ -263,14 +618,16 @@ const UnitList: React.FC = () => {
         </div>
       </motion.div>
 
-      <div className="space-y-4">
-        {allUnits.map((unit, index) => {
+      {/* 유닛 목록 */}
+      <div className={viewMode === 'grid' ? 'grid grid-cols-2 gap-4' : 'space-y-4'}>
+        {filteredUnits.map((unit, index) => {
           const isLocked = user ? user.level < unit.unlockLevel : true;
           const unitProgress = progress.unitsProgress[unit.id];
           const progressPercent = unitProgress
             ? Math.round((unitProgress.missionsCompleted / unit.totalMissions) * 100)
             : 0;
           const isCompleted = progressPercent === 100;
+          const unitGradeInfo = UNIT_GRADE_MAP[unit.id];
 
           return (
             <motion.div
@@ -308,24 +665,47 @@ const UnitList: React.FC = () => {
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
                       <span className="text-xs font-black px-2 py-1 rounded bg-slate-600 text-slate-200">
                         Unit {unit.number}
                       </span>
+                      {unitGradeInfo && (
+                        <span className="text-[10px] font-bold px-2 py-1 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                          {unitGradeInfo.grades.map(g => g <= 6 ? `초${g}` : g <= 9 ? `중${g-6}` : `고${g-9}`).join(', ')}
+                        </span>
+                      )}
                       {isLocked && (
                         <span className="text-xs font-bold px-2 py-1 rounded bg-slate-700 text-slate-400">
                           Lv.{unit.unlockLevel} 필요
                         </span>
                       )}
                       {isCompleted && (
-                        <span className="text-xs font-bold px-2 py-1 rounded bg-emerald-500/20 text-emerald-400">
-                          완료!
+                        <span className="text-xs font-bold px-2 py-1 rounded bg-emerald-500/20 text-emerald-400 flex items-center gap-1">
+                          <Trophy className="w-3 h-3" /> 완료!
                         </span>
                       )}
                     </div>
 
                     <h3 className="text-xl font-bold mb-1 text-white">{unit.title}</h3>
                     <p className="text-slate-400 text-sm mb-3 line-clamp-2">{unit.description}</p>
+
+                    {/* 2022 개정교육과정 성취기준 */}
+                    {unitGradeInfo && !isLocked && (
+                      <div className="mb-3 p-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                        <div className="text-[10px] text-slate-500 mb-1 flex items-center gap-1">
+                          <GraduationCap className="w-3 h-3" />
+                          2022 개정교육과정
+                        </div>
+                        <div className="text-xs text-slate-400">{unitGradeInfo.standard}</div>
+                        <div className="flex gap-1 mt-1.5 flex-wrap">
+                          {unitGradeInfo.skills.map((skill, i) => (
+                            <span key={i} className="text-[9px] px-1.5 py-0.5 rounded bg-slate-700 text-slate-300">
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="flex items-center gap-4 text-xs text-slate-500">
                       <span className="flex items-center gap-1">
@@ -349,9 +729,11 @@ const UnitList: React.FC = () => {
                           <span className="font-bold text-slate-300">{progressPercent}%</span>
                         </div>
                         <div className="h-1.5 bg-slate-600/50 rounded-full overflow-hidden">
-                          <div
-                            className={`h-full transition-all duration-500 ${isCompleted ? 'bg-emerald-500' : 'bg-indigo-500'}`}
-                            style={{ width: `${progressPercent}%` }}
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: `${progressPercent}%` }}
+                            transition={{ duration: 0.5 }}
+                            className={`h-full ${isCompleted ? 'bg-emerald-500' : 'bg-indigo-500'}`}
                           />
                         </div>
                       </div>
@@ -365,6 +747,17 @@ const UnitList: React.FC = () => {
           );
         })}
       </div>
+
+      {/* 필터 결과가 없을 때 */}
+      {filteredUnits.length === 0 && (
+        <div className="text-center py-12">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-700/50 flex items-center justify-center">
+            <Sparkles className="w-8 h-8 text-slate-500" />
+          </div>
+          <h3 className="text-lg font-bold text-white mb-2">해당 학년의 커리큘럼 준비 중</h3>
+          <p className="text-slate-400 text-sm">곧 새로운 콘텐츠가 추가될 예정이에요!</p>
+        </div>
+      )}
     </div>
   );
 };
