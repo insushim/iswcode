@@ -5692,6 +5692,28 @@ print("안녕하세요!")`,
                               }
                     }
           ],
+          testCases: [
+            {
+              input: '',
+              expectedOutput: '안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!',
+              description: '"안녕하세요!"를 정확히 5번 출력해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!',
+              description: '각 줄마다 같은 메시지가 출력되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!',
+              description: '5줄로 출력되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!\n안녕하세요!',
+              description: 'print() 함수를 올바르게 사용해야 해요'
+            }
+          ],
           unlocked: false,
           completed: false,
           perfectScore: false,
@@ -5933,6 +5955,28 @@ print(10)`,
                                         "wrong": "요구사항을 하나씩 체크하며 완성하세요."
                               }
                     }
+          ],
+          testCases: [
+            {
+              input: '',
+              expectedOutput: '1\n2\n3\n4\n5\n6\n7\n8\n9\n10',
+              description: '1부터 10까지 순서대로 출력해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '1\n2\n3\n4\n5\n6\n7\n8\n9\n10',
+              description: '각 숫자가 한 줄씩 출력되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '1\n2\n3\n4\n5\n6\n7\n8\n9\n10',
+              description: '10개의 숫자가 모두 출력되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '1\n2\n3\n4\n5\n6\n7\n8\n9\n10',
+              description: 'print() 함수를 올바르게 사용해야 해요'
+            }
           ],
           unlocked: false,
           completed: false,
@@ -9292,6 +9336,28 @@ print(f"입장료: {price}원")`,
                               }
                     }
           ],
+          testCases: [
+            {
+              input: '',
+              expectedOutput: '입장료: 5000원',
+              description: '12세의 입장료는 5000원이에요 (8-13세)'
+            },
+            {
+              input: '',
+              expectedOutput: '입장료: 5000원',
+              description: '출력 형식이 "입장료: 5000원"이어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '입장료: 5000원',
+              description: '조건문으로 나이에 맞는 입장료를 계산해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '입장료: 5000원',
+              description: 'price 변수에 입장료를 저장하고 출력해야 해요'
+            }
+          ],
           unlocked: false,
           completed: false,
           perfectScore: false,
@@ -9524,6 +9590,28 @@ else:
                                         "wrong": "요구사항을 하나씩 체크하며 완성하세요."
                               }
                     }
+          ],
+          testCases: [
+            {
+              input: '',
+              expectedOutput: '안전한 비밀번호예요!',
+              description: '"hello123"은 8자이고 숫자를 포함해서 안전해요'
+            },
+            {
+              input: '',
+              expectedOutput: '안전한 비밀번호예요!',
+              description: '길이 8자 이상이고 숫자가 있으면 안전한 비밀번호예요'
+            },
+            {
+              input: '',
+              expectedOutput: '안전한 비밀번호예요!',
+              description: 'and 연산자로 두 조건을 모두 확인해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '안전한 비밀번호예요!',
+              description: 'len()과 숫자 검사를 올바르게 사용해야 해요'
+            }
           ],
           unlocked: false,
           completed: false,
