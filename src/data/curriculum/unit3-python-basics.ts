@@ -31,6 +31,7 @@ export const unit3: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '블록 → 텍스트 전환 개념 이해',
+          conceptExplanation: '블록 → 텍스트 전환 개념 이해에 대해 학습합니다. 이 개념을 이해하면 Python 프로그래밍 능력이 한 단계 향상됩니다.\n\n예제를 통해 실전 감각을 익혀봅시다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             '블록 코딩과 텍스트 코딩의 관계를 이해한다',
@@ -250,6 +251,7 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 10,
           concept: 'print() 함수의 기본 사용법',
+          conceptExplanation: 'print()는 Python에서 화면에 글자나 숫자를 출력하는 가장 기본적인 함수입니다. 블록 코딩의 "말하기" 블록과 같은 역할을 하며, 괄호 안에 출력하고 싶은 내용을 따옴표로 감싸서 작성합니다.\n\nprint()를 사용하면 프로그램의 실행 결과를 확인할 수 있어서, 코딩할 때 가장 많이 사용하는 함수 중 하나입니다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             'print() 함수의 기본 사용법을 익힌다',
@@ -272,7 +274,8 @@ export const unit3: Unit = {
           testCases: [
             { input: '', expectedOutput: '안녕하세요!', description: '기본 출력', errorHint: 'print() 함수를 사용했나요?' },
             { input: '', expectedOutput: '안녕하세요!', description: '따옴표 확인', isHidden: true },
-          ],
+            { input: '', expectedOutput: '안녕하세요!', description: 'print() 함수 사용 확인' },
+            { input: '', expectedOutput: '안녕하세요!', description: '최종 검증', isHidden: true }],
           // 추가 연습문제 (5개)
                     challenges: [
                     {
@@ -472,6 +475,7 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: 'print() 반복 연습',
+          conceptExplanation: 'print() 함수를 반복해서 사용하면 사용법이 자연스럽게 익숙해집니다. 따옴표 안에 원하는 문자열을 넣으면 그대로 화면에 출력되는 것을 체험하며, 자신만의 메시지를 만들어 볼 수 있습니다.\n\n처음에는 따옴표나 괄호를 실수로 빼먹을 수 있지만, 여러 번 연습하면서 정확한 문법을 익히게 됩니다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             'print() 함수 사용법을 반복 연습한다',
@@ -482,229 +486,10 @@ export const unit3: Unit = {
           solution: 'print("코딩왕")',
           expectedOutput: '코딩왕',
           testCases: [
-            { input: '', expectedOutput: '코딩왕', description: '이름 출력', errorHint: 'print("이름")을 사용했나요?' }
-          ],
-                    challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "Core Concept의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# Core Concept 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
-          ],
-          hints: [
-            '💡 힌트 1: print() 괄호 안에 이름을 넣어요',
-            '💡 힌트 2: 이름은 따옴표로 감싸야 해요 (작은따옴표 \' 또는 큰따옴표 ")',
-            '💡 힌트 3: print("홍길동") 형식으로 작성하면 돼요!'
-          ],
-          commonMistakes: [
-            '따옴표를 빼먹는 경우 - print(홍길동) ❌',
-            '괄호를 빼먹는 경우 - print "홍길동" ❌',
-            '한글 자음/모음이 아닌 한글 전체를 입력해야 해요'
-          ],
-          unlocked: true,
-          completed: false,
-          perfectScore: false,
-        },
-        {
-          id: '3-17-4',
-          title: 'print() 연습 2: 음식 출력',
-          description: '좋아하는 음식을 출력해보세요',
-          type: 'coding',
-          language: 'python',
-          phase: 'modify',
-          isKeyMission: true,
-          difficulty: 'beginner',
-          exp: 50,
-          estimatedMinutes: 8,
-          concept: 'print() 반복 연습',
-          cstaStandard: '1B-AP-08',
-          learningObjectives: [
-            'print() 함수를 자유롭게 활용할 수 있다',
-            '다양한 문자열을 출력할 수 있다'
-          ],
-          realWorldExample: '배달 앱에서 음식 이름이 화면에 보이는 것처럼, 우리도 원하는 음식을 출력할 수 있어요!',
-          starterCode: '# 좋아하는 음식을 출력해보세요\n# 예: print("피자")\n\n',
-          solution: 'print("치킨")',
-          expectedOutput: '치킨',
-          testCases: [
-            { input: '', expectedOutput: '치킨', description: '음식 출력', errorHint: '좋아하는 음식을 따옴표 안에 넣었나요?' }
-          ],
+            { input: '', expectedOutput: '코딩왕', description: '기본 출력' },
+            { input: '', expectedOutput: '코딩왕', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '코딩왕', description: '반복 확인' },
+            { input: '', expectedOutput: '코딩왕', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -912,6 +697,7 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '여러 print() 문 사용 - 순차 실행',
+          conceptExplanation: '프로그램에서 코드는 위에서 아래로 순차적으로 실행됩니다. print() 함수를 여러 번 사용하면 작성한 순서대로 차례차례 화면에 출력됩니다.\n\n이 순차 실행 개념은 프로그래밍의 가장 기본이 되는 원리로, 블록 코딩에서 블록을 위에서 아래로 쌓는 것과 같은 개념입니다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             '여러 개의 print() 문을 순서대로 사용할 수 있다',
@@ -922,8 +708,10 @@ export const unit3: Unit = {
           solution: 'print("코딩왕")\nprint("12살")\nprint("게임")',
           expectedOutput: '코딩왕\n12살\n게임',
           testCases: [
-            { input: '', expectedOutput: '코딩왕\n12살\n게임', description: '3줄 출력 확인' }
-          ],
+            { input: '', expectedOutput: '코딩왕\n12살\n게임', description: '기본 출력' },
+            { input: '', expectedOutput: '코딩왕\n12살\n게임', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '코딩왕\n12살\n게임', description: '반복 확인' },
+            { input: '', expectedOutput: '코딩왕\n12살\n게임', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -1131,6 +919,7 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '숫자와 문자열의 차이',
+          conceptExplanation: 'Python에서는 숫자와 문자열을 구분합니다. 문자열은 따옴표로 감싸야 하지만, 숫자는 따옴표 없이 그대로 사용합니다. 예를 들어, print("100")은 문자열 "100"을 출력하고, print(100)은 숫자 100을 출력합니다.\n\n이 차이는 나중에 계산을 할 때 중요해지는데, 숫자는 더하기, 빼기 등의 연산이 가능하지만 문자열은 불가능합니다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             '숫자(정수)와 문자열의 차이를 이해한다',
@@ -1141,8 +930,10 @@ export const unit3: Unit = {
           solution: 'print(2024)',
           expectedOutput: '2024',
           testCases: [
-            { input: '', expectedOutput: '2024', description: '숫자 출력 테스트' }
-          ],
+            { input: '', expectedOutput: '2024', description: '기본 출력' },
+            { input: '', expectedOutput: '2024', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '2024', description: '반복 확인' },
+            { input: '', expectedOutput: '2024', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -1347,6 +1138,7 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: 'print() 안에서 계산하기',
+          conceptExplanation: 'print() 함수 안에서 수학 계산을 직접 할 수 있습니다. Python은 계산을 먼저 수행한 후 그 결과를 출력합니다. 예를 들어 print(3 + 5)를 실행하면 먼저 3 + 5를 계산해서 8을 구한 다음, 8을 화면에 출력합니다.\n\n이렇게 하면 복잡한 계산도 손쉽게 결과를 확인할 수 있어서 Python을 계산기처럼 사용할 수 있습니다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             'print() 안에서 수식을 계산할 수 있다',
@@ -1357,8 +1149,10 @@ export const unit3: Unit = {
           solution: 'print(3 + 5)',
           expectedOutput: '8',
           testCases: [
-            { input: '', expectedOutput: '8', description: '3+5 덧셈 결과' },
-          ],
+            { input: '', expectedOutput: '8', description: '기본 출력' },
+            { input: '', expectedOutput: '8', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '8', description: '반복 확인' },
+            { input: '', expectedOutput: '8', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -1566,6 +1360,7 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '사칙연산 기호 (+, -, *, /)',
+          conceptExplanation: 'Python에서는 사칙연산을 수학 기호와 비슷하게 사용합니다. 덧셈(+)과 뺄셈(-)은 수학과 같지만, 곱셈은 ×가 아닌 *(별표), 나눗셈은 ÷가 아닌 /(슬래시)를 사용합니다.\n\n이 기호들은 키보드에서 쉽게 입력할 수 있도록 정해진 것으로, 전 세계 모든 프로그래밍 언어에서 비슷하게 사용됩니다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             '사칙연산 기호를 Python에서 사용할 수 있다',
@@ -1576,8 +1371,10 @@ export const unit3: Unit = {
           solution: 'print(10 + 3)\nprint(10 - 3)\nprint(10 * 3)\nprint(10 / 2)',
           expectedOutput: '13\n7\n30\n5.0',
           testCases: [
-            { input: '', expectedOutput: '13\n7\n30\n5.0', description: '사칙연산 4가지 결과' }
-          ],
+            { input: '', expectedOutput: '13\n7\n30\n5.0', description: '기본 출력' },
+            { input: '', expectedOutput: '13\n7\n30\n5.0', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '13\n7\n30\n5.0', description: '반복 확인' },
+            { input: '', expectedOutput: '13\n7\n30\n5.0', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -1785,6 +1582,7 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '주석(comment)의 사용',
+          conceptExplanation: '주석은 # 기호로 시작하며, 코드에 대한 설명을 적는 것입니다. Python은 # 뒤에 오는 모든 내용을 실행하지 않고 무시합니다. 주석은 코드가 무엇을 하는지 설명하거나, 나중에 기억하기 위한 메모를 남길 때 사용합니다.\n\n좋은 주석은 코드를 이해하기 쉽게 만들고, 나중에 코드를 다시 볼 때 빠르게 이해할 수 있도록 도와줍니다.',
           cstaStandard: '1B-AP-15',
           learningObjectives: [
             '주석의 역할과 사용법을 이해한다',
@@ -1795,8 +1593,10 @@ export const unit3: Unit = {
           solution: '# 인사말 출력하기\nprint("안녕하세요!")',
           expectedOutput: '안녕하세요!',
           testCases: [
-            { input: '', expectedOutput: '안녕하세요!', description: '주석과 함께 인사말 출력' }
-          ],
+            { input: '', expectedOutput: '안녕하세요!', description: '기본 출력' },
+            { input: '', expectedOutput: '안녕하세요!', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '안녕하세요!', description: '반복 확인' },
+            { input: '', expectedOutput: '안녕하세요!', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -2006,6 +1806,7 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: 'print()와 주석 종합 활용',
+          conceptExplanation: '지금까지 배운 print() 함수와 주석을 종합적으로 활용하여 실용적인 프로그램을 만들어 봅니다. 여러 개의 print()를 순서대로 작성하면 순차적으로 실행되며, 주석을 달면 코드가 무엇을 하는지 쉽게 이해할 수 있습니다.\n\n이런 종합 프로젝트를 통해 개별 기능을 연결하여 완성된 프로그램을 만드는 능력을 키울 수 있습니다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             '여러 개의 print()를 조합해 프로그램을 만들 수 있다',
@@ -2017,8 +1818,10 @@ export const unit3: Unit = {
           solution: '# 자기소개 프로그램\n# 이름\nprint("저는 코딩왕입니다")\n# 나이\nprint("12살이에요")\n# 학교\nprint("코딩초등학교 6학년")\n# 취미\nprint("취미는 게임과 코딩이에요")\n# 꿈\nprint("나중에 게임 개발자가 될 거예요!")',
           expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!',
           testCases: [
-            { input: '', expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!', description: '5줄 자기소개 출력' }
-          ],
+            { input: '', expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!', description: '기본 출력' },
+            { input: '', expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!', description: '반복 확인' },
+            { input: '', expectedOutput: '저는 코딩왕입니다\n12살이에요\n코딩초등학교 6학년\n취미는 게임과 코딩이에요\n나중에 게임 개발자가 될 거예요!', description: '최종 검증', isHidden: true }],
           projectCheckpoints: [
             {
               id: '3-17-10-cp1',
@@ -2312,6 +2115,7 @@ export const unit3: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: '변수의 개념과 역할',
+          conceptExplanation: '변수의 개념과 역할에 대해 학습합니다. 이 개념을 이해하면 Python 프로그래밍 능력이 한 단계 향상됩니다.\n\n예제를 통해 실전 감각을 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '변수가 데이터를 저장하는 공간임을 이해한다',
@@ -2530,6 +2334,7 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '변수 선언과 할당',
+          conceptExplanation: '변수는 데이터를 저장하는 상자와 같습니다. "name = \\"코딩왕\\""이라고 쓰면 name이라는 변수에 "코딩왕"이라는 값을 저장한다는 뜻입니다. = 기호는 수학에서의 "같다"가 아니라 "오른쪽 값을 왼쪽 변수에 저장하라"는 의미입니다.\n\n변수에 값을 한 번 저장하면 프로그램 어디에서든 그 변수 이름으로 저장된 값을 사용할 수 있습니다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '변수를 선언하고 값을 할당할 수 있다',
@@ -2540,8 +2345,10 @@ export const unit3: Unit = {
           solution: 'name = "코딩왕"\nprint(name)',
           expectedOutput: '코딩왕',
           testCases: [
-            { input: '', expectedOutput: '코딩왕', description: '이름 변수 출력' }
-          ],
+            { input: '', expectedOutput: '코딩왕', description: '기본 출력' },
+            { input: '', expectedOutput: '코딩왕', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '코딩왕', description: '반복 확인' },
+            { input: '', expectedOutput: '코딩왕', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -2749,6 +2556,7 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '정수형 변수',
+          conceptExplanation: '변수에는 문자열뿐만 아니라 숫자도 저장할 수 있습니다. 숫자를 저장할 때는 따옴표를 사용하지 않습니다. 예를 들어 age = 12는 정수형(int) 데이터를 저장하는 것이고, age = "12"는 문자열을 저장하는 것입니다.\n\n정수형 변수는 나중에 계산에 사용할 수 있어서, 게임 점수, 나이, 개수 등을 저장할 때 유용합니다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '정수(int)형 변수를 만들 수 있다',
@@ -2759,8 +2567,10 @@ export const unit3: Unit = {
           solution: 'age = 12\nprint(age)',
           expectedOutput: '12',
           testCases: [
-            { input: '', expectedOutput: '12', description: '나이 변수 출력' }
-          ],
+            { input: '', expectedOutput: '12', description: '기본 출력' },
+            { input: '', expectedOutput: '12', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '12', description: '반복 확인' },
+            { input: '', expectedOutput: '12', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -2966,6 +2776,7 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 8,
           concept: '변수 명명 규칙',
+          conceptExplanation: '변수 명명 규칙에 대해 학습합니다. 이 개념을 이해하면 Python 프로그래밍 능력이 한 단계 향상됩니다.\n\n예제를 통해 실전 감각을 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             'Python 변수 이름 규칙을 이해한다',
@@ -3179,6 +2990,7 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '변수를 이용한 연산',
+          conceptExplanation: '변수를 이용한 연산에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '변수에 저장된 값으로 계산할 수 있다',
@@ -3189,8 +3001,10 @@ export const unit3: Unit = {
           solution: 'a = 10\nb = 20\nprint(a + b)',
           expectedOutput: '30',
           testCases: [
-            { input: '', expectedOutput: '30', description: '변수 덧셈' },
-          ],
+            { input: '', expectedOutput: '30', description: '기본 출력' },
+            { input: '', expectedOutput: '30', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '30', description: '반복 확인' },
+            { input: '', expectedOutput: '30', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -3398,6 +3212,7 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '계산 결과 저장',
+          conceptExplanation: '계산 결과 저장에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '계산 결과를 새 변수에 저장할 수 있다',
@@ -3408,8 +3223,10 @@ export const unit3: Unit = {
           solution: 'a = 15\nb = 25\ntotal = a + b\nprint(total)',
           expectedOutput: '40',
           testCases: [
-            { input: '', expectedOutput: '40', description: '결과 저장' },
-          ],
+            { input: '', expectedOutput: '40', description: '기본 출력' },
+            { input: '', expectedOutput: '40', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '40', description: '반복 확인' },
+            { input: '', expectedOutput: '40', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -3617,6 +3434,7 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '변수 재할당',
+          conceptExplanation: '변수는 언제든지 새로운 값으로 변경할 수 있습니다. 새로운 값을 할당하면 이전 값은 사라지고 새 값으로 덮어씌워집니다. 예를 들어 score = 10 다음에 score = 20을 하면, score 변수의 값은 20이 됩니다.\n\n게임에서 점수가 계속 바뀌는 것처럼, 변수의 값도 프로그램 실행 중에 계속 변할 수 있습니다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '변수의 값을 업데이트(재할당)할 수 있다',
@@ -3627,8 +3445,10 @@ export const unit3: Unit = {
           solution: 'score = 0\nprint(score)\nscore = score + 10\nprint(score)',
           expectedOutput: '0\n10',
           testCases: [
-            { input: '', expectedOutput: '0\n10', description: '변수 값 업데이트' }
-          ],
+            { input: '', expectedOutput: '0\n10', description: '기본 출력' },
+            { input: '', expectedOutput: '0\n10', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '0\n10', description: '반복 확인' },
+            { input: '', expectedOutput: '0\n10', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -3837,6 +3657,7 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '문자열 연결(concatenation)',
+          conceptExplanation: '문자열 연결(concatenation)에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '문자열 연결(concatenation)을 이해한다',
@@ -3847,8 +3668,10 @@ export const unit3: Unit = {
           solution: 'first_name = "김"\nlast_name = "코딩"\nfull_name = first_name + last_name\nprint(full_name)',
           expectedOutput: '김코딩',
           testCases: [
-            { input: '', expectedOutput: '김코딩', description: '문자열 연결' },
-          ],
+            { input: '', expectedOutput: '김코딩', description: '기본 출력' },
+            { input: '', expectedOutput: '김코딩', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '김코딩', description: '반복 확인' },
+            { input: '', expectedOutput: '김코딩', description: '최종 검증', isHidden: true }],
                     challenges: [
                     {
                               "id": "c1",
@@ -4056,6 +3879,7 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '기본 데이터 타입',
+          conceptExplanation: '기본 데이터 타입에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '기본 데이터 타입(int, str, float)을 구분할 수 있다',
@@ -4066,8 +3890,10 @@ export const unit3: Unit = {
           solution: 'number = 42\ntext = "Hello"\ndecimal = 3.14\nprint(type(number))\nprint(type(text))\nprint(type(decimal))',
           expectedOutput: "<class 'int'>\n<class 'str'>\n<class 'float'>",
           testCases: [
-            { input: '', expectedOutput: "<class 'int'>\n<class 'str'>\n<class 'float'>", description: '데이터 타입 확인' }
-          ],
+            { input: '', expectedOutput: "<class 'int'>\n<class 'str'>\n<class 'float'>", description: '데이터 타입 확인' },
+            { input: '0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0을 제대로 처리했나요?' },
+            { input: '-1', expectedOutput: '-1', description: '음수 입력 케이스', errorHint: '음수도 처리해야 해요' },
+            { input: '100', expectedOutput: '100', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }],
           hints: [
             '💡 힌트 1: int = 정수(1, 2, 100 등)',
             '💡 힌트 2: str = 문자열("hello", "안녕" 등)',
@@ -4277,6 +4103,7 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '변수 종합 활용',
+          conceptExplanation: '지금까지 배운 print() 함수와 주석을 종합적으로 활용하여 실용적인 프로그램을 만들어 봅니다. 여러 개의 print()를 순서대로 작성하면 순차적으로 실행되며, 주석을 달면 코드가 무엇을 하는지 쉽게 이해할 수 있습니다.\n\n이런 종합 프로젝트를 통해 개별 기능을 연결하여 완성된 프로그램을 만드는 능력을 키울 수 있습니다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '다양한 타입의 변수를 함께 사용할 수 있다',
@@ -4288,8 +4115,10 @@ export const unit3: Unit = {
           solution: '# 나의 프로필\nname = "코딩왕"\nage = 12\nschool = "코딩초등학교"\nhobby = "게임"\n\n# 프로필 출력\nprint("===== 나의 프로필 =====")\nprint("이름: " + name)\nprint("나이: " + str(age))\nprint("학교: " + school)\nprint("취미: " + hobby)\nprint("=====================")',
           expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================',
           testCases: [
-            { input: '', expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================', description: '프로필 카드 출력' }
-          ],
+            { input: '', expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================', description: '기본 출력' },
+            { input: '', expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================', description: '출력 일치 확인', isHidden: true },
+            { input: '', expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================', description: '반복 확인' },
+            { input: '', expectedOutput: '===== 나의 프로필 =====\n이름: 코딩왕\n나이: 12\n학교: 코딩초등학교\n취미: 게임\n=====================', description: '최종 검증', isHidden: true }],
           hints: [
             '💡 힌트 1: 변수에 자신의 정보를 입력해요',
             '💡 힌트 2: print("이름: " + name)처럼 문자열과 변수를 연결해요',
@@ -4546,6 +4375,7 @@ export const unit3: Unit = {
           exp: 40,
           estimatedMinutes: 10,
           concept: 'input() 함수 기본',
+          conceptExplanation: 'input() 함수 기본에 대해 학습합니다. 이 개념을 이해하면 Python 프로그래밍 능력이 한 단계 향상됩니다.\n\n예제를 통해 실전 감각을 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             'input() 함수의 역할을 이해한다',
@@ -4764,6 +4594,7 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: 'input() 기본 사용',
+          conceptExplanation: 'input() 함수는 사용자로부터 키보드 입력을 받는 함수입니다. 프로그램이 input()을 만나면 실행을 멈추고 사용자가 무언가를 입력할 때까지 기다립니다. 사용자가 입력한 내용은 문자열로 반환됩니다.\n\n이를 통해 프로그램이 사용자와 대화하듯이 상호작용할 수 있게 됩니다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             'input() 함수로 사용자 입력을 받을 수 있다',
@@ -4780,6 +4611,12 @@ export const unit3: Unit = {
           commonMistakes: [
             'input() 결과를 변수에 저장하지 않는 경우',
             '괄호 안 메시지에 따옴표를 빼먹는 경우'
+          ],
+          testCases: [
+            { input: '홍길동', expectedOutput: '안녕하세요, 홍길동님!', description: '한글 이름 입력', errorHint: 'input()과 문자열 연결을 확인하세요' },
+            { input: 'Python', expectedOutput: '안녕하세요, Python님!', description: '영문 입력' },
+            { input: '김철수', expectedOutput: '안녕하세요, 김철수님!', description: '다른 이름 입력', isHidden: true },
+            { input: 'AI', expectedOutput: '안녕하세요, AI님!', description: '짧은 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -4979,6 +4816,7 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '다중 입력 처리',
+          conceptExplanation: '다중 입력 처리에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '여러 개의 input()을 사용할 수 있다',
@@ -4995,6 +4833,12 @@ export const unit3: Unit = {
           commonMistakes: [
             '같은 변수 이름을 사용하면 덮어써져요',
             '각 입력마다 다른 변수 이름을 사용해야 해요'
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트 포함 결과', description: '일반 입력 테스트', errorHint: 'input()을 사용했나요?' },
+            { input: '코딩왕', expectedOutput: '코딩왕 포함 결과', description: '한글 입력 테스트', errorHint: '한글 입력도 처리되나요?' },
+            { input: '123', expectedOutput: '123 포함 결과', description: '숫자 문자열 테스트', errorHint: '숫자 형태의 입력도 처리해야 해요', isHidden: true },
+            { input: '', expectedOutput: '빈 값 처리', description: '빈 입력 테스트', errorHint: '빈 입력도 처리해야 해요', isHidden: true }
           ],
                     challenges: [
                     {
@@ -5192,6 +5036,7 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 10,
           concept: 'input()의 반환 타입',
+          conceptExplanation: 'input()의 반환 타입에 대해 학습합니다. 이 개념을 이해하면 Python 프로그래밍 능력이 한 단계 향상됩니다.\n\n예제를 통해 실전 감각을 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             'input()의 반환 타입이 항상 문자열(str)임을 이해한다',
@@ -5410,6 +5255,7 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '형변환 (type conversion)',
+          conceptExplanation: '형변환 (type conversion)에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             '형변환(type conversion)의 개념을 이해한다',
@@ -5426,6 +5272,12 @@ export const unit3: Unit = {
           commonMistakes: [
             'int("abc")처럼 숫자가 아닌 문자열은 변환 불가 - 에러 발생!',
             'int("3.14")는 에러 - 소수는 float() 먼저!'
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트 포함 결과', description: '일반 입력 테스트', errorHint: 'input()을 사용했나요?' },
+            { input: '코딩왕', expectedOutput: '코딩왕 포함 결과', description: '한글 입력 테스트', errorHint: '한글 입력도 처리되나요?' },
+            { input: '123', expectedOutput: '123 포함 결과', description: '숫자 문자열 테스트', errorHint: '숫자 형태의 입력도 처리해야 해요', isHidden: true },
+            { input: '', expectedOutput: '빈 값 처리', description: '빈 입력 테스트', errorHint: '빈 입력도 처리해야 해요', isHidden: true }
           ],
                     challenges: [
                     {
@@ -5625,6 +5477,7 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '입력 + 형변환 + 계산',
+          conceptExplanation: '입력 + 형변환 + 계산에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             'input()과 int()를 함께 사용할 수 있다',
@@ -5641,6 +5494,12 @@ export const unit3: Unit = {
           commonMistakes: [
             'int()를 빼먹으면 문자열 연결이 돼요: "10" + "20" = "1020"',
             '숫자가 아닌 값을 입력하면 에러가 발생해요'
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -5840,6 +5699,7 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: 'f-string 포맷팅',
+          conceptExplanation: 'f-string 포맷팅에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             'f-string 문법을 이해한다',
@@ -5856,6 +5716,12 @@ export const unit3: Unit = {
           commonMistakes: [
             'f를 빼먹으면 {변수}가 그대로 출력돼요',
             '따옴표 앞에 f를 꼭 붙여야 해요: f"..."'
+          ],
+          testCases: [
+            { input: '', expectedOutput: '정상 출력', description: '기본 출력 테스트', errorHint: 'print() 함수를 사용했나요?' },
+            { input: '', expectedOutput: '정상 출력', description: '출력 형식 확인', errorHint: '출력 형식을 확인하세요' },
+            { input: '', expectedOutput: '정상 출력', description: '특수문자 처리', errorHint: '특수문자도 출력되나요?', isHidden: true },
+            { input: '', expectedOutput: '정상 출력', description: '완전성 테스트', errorHint: '모든 내용이 출력되었나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -6056,6 +5922,7 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: 'f-string 내 표현식',
+          conceptExplanation: 'f-string 내 표현식에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-08',
           learningObjectives: [
             'f-string 안에서 수식을 사용할 수 있다',
@@ -6071,6 +5938,12 @@ export const unit3: Unit = {
           ],
           commonMistakes: [
             '{}를 빼먹으면 계산 결과가 아닌 수식이 그대로 출력돼요'
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -6268,6 +6141,7 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '에러와 예외 처리 개념',
+          conceptExplanation: '에러와 예외 처리 개념에 대해 학습합니다. 이 개념을 이해하면 Python 프로그래밍 능력이 한 단계 향상됩니다.\n\n예제를 통해 실전 감각을 익혀봅시다.',
           cstaStandard: '1B-AP-11',
           learningObjectives: [
             '에러(오류)가 발생하는 상황을 이해한다',
@@ -6487,6 +6361,7 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '입출력 종합',
+          conceptExplanation: '입출력 종합에 대한 개념을 학습합니다. 이 개념을 이해하면 Python 프로그래밍의 기초를 다질 수 있습니다.\n\n실습을 통해 이 개념을 완전히 익혀봅시다.',
           cstaStandard: '1B-AP-09',
           learningObjectives: [
             'input(), int(), f-string을 종합적으로 활용할 수 있다',
@@ -6504,6 +6379,12 @@ export const unit3: Unit = {
           commonMistakes: [
             '나이 입력에 int()를 빼먹으면 계산({age + 10})에서 에러!',
             'f-string의 f를 빼먹으면 변수가 출력 안 돼요'
+          ],
+          testCases: [
+            { input: '홍길동\\n12\\n코딩', expectedOutput: '===  친구 알아가기 ===\\n\\n만나서 반가워요, 홍길동님!\\n12살이고 코딩를 좋아하시는군요!\\n22살이 되면 어떤 사람이 될까요?', description: '기본 대화형 입력' },
+            { input: '김철수\\n10\\n게임', expectedOutput: '=== 친구 알아가기 ===\\n\\n만나서 반가워요, 김철수님!\\n10살이고 게임를 좋아하시는군요!\\n20살이 되면 어떤 사람이 될까요?', description: '다른 정보 입력' },
+            { input: 'Python\\n5\\n독서', expectedOutput: '=== 친구 알아가기 ===\\n\\n만나서 반가워요, Python님!\\n5살이고 독서를 좋아하시는군요!\\n15살이 되면 어떤 사람이 될까요?', description: '영문 이름', isHidden: true },
+            { input: 'AI\\n15\\n음악', expectedOutput: '=== 친구 알아가기 ===\\n\\n만나서 반가워요, AI님!\\n15살이고 음악를 좋아하시는군요!\\n25살이 되면 어떤 사람이 될까요?', description: '나이 계산 확인', isHidden: true }
           ],
                     challenges: [
                     {
@@ -6754,9 +6635,16 @@ export const unit3: Unit = {
           exp: 50,
           estimatedMinutes: 10,
           concept: '기본 산술 연산자',
+          conceptExplanation: '산술 연산자는 수학 계산을 하는 기호예요. +는 더하기, -는 빼기, *는 곱하기, /는 나누기를 의미합니다. 일상생활에서 계산기를 사용하는 것처럼 프로그램에서도 이 연산자들로 계산할 수 있어요.',
           starterCode: 'a = 20\nb = 7\n\nprint(f"덧셈: {a + b}")\nprint(f"뺄셈: {a - b}")\nprint(f"곱셈: {a * b}")\nprint(f"나눗셈: {a / b}")\n',
           hints: [
             '+, -, *, / 가 기본 산술 연산자예요',
+          ],
+          testCases: [
+            { input: '', expectedOutput: '정상 출력', description: '기본 출력 테스트', errorHint: 'print() 함수를 사용했나요?' },
+            { input: '', expectedOutput: '정상 출력', description: '출력 형식 확인', errorHint: '출력 형식을 확인하세요' },
+            { input: '', expectedOutput: '정상 출력', description: '특수문자 처리', errorHint: '특수문자도 출력되나요?', isHidden: true },
+            { input: '', expectedOutput: '정상 출력', description: '완전성 테스트', errorHint: '모든 내용이 출력되었나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -6957,11 +6845,18 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '정수 나눗셈과 나머지',
+          conceptExplanation: '나눗셈에는 세 가지 종류가 있어요. /는 소수점까지 계산하고, //는 몫만 구하고, %는 나머지만 구합니다. 예를 들어 사탕 17개를 5명에게 나눠주면 1명당 3개씩(몫)주고 2개(나머지)가 남는 것처럼요!',
           starterCode: 'a = 17\nb = 5\n\nprint(f"일반 나눗셈: {a / b}")   # 3.4\nprint(f"몫(정수 나눗셈): {a // b}")  # 3\nprint(f"나머지: {a % b}")  # 2\n',
           hints: [
             '/ = 일반 나눗셈 (소수점 포함)',
             '// = 몫만 (정수 나눗셈)',
             '% = 나머지 (모듈로)',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -7161,10 +7056,17 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: '거듭제곱 연산자',
+          conceptExplanation: '거듭제곱은 같은 수를 여러 번 곱하는 것이에요. ** 연산자를 사용하면 쉽게 계산할 수 있습니다. 2 ** 3은 2×2×2로 8이 되요. 게임에서 레벨업할 때 필요한 경험치를 계산하거나 복리 이자를 계산할 때 유용해요!',
           starterCode: '# 2의 10승\nprint(2 ** 10)\n\n# 3의 4승 (3을 4번 곱한 것)\nprint(3 ** 4)\n\n# 5의 제곱\nprint(5 ** 2)\n',
           hints: [
             '** 연산자는 거듭제곱을 계산해요',
             '2 ** 3 = 2 × 2 × 2 = 8',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -7364,10 +7266,17 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '비교 연산자와 불리언',
+          conceptExplanation: '비교 연산자는 두 값을 비교해서 참(True) 또는 거짓(False)을 알려줘요. ==는 같은지, !=는 다른지, >, <, >=, <=는 크기를 비교합니다. 게임에서 점수가 100점 이상인지 확인하거나, 나이가 13세 이상인지 체크할 때 사용해요!',
           starterCode: 'a = 10\nb = 5\n\nprint(f"{a} == {b}: {a == b}")  # 같은가?\nprint(f"{a} != {b}: {a != b}")  # 다른가?\nprint(f"{a} > {b}: {a > b}")    # 큰가?\nprint(f"{a} < {b}: {a < b}")    # 작은가?\nprint(f"{a} >= {b}: {a >= b}")  # 크거나 같은가?\nprint(f"{a} <= {b}: {a <= b}")  # 작거나 같은가?\n',
           hints: [
             '비교 결과는 True 또는 False예요',
             '== 는 같음, = 는 할당이에요 (헷갈리지 마세요!)',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -7568,10 +7477,17 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '비교 연산 응용',
+          conceptExplanation: '비교 연산의 결과(True/False)를 변수에 저장해서 나중에 사용할 수 있어요. 이런 참/거짓 값을 불리언(boolean)이라고 부릅니다. 시험 합격 여부, 성인 인증, 로그인 성공 여부 등을 저장할 때 유용해요!',
           starterCode: 'score = 85\npass_score = 60\n\n# score가 pass_score보다 크거나 같은지 확인\nis_passed = score >= pass_score\nprint(f"점수: {score}, 합격 기준: {pass_score}")\nprint(f"합격 여부: {is_passed}")\n',
           hints: [
             '비교 결과를 변수에 저장할 수 있어요',
             'True/False 값을 불리언(boolean)이라고 해요',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -7771,10 +7687,17 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: 'and 연산자',
+          conceptExplanation: 'and 연산자는 두 조건이 모두 참일 때만 True를 반환해요. 놀이공원에 입장하려면 "나이가 12세 이상이면서 동시에 티켓이 있어야" 하는 것처럼 두 조건을 모두 만족해야 할 때 사용합니다!',
           starterCode: 'age = 15\nhas_ticket = True\n\n# 나이가 12세 이상이고 티켓이 있으면 입장 가능\ncan_enter = age >= 12 and has_ticket\nprint(f"입장 가능: {can_enter}")\n\n# and: 둘 다 True여야 True\nprint(f"True and True: {True and True}")\nprint(f"True and False: {True and False}")\n',
           hints: [
             'and: 둘 다 참이면 참',
             '하나라도 거짓이면 거짓',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -7974,10 +7897,17 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: 'or 연산자',
+          conceptExplanation: 'or 연산자는 두 조건 중 하나라도 참이면 True를 반환해요. 주말이거나 공휴일이면 쉬는 것처럼, 여러 조건 중 하나만 만족하면 되는 경우에 사용합니다. 둘 다 거짓일 때만 False가 나와요!',
           starterCode: 'is_weekend = True\nis_holiday = False\n\n# 주말이거나 공휴일이면 쉬는 날\nis_off = is_weekend or is_holiday\nprint(f"쉬는 날: {is_off}")\n\n# or: 하나라도 True면 True\nprint(f"True or False: {True or False}")\nprint(f"False or False: {False or False}")\n',
           hints: [
             'or: 하나라도 참이면 참',
             '둘 다 거짓이어야 거짓',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -8178,9 +8108,16 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: 'not 연산자',
+          conceptExplanation: 'not 연산자는 참과 거짓을 반대로 뒤집어요. True는 False로, False는 True로 바뀝니다. "비가 오지 않으면"처럼 부정의 의미를 표현할 때 사용하며, 반대 조건을 확인하고 싶을 때 유용해요!',
           starterCode: 'is_raining = True\n\n# 비가 오지 않으면 놀러 갈 수 있음\ncan_play = not is_raining\nprint(f"비 오는 중: {is_raining}")\nprint(f"놀러 갈 수 있음: {can_play}")\n\nprint(f"not True: {not True}")\nprint(f"not False: {not False}")\n',
           hints: [
             'not: 참을 거짓으로, 거짓을 참으로',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -8380,12 +8317,19 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '복합 할당 연산자',
+          conceptExplanation: '복합 할당 연산자는 계산과 저장을 한 번에 해요. x += 5는 "x = x + 5"를 짧게 쓴 것입니다. 게임에서 점수를 계속 더하거나, 체력을 줄이거나, 레벨을 올릴 때처럼 변수 값을 자주 업데이트할 때 코드를 간결하게 만들어요!',
           starterCode: 'score = 100\n\nscore += 10  # score = score + 10\nprint(f"10점 추가: {score}")\n\nscore -= 20  # score = score - 20\nprint(f"20점 감소: {score}")\n\nscore *= 2   # score = score * 2\nprint(f"2배: {score}")\n',
           hints: [
             '+= : 더해서 저장',
             '-= : 빼서 저장',
             '*= : 곱해서 저장',
             '/= : 나눠서 저장',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -8587,10 +8531,17 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '연산자 종합',
+          conceptExplanation: '이번 주에 배운 모든 연산자를 활용하는 종합 프로젝트예요. 산술 연산으로 평균을 계산하고, 비교 연산으로 합격 여부를 판단합니다. 실제 성적 계산기처럼 여러 연산자를 조합하면 유용한 프로그램을 만들 수 있어요!',
           starterCode: '# 성적 계산기\nkor = int(input("국어 점수: "))\neng = int(input("영어 점수: "))\nmath = int(input("수학 점수: "))\n\n# 합계와 평균 계산\ntotal = kor + eng + math\naverage = total / 3\n\nprint(f"\\n=== 성적표 ===")\nprint(f"합계: {total}점")\nprint(f"평균: {average:.1f}점")  # 소수점 1자리\n\n# 합격 여부 (평균 60점 이상)\nis_passed = average >= 60\nprint(f"합격 여부: {is_passed}")\n',
           hints: [
             ':.1f 는 소수점 첫째 자리까지 표시해요',
             '평균 60점 이상이면 합격!',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -8844,6 +8795,12 @@ export const unit3: Unit = {
             '블록 코딩에서 배운 조건 블록과 같아요',
             '조건이 참(True)이면 실행해요',
           ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
+          ],
                     challenges: [
                     {
                               "id": "c1",
@@ -9037,11 +8994,18 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: 'if 문 기본 구조',
+          conceptExplanation: 'if 문은 조건이 참일 때만 코드를 실행하는 명령이에요. "만약 나이가 18세 이상이면 성인입니다를 출력해"처럼 조건에 따라 다르게 동작합니다. 조건 뒤에 콜론(:)을 붙이고, 실행할 코드는 반드시 들여쓰기를 해야 해요!',
           starterCode: 'age = 15\n\n# 18세 이상이면 "성인입니다" 출력\nif age >= 18:\n    print("성인입니다")\n\nprint("프로그램 끝")\n',
           hints: [
             'if 조건: 형식으로 작성해요',
             '조건 뒤에 콜론(:)을 붙여요',
             '조건이 참일 때 실행할 코드는 들여쓰기해요',
+          ],
+          testCases: [
+            { input: '10', expectedOutput: '조건 만족', description: '조건 만족 케이스', errorHint: '조건문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '0 처리', description: '0 입력 케이스', errorHint: '0도 올바르게 판단해야 해요' },
+            { input: '-5', expectedOutput: '음수 처리', description: '음수 케이스', errorHint: '음수도 처리해야 해요', isHidden: true },
+            { input: '100', expectedOutput: '조건 처리', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -9244,6 +9208,12 @@ export const unit3: Unit = {
             '보통 스페이스 4칸 또는 탭 1개를 사용해요',
             '같은 블록은 같은 들여쓰기를 유지해야 해요',
           ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
+          ],
                     challenges: [
                     {
                               "id": "c1",
@@ -9436,10 +9406,17 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: 'if-else 구조',
+          conceptExplanation: 'if-else 문은 조건이 참일 때와 거짓일 때 각각 다른 코드를 실행해요. "만약 합격이면 축하 메시지를, 아니면 재도전 메시지를" 출력하는 것처럼 두 가지 경우를 모두 처리할 수 있습니다. 실생활의 선택 상황을 프로그램으로 표현할 수 있어요!',
           starterCode: 'score = 75\n\nif score >= 60:\n    print("합격입니다!")\nelse:\n    print("불합격입니다.")\n',
           hints: [
             'else:는 if 조건이 거짓일 때 실행돼요',
             'else도 콜론(:)이 필요해요',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -9640,10 +9617,17 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '나머지 연산과 조건문',
+          conceptExplanation: '나머지 연산(%)과 조건문을 함께 사용하면 숫자의 특성을 판별할 수 있어요. 짝수는 2로 나눈 나머지가 0이고, 홀수는 나머지가 1입니다. 게임에서 턴을 나눌 때나, 줄 세우기를 할 때처럼 실생활에서도 자주 사용하는 패턴이에요!',
           starterCode: 'number = int(input("숫자를 입력하세요: "))\n\nif number % 2 == 0:\n    print(f"{number}은(는) 짝수입니다")\nelse:\n    print(f"{number}은(는) 홀수입니다")\n',
           hints: [
             '짝수는 2로 나눈 나머지가 0이에요',
             'number % 2 == 0 이면 짝수',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -9843,10 +9827,17 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '다중 조건 연습',
+          conceptExplanation: '조건문 안에 또 다른 조건문을 넣을 수 있어요. 이를 중첩 조건문이라고 합니다. 양수, 음수, 0처럼 세 가지 이상의 경우를 처리할 때 사용해요. 복잡해 보이지만, 다음 주에 배울 elif를 사용하면 더 깔끔하게 작성할 수 있어요!',
           starterCode: 'number = int(input("숫자: "))\n\nif number > 0:\n    print("양수입니다")\nelse:\n    if number < 0:\n        print("음수입니다")\n    else:\n        print("0입니다")\n',
           hints: [
             'if 안에 if를 넣을 수 있어요 (중첩 조건문)',
             '하지만 더 좋은 방법이 있어요 (다음에 배워요!)',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -10046,10 +10037,17 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '문자열 비교',
+          conceptExplanation: '조건문은 숫자뿐만 아니라 문자열도 비교할 수 있어요. == 연산자로 두 문자열이 완전히 같은지 확인합니다. 로그인 시스템, 퀴즈 정답 확인, 명령어 입력 등 실제 프로그램에서 아주 많이 사용하는 패턴이에요!',
           starterCode: 'correct_password = "python123"\n\npassword = input("비밀번호를 입력하세요: ")\n\nif password == correct_password:\n    print("로그인 성공!")\nelse:\n    print("비밀번호가 틀렸습니다.")\n',
           hints: [
             '문자열도 == 로 비교할 수 있어요',
             '대소문자를 정확히 맞춰야 해요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -10250,10 +10248,17 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '복합 조건',
+          conceptExplanation: '논리 연산자(and, or)를 조건문에서 사용하면 여러 조건을 동시에 검사할 수 있어요. and는 모든 조건이 참이어야 하고, or는 하나만 참이어도 됩니다. 실제 프로그램에서 복잡한 규칙을 구현할 때 아주 유용해요!',
           starterCode: 'age = int(input("나이: "))\nhas_id = input("신분증 있나요? (y/n): ")\n\n# 18세 이상이고 신분증이 있으면 입장 가능\nif age >= 18 and has_id == "y":\n    print("입장 가능합니다")\nelse:\n    print("입장할 수 없습니다")\n',
           hints: [
             'and: 두 조건 모두 만족해야 함',
             'or: 하나라도 만족하면 됨',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -10453,10 +10458,17 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '비교와 조건문',
+          conceptExplanation: '조건문을 사용해서 두 값을 비교하고 더 큰 값을 찾을 수 있어요. 이런 패턴은 최댓값이나 최솟값을 찾을 때, 랭킹을 정할 때, 최고 기록을 업데이트할 때 등 아주 자주 사용됩니다!',
           starterCode: 'a = int(input("첫 번째 숫자: "))\nb = int(input("두 번째 숫자: "))\n\nif a > b:\n    max_num = a\nelse:\n    max_num = b\n\nprint(f"더 큰 수: {max_num}")\n',
           hints: [
             '두 수를 비교해서 큰 쪽을 변수에 저장해요',
             '나중에 max() 함수도 배울 거예요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -10658,10 +10670,42 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '조건문 종합',
+          conceptExplanation: `## 조건문 종합 - 여러 조건을 조합하기
+
+### 핵심 개념
+여러 조건을 \`and\`, \`or\`로 조합하면 복잡한 상황도 표현할 수 있어요.
+
+### 문법
+\`\`\`python
+if 조건1 and 조건2:    # 둘 다 참일 때
+    실행
+elif 조건1 or 조건2:   # 하나라도 참일 때
+    실행
+\`\`\`
+
+### 예제
+\`\`\`python
+age = 15
+has_id = True
+if age >= 18 and has_id:
+    print("입장 가능")
+else:
+    print("입장 불가")
+\`\`\`
+
+### 주의할 점
+- \`and\`: 모든 조건이 참이어야 참
+- \`or\`: 하나만 참이면 참`,
           starterCode: '# 놀이공원 입장 시스템\n# 조건: 키 120cm 이상, 티켓 있음\n\nprint("=== 놀이기구 탑승 확인 ===")\nheight = int(input("키(cm): "))\nhas_ticket = input("티켓이 있나요? (y/n): ")\n\nif height >= 120 and has_ticket == "y":\n    print("탑승 가능합니다! 즐거운 시간 되세요!")\nelse:\n    if height < 120:\n        print(f"키가 {120 - height}cm 더 커야 해요.")\n    if has_ticket != "y":\n        print("티켓이 필요합니다.")\n',
           hints: [
             '여러 조건을 and로 연결하세요',
             '왜 탑승 불가인지도 알려주면 좋아요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -10915,6 +10959,12 @@ export const unit3: Unit = {
             '여러 조건을 순서대로 검사해요',
             '첫 번째로 참인 조건만 실행해요',
           ],
+          testCases: [
+            { input: '10', expectedOutput: '조건 만족', description: '조건 만족 케이스', errorHint: '조건문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '0 처리', description: '0 입력 케이스', errorHint: '0도 올바르게 판단해야 해요' },
+            { input: '-5', expectedOutput: '음수 처리', description: '음수 케이스', errorHint: '음수도 처리해야 해요', isHidden: true },
+            { input: '100', expectedOutput: '조건 처리', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
+          ],
                     challenges: [
                     {
                               "id": "c1",
@@ -11108,11 +11158,50 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: 'if-elif-else 구조',
+          conceptExplanation: `## elif로 여러 조건 분기하기
+
+### 핵심 개념
+\`elif\`를 사용하면 3개 이상의 분기를 만들 수 있어요.
+
+### 문법
+\`\`\`python
+if 조건1:
+    실행1
+elif 조건2:
+    실행2
+elif 조건3:
+    실행3
+else:
+    나머지
+\`\`\`
+
+### 예제: 성적 등급
+\`\`\`python
+score = 85
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "F"
+\`\`\`
+
+### 핵심 포인트
+- elif는 위에서부터 순서대로 검사
+- 한 조건이 맞으면 나머지는 건너뜀`,
           starterCode: 'score = int(input("점수: "))\n\nif score >= 90:\n    grade = "A"\nelif score >= 80:\n    grade = "B"\nelif score >= 70:\n    grade = "C"\nelif score >= 60:\n    grade = "D"\nelse:\n    grade = "F"\n\nprint(f"등급: {grade}")\n',
           hints: [
             '위에서부터 순서대로 검사해요',
             '90점 이상이면 첫 번째 조건에서 처리됨',
             '85점은 첫 조건(>=90) 거짓, 두 번째(>=80) 참 → B',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -11312,9 +11401,36 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: 'elif 연습',
+          conceptExplanation: `## elif 연습: 분류 프로그램
+
+### 핵심 개념
+입력값을 여러 범주로 분류할 때 elif가 유용해요.
+
+### 예제: 나이대 분류
+\`\`\`python
+age = int(input("나이: "))
+if age < 13:
+    print("어린이")
+elif age < 20:
+    print("청소년")
+elif age < 65:
+    print("성인")
+else:
+    print("노인")
+\`\`\`
+
+### 팁
+- 범위를 명확하게 설정하세요
+- 경계값(13, 20, 65)이 어디에 포함되는지 확인하세요`,
           starterCode: 'age = int(input("나이: "))\n\nif age < 8:\n    group = "미취학"\nelif age < 14:\n    group = "초등학생"\nelif age < 17:\n    group = "중학생"\nelif age < 20:\n    group = "고등학생"\nelse:\n    group = "성인"\n\nprint(f"분류: {group}")\n',
           hints: [
             '순서대로 검사하니까 범위를 명확히 정해요',
+          ],
+          testCases: [
+            { input: '10', expectedOutput: '조건 만족', description: '조건 만족 케이스', errorHint: '조건문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '0 처리', description: '0 입력 케이스', errorHint: '0도 올바르게 판단해야 해요' },
+            { input: '-5', expectedOutput: '음수 처리', description: '음수 케이스', errorHint: '음수도 처리해야 해요', isHidden: true },
+            { input: '100', expectedOutput: '조건 처리', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -11515,9 +11631,35 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '값 매칭',
+          conceptExplanation: `## 요일 판별기
+
+### 핵심 개념
+정해진 값 목록에서 선택할 때 elif를 사용해요.
+
+### 문법
+\`\`\`python
+day = 1
+if day == 1:
+    print("월요일")
+elif day == 2:
+    print("화요일")
+# ... 계속
+else:
+    print("잘못된 입력")
+\`\`\`
+
+### 실습 포인트
+- 1~7 숫자를 요일로 변환
+- 잘못된 입력 처리`,
           starterCode: 'day_num = int(input("요일 번호(1-7): "))\n\nif day_num == 1:\n    day = "월요일"\nelif day_num == 2:\n    day = "화요일"\nelif day_num == 3:\n    day = "수요일"\nelif day_num == 4:\n    day = "목요일"\nelif day_num == 5:\n    day = "금요일"\nelif day_num == 6:\n    day = "토요일"\nelif day_num == 7:\n    day = "일요일"\nelse:\n    day = "잘못된 입력"\n\nprint(f"오늘은 {day}입니다")\n',
           hints: [
             '특정 값과 일치하는지 == 로 검사해요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -11717,10 +11859,38 @@ export const unit3: Unit = {
           exp: 90,
           estimatedMinutes: 15,
           concept: 'elif 실전 활용',
+          conceptExplanation: `## BMI 계산기 만들기
+
+### 핵심 개념
+공식을 적용하고 결과를 조건문으로 분류해요.
+
+### BMI 공식
+\`\`\`python
+bmi = weight / (height ** 2)
+# height는 미터 단위
+\`\`\`
+
+### 분류 기준
+\`\`\`python
+if bmi < 18.5:
+    print("저체중")
+elif bmi < 25:
+    print("정상")
+elif bmi < 30:
+    print("과체중")
+else:
+    print("비만")
+\`\`\``,
           starterCode: 'height = float(input("키(m): "))  # 예: 1.75\nweight = float(input("몸무게(kg): "))\n\n# BMI = 몸무게 / 키^2\nbmi = weight / (height ** 2)\n\nif bmi < 18.5:\n    result = "저체중"\nelif bmi < 23:\n    result = "정상"\nelif bmi < 25:\n    result = "과체중"\nelse:\n    result = "비만"\n\nprint(f"BMI: {bmi:.1f}")\nprint(f"판정: {result}")\n',
           hints: [
             'BMI = 몸무게(kg) / 키(m)의 제곱',
             '소수점 입력은 float()을 사용해요',
+          ],
+          testCases: [
+            { input: '5\n3', expectedOutput: '8', description: '기본 연산 테스트', errorHint: '계산이 정확한가요?' },
+            { input: '0\n0', expectedOutput: '0', description: '0 입력 케이스', errorHint: '0도 올바르게 처리해야 해요' },
+            { input: '-5\n3', expectedOutput: '-2', description: '음수 포함 케이스', errorHint: '음수 계산도 정확해야 해요', isHidden: true },
+            { input: '100\n200', expectedOutput: '300', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -11920,10 +12090,48 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '중첩 if 문',
+          conceptExplanation: `## 중첩 조건문
+
+### 핵심 개념
+if 안에 또 if를 넣어 더 세밀한 분기가 가능해요.
+
+### 문법
+\`\`\`python
+if 조건1:
+    if 조건2:
+        실행A
+    else:
+        실행B
+else:
+    실행C
+\`\`\`
+
+### 예제
+\`\`\`python
+age = 20
+has_license = True
+if age >= 18:
+    if has_license:
+        print("운전 가능")
+    else:
+        print("면허 필요")
+else:
+    print("나이 미달")
+\`\`\`
+
+### 팁
+- 너무 깊은 중첩은 피하세요 (3단계 이상 X)
+- and/or로 대체 가능한지 확인하세요`,
           starterCode: 'is_member = input("회원이신가요? (y/n): ")\n\nif is_member == "y":\n    age = int(input("나이: "))\n    if age >= 65:\n        discount = 50\n    elif age < 14:\n        discount = 30\n    else:\n        discount = 10\n    print(f"회원 할인 {discount}%")\nelse:\n    print("비회원은 할인이 없습니다")\n',
           hints: [
             '조건문 안에 또 조건문을 넣을 수 있어요',
             '들여쓰기에 주의하세요!',
+          ],
+          testCases: [
+            { input: '10', expectedOutput: '조건 만족', description: '조건 만족 케이스', errorHint: '조건문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '0 처리', description: '0 입력 케이스', errorHint: '0도 올바르게 판단해야 해요' },
+            { input: '-5', expectedOutput: '음수 처리', description: '음수 케이스', errorHint: '음수도 처리해야 해요', isHidden: true },
+            { input: '100', expectedOutput: '조건 처리', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -12124,10 +12332,37 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '조건문 응용',
+          conceptExplanation: `## 가위바위보 게임
+
+### 핵심 개념
+사용자 입력과 조건문을 조합해 게임을 만들어요.
+
+### 게임 로직
+\`\`\`python
+import random
+choices = ["가위", "바위", "보"]
+computer = random.choice(choices)
+user = input("가위/바위/보: ")
+
+if user == computer:
+    print("무승부!")
+elif (user == "가위" and computer == "보") or \
+     (user == "바위" and computer == "가위") or \
+     (user == "보" and computer == "바위"):
+    print("승리!")
+else:
+    print("패배!")
+\`\`\``,
           starterCode: 'import random\n\nchoices = ["가위", "바위", "보"]\ncomputer = random.choice(choices)\n\nuser = input("가위, 바위, 보 중 하나를 입력하세요: ")\n\nprint(f"컴퓨터: {computer}")\n\nif user == computer:\n    print("비겼습니다!")\nelif (user == "가위" and computer == "보") or \\\n     (user == "바위" and computer == "가위") or \\\n     (user == "보" and computer == "바위"):\n    print("이겼습니다!")\nelse:\n    print("졌습니다...")\n',
           hints: [
             'random.choice()는 리스트에서 무작위로 하나를 선택해요',
             '\\는 긴 줄을 다음 줄로 이어요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -12327,10 +12562,34 @@ export const unit3: Unit = {
           exp: 90,
           estimatedMinutes: 12,
           concept: '복잡한 조건 조합',
+          conceptExplanation: `## 윤년 판별기
+
+### 핵심 개념
+복잡한 조건을 논리연산자로 표현해요.
+
+### 윤년 조건
+1. 4로 나누어 떨어지고
+2. 100으로 나누어 떨어지지 않거나
+3. 400으로 나누어 떨어지면
+
+### 코드
+\`\`\`python
+year = int(input("연도: "))
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print(f"{year}년은 윤년입니다")
+else:
+    print(f"{year}년은 평년입니다")
+\`\`\``,
           starterCode: 'year = int(input("연도: "))\n\n# 윤년 조건:\n# 1. 4로 나눠지고\n# 2. 100으로 나눠지지 않거나\n# 3. 400으로 나눠지면\n\nif (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):\n    print(f"{year}년은 윤년입니다 (366일)")\nelse:\n    print(f"{year}년은 평년입니다 (365일)")\n',
           hints: [
             '윤년 규칙을 조건문으로 표현해요',
             '괄호로 조건을 묶으면 이해하기 쉬워요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -12530,10 +12789,54 @@ export const unit3: Unit = {
           exp: 90,
           estimatedMinutes: 12,
           concept: '문자열 처리와 조건문',
-          starterCode: 'print("안녕하세요! 무엇이든 물어보세요.")\nprint("종료하려면 \'끝\'을 입력하세요.")\n\nmessage = input("You: ")\n\nif "안녕" in message:\n    print("Bot: 안녕하세요! 반갑습니다!")\nelif "날씨" in message:\n    print("Bot: 오늘 날씨가 좋네요!")\nelif "이름" in message:\n    print("Bot: 저는 파이봇이에요!")\nelif "끝" in message:\n    print("Bot: 안녕히 가세요!")\nelse:\n    print("Bot: 잘 모르겠어요. 다시 물어봐 주세요.")\n',
+          conceptExplanation: `## 간단한 챗봇 만들기
+
+### 핵심 개념
+입력에 따라 다른 응답을 하는 프로그램이에요.
+
+### 기본 구조
+\`\`\`python
+while True:
+    user = input("You: ").lower()
+    if user == "안녕":
+        print("Bot: 안녕하세요!")
+    elif user == "이름":
+        print("Bot: 저는 파이봇이에요")
+    elif user == "종료":
+        print("Bot: 안녕히 가세요!")
+        break
+    else:
+        print("Bot: 무슨 말인지 모르겠어요")
+\`\`\`
+
+### 팁
+- \`.lower()\`로 대소문자 구분 없애기
+- 키워드 in 검사로 유연하게 처리`,
+          starterCode: `print("안녕하세요! 무엇이든 물어보세요.")
+print("종료하려면 '끝'을 입력하세요.")
+
+message = input("You: ")
+
+if "안녕" in message:
+    print("Bot: 안녕하세요! 반갑습니다!")
+elif "날씨" in message:
+    print("Bot: 오늘 날씨가 좋네요!")
+elif "이름" in message:
+    print("Bot: 저는 파이봇이에요!")
+elif "끝" in message:
+    print("Bot: 안녕히 가세요!")
+else:
+    print("Bot: 잘 모르겠어요. 다시 물어봐 주세요.")
+`,
           hints: [
             '"단어" in 문자열: 문자열에 단어가 포함되어 있는지 확인',
             '대소문자 구분에 주의하세요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -12735,10 +13038,36 @@ export const unit3: Unit = {
           exp: 120,
           estimatedMinutes: 20,
           concept: '조건문 종합 프로젝트',
+          conceptExplanation: `## 자판기 프로그램
+
+### 핵심 개념
+메뉴 선택, 가격 계산, 거스름돈 등을 조건문으로 처리해요.
+
+### 핵심 로직
+\`\`\`python
+menu = {"1": ("콜라", 1500), "2": ("사이다", 1300)}
+choice = input("메뉴 선택: ")
+if choice in menu:
+    name, price = menu[choice]
+    money = int(input("투입 금액: "))
+    if money >= price:
+        print(f"{name} 나왔습니다!")
+        print(f"거스름돈: {money - price}원")
+    else:
+        print(f"{price - money}원이 부족합니다")
+else:
+    print("잘못된 선택입니다")
+\`\`\``,
           starterCode: 'print("=== 자판기 ===")\nprint("1. 콜라 (1000원)")\nprint("2. 사이다 (1000원)")\nprint("3. 커피 (800원)")\nprint("4. 물 (500원)")\n\nchoice = int(input("음료 번호: "))\nmoney = int(input("투입 금액: "))\n\nif choice == 1 or choice == 2:\n    price = 1000\n    drink = "콜라" if choice == 1 else "사이다"\nelif choice == 3:\n    price = 800\n    drink = "커피"\nelif choice == 4:\n    price = 500\n    drink = "물"\nelse:\n    print("잘못된 선택입니다")\n    price = 0\n    drink = ""\n\nif price > 0:\n    if money >= price:\n        change = money - price\n        print(f"\\n{drink}를 드립니다!")\n        print(f"잔돈: {change}원")\n    else:\n        print(f"\\n금액이 부족합니다. {price - money}원 더 필요해요.")\n',
           hints: [
             '음료 선택 → 가격 결정 → 잔돈 계산',
             '금액이 부족한 경우도 처리하세요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -12992,6 +13321,12 @@ export const unit3: Unit = {
             '블록 코딩의 "~번 반복하기"와 같아요',
             '지루한 반복 작업을 자동화해요',
           ],
+          testCases: [
+            { input: '10', expectedOutput: '조건 만족', description: '조건 만족 케이스', errorHint: '조건문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '0 처리', description: '0 입력 케이스', errorHint: '0도 올바르게 판단해야 해요' },
+            { input: '-5', expectedOutput: '음수 처리', description: '음수 케이스', errorHint: '음수도 처리해야 해요', isHidden: true },
+            { input: '100', expectedOutput: '조건 처리', description: '큰 수 케이스', errorHint: '큰 숫자도 처리되나요?', isHidden: true }
+          ],
                     challenges: [
                     {
                               "id": "c1",
@@ -13185,11 +13520,38 @@ export const unit3: Unit = {
           exp: 60,
           estimatedMinutes: 10,
           concept: 'for + range() 기본',
+          conceptExplanation: `## 첫 번째 for 문
+
+### 핵심 개념
+for 문은 정해진 횟수만큼 반복할 때 사용해요.
+
+### 문법
+\`\`\`python
+for 변수 in 범위:
+    반복할 코드
+\`\`\`
+
+### 예제
+\`\`\`python
+for i in range(5):
+    print(f"{i}번째 반복")
+# 출력: 0, 1, 2, 3, 4번째 반복
+\`\`\`
+
+### 핵심 포인트
+- range(5)는 0, 1, 2, 3, 4를 생성
+- 변수 i가 매번 바뀜`,
           starterCode: '# "안녕"을 5번 출력\nfor i in range(5):\n    print("안녕")\n',
           hints: [
             'for 변수 in range(횟수): 형식이에요',
             'range(5)는 0, 1, 2, 3, 4를 생성해요',
             'i는 반복할 때마다 바뀌는 변수예요',
+          ],
+          testCases: [
+            { input: '3', expectedOutput: '반복 3회', description: '기본 반복 테스트', errorHint: '반복문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '반복 없음', description: '0 입력 케이스', errorHint: '0일 때도 처리해야 해요' },
+            { input: '1', expectedOutput: '반복 1회', description: '최소 반복 케이스', errorHint: '1번 반복도 정확해야 해요', isHidden: true },
+            { input: '10', expectedOutput: '반복 10회', description: '많은 반복 케이스', errorHint: '여러 번 반복도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -13389,11 +13751,38 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: 'range() 함수',
+          conceptExplanation: `## range() 함수 이해하기
+
+### 핵심 개념
+range()는 숫자 범위를 만들어요.
+
+### 사용법
+\`\`\`python
+range(끝)        # 0부터 끝-1까지
+range(시작, 끝)  # 시작부터 끝-1까지
+range(시작, 끝, 간격)  # 간격만큼 건너뛰기
+\`\`\`
+
+### 예제
+\`\`\`python
+for i in range(1, 6):      # 1, 2, 3, 4, 5
+    print(i)
+for i in range(0, 10, 2):  # 0, 2, 4, 6, 8
+    print(i)
+for i in range(5, 0, -1):  # 5, 4, 3, 2, 1
+    print(i)
+\`\`\``,
           starterCode: '# range(5): 0부터 4까지\nprint("range(5):")\nfor i in range(5):\n    print(i)\n\nprint()\n\n# range(1, 6): 1부터 5까지\nprint("range(1, 6):")\nfor i in range(1, 6):\n    print(i)\n',
           hints: [
             'range(n): 0부터 n-1까지',
             'range(a, b): a부터 b-1까지',
             '끝 숫자는 포함되지 않아요!',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -13594,10 +13983,32 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '누적 합계',
+          conceptExplanation: `## 1부터 10까지 합계 구하기
+
+### 핵심 개념
+반복문으로 누적 계산을 할 수 있어요.
+
+### 패턴
+\`\`\`python
+total = 0  # 누적 변수 초기화
+for i in range(1, 11):
+    total += i  # 누적
+print(f"합계: {total}")  # 55
+\`\`\`
+
+### 핵심 포인트
+- 누적 변수는 반복문 밖에서 초기화
+- += 연산자로 더하기`,
           starterCode: 'total = 0\n\nfor i in range(1, 11):  # 1부터 10까지\n    total += i\n    print(f"현재까지 합: {total}")\n\nprint(f"최종 합계: {total}")\n',
           hints: [
             'total += i 는 total = total + i 와 같아요',
             '반복할 때마다 i 값이 더해져요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -13797,10 +14208,32 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: 'for 문 활용',
+          conceptExplanation: `## 구구단 출력하기
+
+### 핵심 개념
+중첩 반복문 없이도 구구단을 출력할 수 있어요.
+
+### 코드
+\`\`\`python
+dan = int(input("단: "))
+for i in range(1, 10):
+    result = dan * i
+    print(f"{dan} x {i} = {result}")
+\`\`\`
+
+### f-string 포맷팅
+- \`f"{변수}"\`로 변수값 삽입
+- 깔끔한 출력 형식 만들기`,
           starterCode: 'dan = int(input("몇 단? "))\n\nprint(f"=== {dan}단 ===")\nfor i in range(1, 10):\n    result = dan * i\n    print(f"{dan} x {i} = {result}")\n',
           hints: [
             '1부터 9까지 반복해요',
             '단 x i = 결과를 출력해요',
+          ],
+          testCases: [
+            { input: '', expectedOutput: '정상 출력', description: '기본 출력 테스트', errorHint: 'print() 함수를 사용했나요?' },
+            { input: '', expectedOutput: '정상 출력', description: '출력 형식 확인', errorHint: '출력 형식을 확인하세요' },
+            { input: '', expectedOutput: '정상 출력', description: '특수문자 처리', errorHint: '특수문자도 출력되나요?', isHidden: true },
+            { input: '', expectedOutput: '정상 출력', description: '완전성 테스트', errorHint: '모든 내용이 출력되었나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -14000,11 +14433,39 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: 'while 문 기본',
+          conceptExplanation: `## while 문 소개
+
+### 핵심 개념
+while은 조건이 참인 동안 계속 반복해요.
+
+### 문법
+\`\`\`python
+while 조건:
+    반복할 코드
+\`\`\`
+
+### 예제
+\`\`\`python
+count = 0
+while count < 5:
+    print(count)
+    count += 1  # 중요! 없으면 무한루프
+\`\`\`
+
+### 주의사항
+- 조건이 False가 되어야 종료
+- 종료 조건을 꼭 만들어야 함`,
           starterCode: '# while: 조건이 참인 동안 반복\ncount = 0\n\nwhile count < 5:\n    print(f"count: {count}")\n    count += 1  # 이걸 빼면 무한 반복!\n\nprint("반복 끝!")\n',
           hints: [
             'while 조건: 형식이에요',
             '조건이 거짓이 될 때까지 반복해요',
             '조건이 계속 참이면 무한 반복되니 주의!',
+          ],
+          testCases: [
+            { input: '3', expectedOutput: '반복 3회', description: '기본 반복 테스트', errorHint: '반복문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '반복 없음', description: '0 입력 케이스', errorHint: '0일 때도 처리해야 해요' },
+            { input: '1', expectedOutput: '반복 1회', description: '최소 반복 케이스', errorHint: '1번 반복도 정확해야 해요', isHidden: true },
+            { input: '10', expectedOutput: '반복 10회', description: '많은 반복 케이스', errorHint: '여러 번 반복도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -14205,10 +14666,33 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: 'while 조건 활용',
+          conceptExplanation: `## while로 입력받기
+
+### 핵심 개념
+특정 입력이 들어올 때까지 계속 받을 수 있어요.
+
+### 예제
+\`\`\`python
+while True:
+    text = input("입력 ('종료' 입력시 끝): ")
+    if text == "종료":
+        break
+    print(f"입력: {text}")
+\`\`\`
+
+### 패턴
+- \`while True\` + \`break\` 조합이 흔함
+- 무한루프를 조건에 따라 탈출`,
           starterCode: 'password = ""\n\nwhile password != "1234":\n    password = input("비밀번호를 입력하세요: ")\n    if password != "1234":\n        print("틀렸습니다. 다시 시도하세요.")\n\nprint("정답입니다! 접근 허용.")\n',
           hints: [
             '비밀번호가 맞을 때까지 계속 물어봐요',
             '조건이 거짓이 되면 반복이 끝나요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트 포함 결과', description: '일반 입력 테스트', errorHint: 'input()을 사용했나요?' },
+            { input: '코딩왕', expectedOutput: '코딩왕 포함 결과', description: '한글 입력 테스트', errorHint: '한글 입력도 처리되나요?' },
+            { input: '123', expectedOutput: '123 포함 결과', description: '숫자 문자열 테스트', errorHint: '숫자 형태의 입력도 처리해야 해요', isHidden: true },
+            { input: '', expectedOutput: '빈 값 처리', description: '빈 입력 테스트', errorHint: '빈 입력도 처리해야 해요', isHidden: true }
           ],
                     challenges: [
                     {
@@ -14408,10 +14892,33 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: 'break 문',
+          conceptExplanation: `## break: 반복 탈출하기
+
+### 핵심 개념
+break는 반복문을 즉시 종료해요.
+
+### 예제
+\`\`\`python
+for i in range(10):
+    if i == 5:
+        break  # 5에서 종료
+    print(i)
+# 출력: 0, 1, 2, 3, 4
+\`\`\`
+
+### 사용 상황
+- 원하는 값을 찾았을 때
+- 에러 상황에서 탈출할 때`,
           starterCode: '# 1부터 10까지 중 5를 찾으면 멈추기\nfor i in range(1, 11):\n    print(f"검사 중: {i}")\n    if i == 5:\n        print("5를 찾았습니다!")\n        break  # 반복 종료\n\nprint("반복 끝")\n',
           hints: [
             'break는 반복문을 즉시 종료해요',
             'for, while 모두에서 사용할 수 있어요',
+          ],
+          testCases: [
+            { input: '3', expectedOutput: '반복 3회', description: '기본 반복 테스트', errorHint: '반복문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '반복 없음', description: '0 입력 케이스', errorHint: '0일 때도 처리해야 해요' },
+            { input: '1', expectedOutput: '반복 1회', description: '최소 반복 케이스', errorHint: '1번 반복도 정확해야 해요', isHidden: true },
+            { input: '10', expectedOutput: '반복 10회', description: '많은 반복 케이스', errorHint: '여러 번 반복도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -14611,10 +15118,33 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: 'continue 문',
+          conceptExplanation: `## continue: 다음으로 건너뛰기
+
+### 핵심 개념
+continue는 현재 반복을 건너뛰고 다음으로 넘어가요.
+
+### 예제
+\`\`\`python
+for i in range(5):
+    if i == 2:
+        continue  # 2는 건너뜀
+    print(i)
+# 출력: 0, 1, 3, 4
+\`\`\`
+
+### break vs continue
+- break: 반복문 완전히 종료
+- continue: 이번만 건너뛰고 계속`,
           starterCode: '# 홀수만 출력하기\nfor i in range(1, 11):\n    if i % 2 == 0:  # 짝수면\n        continue    # 건너뛰기\n    print(i)\n',
           hints: [
             'continue는 아래 코드를 건너뛰고 다음 반복으로',
             '조건에 맞지 않는 것을 걸러낼 때 유용해요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -14816,11 +15346,40 @@ export const unit3: Unit = {
           exp: 120,
           estimatedMinutes: 20,
           concept: '반복문 종합',
+          conceptExplanation: `## 숫자 맞추기 게임
+
+### 핵심 개념
+while, 조건문, random을 조합해 게임을 만들어요.
+
+### 게임 로직
+\`\`\`python
+import random
+answer = random.randint(1, 100)
+count = 0
+
+while True:
+    guess = int(input("추측: "))
+    count += 1
+
+    if guess == answer:
+        print(f"정답! {count}번 만에 맞췄어요!")
+        break
+    elif guess < answer:
+        print("더 높은 숫자예요")
+    else:
+        print("더 낮은 숫자예요")
+\`\`\``,
           starterCode: 'import random\n\nsecret = random.randint(1, 100)\nattempts = 0\n\nprint("1부터 100 사이의 숫자를 맞춰보세요!")\n\nwhile True:\n    guess = int(input("추측: "))\n    attempts += 1\n    \n    if guess == secret:\n        print(f"정답! {attempts}번 만에 맞추셨습니다!")\n        break\n    elif guess < secret:\n        print("더 높은 숫자예요.")\n    else:\n        print("더 낮은 숫자예요.")\n',
           hints: [
             'while True: 는 무한 반복이에요',
             'break로 정답일 때 탈출해요',
             '시도 횟수를 세어보세요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -15071,10 +15630,31 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: '리스트 순회',
+          conceptExplanation: `## 리스트와 for 문
+
+### 핵심 개념
+for 문으로 리스트의 각 요소를 순회할 수 있어요.
+
+### 문법
+\`\`\`python
+fruits = ["사과", "바나나", "체리"]
+for fruit in fruits:
+    print(fruit)
+\`\`\`
+
+### 핵심 포인트
+- 변수가 리스트의 각 요소를 차례로 받음
+- range() 없이도 반복 가능`,
           starterCode: 'fruits = ["사과", "바나나", "포도", "딸기"]\n\nfor fruit in fruits:\n    print(f"좋아하는 과일: {fruit}")\n',
           hints: [
             'for 항목 in 리스트: 형식으로 순회해요',
             '리스트의 각 항목이 차례로 변수에 들어가요',
+          ],
+          testCases: [
+            { input: '3', expectedOutput: '반복 3회', description: '기본 반복 테스트', errorHint: '반복문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '반복 없음', description: '0 입력 케이스', errorHint: '0일 때도 처리해야 해요' },
+            { input: '1', expectedOutput: '반복 1회', description: '최소 반복 케이스', errorHint: '1번 반복도 정확해야 해요', isHidden: true },
+            { input: '10', expectedOutput: '반복 10회', description: '많은 반복 케이스', errorHint: '여러 번 반복도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -15275,10 +15855,36 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 12,
           concept: 'enumerate 사용법',
+          conceptExplanation: `## enumerate() 함수
+
+### 핵심 개념
+인덱스와 값을 함께 얻을 수 있어요.
+
+### 문법
+\`\`\`python
+fruits = ["사과", "바나나", "체리"]
+for i, fruit in enumerate(fruits):
+    print(f"{i}: {fruit}")
+# 0: 사과
+# 1: 바나나
+# 2: 체리
+\`\`\`
+
+### 시작 번호 지정
+\`\`\`python
+for i, fruit in enumerate(fruits, start=1):
+    print(f"{i}: {fruit}")  # 1부터 시작
+\`\`\``,
           starterCode: 'students = ["김철수", "이영희", "박민수"]\n\nfor index, name in enumerate(students):\n    print(f"{index + 1}번: {name}")\n',
           hints: [
             'enumerate()는 (인덱스, 값) 쌍을 반환해요',
             '순서 번호가 필요할 때 유용해요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -15478,10 +16084,32 @@ export const unit3: Unit = {
           exp: 90,
           estimatedMinutes: 15,
           concept: '중첩 for 문',
+          conceptExplanation: `## 중첩 반복문
+
+### 핵심 개념
+반복문 안에 반복문을 넣어 2차원 반복이 가능해요.
+
+### 예제: 구구단 전체
+\`\`\`python
+for dan in range(2, 10):
+    print(f"--- {dan}단 ---")
+    for i in range(1, 10):
+        print(f"{dan} x {i} = {dan*i}")
+\`\`\`
+
+### 핵심 포인트
+- 바깥 반복 1번에 안쪽 반복 전체 실행
+- 총 반복 횟수 = 바깥 × 안쪽`,
           starterCode: '# 구구단 전체 출력\nfor dan in range(2, 10):\n    print(f"=== {dan}단 ===")\n    for i in range(1, 10):\n        print(f"{dan} x {i} = {dan * i}")\n    print()  # 빈 줄\n',
           hints: [
             '바깥 반복문이 한 번 돌 때 안쪽 반복문은 전체 실행',
             '2단이 끝나면 3단으로, 3단이 끝나면 4단으로...',
+          ],
+          testCases: [
+            { input: '3', expectedOutput: '반복 3회', description: '기본 반복 테스트', errorHint: '반복문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '반복 없음', description: '0 입력 케이스', errorHint: '0일 때도 처리해야 해요' },
+            { input: '1', expectedOutput: '반복 1회', description: '최소 반복 케이스', errorHint: '1번 반복도 정확해야 해요', isHidden: true },
+            { input: '10', expectedOutput: '반복 10회', description: '많은 반복 케이스', errorHint: '여러 번 반복도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -15681,10 +16309,35 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '중첩 반복문 활용',
+          conceptExplanation: `## 별 찍기: 직각삼각형
+
+### 핵심 개념
+반복문으로 패턴을 출력하는 연습이에요.
+
+### 코드
+\`\`\`python
+for i in range(1, 6):
+    print("*" * i)
+# *
+# **
+# ***
+# ****
+# *****
+\`\`\`
+
+### 핵심 포인트
+- 문자열 * 숫자 = 반복
+- i가 증가하면 별도 증가`,
           starterCode: '# 직각삼각형\n# *\n# **\n# ***\n# ****\n# *****\n\nfor i in range(1, 6):\n    print("*" * i)\n',
           hints: [
             '"*" * 3 은 "***"가 돼요',
             '줄마다 별 개수가 1씩 늘어나요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -15885,10 +16538,38 @@ export const unit3: Unit = {
           exp: 90,
           estimatedMinutes: 15,
           concept: '문자열 곱셈과 반복',
+          conceptExplanation: `## 별 찍기: 피라미드
+
+### 핵심 개념
+공백과 별을 조합해 피라미드를 만들어요.
+
+### 코드
+\`\`\`python
+n = 5
+for i in range(1, n+1):
+    spaces = " " * (n - i)
+    stars = "*" * (2*i - 1)
+    print(spaces + stars)
+#     *
+#    ***
+#   *****
+#  *******
+# *********
+\`\`\`
+
+### 핵심 포인트
+- 공백 개수 = n - i
+- 별 개수 = 2*i - 1`,
           starterCode: '#     *\n#    ***\n#   *****\n#  *******\n# *********\n\nheight = 5\n\nfor i in range(1, height + 1):\n    spaces = " " * (height - i)\n    stars = "*" * (2 * i - 1)\n    print(spaces + stars)\n',
           hints: [
             '공백과 별의 개수를 계산해야 해요',
             '공백: 높이 - 현재줄, 별: 2 * 현재줄 - 1',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -16088,10 +16769,35 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '중첩 반복과 조건문',
+          conceptExplanation: `## 소수 찾기
+
+### 핵심 개념
+for 문과 조건문으로 소수를 판별해요.
+
+### 소수 판별 로직
+\`\`\`python
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+for num in range(2, 101):
+    if is_prime(num):
+        print(num, end=" ")
+\`\`\``,
           starterCode: 'n = int(input("어디까지 소수를 찾을까요? "))\n\nprint(f"1부터 {n}까지의 소수:")\n\nfor num in range(2, n + 1):\n    is_prime = True\n    for i in range(2, num):\n        if num % i == 0:\n            is_prime = False\n            break\n    if is_prime:\n        print(num, end=" ")\n',
           hints: [
             '소수: 1과 자신만으로 나누어지는 수',
             '2부터 num-1까지 나눠보고, 나눠지면 소수가 아님',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -16291,10 +16997,38 @@ export const unit3: Unit = {
           exp: 80,
           estimatedMinutes: 12,
           concept: '반복문과 비교',
+          conceptExplanation: `## 리스트에서 최댓값 찾기
+
+### 핵심 개념
+반복문으로 리스트를 순회하며 최댓값을 찾아요.
+
+### 직접 구현
+\`\`\`python
+numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+max_value = numbers[0]
+
+for num in numbers:
+    if num > max_value:
+        max_value = num
+
+print(f"최댓값: {max_value}")  # 9
+\`\`\`
+
+### 내장 함수
+\`\`\`python
+print(max(numbers))  # 9
+print(min(numbers))  # 1
+\`\`\``,
           starterCode: 'numbers = [34, 67, 23, 89, 12, 45, 78]\n\nmax_num = numbers[0]  # 첫 번째 값으로 시작\n\nfor num in numbers:\n    if num > max_num:\n        max_num = num\n\nprint(f"숫자들: {numbers}")\nprint(f"최댓값: {max_num}")\n\n# 파이썬 내장 함수로도 가능\nprint(f"max() 사용: {max(numbers)}")\n',
           hints: [
             '첫 번째 값을 최댓값으로 가정해요',
             '더 큰 값을 찾으면 업데이트해요',
+          ],
+          testCases: [
+            { input: '[1,2,3]', expectedOutput: '리스트 처리', description: '기본 리스트 테스트', errorHint: '리스트를 제대로 다루나요?' },
+            { input: '[]', expectedOutput: '빈 리스트', description: '빈 리스트 케이스', errorHint: '빈 리스트도 처리해야 해요' },
+            { input: '[0]', expectedOutput: '0 포함', description: '0 원소 케이스', errorHint: '0도 올바르게 처리해야 해요', isHidden: true },
+            { input: '[1,2,3,4,5]', expectedOutput: '긴 리스트', description: '긴 리스트 케이스', errorHint: '긴 리스트도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -16495,10 +17229,34 @@ export const unit3: Unit = {
           exp: 70,
           estimatedMinutes: 10,
           concept: '문자열 순회',
+          conceptExplanation: `## 문자열 반복 처리
+
+### 핵심 개념
+문자열도 for 문으로 한 글자씩 처리할 수 있어요.
+
+### 예제
+\`\`\`python
+word = "Python"
+for char in word:
+    print(char)
+
+# 글자 개수 세기
+count = 0
+for char in word:
+    count += 1
+print(f"글자 수: {count}")  # 6
+# 또는 len(word)
+\`\`\``,
           starterCode: 'word = "Python"\n\nfor char in word:\n    print(char)\n\nprint()  # 빈 줄\n\n# 모음 개수 세기\nvowels = "aeiouAEIOU"\ncount = 0\n\nfor char in word:\n    if char in vowels:\n        count += 1\n\nprint(f"{word}의 모음 개수: {count}")\n',
           hints: [
             '문자열도 for 문으로 순회할 수 있어요',
             '한 글자씩 차례로 변수에 들어가요',
+          ],
+          testCases: [
+            { input: '3', expectedOutput: '반복 3회', description: '기본 반복 테스트', errorHint: '반복문이 제대로 작동하나요?' },
+            { input: '0', expectedOutput: '반복 없음', description: '0 입력 케이스', errorHint: '0일 때도 처리해야 해요' },
+            { input: '1', expectedOutput: '반복 1회', description: '최소 반복 케이스', errorHint: '1번 반복도 정확해야 해요', isHidden: true },
+            { input: '10', expectedOutput: '반복 10회', description: '많은 반복 케이스', errorHint: '여러 번 반복도 처리되나요?', isHidden: true }
           ],
                     challenges: [
                     {
@@ -16698,10 +17456,39 @@ export const unit3: Unit = {
           exp: 100,
           estimatedMinutes: 15,
           concept: '종합 복습',
+          conceptExplanation: `## 복습 퀴즈 프로그램
+
+### 핵심 개념
+리스트, 반복문, 조건문을 조합해 퀴즈를 만들어요.
+
+### 기본 구조
+\`\`\`python
+questions = [
+    ("Python의 창시자는?", "귀도 반 로섬"),
+    ("2 + 2는?", "4"),
+]
+
+score = 0
+for q, answer in questions:
+    user = input(q + " ")
+    if user == answer:
+        print("정답!")
+        score += 1
+    else:
+        print(f"오답! 정답: {answer}")
+
+print(f"점수: {score}/{len(questions)}")
+\`\`\``,
           starterCode: 'questions = [\n    ("Python에서 출력 함수는?", "print"),\n    ("변수에 값을 저장하는 기호는?", "="),\n    ("조건문 키워드는?", "if")\n]\n\nscore = 0\n\nprint("=== Python 퀴즈 ==="")\n\nfor i, (question, answer) in enumerate(questions):\n    print(f"\\n문제 {i + 1}: {question}")\n    user_answer = input("정답: ")\n    \n    if user_answer.lower() == answer.lower():\n        print("정답입니다!")\n        score += 1\n    else:\n        print(f"틀렸습니다. 정답: {answer}")\n\nprint(f"\\n최종 점수: {score}/{len(questions)}")\n',
           hints: [
             '문제와 정답을 튜플로 저장해요',
             'enumerate()로 문제 번호를 표시해요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {
@@ -16902,11 +17689,44 @@ export const unit3: Unit = {
           exp: 150,
           estimatedMinutes: 25,
           concept: 'Unit 3 종합 프로젝트',
+          conceptExplanation: `## 텍스트 게임 만들기
+
+### 핵심 개념
+Unit 3에서 배운 모든 것을 종합해요.
+
+### 필요한 개념
+1. **변수**: 플레이어 상태 저장
+2. **조건문**: 선택지 분기
+3. **반복문**: 게임 루프
+4. **입출력**: 사용자 상호작용
+
+### 기본 구조
+\`\`\`python
+hp = 100
+while hp > 0:
+    print(f"\nHP: {hp}")
+    choice = input("1. 전진 2. 휴식 3. 종료: ")
+    if choice == "1":
+        hp -= 10
+        print("몬스터와 싸웠다!")
+    elif choice == "2":
+        hp += 5
+        print("휴식했다.")
+    elif choice == "3":
+        break
+print("게임 종료!")
+\`\`\``,
           starterCode: 'import random\n\nprint("="*40)\nprint("   환영합니다, 용감한 모험가여!   ")\nprint("="*40)\n\nname = input("\\n당신의 이름은? ")\nhp = 100\ngold = 50\n\nprint(f"\\n{name}님, 모험을 시작합니다!")\nprint(f"HP: {hp}, 골드: {gold}")\n\nplaying = True\n\nwhile playing:\n    print("\\n--- 갈림길입니다 ---")\n    print("1. 동굴 탐험 (보물? 몬스터?)")\n    print("2. 마을 방문 (회복)")\n    print("3. 모험 종료")\n    \n    choice = input("선택: ")\n    \n    if choice == "1":\n        # 동굴 탐험\n        event = random.choice(["treasure", "monster", "empty"])\n        if event == "treasure":\n            found = random.randint(10, 50)\n            gold += found\n            print(f"보물 발견! +{found} 골드")\n        elif event == "monster":\n            damage = random.randint(10, 30)\n            hp -= damage\n            print(f"몬스터! -{damage} HP")\n        else:\n            print("아무것도 없었습니다...")\n    elif choice == "2":\n        # 마을 방문\n        if gold >= 30:\n            gold -= 30\n            hp = 100\n            print("회복했습니다! HP: 100")\n        else:\n            print("골드가 부족합니다.")\n    elif choice == "3":\n        playing = False\n    else:\n        print("잘못된 선택입니다.")\n    \n    print(f"\\n[상태] HP: {hp}, 골드: {gold}")\n    \n    if hp <= 0:\n        print("\\n게임 오버!")\n        playing = False\n\nprint(f"\\n{name}의 모험 결과: 골드 {gold}")\nprint("다음에 또 만나요!")\n',
           hints: [
             'while 문으로 게임 루프를 만들어요',
             'if-elif-else로 선택을 처리해요',
             'random으로 이벤트를 결정해요',
+          ],
+          testCases: [
+            { input: '테스트', expectedOutput: '테스트', description: '기본 입력' },
+            { input: 'Python', expectedOutput: 'Python', description: '영문 입력' },
+            { input: '123', expectedOutput: '123', description: '숫자 입력', isHidden: true },
+            { input: '가나다', expectedOutput: '가나다', description: '한글 입력', isHidden: true }
           ],
                     challenges: [
                     {

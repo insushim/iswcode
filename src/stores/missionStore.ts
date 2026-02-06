@@ -83,7 +83,7 @@ export const useMissionStore = create<MissionState>()(
 
     useHint: () => {
       const { currentMission, currentHintIndex } = get();
-      if (!currentMission || !currentMission.hints.length) return null;
+      if (!currentMission || !currentMission.hints || !currentMission.hints.length) return null;
 
       const nextIndex = currentHintIndex + 1;
       if (nextIndex >= currentMission.hints.length) return null;

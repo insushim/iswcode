@@ -5085,287 +5085,518 @@ const AIConceptLesson: React.FC<Props> = ({ mission, onComplete }) => {
 // ==================== 개선된 Generic Fallback ====================
 const EnhancedGenericLesson: React.FC<Props> = ({ mission, onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [checkedItems, setCheckedItems] = useState<boolean[]>([false, false, false]);
-  const [showExplanation, setShowExplanation] = useState(false);
-  const [quizAnswer, setQuizAnswer] = useState<number | null>(null);
-  const [showQuizResult, setShowQuizResult] = useState(false);
+  const [checkQuestionAnswers, setCheckQuestionAnswers] = useState<(number | null)[]>(
+    mission.checkQuestions ? mission.checkQuestions.map(() => null) : []
+  );
+  const [showCheckFeedback, setShowCheckFeedback] = useState<boolean[]>(
+    mission.checkQuestions ? mission.checkQuestions.map(() => false) : []
+  );
+  const [challengeAttempts, setChallengeAttempts] = useState<number[]>(
+    mission.challenges ? mission.challenges.map(() => 0) : []
+  );
+  const [challengeCompleted, setChallengeCompleted] = useState<boolean[]>(
+    mission.challenges ? mission.challenges.map(() => false) : []
+  );
+  const [progressPercent, setProgressPercent] = useState(0);
 
-  // 학습 단계
-  const steps = [
-    { id: 'learn', title: '개념 학습', icon: '📚' },
-    { id: 'understand', title: '이해하기', icon: '💡' },
-    { id: 'check', title: '확인하기', icon: '✅' },
-  ];
+  // 동적 스텝 생성
+  const steps: { id: string; title: string; icon: string }[] = [];
 
-  // 미션의 힌트나 설명에서 체크리스트 생성
-  const checklistItems = mission.hints?.slice(0, 3) || [
-    '개념을 이해했어요',
-    '예시를 살펴봤어요',
-    '다음 단계로 넘어갈 준비가 됐어요',
-  ];
+  // Step 1: 개념 학습 (항상 존재)
+  steps.push({ id: 'learn', title: '개념 학습', icon: '📚' });
 
-  // 간단한 확인 질문 생성
-  const generateQuiz = () => {
-    const conceptName = mission.concept || '이 개념';
-    return {
-      question: `${conceptName}에 대해 배웠나요?`,
-      options: [
-        `네, ${conceptName}을(를) 이해했어요!`,
-        '조금 더 공부가 필요해요',
-        '아직 잘 모르겠어요',
-      ],
-      correct: 0,
-    };
+  // Step 2: 확인 질문 (checkQuestions가 있으면)
+  if (mission.checkQuestions && mission.checkQuestions.length > 0) {
+    steps.push({ id: 'check', title: '확인 질문', icon: '❓' });
+  }
+
+  // Step 3: 연습 문제 (challenges가 있으면)
+  if (mission.challenges && mission.challenges.length > 0) {
+    steps.push({ id: 'practice', title: '연습하기', icon: '💪' });
+  }
+
+  // Step 4: 완료 (항상 존재)
+  steps.push({ id: 'complete', title: '완료', icon: '🎉' });
+
+  // 진행률 계산
+  useEffect(() => {
+    let completed = 0;
+    const total = steps.length - 1; // 완료 스텝 제외
+
+    if (currentStep > 0) completed++;
+    if (mission.checkQuestions) {
+      const allAnswered = checkQuestionAnswers.every((ans) => ans !== null);
+      const allCorrect = checkQuestionAnswers.every(
+        (ans, idx) => ans === mission.checkQuestions![idx].correctAnswer
+      );
+      if (allAnswered && allCorrect) completed++;
+    }
+    if (mission.challenges) {
+      const allChallengesCompleted = challengeCompleted.every(Boolean);
+      if (allChallengesCompleted) completed++;
+    }
+
+    setProgressPercent((completed / total) * 100);
+  }, [currentStep, checkQuestionAnswers, challengeCompleted, mission, steps.length]);
+
+  const handleCheckQuestionAnswer = (questionIndex: number, answerIndex: number) => {
+    const newAnswers = [...checkQuestionAnswers];
+    newAnswers[questionIndex] = answerIndex;
+    setCheckQuestionAnswers(newAnswers);
+
+    const newFeedback = [...showCheckFeedback];
+    newFeedback[questionIndex] = true;
+    setShowCheckFeedback(newFeedback);
   };
 
-  const quiz = generateQuiz();
-
-  const toggleCheckItem = (index: number) => {
-    const newChecked = [...checkedItems];
-    newChecked[index] = !newChecked[index];
-    setCheckedItems(newChecked);
+  const handleChallengeComplete = (challengeIndex: number) => {
+    const newCompleted = [...challengeCompleted];
+    newCompleted[challengeIndex] = true;
+    setChallengeCompleted(newCompleted);
   };
 
-  const allChecked = checkedItems.every(Boolean);
-  const canComplete = allChecked && quizAnswer === 0;
+  const allCheckQuestionsCorrect = mission.checkQuestions
+    ? checkQuestionAnswers.every((ans, idx) => ans === mission.checkQuestions![idx].correctAnswer)
+    : true;
+
+  const allChallengesCompleted = mission.challenges ? challengeCompleted.every(Boolean) : true;
+
+  const canComplete = allCheckQuestionsCorrect && allChallengesCompleted;
 
   const renderStep = () => {
-    switch (currentStep) {
-      case 0:
-        return (
-          <div className="space-y-6">
-            {/* 개념 카드 */}
-            <div className="bg-gradient-to-br from-violet-900/50 to-purple-900/50 rounded-2xl p-6 border border-violet-500/30">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                  📚
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white">{mission.concept || '학습 개념'}</h4>
-                  <p className="text-violet-300 text-sm">핵심 개념을 알아봐요</p>
-                </div>
-              </div>
+    const stepId = steps[currentStep]?.id;
 
+    // Step 1: 개념 학습
+    if (stepId === 'learn') {
+      return (
+        <div className="space-y-6">
+          {/* 메인 개념 설명 */}
+          <div className="bg-gradient-to-br from-violet-900/50 to-purple-900/50 rounded-2xl p-6 border border-violet-500/30">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
+                📚
+              </div>
+              <div>
+                <h4 className="text-xl font-bold text-white">{mission.concept || mission.title}</h4>
+                <p className="text-violet-300 text-sm">핵심 개념을 이해해봐요</p>
+              </div>
+            </div>
+
+            {/* 설명 텍스트 (여러 단락 지원) */}
+            <div className="bg-slate-900/50 rounded-xl p-5 space-y-3">
               {mission.conceptExplanation ? (
-                <div className="bg-slate-900/50 rounded-xl p-4">
-                  <p className="text-slate-200 leading-relaxed">{mission.conceptExplanation}</p>
-                </div>
+                mission.conceptExplanation.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx} className="text-slate-200 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))
               ) : (
-                <div className="bg-slate-900/50 rounded-xl p-4">
-                  <p className="text-slate-200 leading-relaxed">{mission.description}</p>
-                </div>
+                mission.description.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx} className="text-slate-200 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))
               )}
             </div>
-
-            {/* 핵심 포인트 */}
-            <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
-              <h5 className="font-bold text-white mb-4 flex items-center gap-2">
-                <Star className="w-5 h-5 text-yellow-400" />
-                핵심 포인트
-              </h5>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <div className="bg-emerald-900/30 rounded-xl p-4 text-center border border-emerald-500/30">
-                  <div className="text-3xl mb-2">🎯</div>
-                  <p className="text-emerald-300 text-sm">목표를 이해해요</p>
-                </div>
-                <div className="bg-blue-900/30 rounded-xl p-4 text-center border border-blue-500/30">
-                  <div className="text-3xl mb-2">📝</div>
-                  <p className="text-blue-300 text-sm">단계를 따라해요</p>
-                </div>
-                <div className="bg-amber-900/30 rounded-xl p-4 text-center border border-amber-500/30">
-                  <div className="text-3xl mb-2">🔄</div>
-                  <p className="text-amber-300 text-sm">연습을 반복해요</p>
-                </div>
-              </div>
-            </div>
-
-            {/* 힌트 영역 */}
-            {mission.hints && mission.hints.length > 0 && (
-              <div className="bg-cyan-900/20 rounded-xl p-4 border border-cyan-500/30">
-                <button
-                  onClick={() => setShowExplanation(!showExplanation)}
-                  className="w-full flex items-center justify-between text-cyan-300 font-medium"
-                >
-                  <span className="flex items-center gap-2">
-                    <Zap className="w-4 h-4" />
-                    💡 힌트 보기
-                  </span>
-                  <span>{showExplanation ? '▲' : '▼'}</span>
-                </button>
-                <AnimatePresence>
-                  {showExplanation && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="mt-4 space-y-2">
-                        {mission.hints.map((hint, index) => (
-                          <p key={index} className="text-cyan-200 text-sm flex items-start gap-2">
-                            <span className="text-cyan-400">•</span>
-                            {hint}
-                          </p>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            )}
           </div>
-        );
 
-      case 1:
-        return (
-          <div className="space-y-6">
-            <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
-              <h5 className="font-bold text-white mb-4 flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-emerald-400" />
-                학습 체크리스트
+          {/* CSTA 교육과정 성취기준 */}
+          {mission.cstaStandard && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-blue-900/20 rounded-xl p-4 border border-blue-500/30"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <Star className="w-4 h-4 text-blue-400" />
+                <span className="text-blue-300 text-sm font-semibold">교육과정 성취기준</span>
+              </div>
+              <p className="text-blue-200 text-sm">{mission.cstaStandard}</p>
+            </motion.div>
+          )}
+
+          {/* 학습 목표 */}
+          {mission.learningObjectives && mission.learningObjectives.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="bg-emerald-900/20 rounded-xl p-5 border border-emerald-500/30"
+            >
+              <h5 className="font-bold text-emerald-300 mb-3 flex items-center gap-2">
+                <Star className="w-5 h-5 text-emerald-400" />
+                학습 목표
               </h5>
-              <p className="text-slate-400 mb-4">
-                아래 항목들을 확인하면서 개념을 익혀보세요!
-              </p>
-              <div className="space-y-3">
-                {checklistItems.map((item, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => toggleCheckItem(index)}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    className={`w-full p-4 rounded-xl text-left flex items-center gap-4 transition-all ${
-                      checkedItems[index]
-                        ? 'bg-emerald-500/20 border-2 border-emerald-500/50'
-                        : 'bg-slate-700/50 border-2 border-slate-600 hover:border-slate-500'
-                    }`}
+              <ul className="space-y-2">
+                {mission.learningObjectives.map((objective, idx) => (
+                  <li key={idx} className="text-emerald-200 text-sm flex items-start gap-2">
+                    <span className="text-emerald-400 mt-1">✓</span>
+                    <span>{objective}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+
+          {/* 개념 카드 */}
+          {mission.conceptCards && mission.conceptCards.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="space-y-4"
+            >
+              <h5 className="font-bold text-white flex items-center gap-2">
+                <Zap className="w-5 h-5 text-yellow-400" />
+                핵심 개념
+              </h5>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {mission.conceptCards.map((card, idx) => (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ scale: 1.02 }}
+                    className="bg-slate-800/50 rounded-xl p-5 border border-slate-700 hover:border-violet-500/50 transition-all"
                   >
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                        checkedItems[index]
-                          ? 'bg-emerald-500 text-white'
-                          : 'bg-slate-600 text-slate-400'
-                      }`}
-                    >
-                      {checkedItems[index] ? <CheckCircle className="w-5 h-5" /> : <span>{index + 1}</span>}
+                    <div className="flex items-center gap-3 mb-3">
+                      {card.icon && <span className="text-3xl">{card.icon}</span>}
+                      <h6 className="font-bold text-white">{card.title}</h6>
                     </div>
-                    <span className={checkedItems[index] ? 'text-emerald-300' : 'text-slate-300'}>
-                      {item}
-                    </span>
-                  </motion.button>
+                    <p className="text-slate-300 text-sm leading-relaxed mb-3">{card.description}</p>
+                    {card.example && (
+                      <div className="bg-slate-900/70 rounded-lg p-3 border border-slate-600">
+                        <p className="text-cyan-300 text-xs font-mono">{card.example}</p>
+                      </div>
+                    )}
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
+          )}
 
-            {allChecked && (
+          {/* 실생활 예시 */}
+          {mission.realWorldExample && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="bg-amber-900/20 rounded-xl p-5 border border-amber-500/30"
+            >
+              <h5 className="font-bold text-amber-300 mb-3 flex items-center gap-2">
+                <span className="text-2xl">🌍</span>
+                실생활에서는 어떻게 쓰일까요?
+              </h5>
+              <p className="text-amber-200 leading-relaxed">{mission.realWorldExample}</p>
+            </motion.div>
+          )}
+
+          {/* 힌트 */}
+          {mission.hints && mission.hints.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="bg-cyan-900/20 rounded-xl p-4 border border-cyan-500/30"
+            >
+              <h5 className="font-bold text-cyan-300 mb-3 flex items-center gap-2">
+                <Zap className="w-4 h-4" />
+                도움이 되는 팁
+              </h5>
+              <div className="space-y-2">
+                {mission.hints.map((hint, idx) => (
+                  <p key={idx} className="text-cyan-200 text-sm flex items-start gap-2">
+                    <span className="text-cyan-400">💡</span>
+                    {hint}
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </div>
+      );
+    }
+
+    // Step 2: 확인 질문
+    if (stepId === 'check' && mission.checkQuestions) {
+      return (
+        <div className="space-y-6">
+          <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+            <h5 className="font-bold text-white mb-2 flex items-center gap-2">
+              <span className="text-2xl">❓</span>
+              개념 확인하기
+            </h5>
+            <p className="text-slate-400 text-sm mb-5">배운 내용을 확인해봐요. 모든 질문에 정답을 맞춰야 다음으로 넘어갈 수 있어요!</p>
+          </div>
+
+          {mission.checkQuestions.map((question, qIdx) => {
+            const userAnswer = checkQuestionAnswers[qIdx];
+            const isCorrect = userAnswer === question.correctAnswer;
+            const showFeedback = showCheckFeedback[qIdx];
+
+            return (
               <motion.div
+                key={qIdx}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-emerald-900/30 rounded-xl p-4 border border-emerald-500/30 text-center"
+                transition={{ delay: qIdx * 0.1 }}
+                className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700"
               >
-                <div className="text-4xl mb-2">🎉</div>
-                <p className="text-emerald-300 font-medium">모든 항목을 확인했어요!</p>
-                <p className="text-emerald-400 text-sm">다음 단계로 넘어가서 확인해보세요.</p>
-              </motion.div>
-            )}
-          </div>
-        );
+                <h6 className="text-white font-semibold mb-4 flex items-start gap-2">
+                  <span className="text-violet-400 font-bold">Q{qIdx + 1}.</span>
+                  <span>{question.question}</span>
+                </h6>
+                <div className="space-y-2">
+                  {question.options.map((option, optIdx) => {
+                    const isSelected = userAnswer === optIdx;
+                    const isThisCorrect = optIdx === question.correctAnswer;
+                    const shouldHighlight = showFeedback && (isSelected || isThisCorrect);
 
-      case 2:
-        return (
-          <div className="space-y-6">
-            <div className="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
-              <h5 className="font-bold text-white mb-4 flex items-center gap-2">
-                ❓ 마지막 확인
-              </h5>
-              <p className="text-slate-300 mb-4">{quiz.question}</p>
-              <div className="space-y-2">
-                {quiz.options.map((option, index) => {
-                  const isSelected = quizAnswer === index;
-                  const isCorrect = showQuizResult && index === quiz.correct;
-                  const isWrong = showQuizResult && isSelected && index !== quiz.correct;
+                    return (
+                      <button
+                        key={optIdx}
+                        onClick={() => handleCheckQuestionAnswer(qIdx, optIdx)}
+                        disabled={showFeedback}
+                        className={`w-full p-4 rounded-xl text-left flex items-center gap-3 transition-all ${
+                          shouldHighlight && isThisCorrect
+                            ? 'bg-emerald-500/30 border-2 border-emerald-500'
+                            : shouldHighlight && isSelected && !isThisCorrect
+                            ? 'bg-red-500/30 border-2 border-red-500'
+                            : isSelected
+                            ? 'bg-violet-500/30 border-2 border-violet-500'
+                            : 'bg-slate-700/50 border-2 border-slate-600 hover:border-slate-500'
+                        } ${showFeedback ? 'cursor-default' : 'cursor-pointer'}`}
+                      >
+                        <span
+                          className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                            shouldHighlight && isThisCorrect
+                              ? 'bg-emerald-500 text-white'
+                              : shouldHighlight && isSelected && !isThisCorrect
+                              ? 'bg-red-500 text-white'
+                              : isSelected
+                              ? 'bg-violet-500 text-white'
+                              : 'bg-slate-600 text-slate-300'
+                          }`}
+                        >
+                          {String.fromCharCode(65 + optIdx)}
+                        </span>
+                        <span
+                          className={
+                            shouldHighlight && isThisCorrect
+                              ? 'text-emerald-300 font-medium'
+                              : shouldHighlight && isSelected && !isThisCorrect
+                              ? 'text-red-300'
+                              : 'text-slate-300'
+                          }
+                        >
+                          {option}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
 
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        if (!showQuizResult) {
-                          setQuizAnswer(index);
-                          setShowQuizResult(true);
-                        }
-                      }}
-                      disabled={showQuizResult}
-                      className={`w-full p-4 rounded-xl text-left flex items-center gap-3 transition-all ${
-                        isCorrect
-                          ? 'bg-emerald-500/30 border-2 border-emerald-500'
-                          : isWrong
-                          ? 'bg-red-500/30 border-2 border-red-500'
-                          : isSelected
-                          ? 'bg-violet-500/30 border-2 border-violet-500'
-                          : 'bg-slate-700/50 border-2 border-slate-600 hover:border-slate-500'
+                {/* 피드백 */}
+                {showFeedback && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`mt-4 p-4 rounded-xl ${
+                      isCorrect
+                        ? 'bg-emerald-900/30 border border-emerald-500/30'
+                        : 'bg-red-900/30 border border-red-500/30'
+                    }`}
+                  >
+                    <p
+                      className={`font-semibold mb-1 ${
+                        isCorrect ? 'text-emerald-300' : 'text-red-300'
                       }`}
                     >
-                      <span
-                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-                          isCorrect
-                            ? 'bg-emerald-500 text-white'
-                            : isWrong
-                            ? 'bg-red-500 text-white'
-                            : isSelected
-                            ? 'bg-violet-500 text-white'
-                            : 'bg-slate-600 text-slate-300'
-                        }`}
+                      {isCorrect ? '정답이에요!' : '아쉬워요!'}
+                    </p>
+                    <p className={isCorrect ? 'text-emerald-200 text-sm' : 'text-red-200 text-sm'}>
+                      {isCorrect ? (question.feedback?.correct || '정답이에요!') : (question.feedback?.incorrect || '다시 생각해보세요!')}
+                    </p>
+                    {!isCorrect && (
+                      <button
+                        onClick={() => {
+                          const newAnswers = [...checkQuestionAnswers];
+                          newAnswers[qIdx] = null;
+                          setCheckQuestionAnswers(newAnswers);
+                          const newFeedback = [...showCheckFeedback];
+                          newFeedback[qIdx] = false;
+                          setShowCheckFeedback(newFeedback);
+                        }}
+                        className="mt-3 px-4 py-2 bg-red-600 text-white text-sm rounded-lg hover:bg-red-500 transition-colors"
                       >
-                        {index + 1}
-                      </span>
-                      <span
-                        className={
-                          isCorrect ? 'text-emerald-300' : isWrong ? 'text-red-300' : 'text-slate-300'
-                        }
-                      >
-                        {option}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {showQuizResult && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className={`rounded-xl p-6 text-center ${
-                  quizAnswer === quiz.correct
-                    ? 'bg-emerald-900/30 border border-emerald-500/30'
-                    : 'bg-amber-900/30 border border-amber-500/30'
-                }`}
-              >
-                <div className="text-5xl mb-3">{quizAnswer === quiz.correct ? '🎉' : '💪'}</div>
-                <p className={`text-xl font-bold ${quizAnswer === quiz.correct ? 'text-emerald-300' : 'text-amber-300'}`}>
-                  {quizAnswer === quiz.correct ? '훌륭해요!' : '다음에 더 잘할 수 있어요!'}
-                </p>
-                {quizAnswer === quiz.correct ? (
-                  <p className="text-emerald-400 mt-2">미션을 완료할 준비가 됐어요!</p>
-                ) : (
-                  <button
-                    onClick={() => {
-                      setQuizAnswer(null);
-                      setShowQuizResult(false);
-                    }}
-                    className="mt-3 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-500 transition-colors"
-                  >
-                    다시 시도하기
-                  </button>
+                        다시 시도하기
+                      </button>
+                    )}
+                  </motion.div>
                 )}
               </motion.div>
-            )}
-          </div>
-        );
+            );
+          })}
 
-      default:
-        return null;
+          {/* 전체 진행 상황 */}
+          {allCheckQuestionsCorrect && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-emerald-900/30 rounded-xl p-6 border border-emerald-500/30 text-center"
+            >
+              <div className="text-5xl mb-3">🎉</div>
+              <p className="text-emerald-300 font-bold text-lg">모든 질문에 정답을 맞췄어요!</p>
+              <p className="text-emerald-400 text-sm mt-1">다음 단계로 넘어가 볼까요?</p>
+            </motion.div>
+          )}
+        </div>
+      );
     }
+
+    // Step 3: 연습 문제
+    if (stepId === 'practice' && mission.challenges) {
+      return (
+        <div className="space-y-6">
+          <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+            <h5 className="font-bold text-white mb-2 flex items-center gap-2">
+              <span className="text-2xl">💪</span>
+              연습 문제
+            </h5>
+            <p className="text-slate-400 text-sm">직접 연습해보면서 실력을 키워봐요!</p>
+          </div>
+
+          {mission.challenges.map((challenge, cIdx) => {
+            const isCompleted = challengeCompleted[cIdx];
+            const attempts = challengeAttempts[cIdx];
+
+            return (
+              <motion.div
+                key={cIdx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: cIdx * 0.1 }}
+                className={`rounded-2xl p-6 border-2 transition-all ${
+                  isCompleted
+                    ? 'bg-emerald-900/20 border-emerald-500/50'
+                    : 'bg-slate-800/50 border-slate-700'
+                }`}
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h6 className="text-white font-bold">{challenge.title}</h6>
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                          challenge.difficulty === 'easy'
+                            ? 'bg-green-900/50 text-green-300 border border-green-500/30'
+                            : challenge.difficulty === 'medium'
+                            ? 'bg-yellow-900/50 text-yellow-300 border border-yellow-500/30'
+                            : 'bg-red-900/50 text-red-300 border border-red-500/30'
+                        }`}
+                      >
+                        {challenge.difficulty === 'easy'
+                          ? '쉬움'
+                          : challenge.difficulty === 'medium'
+                          ? '보통'
+                          : '어려움'}
+                      </span>
+                    </div>
+                    <p className="text-slate-300 text-sm leading-relaxed">{challenge.description}</p>
+                    <p className="text-slate-500 text-xs mt-2">예상 시간: {challenge.estimatedMinutes}분</p>
+                  </div>
+                  {isCompleted && (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="ml-4"
+                    >
+                      <CheckCircle className="w-8 h-8 text-emerald-400" />
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* 힌트 */}
+                {challenge.hints && challenge.hints.length > 0 && (
+                  <div className="bg-slate-900/50 rounded-lg p-4 mb-4 border border-slate-600">
+                    <p className="text-cyan-400 text-xs font-semibold mb-2">힌트</p>
+                    <ul className="space-y-1">
+                      {challenge.hints.map((hint, hIdx) => (
+                        <li key={hIdx} className="text-slate-400 text-xs flex items-start gap-2">
+                          <span className="text-cyan-400">•</span>
+                          {hint}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {!isCompleted && (
+                  <button
+                    onClick={() => handleChallengeComplete(cIdx)}
+                    className="w-full mt-4 py-3 bg-violet-600 text-white font-bold rounded-xl hover:bg-violet-500 transition-colors"
+                  >
+                    완료 표시하기
+                  </button>
+                )}
+
+                {isCompleted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 p-4 bg-emerald-900/30 border border-emerald-500/30 rounded-xl"
+                  >
+                    <p className="text-emerald-300 font-semibold text-sm">
+                      {challenge.feedback.perfect}
+                    </p>
+                  </motion.div>
+                )}
+              </motion.div>
+            );
+          })}
+
+          {allChallengesCompleted && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-emerald-900/30 rounded-xl p-6 border border-emerald-500/30 text-center"
+            >
+              <div className="text-5xl mb-3">🎉</div>
+              <p className="text-emerald-300 font-bold text-lg">모든 연습 문제를 완료했어요!</p>
+              <p className="text-emerald-400 text-sm mt-1">정말 잘하고 있어요!</p>
+            </motion.div>
+          )}
+        </div>
+      );
+    }
+
+    // Step 4: 완료
+    if (stepId === 'complete') {
+      return (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-center py-12"
+        >
+          <motion.div
+            animate={{ rotate: [0, 10, -10, 10, 0] }}
+            transition={{ duration: 0.5, repeat: 2 }}
+            className="text-8xl mb-6"
+          >
+            🎉
+          </motion.div>
+          <h3 className="text-3xl font-bold text-white mb-3">미션 완료!</h3>
+          <p className="text-slate-300 text-lg mb-6">
+            {mission.concept || mission.title}을(를) 성공적으로 배웠어요!
+          </p>
+          <div className="bg-gradient-to-r from-violet-900/50 to-purple-900/50 rounded-2xl p-6 border border-violet-500/30 max-w-md mx-auto">
+            <p className="text-violet-200 text-sm leading-relaxed">
+              학습한 내용을 잊지 말고, 다음 미션에서도 활용해봐요!
+            </p>
+          </div>
+        </motion.div>
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -5374,26 +5605,62 @@ const EnhancedGenericLesson: React.FC<Props> = ({ mission, onComplete }) => {
 
       {/* 헤더 */}
       <div className="mb-6 relative z-10">
-        <h3 className="text-xl font-bold text-white flex items-center gap-2">
+        <h3 className="text-2xl font-bold text-white flex items-center gap-2">
           <span className="text-3xl">📚</span> {mission.title}
         </h3>
-        <p className="text-slate-400 text-sm mt-1">{mission.description}</p>
-        {mission.concept && (
-          <div className="mt-2 px-3 py-1 bg-violet-900/50 text-violet-300 rounded-full text-xs font-medium inline-block border border-violet-500/30">
-            📚 학습 개념: {mission.concept}
-          </div>
-        )}
+        <p className="text-slate-400 mt-1">{mission.description}</p>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {mission.concept && (
+            <div className="px-3 py-1 bg-violet-900/50 text-violet-300 rounded-full text-xs font-medium border border-violet-500/30">
+              📚 {mission.concept}
+            </div>
+          )}
+          {mission.difficulty && (
+            <div
+              className={`px-3 py-1 rounded-full text-xs font-medium border ${
+                mission.difficulty === 'beginner'
+                  ? 'bg-green-900/50 text-green-300 border-green-500/30'
+                  : mission.difficulty === 'intermediate'
+                  ? 'bg-yellow-900/50 text-yellow-300 border-yellow-500/30'
+                  : 'bg-red-900/50 text-red-300 border-red-500/30'
+              }`}
+            >
+              {mission.difficulty === 'beginner'
+                ? '초급'
+                : mission.difficulty === 'intermediate'
+                ? '중급'
+                : '고급'}
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* 진행 표시 */}
+      {/* 진행률 바 */}
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-slate-400 text-sm">진행률</span>
+          <span className="text-violet-400 text-sm font-bold">{Math.round(progressPercent)}%</span>
+        </div>
+        <div className="w-full h-3 bg-slate-700 rounded-full overflow-hidden">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${progressPercent}%` }}
+            transition={{ duration: 0.5 }}
+            className="h-full bg-gradient-to-r from-violet-500 to-purple-600"
+          />
+        </div>
+      </div>
+
+      {/* 스텝 네비게이션 */}
       <div className="flex gap-2 mb-6">
         {steps.map((step, index) => (
           <button
             key={step.id}
             onClick={() => setCurrentStep(index)}
+            disabled={index > currentStep && !canComplete}
             className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium flex items-center justify-center gap-1 transition-all ${
               currentStep === index
-                ? 'bg-violet-500 text-white'
+                ? 'bg-violet-500 text-white shadow-lg'
                 : currentStep > index
                 ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
                 : 'bg-slate-700/50 text-slate-500 border border-slate-600'
@@ -5421,7 +5688,7 @@ const EnhancedGenericLesson: React.FC<Props> = ({ mission, onComplete }) => {
 
       {/* 네비게이션 버튼 */}
       <div className="flex gap-3 mt-6">
-        {currentStep > 0 && (
+        {currentStep > 0 && currentStep < steps.length - 1 && (
           <button
             onClick={() => setCurrentStep((prev) => prev - 1)}
             className="px-6 py-3 bg-slate-700 text-white font-bold rounded-xl hover:bg-slate-600 transition-colors"
@@ -5431,31 +5698,46 @@ const EnhancedGenericLesson: React.FC<Props> = ({ mission, onComplete }) => {
         )}
         {currentStep < steps.length - 1 ? (
           <button
-            onClick={() => setCurrentStep((prev) => prev + 1)}
-            disabled={currentStep === 1 && !allChecked}
+            onClick={() => {
+              // 현재 스텝에 따른 진행 조건 확인
+              const stepId = steps[currentStep].id;
+              if (stepId === 'check' && !allCheckQuestionsCorrect) {
+                return; // 확인 질문을 모두 맞춰야 함
+              }
+              if (stepId === 'practice' && !allChallengesCompleted) {
+                return; // 연습 문제를 모두 완료해야 함
+              }
+              setCurrentStep((prev) => prev + 1);
+            }}
+            disabled={
+              (steps[currentStep].id === 'check' && !allCheckQuestionsCorrect) ||
+              (steps[currentStep].id === 'practice' && !allChallengesCompleted)
+            }
             className={`flex-1 py-3 font-bold rounded-xl transition-colors ${
-              currentStep === 1 && !allChecked
+              (steps[currentStep].id === 'check' && !allCheckQuestionsCorrect) ||
+              (steps[currentStep].id === 'practice' && !allChallengesCompleted)
                 ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
                 : 'bg-violet-600 text-white hover:bg-violet-500'
             }`}
           >
-            {currentStep === 1 && !allChecked ? '체크리스트를 완료하세요' : '다음 →'}
+            {steps[currentStep].id === 'check' && !allCheckQuestionsCorrect
+              ? '모든 질문에 답해주세요'
+              : steps[currentStep].id === 'practice' && !allChallengesCompleted
+              ? '연습 문제를 완료하세요'
+              : '다음 →'}
           </button>
         ) : (
-          <motion.button
-            onClick={() => onComplete(true)}
-            disabled={!canComplete}
-            whileHover={canComplete ? { scale: 1.02 } : {}}
-            whileTap={canComplete ? { scale: 0.98 } : {}}
-            className={`flex-1 py-3 font-bold rounded-xl flex items-center justify-center gap-2 ${
-              canComplete
-                ? 'bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-[0_4px_0_0_#15803d]'
-                : 'bg-slate-700 text-slate-500 cursor-not-allowed'
-            }`}
-          >
-            <CheckCircle className="w-5 h-5" />
-            {canComplete ? '미션 완료!' : '확인 질문에 답해주세요'}
-          </motion.button>
+          currentStep === steps.length - 1 && (
+            <motion.button
+              onClick={() => onComplete(canComplete)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex-1 py-3 font-bold rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-[0_4px_0_0_#15803d]"
+            >
+              <CheckCircle className="w-5 h-5" />
+              미션 완료!
+            </motion.button>
+          )
         )}
       </div>
     </div>

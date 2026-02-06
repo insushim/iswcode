@@ -115,6 +115,8 @@ export interface Week {
   number: number;
   title: string;
   description: string;
+  duration?: string; // "2차시" 등
+  objectives?: string[]; // 주차 학습 목표
   missions: Mission[];
   project?: Project;
   quiz?: Quiz;
@@ -123,19 +125,22 @@ export interface Week {
 
 export interface Mission {
   id: string;
+  number?: number;
   title: string;
   description: string;
   type: MissionType;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  difficulty: 'beginner' | 'intermediate' | 'advanced' | number;
   language?: 'python' | 'javascript' | 'html' | 'css' | 'blocks';
-  exp: number;
-  estimatedMinutes: number;
+  exp?: number;
+  estimatedMinutes?: number;
+  estimatedTime?: string | number; // "10분" 또는 분 단위 숫자
   concept?: string;
   conceptExplanation?: string; // 개념 설명 (튜토리얼용)
   starterCode?: string;
   solution?: string;
   expectedOutput?: string | null; // null for free-response
-  hints: string[];
+  hints?: string[];
+  steps?: string[]; // 단계별 가이드
   // Use-Modify-Create 진행 단계
   phase?: 'use' | 'modify' | 'create';
   // 마스터리 시스템
@@ -150,9 +155,11 @@ export interface Mission {
   projectCheckpoints?: ProjectCheckpoint[];
   blocks?: string[];
   correctBlocks?: string[];
-  unlocked: boolean;
-  completed: boolean;
-  perfectScore: boolean;
+  unlocked?: boolean;
+  completed?: boolean;
+  perfectScore?: boolean;
+  practiceTask?: any; // 연습 과제 (블록 코딩 과제 객체 포함)
+  projectTask?: any; // 프로젝트 과제
   // 실제 교육을 위한 추가 속성
   videoUrl?: string; // 개념 설명 영상 URL
   conceptCards?: ConceptCard[]; // 핵심 개념 카드
@@ -205,7 +212,10 @@ export type MissionType =
   | 'visual-puzzle'
   | 'interactive-lesson'
   | 'hands-on'
-  | 'discussion';
+  | 'discussion'
+  | 'concept'
+  | 'practice'
+  | 'project';
 
 export type GameType =
   | 'click-game'
@@ -217,21 +227,24 @@ export type GameType =
 
 export interface TestCase {
   input: string;
-  expectedOutput: string;
+  expectedOutput?: string;
+  expected?: string; // alias for expectedOutput
   description?: string;
   isHidden?: boolean; // 숨겨진 테스트 케이스 (제출 시에만 확인)
   explanation?: string; // 왜 이 테스트가 중요한지 설명
   errorHint?: string; // 틀렸을 때 보여줄 힌트
+  output?: string; // 실행 결과 저장용
 }
 
 // 미션 내 연습 문제 (미션당 5-10개)
 export interface PracticeChallenge {
   id: string;
-  title: string;
+  title?: string;
   description: string;
-  difficulty: 'easy' | 'medium' | 'hard';
-  hints: string[];
-  estimatedMinutes: number;
+  difficulty?: 'easy' | 'medium' | 'hard';
+  level?: number;
+  hints?: string[];
+  estimatedMinutes?: number;
   // 코딩 연습용 (선택적)
   starterCode?: string;
   solution?: string;
@@ -242,9 +255,10 @@ export interface PracticeChallenge {
   // 상세 피드백
   feedback: {
     perfect: string; // 완벽할 때
-    good: string; // 대부분 맞았을 때
-    partial: string; // 일부만 맞았을 때
-    wrong: string; // 틀렸을 때
+    good?: string; // 대부분 맞았을 때
+    partial?: string; // 일부만 맞았을 때
+    wrong?: string; // 틀렸을 때
+    incorrect?: string; // wrong의 alias
     syntaxError?: string; // 문법 오류일 때 (선택적)
   };
   // 틀렸을 때 구체적인 도움
@@ -266,19 +280,24 @@ export interface ProjectCheckpoint {
 
 // 핵심 개념 카드 (시각적 학습용)
 export interface ConceptCard {
+  id?: string;
   title: string;
-  description: string;
+  description?: string;
+  content?: string; // description의 alias
   icon?: string;
   example?: string;
+  visualAid?: string;
   animation?: string; // 애니메이션 ID
 }
 
 // 학습 확인 질문 (즉각적 피드백용)
 export interface CheckQuestion {
+  id?: string;
   question: string;
   options: string[];
   correctAnswer: number;
-  feedback: {
+  explanation?: string;
+  feedback?: {
     correct: string;
     incorrect: string;
   };
@@ -423,6 +442,7 @@ export interface TestResult {
   input: string;
   expected: string;
   actual: string;
+  output?: string; // Actual output from code execution
   description?: string;
 }
 

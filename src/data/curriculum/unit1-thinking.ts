@@ -1195,7 +1195,16 @@ export const unit1: Unit = {
           phase: 'use',
           isKeyMission: true,
           concept: 'print() 함수',
-          conceptExplanation: 'print()는 화면에 글자를 보여주는 명령이에요. 컴퓨터가 말하게 하는 거죠!',
+          conceptExplanation: `print() 함수는 Python에서 가장 기본적인 출력 함수예요. 화면에 텍스트, 숫자, 계산 결과 등을 표시할 수 있어요. 게임에서 점수를 보여주거나, 앱에서 메시지를 띄우거나, 프로그램의 결과를 알려줄 때 사용해요.
+
+예제 코드:
+\`\`\`python
+print("안녕하세요!")  # 문자열 출력
+print(100)  # 숫자 출력
+print("내 점수:", 95)  # 여러 값 출력
+\`\`\`
+
+모든 프로그램의 시작점이며, 코드가 제대로 작동하는지 확인할 때도 가장 많이 사용하는 명령이에요!`,
           learningObjectives: [
             'print() 함수를 사용할 수 있다',
             '따옴표의 역할을 이해한다',
@@ -1218,6 +1227,21 @@ export const unit1: Unit = {
               input: '',
               expectedOutput: 'Hello, World!',
               description: '"Hello, World!"를 정확히 출력해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: 'Hello, World!',
+              description: '대소문자를 정확히 맞춰야 해요 (H와 W는 대문자)'
+            },
+            {
+              input: '',
+              expectedOutput: 'Hello, World!',
+              description: '쉼표와 느낌표 위치를 정확히 지켜야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: 'Hello, World!',
+              description: 'print() 함수를 올바르게 사용해야 해요'
             }
           ],
           commonMistakes: [
@@ -1423,7 +1447,21 @@ export const unit1: Unit = {
           estimatedMinutes: 12,
           phase: 'modify',
           concept: 'print() 여러 줄',
-          conceptExplanation: 'print()를 여러 번 쓰면 여러 줄을 출력할 수 있어요!',
+          conceptExplanation: `print() 함수를 여러 번 사용하면 각각의 출력이 새로운 줄에 나타나요. 이것을 이용해서 여러 줄의 메시지나 정보를 표시할 수 있어요. 실제 앱에서 사용자 정보를 보여주거나, 게임에서 스토리를 전개하거나, 보고서를 만들 때 아주 유용해요.
+
+예제 코드:
+\`\`\`python
+print("이름: 김민수")
+print("나이: 12살")
+print("학교: 코딩중학교")
+\`\`\`
+
+출력 결과:
+이름: 김민수
+나이: 12살
+학교: 코딩중학교
+
+각 print()가 자동으로 줄바꿈을 해주기 때문에 깔끔하게 정리된 출력을 만들 수 있어요!`,
           learningObjectives: [
             'print()를 여러 번 사용할 수 있다',
             '자기만의 내용으로 코드를 수정할 수 있다'
@@ -1450,6 +1488,24 @@ print("나는 10살입니다")`,
               expectedOutput: `내 이름은 민수입니다
 나는 10살입니다`,
               description: '이름과 나이를 두 줄로 출력해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `내 이름은 민수입니다
+나는 10살입니다`,
+              description: 'print()를 2번 사용해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `내 이름은 민수입니다
+나는 10살입니다`,
+              description: '첫 줄에는 이름, 둘째 줄에는 나이가 나와야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `내 이름은 민수입니다
+나는 10살입니다`,
+              description: '각 줄의 형식을 정확히 지켜야 해요'
             }
           ],
           requirements: [
@@ -1655,7 +1711,21 @@ print("나는 10살입니다")`,
           estimatedMinutes: 15,
           phase: 'modify',
           concept: '여러 줄 출력',
-          conceptExplanation: 'print()를 여러 번 쓰면 리스트처럼 여러 정보를 보여줄 수 있어요',
+          conceptExplanation: `print() 함수를 여러 번 사용하면 리스트처럼 여러 개의 정보를 깔끔하게 나열할 수 있어요. 이것은 실제 프로그램에서 정보 목록을 표시할 때 가장 많이 사용하는 방법이에요. Netflix의 영화 목록, 쇼핑몰의 장바구니, 게임의 아이템 인벤토리 등이 모두 이런 방식으로 만들어져요.
+
+예제 코드:
+\`\`\`python
+print("좋아하는 음식: 피자")
+print("좋아하는 색깔: 파란색")
+print("좋아하는 취미: 게임")
+\`\`\`
+
+출력 결과:
+좋아하는 음식: 피자
+좋아하는 색깔: 파란색
+좋아하는 취미: 게임
+
+각 print()가 한 줄씩 정보를 출력하면서 보기 좋은 리스트가 만들어져요!`,
           learningObjectives: [
             'print()를 3번 이상 사용할 수 있다',
             '자기만의 내용으로 완전히 새 프로그램을 만든다'
@@ -1880,7 +1950,18 @@ print("좋아하는 취미: 게임")`,
           estimatedMinutes: 18,
           phase: 'create',
           concept: '창작 프로그래밍',
-          conceptExplanation: '배운 것을 활용해서 완전히 새로운 것을 만들어요!',
+          conceptExplanation: `창작 프로그래밍은 배운 기술을 활용해서 자신만의 작품을 만드는 거예요. print() 함수만 알아도 시, 이야기, 게임 대사, 노래 가사 등 다양한 창작물을 코드로 표현할 수 있어요. 프로그래밍은 단순히 계산만 하는 게 아니라 예술 작품을 만드는 도구가 될 수도 있어요!
+
+예제 코드 (계절 시):
+\`\`\`python
+print("봄이 왔어요")
+print("꽃이 피어나고")
+print("나비가 날아와")
+print("따뜻한 바람이 불어요")
+print("모두가 행복해요")
+\`\`\`
+
+프로그래머는 시인이 될 수도 있고, 작가가 될 수도 있고, 예술가가 될 수도 있어요!`,
           learningObjectives: [
             'print()를 자유롭게 활용할 수 있다',
             '창의적인 내용을 프로그램으로 만든다'
@@ -2113,7 +2194,21 @@ print("모두가 평화로워")`,
           isWeeklyProject: true,
           isKeyMission: true,
           concept: '주간 프로젝트',
-          conceptExplanation: '이번 주에 배운 모든 것을 모아서 완성도 있는 프로그램을 만들어요!',
+          conceptExplanation: `주간 프로젝트는 그 주에 배운 모든 개념과 기술을 활용해서 완성도 있는 프로그램을 만드는 특별한 미션이에요. 단순히 코드를 작성하는 것을 넘어서, 디자인하고, 구조화하고, 창의성을 발휘하는 연습이에요. 실제 프로그래머들도 매주 작은 프로젝트를 완성하면서 실력을 키워나가요!
+
+예제 코드 (자기소개 프로그램):
+\`\`\`python
+print("====================")
+print("  내 프로필  ")
+print("====================")
+print("이름: 김민수")
+print("나이: 12살")
+print("취미: 코딩, 게임")
+print("꿈: 게임 개발자")
+print("====================")
+\`\`\`
+
+주간 프로젝트를 완성하면 큰 성취감을 느낄 수 있고, 배운 내용이 확실하게 내 것이 되는 경험을 할 수 있어요!`,
           learningObjectives: [
             '배운 내용을 종합하여 완성도 있는 프로그램을 만든다',
             '창의성을 발휘하여 자기만의 프로그램을 디자인한다',
@@ -3061,7 +3156,17 @@ print(10 + 5)
           estimatedMinutes: 15,
           phase: 'modify',
           concept: '여러 연산',
-          conceptExplanation: 'print()를 여러 번 쓰면 여러 계산을 순서대로 할 수 있어요',
+          conceptExplanation: `Python에서는 한 프로그램 안에서 여러 가지 계산을 순서대로 수행할 수 있어요. 각 연산은 위에서 아래로 순차적으로 실행되며, 덧셈(+), 뺄셈(-), 곱셈(*), 나눗셈(/)을 자유롭게 조합할 수 있어요. 게임에서 공격력 계산, 점수 합산, 아이템 가격 계산 등을 동시에 처리할 때 이런 방식을 사용해요!
+
+예제 코드:
+\`\`\`python
+print("공격력:", 10 + 5)  # 15
+print("방어력:", 20 - 3)  # 17
+print("총 데미지:", 10 * 2)  # 20
+print("회복량:", 100 / 4)  # 25.0
+\`\`\`
+
+여러 연산을 조합하면 복잡한 게임 로직이나 계산기 프로그램을 만들 수 있어요!`,
           learningObjectives: [
             '여러 연산을 순서대로 수행할 수 있다',
             '+, -, *, / 연산자를 모두 사용할 수 있다'
@@ -3090,6 +3195,27 @@ print("10 * 2 =", 10 * 2)`,
 10 - 3 = 7
 10 * 2 = 20`,
               description: '세 가지 계산 결과가 순서대로 나와야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `10 + 5 = 15
+10 - 3 = 7
+10 * 2 = 20`,
+              description: '덧셈, 뺄셈, 곱셈을 모두 사용해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `10 + 5 = 15
+10 - 3 = 7
+10 * 2 = 20`,
+              description: '각 줄의 형식과 계산이 정확해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `10 + 5 = 15
+10 - 3 = 7
+10 * 2 = 20`,
+              description: 'print()를 3번 사용해야 해요'
             }
           ],
                     challenges: [
@@ -3290,7 +3416,17 @@ print("10 * 2 =", 10 * 2)`,
           estimatedMinutes: 18,
           phase: 'modify',
           concept: '실생활 계산',
-          conceptExplanation: '프로그래밍으로 실생활 문제를 해결할 수 있어요!',
+          conceptExplanation: `프로그래밍의 가장 강력한 능력은 실생활의 문제를 자동화하고 해결하는 거예요! 나이 계산, 할인 가격 계산, 여행 경비 계산 등 일상의 모든 계산을 프로그램으로 만들 수 있어요. 변수에 값을 저장하고, 연산자로 계산하고, 결과를 출력하는 이 3단계만 알면 실용적인 프로그램을 만들 수 있어요!
+
+예제 코드:
+\`\`\`python
+birth_year = 2014
+current_year = 2024
+age = current_year - birth_year
+print("나이:", age)  # 나이: 10
+\`\`\`
+
+이런 간단한 계산 프로그램이 실제 웹사이트나 앱에서 수천만 명이 사용하는 기능이 돼요!`,
           learningObjectives: [
             '실생활 문제를 프로그래밍으로 해결한다',
             '뺄셈을 활용한 계산을 한다'
@@ -3311,13 +3447,29 @@ print("나이:", age)`,
           expectedOutput: `나이: 10`,
           hints: [
             '2024 - 2014를 계산하면 나이가 나와요',
-            'print()로 결과를 보여주세요'
+            'age = current_year - birth_year 형식으로 계산하세요',
+            'print("나이:", age)로 결과를 보여주세요'
           ],
           testCases: [
             {
               input: '',
               expectedOutput: '나이: 10',
               description: '나이 계산 결과가 출력되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '나이: 10',
+              description: 'current_year - birth_year 계산이 올바르게 되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '나이: 10',
+              description: '변수를 사용하여 계산해야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: '나이: 10',
+              description: '출력 형식이 "나이: 10"과 정확히 일치해야 해요'
             }
           ],
                     challenges: [
@@ -3520,7 +3672,22 @@ print("나이:", age)`,
           estimatedMinutes: 15,
           phase: 'modify',
           concept: '디버깅',
-          conceptExplanation: '코드 순서가 틀리면 이상한 결과가 나와요. 올바른 순서로 고쳐야 해요!',
+          conceptExplanation: `디버깅은 코드에서 버그(오류)를 찾아서 고치는 과정이에요. 실제 프로그래머들은 코드를 작성하는 시간만큼이나 디버깅에 시간을 써요! 특히 코드의 순서가 잘못되면 전혀 다른 결과가 나오기 때문에 논리적 순서를 잘 파악하는 것이 중요해요. 디버깅 능력은 프로그래머의 핵심 실력이에요!
+
+예제 코드 (순서 문제):
+\`\`\`python
+# 잘못된 순서
+print("3. 가방 챙기기")
+print("1. 일어나기")
+print("2. 옷 입기")
+
+# 올바른 순서
+print("1. 일어나기")
+print("2. 옷 입기")
+print("3. 가방 챙기기")
+\`\`\`
+
+디버깅을 잘하면 어떤 복잡한 프로그램도 고칠 수 있어요!`,
           learningObjectives: [
             '잘못된 순서를 찾아낼 수 있다',
             '논리적 순서로 코드를 재배열한다',
@@ -3556,6 +3723,30 @@ print("4. 학교에 갔어요")`,
 3. 가방을 챙겼어요
 4. 학교에 갔어요`,
               description: '1, 2, 3, 4 순서대로 출력되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `1. 일어났어요
+2. 옷을 입었어요
+3. 가방을 챙겼어요
+4. 학교에 갔어요`,
+              description: '각 단계가 논리적 순서로 정렬되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `1. 일어났어요
+2. 옷을 입었어요
+3. 가방을 챙겼어요
+4. 학교에 갔어요`,
+              description: 'print() 문의 순서만 바꿔야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `1. 일어났어요
+2. 옷을 입었어요
+3. 가방을 챙겼어요
+4. 학교에 갔어요`,
+              description: '모든 줄이 올바른 위치에 있어야 해요'
             }
           ],
                     challenges: [
@@ -3756,7 +3947,19 @@ print("4. 학교에 갔어요")`,
           estimatedMinutes: 18,
           phase: 'create',
           concept: '논리적 순서',
-          conceptExplanation: '요리도 프로그래밍도 올바른 순서가 중요해요!',
+          conceptExplanation: `프로그래밍에서 논리적 순서는 매우 중요해요. 요리할 때 물을 먼저 끓이고 면을 넣는 것처럼, 코드도 논리적 순서를 따라야 해요. 실생활의 경험과 상식을 활용하면 코드의 올바른 순서를 판단할 수 있어요. 요리 앱, 조립 설명서, 게임 튜토리얼 등 모든 순차적 과정이 이런 논리로 만들어져요!
+
+예제 코드 (라면 끓이기):
+\`\`\`python
+print("1. 냄비에 물 붓기")
+print("2. 불 켜기")
+print("3. 면 넣기")
+print("4. 3분 기다리기")
+print("5. 스프 넣기")
+print("6. 맛있게 먹기")
+\`\`\`
+
+실생활 지식을 코딩에 적용하는 능력이 바로 컴퓨팅 사고력이에요!`,
           learningObjectives: [
             '논리적 순서를 스스로 판단한다',
             '실생활 지식을 코딩에 적용한다'
@@ -3799,6 +4002,36 @@ print("맛있게 먹는다")`,
 스프를 넣는다
 맛있게 먹는다`,
               description: '논리적인 요리 순서로 출력되어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `냄비에 물을 붓는다
+불을 켠다
+면을 넣는다
+3분 기다린다
+스프를 넣는다
+맛있게 먹는다`,
+              description: '물 붓기 → 불 켜기 → 면 넣기 순서가 맞아야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `냄비에 물을 붓는다
+불을 켠다
+면을 넣는다
+3분 기다린다
+스프를 넣는다
+맛있게 먹는다`,
+              description: '스프는 마지막에 넣어야 해요'
+            },
+            {
+              input: '',
+              expectedOutput: `냄비에 물을 붓는다
+불을 켠다
+면을 넣는다
+3분 기다린다
+스프를 넣는다
+맛있게 먹는다`,
+              description: '6단계가 모두 올바른 순서로 있어야 해요'
             }
           ],
                     challenges: [

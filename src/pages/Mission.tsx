@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, Clock, Star, Trophy, ChevronRight, Lightbulb,
-  Play, CheckCircle, XCircle, Shuffle, GripVertical
+  Play, CheckCircle, XCircle, Shuffle, GripVertical, BookOpen,
+  Target, Award, TrendingUp, X
 } from 'lucide-react';
 import { CodeWorkspace } from '../components/Editor';
 import { getMissionById, allUnits, getAdvancedMissionById } from '../data/curriculum';
@@ -17,6 +18,278 @@ import InteractiveLessonMission from '../components/InteractiveLessonMission';
 import VariableMission from '../components/VariableMission';
 import GameMakerMission from '../components/GameMakerMission';
 import ProjectCheckpoints from '../components/ProjectCheckpoints';
+
+// Mission Intro Component - Shows at mission start
+const MissionIntro: React.FC<{
+  mission: MissionType;
+  isRevisit: boolean;
+  onClose: () => void;
+}> = ({ mission, isRevisit, onClose }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
+        className="bg-slate-800 rounded-3xl border-2 border-slate-600 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 max-w-2xl w-full"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-start justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-purple-600 rounded-xl flex items-center justify-center">
+              <Target className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-black text-white">
+                {isRevisit ? '복습하기' : '미션 시작'}
+              </h2>
+              <p className="text-slate-400 text-sm">학습 목표를 확인하세요</p>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5 text-slate-400" />
+          </button>
+        </div>
+
+        <h3 className="text-xl font-bold text-white mb-3">{mission.title}</h3>
+        <p className="text-slate-300 mb-6">{mission.description}</p>
+
+        {/* Learning Objectives */}
+        {mission.learningObjectives && mission.learningObjectives.length > 0 && (
+          <div className="mb-6">
+            <h4 className="text-sm font-bold text-violet-300 mb-3 flex items-center gap-2">
+              <Target className="w-4 h-4" />
+              학습 목표
+            </h4>
+            <ul className="space-y-2">
+              {mission.learningObjectives.map((objective, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start gap-3 text-slate-200"
+                >
+                  <span className="w-6 h-6 bg-violet-900/50 rounded-full flex items-center justify-center text-xs font-bold text-violet-300 flex-shrink-0 mt-0.5">
+                    {index + 1}
+                  </span>
+                  <span className="text-sm">{objective}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Mission Info */}
+        <div className="grid grid-cols-3 gap-4 mb-6 p-4 bg-slate-900/50 rounded-xl border border-slate-600">
+          <div className="text-center">
+            <div className={`text-xs font-bold px-2 py-1 rounded-md inline-block mb-1 ${
+              mission.difficulty === 'beginner' ? 'bg-emerald-500 text-white' :
+              mission.difficulty === 'intermediate' ? 'bg-yellow-500 text-slate-900' : 'bg-red-500 text-white'
+            }`}>
+              {mission.difficulty === 'beginner' ? '초급' :
+               mission.difficulty === 'intermediate' ? '중급' : '고급'}
+            </div>
+            <div className="text-xs text-slate-400">난이도</div>
+          </div>
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 mb-1">
+              <Clock className="w-4 h-4 text-slate-400" />
+              <span className="text-sm font-bold text-white">~{mission.estimatedMinutes}분</span>
+            </div>
+            <div className="text-xs text-slate-400">예상 시간</div>
+          </div>
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-1 mb-1">
+              <Star className="w-4 h-4 text-yellow-500" />
+              <span className="text-sm font-bold text-yellow-400">+{mission.exp}</span>
+            </div>
+            <div className="text-xs text-slate-400">XP 보상</div>
+          </div>
+        </div>
+
+        {isRevisit && (
+          <div className="mb-6 p-4 bg-blue-900/30 rounded-xl border border-blue-700">
+            <p className="text-blue-300 text-sm font-medium">
+              이미 완료한 미션입니다. 복습을 통해 학습 내용을 더 탄탄히 다질 수 있어요!
+            </p>
+          </div>
+        )}
+
+        <button
+          onClick={onClose}
+          className="w-full px-6 py-4 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-bold rounded-xl border-2 border-violet-500 hover:opacity-90 transition-all flex items-center justify-center gap-2"
+        >
+          <Play className="w-5 h-5" />
+          {isRevisit ? '복습 시작' : '학습 시작'}
+        </button>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+// Concept Notes Panel Component
+const ConceptNotesPanel: React.FC<{
+  conceptCards: Array<{ title: string; description?: string; content?: string; icon?: string; example?: string; id?: string; visualAid?: string }>;
+  isOpen: boolean;
+  onToggle: () => void;
+}> = ({ conceptCards, isOpen, onToggle }) => {
+  return (
+    <>
+      {/* Toggle Button */}
+      <motion.button
+        onClick={onToggle}
+        className="fixed right-4 top-24 z-40 p-3 bg-violet-600 text-white rounded-xl border-2 border-violet-500 shadow-lg hover:bg-violet-700 transition-colors"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <BookOpen className="w-5 h-5" />
+      </motion.button>
+
+      {/* Panel */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+              onClick={onToggle}
+            />
+
+            {/* Panel Content */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 h-full w-full max-w-md bg-slate-800 border-l-2 border-slate-600 shadow-2xl z-50 overflow-y-auto"
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-violet-900/50 rounded-lg flex items-center justify-center">
+                      <BookOpen className="w-5 h-5 text-violet-300" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white">개념 노트</h3>
+                      <p className="text-xs text-slate-400">핵심 개념을 확인하세요</p>
+                    </div>
+                  </div>
+                  <button
+                    onClick={onToggle}
+                    className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+                  >
+                    <X className="w-5 h-5 text-slate-400" />
+                  </button>
+                </div>
+
+                <div className="space-y-4">
+                  {conceptCards.map((card, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="bg-slate-900/50 rounded-xl border-2 border-slate-600 p-4"
+                    >
+                      <div className="flex items-start gap-3 mb-3">
+                        {card.icon && (
+                          <span className="text-2xl">{card.icon}</span>
+                        )}
+                        <h4 className="text-base font-bold text-violet-300 flex-1">
+                          {card.title}
+                        </h4>
+                      </div>
+                      <p className="text-sm text-slate-300 leading-relaxed mb-3">
+                        {card.description || card.content}
+                      </p>
+                      {card.example && (
+                        <div className="p-3 bg-slate-800 rounded-lg border border-slate-600">
+                          <p className="text-xs text-slate-400 mb-1 font-medium">예제:</p>
+                          <code className="text-xs text-emerald-400">{card.example}</code>
+                        </div>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+// Learning Progress Steps Component
+const LearningProgressSteps: React.FC<{
+  missionType: string;
+  currentStep: number;
+  steps: Array<{ label: string; completed: boolean }>;
+}> = ({ missionType, currentStep, steps }) => {
+  return (
+    <div className="mb-6 p-4 bg-slate-900/50 rounded-xl border-2 border-slate-600">
+      <div className="flex items-center justify-between mb-3">
+        <h4 className="text-sm font-bold text-slate-300 flex items-center gap-2">
+          <TrendingUp className="w-4 h-4" />
+          학습 진행 단계
+        </h4>
+        <span className="text-xs text-slate-400">
+          {currentStep + 1} / {steps.length}
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2">
+        {steps.map((step, index) => (
+          <React.Fragment key={index}>
+            <div className="flex flex-col items-center flex-1">
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{
+                  scale: index === currentStep ? 1.1 : 1,
+                  backgroundColor: step.completed ? '#10b981' : index === currentStep ? '#8b5cf6' : '#475569'
+                }}
+                className={`w-8 h-8 rounded-full flex items-center justify-center border-2 ${
+                  step.completed ? 'border-emerald-400' :
+                  index === currentStep ? 'border-violet-400' : 'border-slate-600'
+                }`}
+              >
+                {step.completed ? (
+                  <CheckCircle className="w-4 h-4 text-white" />
+                ) : (
+                  <span className="text-xs font-bold text-white">{index + 1}</span>
+                )}
+              </motion.div>
+              <span className={`text-xs mt-2 text-center font-medium ${
+                step.completed ? 'text-emerald-400' :
+                index === currentStep ? 'text-violet-300' : 'text-slate-500'
+              }`}>
+                {step.label}
+              </span>
+            </div>
+            {index < steps.length - 1 && (
+              <div className={`flex-1 h-0.5 mb-6 ${
+                steps[index + 1].completed ? 'bg-emerald-500' : 'bg-slate-600'
+              }`} />
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Mission: React.FC = () => {
   const { missionId } = useParams();
@@ -36,6 +309,13 @@ const Mission: React.FC = () => {
   const [completedOutput, setCompletedOutput] = useState<string>('');
   const [autoProgressCountdown, setAutoProgressCountdown] = useState(3);
   const [completedCheckpoints, setCompletedCheckpoints] = useState<Set<string>>(new Set());
+
+  // New state for enhanced learning flow
+  const [showIntro, setShowIntro] = useState(false);
+  const [conceptPanelOpen, setConceptPanelOpen] = useState(false);
+  const [currentLearningStep, setCurrentLearningStep] = useState(0);
+  const [completedLearningSteps, setCompletedLearningSteps] = useState<boolean[]>([]);
+  const [learningStartTime, setLearningStartTime] = useState<number>(0);
 
   useEffect(() => {
     if (missionId) {
@@ -57,18 +337,62 @@ const Mission: React.FC = () => {
         setCompletedCode('');
         setCompletedOutput('');
         setCompletedCheckpoints(new Set());
+
+        // Show intro if mission has learning objectives
+        if (found.learningObjectives && found.learningObjectives.length > 0) {
+          setShowIntro(true);
+        }
+
+        // Initialize learning steps based on mission type
+        const steps = getLearningSteps(found.type);
+        setCompletedLearningSteps(new Array(steps.length).fill(false));
+        setCurrentLearningStep(0);
+        setLearningStartTime(Date.now());
       }
     }
   }, [missionId, setCurrentMission, startTimer]);
+
+  // Helper function to get learning steps based on mission type
+  const getLearningSteps = (type: string) => {
+    switch (type) {
+      case 'coding':
+        return [
+          { label: '문제 이해', completed: false },
+          { label: '코드 작성', completed: false },
+          { label: '테스트 통과', completed: false },
+          { label: '연습문제', completed: false },
+        ];
+      case 'interactive-lesson':
+      case 'quiz':
+        return [
+          { label: '개념 학습', completed: false },
+          { label: '실습', completed: false },
+          { label: '퀴즈', completed: false },
+        ];
+      case 'drag-drop':
+      case 'pattern-recognition':
+        return [
+          { label: '패턴 이해', completed: false },
+          { label: '문제 풀이', completed: false },
+          { label: '완료', completed: false },
+        ];
+      default:
+        return [
+          { label: '시작', completed: false },
+          { label: '진행', completed: false },
+          { label: '완료', completed: false },
+        ];
+    }
+  };
 
   const handleComplete = (perfect: boolean) => {
     if (!mission) return;
 
     const time = stopTimer();
-    let exp = mission.exp;
+    let exp = mission.exp || 0;
     if (perfect) exp += 50;
     if (hintsUsed === 0) exp += 30;
-    if (time < mission.estimatedMinutes * 60 * 0.5) exp += 20;
+    if (time < (mission.estimatedMinutes || 0) * 60 * 0.5) exp += 20;
 
     setEarnedExp(exp);
     addExp(exp);
@@ -87,6 +411,11 @@ const Mission: React.FC = () => {
       setCompletedCode(code);
       setCompletedOutput(output);
     }
+
+    // Mark all learning steps as completed
+    const steps = getLearningSteps(mission.type);
+    setCompletedLearningSteps(new Array(steps.length).fill(true));
+    setCurrentLearningStep(steps.length - 1);
 
     const next = findNextMission(mission.id);
     setNextMission(next);
@@ -149,6 +478,16 @@ const Mission: React.FC = () => {
     });
   };
 
+  // Helper to update learning step progress
+  const updateLearningStep = (stepIndex: number) => {
+    if (stepIndex < completedLearningSteps.length) {
+      const newSteps = [...completedLearningSteps];
+      newSteps[stepIndex] = true;
+      setCompletedLearningSteps(newSteps);
+      setCurrentLearningStep(Math.min(stepIndex + 1, completedLearningSteps.length - 1));
+    }
+  };
+
   const handleSaveToPortfolio = () => {
     if (!mission || !completedCode) return;
 
@@ -196,8 +535,34 @@ const Mission: React.FC = () => {
     );
   }
 
+  // Get learning steps for current mission
+  const learningSteps = getLearningSteps(mission.type).map((step, index) => ({
+    ...step,
+    completed: completedLearningSteps[index] || false
+  }));
+
   return (
     <div className="min-h-[calc(100vh-120px)] flex flex-col">
+      {/* Mission Intro Modal */}
+      <AnimatePresence>
+        {showIntro && (
+          <MissionIntro
+            mission={mission}
+            isRevisit={!!mission.completed}
+            onClose={() => setShowIntro(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Concept Notes Panel */}
+      {mission.conceptCards && mission.conceptCards.length > 0 && (
+        <ConceptNotesPanel
+          conceptCards={mission.conceptCards}
+          isOpen={conceptPanelOpen}
+          onToggle={() => setConceptPanelOpen(!conceptPanelOpen)}
+        />
+      )}
+
       {/* Header */}
       <div className="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
@@ -238,6 +603,15 @@ const Mission: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Learning Progress Steps */}
+      {learningSteps.length > 0 && (
+        <LearningProgressSteps
+          missionType={mission.type}
+          currentStep={currentLearningStep}
+          steps={learningSteps}
+        />
+      )}
 
       {/* Hints Section */}
       {mission.hints && mission.hints.length > 0 && (
@@ -314,7 +688,7 @@ const Mission: React.FC = () => {
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-slate-800 rounded-3xl border-2 border-slate-600 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 max-w-md w-full text-center"
+            className="bg-slate-800 rounded-3xl border-2 border-slate-600 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 max-w-md w-full text-center max-h-[90vh] overflow-y-auto"
           >
             <motion.div
               initial={{ scale: 0 }}
@@ -330,7 +704,48 @@ const Mission: React.FC = () => {
               {mission.title} 미션을 성공적으로 완료했어요!
             </p>
 
-            <div className="bg-slate-900/50 rounded-2xl p-6 mb-6 border-2 border-slate-600">
+            {/* Learning Summary */}
+            {mission.learningObjectives && mission.learningObjectives.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="bg-violet-900/30 rounded-2xl p-5 mb-4 border-2 border-violet-700 text-left"
+              >
+                <h3 className="font-bold mb-3 text-violet-300 flex items-center gap-2">
+                  <Award className="w-5 h-5" />
+                  이번 미션에서 배운 내용
+                </h3>
+                <ul className="space-y-2">
+                  {mission.learningObjectives.slice(0, 3).map((objective, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + index * 0.1 }}
+                      className="flex items-start gap-2 text-sm text-violet-200"
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                      <span>{objective}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+
+            {/* Learning Time */}
+            <div className="bg-slate-900/50 rounded-2xl p-4 mb-4 border-2 border-slate-600">
+              <div className="flex items-center justify-center gap-3 text-slate-300">
+                <Clock className="w-5 h-5" />
+                <span className="text-sm">
+                  학습 시간: <span className="font-bold text-white">
+                    {Math.floor((Date.now() - learningStartTime) / 60000)}분 {Math.floor(((Date.now() - learningStartTime) % 60000) / 1000)}초
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div className="bg-slate-900/50 rounded-2xl p-6 mb-4 border-2 border-slate-600">
               <h3 className="font-bold mb-4 text-white">획득한 보상</h3>
               <div className="flex justify-center gap-8">
                 <div className="text-center">
@@ -345,6 +760,29 @@ const Mission: React.FC = () => {
                 )}
               </div>
             </div>
+
+            {/* Next Mission Preview */}
+            {nextMission && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="bg-blue-900/30 rounded-2xl p-5 mb-4 border-2 border-blue-700 text-left"
+              >
+                <h3 className="font-bold mb-2 text-blue-300 flex items-center gap-2">
+                  <ChevronRight className="w-5 h-5" />
+                  다음 미션 미리보기
+                </h3>
+                <p className="text-sm text-blue-200 mb-2 font-medium">{nextMission.title}</p>
+                <p className="text-xs text-blue-300/80">{nextMission.description}</p>
+                {nextMission.learningObjectives && nextMission.learningObjectives.length > 0 && (
+                  <div className="mt-3 pt-3 border-t border-blue-700/50">
+                    <p className="text-xs text-blue-300/80 mb-1">배울 내용:</p>
+                    <p className="text-xs text-blue-200">{nextMission.learningObjectives[0]}</p>
+                  </div>
+                )}
+              </motion.div>
+            )}
 
             {/* 포트폴리오 저장 버튼 (코딩 미션일 때만 표시) */}
             {mission.type === 'coding' && completedCode && (

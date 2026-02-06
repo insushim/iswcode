@@ -5,7 +5,7 @@ import {
   ChevronRight, Lock, CheckCircle2, Clock, Star, ChevronDown,
   BookOpen, Target, ArrowLeft, Play, PlayCircle, Bot, Layers,
   TrendingUp, Award, Flame, Map, Filter, Sparkles, GraduationCap,
-  Code2, Palette, Brain, Rocket, Zap, Trophy
+  Code2, Palette, Brain, Rocket, Zap, Trophy, X
 } from 'lucide-react';
 import { allUnits, getUnitById } from '../data/curriculum';
 import { useProgressStore } from '../stores/progressStore';
@@ -958,16 +958,297 @@ const WeekList: React.FC<{ unit: Unit }> = ({ unit }) => {
   );
 };
 
+// Mission Type 설명 매핑
+const MISSION_TYPE_INFO: Record<string, { label: string; description: string; icon: string }> = {
+  'coding': { label: '코딩 미션', description: '직접 코드를 작성하여 문제를 해결합니다', icon: '💻' },
+  'drag-drop': { label: '드래그 앤 드롭', description: '블록을 드래그하여 프로그램을 완성합니다', icon: '🧩' },
+  'quiz': { label: '퀴즈', description: '학습한 개념을 확인하는 퀴즈입니다', icon: '📝' },
+  'pattern-recognition': { label: '패턴 인식', description: '패턴을 찾아 문제를 해결합니다', icon: '🔍' },
+  'visual-programming': { label: '비주얼 프로그래밍', description: '명령을 조합하여 캐릭터를 움직입니다', icon: '🤖' },
+  'interactive-lesson': { label: '인터랙티브 학습', description: '개념을 직접 체험하며 배웁니다', icon: '📖' },
+  'hands-on': { label: '실습 활동', description: '실제로 만들어보며 배웁니다', icon: '🛠️' },
+  'discussion': { label: '토론', description: '주제에 대해 생각하고 토론합니다', icon: '💬' },
+  'writing': { label: '작성하기', description: '글을 작성하며 개념을 정리합니다', icon: '✍️' },
+  'variable-programming': { label: '변수 프로그래밍', description: '변수를 활용한 프로그래밍을 학습합니다', icon: '📊' },
+  'game-maker': { label: '게임 제작', description: '게임을 만들며 프로그래밍을 배웁니다', icon: '🎮' },
+};
+
+// Mission Preview Modal Component
+const MissionPreviewModal: React.FC<{
+  mission: Mission;
+  unit: Unit;
+  week: Week;
+  isCompleted: boolean;
+  isLocked: boolean;
+  onClose: () => void;
+  onStart: () => void;
+}> = ({ mission, unit, week, isCompleted, isLocked, onClose, onStart }) => {
+  const typeInfo = MISSION_TYPE_INFO[mission.type] || { label: '미션', description: '학습 미션', icon: '📋' };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
+        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+        className="bg-slate-800 rounded-2xl border border-slate-700 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="p-6 border-b border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900">
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-2xl border-2 ${
+                isCompleted
+                  ? 'bg-emerald-500/10 border-emerald-500/30'
+                  : 'bg-slate-700 border-slate-600'
+              }`}>
+                {isCompleted ? <CheckCircle2 className="w-7 h-7 text-emerald-500" /> : typeInfo.icon}
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <h2 className="text-xl font-bold text-white">{mission.title}</h2>
+                  {mission.isKeyMission && (
+                    <span className="text-xs font-bold text-amber-400 bg-amber-500/20 px-2 py-1 rounded border border-amber-500/30 flex items-center gap-1">
+                      <Star className="w-3 h-3" />
+                      핵심 미션
+                    </span>
+                  )}
+                  {isCompleted && (
+                    <span className="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2 py-1 rounded border border-emerald-500/30 flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3" />
+                      완료됨
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-slate-400">
+                  {unit.title} → Week {week.number}: {week.title}
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={onClose}
+              className="text-slate-400 hover:text-white transition-colors p-2"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 overflow-y-auto max-h-[calc(90vh-200px)]">
+          {/* Mission Type & Description */}
+          <div className="mb-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-2xl">{typeInfo.icon}</span>
+              <div>
+                <h3 className="text-sm font-bold text-indigo-400">{typeInfo.label}</h3>
+                <p className="text-xs text-slate-500">{typeInfo.description}</p>
+              </div>
+            </div>
+            <p className="text-slate-300 leading-relaxed">{mission.description}</p>
+          </div>
+
+          {/* Learning Objectives */}
+          {mission.learningObjectives && mission.learningObjectives.length > 0 && (
+            <div className="mb-6 p-4 bg-slate-700/40 rounded-xl border border-slate-600/50">
+              <div className="flex items-center gap-2 mb-3">
+                <Target className="w-5 h-5 text-indigo-400" />
+                <h3 className="text-sm font-bold text-white">학습 목표</h3>
+              </div>
+              <ul className="space-y-2">
+                {mission.learningObjectives.map((objective, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-sm text-slate-300">
+                    <CheckCircle2 className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <span>{objective}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Key Concept Preview */}
+          {mission.concept && (
+            <div className="mb-6 p-4 bg-indigo-500/10 rounded-xl border border-indigo-500/30">
+              <div className="flex items-center gap-2 mb-2">
+                <Sparkles className="w-5 h-5 text-indigo-400" />
+                <h3 className="text-sm font-bold text-white">핵심 개념</h3>
+              </div>
+              <p className="text-sm text-indigo-200 font-medium">{mission.concept}</p>
+              {mission.conceptExplanation && (
+                <p className="text-sm text-slate-300 mt-2 leading-relaxed">{mission.conceptExplanation}</p>
+              )}
+            </div>
+          )}
+
+          {/* Mission Stats */}
+          <div className="grid grid-cols-3 gap-4 mb-6">
+            <div className="p-3 bg-slate-700/40 rounded-xl border border-slate-600/50 text-center">
+              <div className={`text-xs font-bold mb-1 ${
+                mission.difficulty === 'beginner'
+                  ? 'text-emerald-400'
+                  : mission.difficulty === 'intermediate'
+                  ? 'text-yellow-400'
+                  : 'text-red-400'
+              }`}>
+                난이도
+              </div>
+              <div className="text-sm font-bold text-white">
+                {mission.difficulty === 'beginner' ? '초급' :
+                 mission.difficulty === 'intermediate' ? '중급' : '고급'}
+              </div>
+            </div>
+            <div className="p-3 bg-slate-700/40 rounded-xl border border-slate-600/50 text-center">
+              <div className="text-xs font-bold text-slate-400 mb-1">예상 시간</div>
+              <div className="text-sm font-bold text-white flex items-center justify-center gap-1">
+                <Clock className="w-4 h-4" /> {mission.estimatedMinutes}분
+              </div>
+            </div>
+            <div className="p-3 bg-slate-700/40 rounded-xl border border-slate-600/50 text-center">
+              <div className="text-xs font-bold text-slate-400 mb-1">보상 경험치</div>
+              <div className="text-sm font-bold text-yellow-500 flex items-center justify-center gap-1">
+                <Zap className="w-4 h-4" /> +{mission.exp} XP
+              </div>
+            </div>
+          </div>
+
+          {/* Real World Example */}
+          {mission.realWorldExample && (
+            <div className="mb-6 p-4 bg-purple-500/10 rounded-xl border border-purple-500/30">
+              <div className="flex items-center gap-2 mb-2">
+                <Rocket className="w-5 h-5 text-purple-400" />
+                <h3 className="text-sm font-bold text-white">실생활 적용</h3>
+              </div>
+              <p className="text-sm text-slate-300 leading-relaxed">{mission.realWorldExample}</p>
+            </div>
+          )}
+
+          {/* Prerequisite Knowledge */}
+          {mission.prerequisiteKnowledge && mission.prerequisiteKnowledge.length > 0 && (
+            <div className="mb-6">
+              <div className="flex items-center gap-2 mb-2">
+                <BookOpen className="w-5 h-5 text-slate-400" />
+                <h3 className="text-sm font-bold text-white">필요한 선수 지식</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {mission.prerequisiteKnowledge.map((knowledge, idx) => (
+                  <span key={idx} className="text-xs bg-slate-700/60 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-600/50">
+                    {knowledge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* CSTA Standard */}
+          {mission.cstaStandard && (
+            <div className="p-3 bg-slate-700/30 rounded-lg border border-slate-600/30">
+              <p className="text-xs text-slate-400">
+                <span className="font-bold">CSTA 표준:</span> {mission.cstaStandard}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Footer */}
+        <div className="p-6 border-t border-slate-700 bg-slate-900/50">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={onClose}
+              className="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-all"
+            >
+              닫기
+            </button>
+            <button
+              onClick={() => {
+                if (!isLocked) {
+                  onStart();
+                }
+              }}
+              disabled={isLocked}
+              className={`px-8 py-3 rounded-xl font-bold transition-all flex items-center gap-2 ${
+                isLocked
+                  ? 'bg-slate-700 text-slate-500 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-indigo-500/30'
+              }`}
+            >
+              {isLocked ? (
+                <>
+                  <Lock className="w-5 h-5" />
+                  잠김
+                </>
+              ) : (
+                <>
+                  <Play className="w-5 h-5" />
+                  {isCompleted ? '다시 학습하기' : '학습 시작'}
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 // Mission List Component
 const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
   const navigate = useNavigate();
   const { progress, isWeekUnlocked, isMissionUnlocked, getWeekKeyMissionProgress } = useProgressStore();
+  const [selectedMission, setSelectedMission] = useState<Mission | null>(null);
 
   const weekIsLocked = !isWeekUnlocked(unit.id, week.id);
   const keyMissionProgress = getWeekKeyMissionProgress(unit.id, week.id);
 
+  // 주차 내 미션 타입 분포 계산
+  const missionTypeDistribution = useMemo(() => {
+    const distribution: Record<string, number> = {};
+    week.missions.forEach(mission => {
+      const typeInfo = MISSION_TYPE_INFO[mission.type];
+      const label = typeInfo?.label || mission.type;
+      distribution[label] = (distribution[label] || 0) + 1;
+    });
+    return distribution;
+  }, [week.missions]);
+
+  // 주차 핵심 학습 내용 요약 생성
+  const weekSummary = useMemo(() => {
+    const concepts = week.missions
+      .filter(m => m.concept)
+      .map(m => m.concept)
+      .filter((v, i, a) => a.indexOf(v) === i) // unique
+      .slice(0, 3);
+
+    if (concepts.length === 0) return null;
+    return concepts.join(', ');
+  }, [week.missions]);
+
   return (
     <div className="animate-fade-in-up">
+      <AnimatePresence>
+        {selectedMission && (
+          <MissionPreviewModal
+            mission={selectedMission}
+            unit={unit}
+            week={week}
+            isCompleted={progress.completedMissions.includes(selectedMission.id)}
+            isLocked={weekIsLocked || !isMissionUnlocked(selectedMission.id, unit.id, week.id)}
+            onClose={() => setSelectedMission(null)}
+            onStart={() => {
+              navigate(`/mission/${selectedMission.id}`);
+              setSelectedMission(null);
+            }}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Header */}
       <div className="mb-8">
         <button
@@ -988,7 +1269,33 @@ const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
             </span>
           )}
         </div>
-        <p className="text-slate-400">{weekIsLocked ? '이전 주차의 핵심 미션을 80% 이상 완료해야 합니다.' : week.description}</p>
+        <p className="text-slate-400 mb-4">{weekIsLocked ? '이전 주차의 핵심 미션을 80% 이상 완료해야 합니다.' : week.description}</p>
+
+        {/* Week Learning Summary */}
+        {!weekIsLocked && weekSummary && (
+          <div className="p-4 bg-indigo-500/10 rounded-xl border border-indigo-500/30 mb-4">
+            <div className="flex items-center gap-2 mb-2">
+              <GraduationCap className="w-5 h-5 text-indigo-400" />
+              <h3 className="text-sm font-bold text-white">이번 주차의 핵심 학습 내용</h3>
+            </div>
+            <p className="text-sm text-indigo-200">{weekSummary}</p>
+          </div>
+        )}
+
+        {/* Mission Type Distribution */}
+        {!weekIsLocked && Object.keys(missionTypeDistribution).length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {Object.entries(missionTypeDistribution).map(([type, count]) => (
+              <span
+                key={type}
+                className="text-xs bg-slate-700/60 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-600/50 flex items-center gap-2"
+              >
+                <span className="font-bold">{type}</span>
+                <span className="text-slate-400">{count}개</span>
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Key Mission Progress */}
         {keyMissionProgress.total > 0 && (
@@ -1036,14 +1343,14 @@ const MissionList: React.FC<{ unit: Unit; week: Week }> = ({ unit, week }) => {
                   if (missionIsLocked) {
                     alert('이 미션은 아직 잠겨있습니다. 이전 주차의 핵심 미션을 먼저 완료해주세요.');
                   } else {
-                    navigate(`/mission/${mission.id}`);
+                    setSelectedMission(mission);
                   }
                 }}
                 disabled={missionIsLocked}
                 className={`w-full text-left p-5 rounded-2xl border transition-all group ${
                   missionIsLocked
                     ? 'border-slate-700 bg-slate-800/40 opacity-60 cursor-not-allowed'
-                    : 'border-slate-600/50 bg-slate-700/40 hover:bg-slate-700/60 hover:border-slate-500'
+                    : 'border-slate-600/50 bg-slate-700/40 hover:bg-slate-700/60 hover:border-slate-500 hover:shadow-lg'
                 }`}
               >
                 <div className="flex items-center gap-4">

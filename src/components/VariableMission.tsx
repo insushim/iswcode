@@ -247,7 +247,7 @@ const VariableMission: React.FC<Props> = ({ mission, onComplete }) => {
       });
 
       if (allMatch) {
-        const earnedScore = mission.exp;
+        const earnedScore = mission.exp || 0;
         setScore(earnedScore);
         setShowSuccess(true);
         setTimeout(() => {
@@ -256,7 +256,7 @@ const VariableMission: React.FC<Props> = ({ mission, onComplete }) => {
       }
     } else if (newVars.length > 0) {
       // 변수가 생성되면 완료
-      const earnedScore = mission.exp;
+      const earnedScore = mission.exp || 0;
       setScore(earnedScore);
       setShowSuccess(true);
       setTimeout(() => {

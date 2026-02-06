@@ -212,7 +212,7 @@ export default function Practice() {
 
                     {/* Badges */}
                     <div className="flex items-center gap-2 mt-3 flex-wrap">
-                      {getDifficultyBadge(mission.difficulty)}
+                      {getDifficultyBadge(String(mission.difficulty))}
                       {getPhaseBadge(mission.phase)}
                       {mission.language && (
                         <span className="px-2 py-1 text-xs rounded-full bg-gray-700 text-gray-300">
