@@ -7395,7 +7395,1638 @@ export const unit5: Unit = {
       title: 'CSS 레이아웃',
       description: 'Flexbox와 Grid로 요소를 배치해요',
       missions: [
-        // 10 missions: display, flexbox 기초, justify-content, align-items, flex-direction, flex-wrap, grid 기초, grid-template, gap, 주간 프로젝트: 갤러리
+        {
+          id: 'w35-m1',
+          title: 'Display 속성 이해하기',
+          description: 'block, inline, inline-block의 차이를 알아봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 30,
+          estimatedMinutes: 25,
+          concept: 'CSS Display',
+          conceptExplanation: 'display 속성은 요소가 어떻게 보여질지 결정해요. block은 한 줄을 다 차지하고, inline은 내용만큼만 차지해요. inline-block은 줄을 바꾸지 않으면서 너비와 높이를 설정할 수 있어요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'display 속성의 종류와 특성을 이해할 수 있다',
+            'block과 inline의 차이를 설명할 수 있다',
+            '상황에 맞는 display 속성을 선택할 수 있다'
+          ],
+          realWorldExample: 'block은 책의 문단처럼 한 줄을 다 차지해요. inline은 문장 안의 단어처럼 옆으로 나란히 배치돼요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* div를 inline으로 만들어보세요 */
+    .inline-box {
+      /* 여기에 코드 작성 */
+      width: 100px;
+      height: 50px;
+      background: lightblue;
+      margin: 10px;
+    }
+
+    /* span을 block으로 만들어보세요 */
+    .block-text {
+      /* 여기에 코드 작성 */
+      background: lightcoral;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="inline-box">Box 1</div>
+  <div class="inline-box">Box 2</div>
+  <span class="block-text">Text 1</span>
+  <span class="block-text">Text 2</span>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .inline-box {
+      display: inline-block;
+      width: 100px;
+      height: 50px;
+      background: lightblue;
+      margin: 10px;
+    }
+
+    .block-text {
+      display: block;
+      background: lightcoral;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="inline-box">Box 1</div>
+  <div class="inline-box">Box 2</div>
+  <span class="block-text">Text 1</span>
+  <span class="block-text">Text 2</span>
+</body>
+</html>`,
+          hints: [
+            '💡 display: inline-block으로 div를 옆으로 나란히 배치할 수 있어요',
+            '💡 display: block으로 span을 한 줄씩 차지하게 만들 수 있어요',
+            '💡 inline-block은 너비와 높이를 설정할 수 있어요'
+          ],
+          commonMistakes: [
+            'inline에 너비/높이를 설정하려고 하는 경우 (inline-block 사용 필요)',
+            'display 속성 이름을 잘못 쓰는 경우',
+            '부모 요소의 display에 영향받는다는 것을 모르는 경우'
+          ],
+          testCases: [
+            {
+              input: 'inline-block 적용',
+              expectedOutput: 'display: inline-block',
+              description: 'div가 옆으로 나란히 배치되는지 확인'
+            },
+            {
+              input: 'block 적용',
+              expectedOutput: 'display: block',
+              description: 'span이 한 줄씩 차지하는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Display 기본 실습',
+              description: 'block, inline, inline-block을 각각 적용해보세요',
+              difficulty: 'easy',
+              hints: [
+                '기본 태그들의 display 값을 확인하세요',
+                '각 속성의 차이를 직접 보세요'
+              ],
+              estimatedMinutes: 5,
+              starterCode: '/* display 속성 연습 */\n',
+              feedback: {
+                perfect: '완벽하게 이해했어요!',
+                good: 'Display 속성을 잘 사용했어요!',
+                partial: '일부만 맞았어요. 다시 확인하세요.',
+                wrong: 'Display 개념을 다시 복습하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m2',
+          title: 'Flexbox 기초',
+          description: 'Flexbox로 요소를 유연하게 배치해봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          isKeyMission: true,
+          exp: 35,
+          estimatedMinutes: 30,
+          concept: 'Flexbox',
+          conceptExplanation: 'Flexbox는 요소를 가로나 세로로 유연하게 배치하는 강력한 레이아웃 도구예요! 부모 요소에 display: flex를 적용하면 자식 요소들을 쉽게 정렬할 수 있어요. 복잡한 레이아웃도 간단하게 만들 수 있답니다!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'Flexbox의 개념과 장점을 이해할 수 있다',
+            'display: flex를 사용하여 컨테이너를 만들 수 있다',
+            'flex 방향을 변경할 수 있다'
+          ],
+          realWorldExample: '상점의 진열대처럼 물건을 가지런히 배치하는 거예요! Flexbox를 사용하면 요소들이 자동으로 정렬돼요.',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      /* 여기에 flexbox 설정 */
+      width: 500px;
+      height: 200px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      border: 2px solid blue;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      width: 500px;
+      height: 200px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightblue;
+      border: 2px solid blue;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 부모 요소에 display: flex를 추가하세요',
+            '💡 flex를 적용하면 자식들이 자동으로 가로로 배치돼요',
+            '💡 flex-direction으로 방향을 바꿀 수 있어요'
+          ],
+          commonMistakes: [
+            '자식 요소에 flex를 적용하는 경우 (부모에 적용해야 함)',
+            'display: flexbox라고 쓰는 경우 (flex가 맞음)',
+            'flex 컨테이너와 flex 아이템을 혼동하는 경우'
+          ],
+          testCases: [
+            {
+              input: 'flex 적용',
+              expectedOutput: 'display: flex',
+              description: '요소들이 가로로 배치되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Flex 컨테이너 만들기',
+              description: '부모 요소를 flex 컨테이너로 만드세요',
+              difficulty: 'easy',
+              hints: [
+                'display 속성을 사용하세요',
+                '부모 요소에 적용해야 해요'
+              ],
+              estimatedMinutes: 5,
+              starterCode: '/* flex 컨테이너 만들기 */\n',
+              feedback: {
+                perfect: 'Flexbox를 완벽히 이해했어요!',
+                good: 'Flex 컨테이너를 잘 만들었어요!',
+                partial: '거의 다 됐어요!',
+                wrong: 'Flexbox 개념을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m3',
+          title: 'justify-content로 가로 정렬',
+          description: 'flex 아이템을 가로 방향으로 정렬해봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 30,
+          estimatedMinutes: 25,
+          concept: 'justify-content',
+          conceptExplanation: 'justify-content는 flex 아이템들을 주축(기본적으로 가로)을 따라 정렬해요! flex-start(왼쪽), center(중앙), flex-end(오른쪽), space-between(양 끝에 붙이고 사이 균등 배치), space-around(좌우 여백 포함 균등 배치) 등이 있어요.',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'justify-content 속성의 다양한 값을 이해할 수 있다',
+            '상황에 맞는 정렬 방식을 선택할 수 있다',
+            'flex 아이템의 수평 배치를 조절할 수 있다'
+          ],
+          realWorldExample: '사진을 액자에 넣을 때 왼쪽, 중앙, 오른쪽 중 어디에 둘지 선택하는 것과 같아요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      /* 아이템들을 중앙에 배치하세요 */
+      width: 600px;
+      height: 150px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+    }
+
+    .container2 {
+      display: flex;
+      /* 아이템들을 양 끝에 배치하고 사이를 균등하게 하세요 */
+      width: 600px;
+      height: 150px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+
+  <div class="container2">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      width: 600px;
+      height: 150px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+    }
+
+    .container2 {
+      display: flex;
+      justify-content: space-between;
+      width: 600px;
+      height: 150px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightcoral;
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+
+  <div class="container2">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 justify-content: center로 중앙 정렬',
+            '💡 justify-content: space-between으로 균등 배치',
+            '💡 flex-start, flex-end, space-around도 있어요'
+          ],
+          commonMistakes: [
+            'text-align을 사용하려는 경우 (flex에서는 justify-content 사용)',
+            'align-items와 justify-content를 혼동하는 경우',
+            '속성 이름의 철자를 틀리는 경우'
+          ],
+          testCases: [
+            {
+              input: 'center 정렬',
+              expectedOutput: 'justify-content: center',
+              description: '아이템들이 중앙에 배치되는지 확인'
+            },
+            {
+              input: 'space-between 정렬',
+              expectedOutput: 'justify-content: space-between',
+              description: '아이템들이 균등하게 배치되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '다양한 정렬 실습',
+              description: 'justify-content의 모든 값을 적용해보세요',
+              difficulty: 'easy',
+              hints: [
+                '5가지 주요 값이 있어요',
+                '각각 어떻게 다른지 확인하세요'
+              ],
+              estimatedMinutes: 6,
+              starterCode: '/* 정렬 연습 */\n',
+              feedback: {
+                perfect: '모든 정렬을 완벽히 이해했어요!',
+                good: 'justify-content를 잘 사용했어요!',
+                partial: '일부 정렬만 맞았어요.',
+                wrong: '정렬 방식을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m4',
+          title: 'align-items로 세로 정렬',
+          description: 'flex 아이템을 세로 방향으로 정렬해봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 30,
+          estimatedMinutes: 25,
+          concept: 'align-items',
+          conceptExplanation: 'align-items는 flex 아이템들을 교차축(기본적으로 세로)을 따라 정렬해요! flex-start(위), center(중앙), flex-end(아래), stretch(늘림), baseline(텍스트 기준선) 등이 있어요. justify-content가 가로라면 align-items는 세로예요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'align-items 속성을 이해하고 사용할 수 있다',
+            'justify-content와 align-items의 차이를 설명할 수 있다',
+            '수직 정렬을 자유롭게 조절할 수 있다'
+          ],
+          realWorldExample: '선반에 물건을 놓을 때 위쪽에 둘지, 중간에 둘지, 아래쪽에 둘지 정하는 거예요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      /* 아이템을 세로 중앙에 배치하세요 */
+      width: 500px;
+      height: 300px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 100px;
+      background: lightgreen;
+      border: 2px solid green;
+      margin: 10px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">Item 1</div>
+    <div class="item" style="padding: 40px;">Item 2<br>(더 큼)</div>
+    <div class="item">Item 3</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+      width: 500px;
+      height: 300px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 100px;
+      background: lightgreen;
+      border: 2px solid green;
+      margin: 10px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">Item 1</div>
+    <div class="item" style="padding: 40px;">Item 2<br>(더 큼)</div>
+    <div class="item">Item 3</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 align-items: center로 세로 중앙 정렬',
+            '💡 justify-content는 가로, align-items는 세로',
+            '💡 둘을 함께 사용하면 완벽한 중앙 정렬!'
+          ],
+          commonMistakes: [
+            'vertical-align을 사용하려는 경우 (flex에서는 align-items)',
+            'justify-content와 헷갈리는 경우',
+            '높이가 없으면 효과가 없다는 것을 모르는 경우'
+          ],
+          testCases: [
+            {
+              input: 'center 정렬',
+              expectedOutput: 'align-items: center',
+              description: '아이템들이 세로 중앙에 배치되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '완벽한 중앙 정렬',
+              description: 'justify-content와 align-items를 함께 사용하세요',
+              difficulty: 'easy',
+              hints: [
+                '두 속성을 모두 center로 설정하세요',
+                '가로와 세로 모두 중앙에 오게 해요'
+              ],
+              estimatedMinutes: 5,
+              starterCode: '/* 중앙 정렬 연습 */\n',
+              feedback: {
+                perfect: '완벽한 중앙 정렬이에요!',
+                good: 'align-items를 잘 사용했어요!',
+                partial: '한 방향만 정렬되었어요.',
+                wrong: '두 속성을 함께 사용해보세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m5',
+          title: 'flex-direction으로 방향 바꾸기',
+          description: 'flex 아이템의 배치 방향을 바꿔봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 30,
+          estimatedMinutes: 25,
+          concept: 'flex-direction',
+          conceptExplanation: 'flex-direction은 flex 아이템이 배치되는 방향을 결정해요! row(가로, 기본값), row-reverse(가로 역순), column(세로), column-reverse(세로 역순)가 있어요. 방향을 바꾸면 주축과 교차축도 바뀐다는 게 중요해요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'flex-direction의 네 가지 값을 이해할 수 있다',
+            '주축과 교차축의 개념을 설명할 수 있다',
+            '레이아웃 방향을 자유롭게 변경할 수 있다'
+          ],
+          realWorldExample: '책을 가로로 쌓을지 세로로 쌓을지, 왼쪽부터 쌓을지 오른쪽부터 쌓을지 정하는 거예요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      /* 세로 방향으로 배치하세요 */
+      width: 200px;
+      height: 400px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 150px;
+      height: 80px;
+      background: lightyellow;
+      border: 2px solid orange;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1번</div>
+    <div class="item">2번</div>
+    <div class="item">3번</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      height: 400px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+    }
+
+    .item {
+      width: 150px;
+      height: 80px;
+      background: lightyellow;
+      border: 2px solid orange;
+      margin: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1번</div>
+    <div class="item">2번</div>
+    <div class="item">3번</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 flex-direction: column으로 세로 배치',
+            '💡 flex-direction: row는 가로 배치 (기본값)',
+            '💡 reverse를 붙이면 역순으로 배치돼요'
+          ],
+          commonMistakes: [
+            'direction: column이라고 쓰는 경우 (flex-direction)',
+            '방향을 바꾸면 justify-content와 align-items의 축도 바뀐다는 것을 모르는 경우',
+            'flex-flow와 flex-direction을 혼동하는 경우'
+          ],
+          testCases: [
+            {
+              input: 'column 적용',
+              expectedOutput: 'flex-direction: column',
+              description: '아이템들이 세로로 배치되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '방향 전환 연습',
+              description: '4가지 flex-direction을 모두 적용해보세요',
+              difficulty: 'easy',
+              hints: [
+                'row, row-reverse, column, column-reverse',
+                '각각 어떻게 다른지 확인하세요'
+              ],
+              estimatedMinutes: 6,
+              starterCode: '/* 방향 전환 연습 */\n',
+              feedback: {
+                perfect: '모든 방향을 완벽히 이해했어요!',
+                good: 'flex-direction을 잘 사용했어요!',
+                partial: '일부 방향만 맞았어요.',
+                wrong: '방향 개념을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m6',
+          title: 'flex-wrap으로 줄바꿈하기',
+          description: '공간이 부족할 때 자동으로 줄을 바꿔봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 30,
+          estimatedMinutes: 25,
+          concept: 'flex-wrap',
+          conceptExplanation: 'flex-wrap은 flex 아이템이 한 줄에 다 들어가지 않을 때 어떻게 할지 결정해요! nowrap(안 바꿈, 기본값), wrap(아래로 줄바꿈), wrap-reverse(위로 줄바꿈)가 있어요. 반응형 레이아웃을 만들 때 아주 유용해요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'flex-wrap 속성의 역할을 이해할 수 있다',
+            '반응형 레이아웃에서 flex-wrap을 활용할 수 있다',
+            'wrap과 nowrap의 차이를 설명할 수 있다'
+          ],
+          realWorldExample: '상자에 물건이 다 안 들어가면 새 상자를 가져오는 것처럼, flex-wrap은 줄을 바꿔요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      /* 아이템이 많으면 자동으로 줄바꿈하게 하세요 */
+      width: 400px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      padding: 10px;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightpink;
+      border: 2px solid hotpink;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 400px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      padding: 10px;
+    }
+
+    .item {
+      width: 100px;
+      height: 100px;
+      background: lightpink;
+      border: 2px solid hotpink;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 flex-wrap: wrap으로 자동 줄바꿈',
+            '💡 nowrap은 줄바꿈하지 않고 크기를 줄여요',
+            '💡 반응형 디자인에 아주 유용해요'
+          ],
+          commonMistakes: [
+            'word-wrap이나 text-wrap과 혼동하는 경우',
+            'flex-wrap을 자식 요소에 적용하는 경우 (부모에 적용)',
+            'wrap-reverse의 동작을 이해하지 못하는 경우'
+          ],
+          testCases: [
+            {
+              input: 'wrap 적용',
+              expectedOutput: 'flex-wrap: wrap',
+              description: '아이템들이 여러 줄로 배치되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '반응형 카드 레이아웃',
+              description: 'flex-wrap을 사용해 카드들이 자동으로 줄바꿈되게 하세요',
+              difficulty: 'medium',
+              hints: [
+                'wrap을 사용하세요',
+                '아이템 너비를 조절해보세요'
+              ],
+              estimatedMinutes: 8,
+              starterCode: '/* 반응형 카드 만들기 */\n',
+              feedback: {
+                perfect: '완벽한 반응형 레이아웃이에요!',
+                good: 'flex-wrap을 잘 활용했어요!',
+                partial: '일부만 작동해요.',
+                wrong: 'wrap 개념을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m7',
+          title: 'Grid 기초',
+          description: 'CSS Grid로 2차원 레이아웃을 만들어봐요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          phase: 'use',
+          isKeyMission: true,
+          exp: 40,
+          estimatedMinutes: 30,
+          concept: 'CSS Grid',
+          conceptExplanation: 'CSS Grid는 행과 열을 동시에 다루는 2차원 레이아웃 시스템이에요! Flexbox는 1차원(가로 또는 세로)이지만, Grid는 가로와 세로를 동시에 제어할 수 있어요. 복잡한 레이아웃을 간단하게 만들 수 있는 강력한 도구예요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'CSS Grid의 개념과 장점을 이해할 수 있다',
+            'Grid 컨테이너를 만들 수 있다',
+            'Flexbox와 Grid의 차이를 설명할 수 있다'
+          ],
+          realWorldExample: '바둑판이나 체스판처럼 가로와 세로로 칸이 나뉘어진 구조를 만들 수 있어요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      /* Grid 컨테이너로 만드세요 */
+      width: 400px;
+      height: 400px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-item {
+      background: lavender;
+      border: 2px solid purple;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: 400px;
+      height: 400px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-item {
+      background: lavender;
+      border: 2px solid purple;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 display: grid로 Grid 컨테이너 만들기',
+            '💡 grid-template-columns로 열 개수와 크기 정하기',
+            '💡 repeat()와 fr 단위를 사용하면 편해요'
+          ],
+          commonMistakes: [
+            'display: grid-container라고 쓰는 경우 (grid가 맞음)',
+            'Flexbox와 Grid를 혼동하는 경우',
+            'grid-template를 빠뜨리는 경우'
+          ],
+          testCases: [
+            {
+              input: 'grid 적용',
+              expectedOutput: 'display: grid',
+              description: 'Grid 컨테이너가 생성되는지 확인'
+            },
+            {
+              input: '3열 레이아웃',
+              expectedOutput: 'grid-template-columns',
+              description: '3개의 열이 생성되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Grid 컨테이너 만들기',
+              description: '3x2 Grid를 만들어보세요',
+              difficulty: 'medium',
+              hints: [
+                'display: grid를 사용하세요',
+                'columns와 rows를 설정하세요'
+              ],
+              estimatedMinutes: 10,
+              starterCode: '/* Grid 만들기 */\n',
+              feedback: {
+                perfect: 'Grid를 완벽히 이해했어요!',
+                good: 'Grid 컨테이너를 잘 만들었어요!',
+                partial: '일부만 맞았어요.',
+                wrong: 'Grid 기본 개념을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m8',
+          title: 'grid-template으로 레이아웃 정의',
+          description: 'Grid의 행과 열을 자유롭게 설정해봐요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          phase: 'use',
+          exp: 35,
+          estimatedMinutes: 30,
+          concept: 'grid-template',
+          conceptExplanation: 'grid-template-columns는 열의 개수와 크기를, grid-template-rows는 행의 개수와 크기를 정해요! px, %, fr(fraction), auto 등 다양한 단위를 사용할 수 있어요. repeat() 함수로 반복 패턴을 쉽게 만들 수 있답니다!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'grid-template-columns와 rows를 사용할 수 있다',
+            'fr 단위의 개념을 이해하고 활용할 수 있다',
+            'repeat() 함수를 사용할 수 있다'
+          ],
+          realWorldExample: '건물을 지을 때 방의 개수와 크기를 정하는 것처럼, Grid로 레이아웃의 구조를 설계해요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      /* 첫 번째 열: 200px, 나머지 두 열: 같은 크기로 */
+      /* 3개의 행: 각각 100px */
+      width: 600px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-item {
+      background: lightcyan;
+      border: 2px solid darkcyan;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">Header</div>
+    <div class="grid-item">Menu</div>
+    <div class="grid-item">Content</div>
+    <div class="grid-item">Sidebar</div>
+    <div class="grid-item">Main</div>
+    <div class="grid-item">Ads</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      grid-template-rows: repeat(3, 100px);
+      width: 600px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-item {
+      background: lightcyan;
+      border: 2px solid darkcyan;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">Header</div>
+    <div class="grid-item">Menu</div>
+    <div class="grid-item">Content</div>
+    <div class="grid-item">Sidebar</div>
+    <div class="grid-item">Main</div>
+    <div class="grid-item">Ads</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 grid-template-columns: 200px 1fr 1fr',
+            '💡 grid-template-rows: repeat(3, 100px)',
+            '💡 fr은 남은 공간을 비율로 나눠요'
+          ],
+          commonMistakes: [
+            'fr을 px처럼 사용하는 경우',
+            'columns와 rows를 혼동하는 경우',
+            'repeat() 문법을 잘못 사용하는 경우'
+          ],
+          testCases: [
+            {
+              input: 'columns 설정',
+              expectedOutput: 'grid-template-columns: 200px 1fr 1fr',
+              description: '열이 올바르게 설정되는지 확인'
+            },
+            {
+              input: 'rows 설정',
+              expectedOutput: 'repeat(3, 100px)',
+              description: '행이 올바르게 설정되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '복잡한 레이아웃 만들기',
+              description: '다양한 크기의 Grid를 만들어보세요',
+              difficulty: 'medium',
+              hints: [
+                '여러 단위를 섞어 사용하세요',
+                'repeat()를 활용하세요'
+              ],
+              estimatedMinutes: 12,
+              starterCode: '/* 레이아웃 설계 */\n',
+              feedback: {
+                perfect: '복잡한 레이아웃을 완벽히 만들었어요!',
+                good: 'grid-template을 잘 사용했어요!',
+                partial: '일부 크기가 맞지 않아요.',
+                wrong: 'template 문법을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m9',
+          title: 'gap으로 간격 조절하기',
+          description: 'Grid 아이템 사이의 간격을 설정해봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 25,
+          estimatedMinutes: 20,
+          concept: 'gap',
+          conceptExplanation: 'gap은 Grid나 Flex 아이템 사이의 간격을 설정해요! row-gap(행 간격), column-gap(열 간격)을 따로 설정하거나, gap으로 한번에 설정할 수 있어요. margin보다 훨씬 편리하고 깔끔해요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'gap 속성의 역할을 이해할 수 있다',
+            'row-gap과 column-gap을 구분해서 사용할 수 있다',
+            'margin 대신 gap을 사용하는 이유를 설명할 수 있다'
+          ],
+          realWorldExample: '책장에 책을 꽂을 때 책 사이의 간격을 정하는 것처럼, gap으로 요소 간격을 조절해요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* 가로 간격 20px, 세로 간격 30px로 설정하세요 */
+      width: 500px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      padding: 15px;
+    }
+
+    .grid-item {
+      background: peachpuff;
+      border: 2px solid coral;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 30px;
+      column-gap: 20px;
+      width: 500px;
+      background: #f0f0f0;
+      border: 2px solid #333;
+      padding: 15px;
+    }
+
+    .grid-item {
+      background: peachpuff;
+      border: 2px solid coral;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 row-gap: 30px으로 행 간격 설정',
+            '💡 column-gap: 20px으로 열 간격 설정',
+            '💡 gap: 30px 20px로 한번에 설정할 수도 있어요'
+          ],
+          commonMistakes: [
+            'grid-gap이라고 쓰는 경우 (현재는 gap 권장)',
+            'gap의 순서를 헷갈리는 경우 (row column 순)',
+            'margin과 gap을 혼동하는 경우'
+          ],
+          testCases: [
+            {
+              input: 'row-gap 설정',
+              expectedOutput: 'row-gap: 30px',
+              description: '행 간격이 올바른지 확인'
+            },
+            {
+              input: 'column-gap 설정',
+              expectedOutput: 'column-gap: 20px',
+              description: '열 간격이 올바른지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'gap 활용 연습',
+              description: 'gap을 사용해 깔끔한 레이아웃을 만드세요',
+              difficulty: 'easy',
+              hints: [
+                'gap 하나로 통일된 간격을 만들 수 있어요',
+                'margin 없이도 간격을 만들 수 있어요'
+              ],
+              estimatedMinutes: 5,
+              starterCode: '/* gap 활용 */\n',
+              feedback: {
+                perfect: 'gap을 완벽히 활용했어요!',
+                good: '간격을 잘 설정했어요!',
+                partial: '일부 간격만 맞았어요.',
+                wrong: 'gap 사용법을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w35-m10',
+          title: '주간 프로젝트: 이미지 갤러리',
+          description: 'Grid로 멋진 이미지 갤러리를 만들어봐요!',
+          type: 'project',
+          difficulty: 'intermediate',
+          language: 'html',
+          phase: 'create',
+          isKeyMission: true,
+          exp: 50,
+          estimatedMinutes: 45,
+          concept: 'Grid 레이아웃 프로젝트',
+          conceptExplanation: '이번 주에 배운 Flexbox와 Grid를 활용해서 실제 웹사이트에서 볼 수 있는 이미지 갤러리를 만들어봐요! Grid로 기본 배치를 하고, Flex로 세부 요소를 정렬하면 완벽한 레이아웃이 완성돼요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'Grid를 사용해 실제 프로젝트를 완성할 수 있다',
+            'Flexbox와 Grid를 상황에 맞게 조합할 수 있다',
+            '반응형 갤러리 레이아웃을 구현할 수 있다'
+          ],
+          realWorldExample: '인스타그램, 핀터레스트 같은 사진 공유 사이트의 이미지 배치가 바로 Grid를 사용한 거예요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-header {
+      /* Flex로 헤더를 만드세요 */
+      /* 제목과 버튼을 양 끝에 배치하고 세로 중앙 정렬 */
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .gallery-header h1 {
+      color: #333;
+    }
+
+    .view-btn {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .gallery-grid {
+      /* Grid로 3열 갤러리를 만드세요 */
+      /* 간격은 20px */
+      /* wrap을 사용해서 반응형으로 만드세요 */
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+    }
+
+    .item-info {
+      padding: 15px;
+    }
+
+    .item-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .item-description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .item-footer {
+      /* Flex로 아이콘들을 배치하세요 */
+      /* 요소들 사이에 간격을 균등하게 */
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-container">
+    <div class="gallery-header">
+      <h1>My Gallery</h1>
+      <button class="view-btn">Grid View</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="image-placeholder">🌅</div>
+        <div class="item-info">
+          <div class="item-title">Sunset Paradise</div>
+          <div class="item-description">Beautiful sunset over the ocean</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 125</span>
+            <span class="icon">💬 23</span>
+            <span class="icon">👁️ 1.2K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🏔️</div>
+        <div class="item-info">
+          <div class="item-title">Mountain Peak</div>
+          <div class="item-description">Snowy mountain landscape</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 89</span>
+            <span class="icon">💬 12</span>
+            <span class="icon">👁️ 856</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌲</div>
+        <div class="item-info">
+          <div class="item-title">Forest Trail</div>
+          <div class="item-description">Path through the green forest</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 234</span>
+            <span class="icon">💬 45</span>
+            <span class="icon">👁️ 2.1K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌊</div>
+        <div class="item-info">
+          <div class="item-title">Ocean Waves</div>
+          <div class="item-description">Crystal clear blue water</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 167</span>
+            <span class="icon">💬 34</span>
+            <span class="icon">👁️ 1.5K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌸</div>
+        <div class="item-info">
+          <div class="item-title">Cherry Blossoms</div>
+          <div class="item-description">Spring flowers in bloom</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 312</span>
+            <span class="icon">💬 67</span>
+            <span class="icon">👁️ 3.2K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌃</div>
+        <div class="item-info">
+          <div class="item-title">City Lights</div>
+          <div class="item-description">Urban skyline at night</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 198</span>
+            <span class="icon">💬 41</span>
+            <span class="icon">👁️ 1.8K</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .gallery-header h1 {
+      color: #333;
+    }
+
+    .view-btn {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+    }
+
+    .item-info {
+      padding: 15px;
+    }
+
+    .item-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .item-description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .item-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #999;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="gallery-container">
+    <div class="gallery-header">
+      <h1>My Gallery</h1>
+      <button class="view-btn">Grid View</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="image-placeholder">🌅</div>
+        <div class="item-info">
+          <div class="item-title">Sunset Paradise</div>
+          <div class="item-description">Beautiful sunset over the ocean</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 125</span>
+            <span class="icon">💬 23</span>
+            <span class="icon">👁️ 1.2K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🏔️</div>
+        <div class="item-info">
+          <div class="item-title">Mountain Peak</div>
+          <div class="item-description">Snowy mountain landscape</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 89</span>
+            <span class="icon">💬 12</span>
+            <span class="icon">👁️ 856</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌲</div>
+        <div class="item-info">
+          <div class="item-title">Forest Trail</div>
+          <div class="item-description">Path through the green forest</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 234</span>
+            <span class="icon">💬 45</span>
+            <span class="icon">👁️ 2.1K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌊</div>
+        <div class="item-info">
+          <div class="item-title">Ocean Waves</div>
+          <div class="item-description">Crystal clear blue water</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 167</span>
+            <span class="icon">💬 34</span>
+            <span class="icon">👁️ 1.5K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌸</div>
+        <div class="item-info">
+          <div class="item-title">Cherry Blossoms</div>
+          <div class="item-description">Spring flowers in bloom</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 312</span>
+            <span class="icon">💬 67</span>
+            <span class="icon">👁️ 3.2K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">🌃</div>
+        <div class="item-info">
+          <div class="item-title">City Lights</div>
+          <div class="item-description">Urban skyline at night</div>
+          <div class="item-footer">
+            <span class="icon">❤️ 198</span>
+            <span class="icon">💬 41</span>
+            <span class="icon">👁️ 1.8K</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 헤더: display: flex, justify-content: space-between',
+            '💡 갤러리: display: grid, grid-template-columns: repeat(3, 1fr)',
+            '💡 footer: display: flex, justify-content: space-between',
+            '💡 gap으로 간격을 조절하세요'
+          ],
+          commonMistakes: [
+            'Grid와 Flex를 적절한 곳에 사용하지 않는 경우',
+            'gap을 빠뜨려서 요소가 붙어있는 경우',
+            '반응형을 고려하지 않는 경우'
+          ],
+          testCases: [
+            {
+              input: '헤더 레이아웃',
+              expectedOutput: 'display: flex',
+              description: '헤더가 올바르게 배치되는지 확인'
+            },
+            {
+              input: '갤러리 그리드',
+              expectedOutput: 'display: grid',
+              description: '갤러리가 3열로 배치되는지 확인'
+            },
+            {
+              input: '아이템 푸터',
+              expectedOutput: 'justify-content: space-between',
+              description: '푸터 아이콘들이 균등 배치되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '반응형 갤러리',
+              description: '화면 크기에 따라 열 개수가 바뀌게 만드세요',
+              difficulty: 'hard',
+              hints: [
+                'media query를 사용하세요',
+                '태블릿은 2열, 모바일은 1열로'
+              ],
+              estimatedMinutes: 20,
+              starterCode: '/* 반응형 갤러리 */\n',
+              feedback: {
+                perfect: '완벽한 갤러리 프로젝트예요!',
+                good: '훌륭한 레이아웃이에요!',
+                partial: '일부 기능이 부족해요.',
+                wrong: '기본 레이아웃부터 다시 만들어보세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        }
       ]
     },
     {
@@ -7404,7 +9035,1116 @@ export const unit5: Unit = {
       title: '반응형 디자인',
       description: '모바일, 태블릿, PC 모두에서 잘 보이게 만들어요',
       missions: [
-        // 10 missions: viewport, media query, 모바일 우선, breakpoint, 반응형 이미지, 반응형 폰트, 반응형 레이아웃, 햄버거 메뉴, 반응형 테이블, 주간 프로젝트: 반응형 포트폴리오
+        {
+          id: 'w36-m1',
+          title: 'Viewport 메타 태그',
+          description: '모바일에서 제대로 보이게 하는 설정을 배워요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 25,
+          estimatedMinutes: 20,
+          concept: 'Viewport',
+          conceptExplanation: 'Viewport는 사용자가 웹 페이지를 보는 화면 영역이에요! 모바일 브라우저는 기본적으로 페이지를 축소해서 보여주는데, viewport 메타 태그로 이를 조절할 수 있어요. width=device-width로 기기 화면 너비에 맞추고, initial-scale=1.0으로 확대/축소 없이 보여줄 수 있어요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'viewport 메타 태그의 역할을 이해할 수 있다',
+            '모바일 최적화를 위한 기본 설정을 할 수 있다',
+            'device-width와 initial-scale의 의미를 설명할 수 있다'
+          ],
+          realWorldExample: '스마트폰으로 웹사이트를 볼 때 글자가 너무 작거나 화면이 이상하게 보이는 경우가 있죠? viewport 설정으로 이를 해결해요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <!-- 모바일 최적화를 위한 viewport 메타 태그를 추가하세요 -->
+  <title>반응형 웹사이트</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>반응형 웹 디자인</h1>
+    <p>이 페이지는 다양한 기기에서 최적화되어 보여요!</p>
+    <p>Viewport 설정을 추가하면 모바일에서도 완벽하게 보입니다.</p>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 웹사이트</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>반응형 웹 디자인</h1>
+    <p>이 페이지는 다양한 기기에서 최적화되어 보여요!</p>
+    <p>Viewport 설정을 추가하면 모바일에서도 완벽하게 보입니다.</p>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 <meta name="viewport" content="...">',
+            '💡 width=device-width로 기기 너비에 맞춤',
+            '💡 initial-scale=1.0으로 확대/축소 없이 표시'
+          ],
+          commonMistakes: [
+            'viewport를 body에 넣는 경우 (head에 넣어야 함)',
+            'content 속성을 빠뜨리는 경우',
+            'user-scalable=no를 사용하는 경우 (접근성 문제)'
+          ],
+          testCases: [
+            {
+              input: 'viewport 설정',
+              expectedOutput: 'meta name="viewport"',
+              description: 'viewport 메타 태그가 있는지 확인'
+            },
+            {
+              input: 'device-width 설정',
+              expectedOutput: 'width=device-width',
+              description: '너비가 올바르게 설정되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Viewport 설정하기',
+              description: '완벽한 viewport 메타 태그를 작성하세요',
+              difficulty: 'easy',
+              hints: [
+                '<head> 안에 넣으세요',
+                'width와 initial-scale을 모두 포함하세요'
+              ],
+              estimatedMinutes: 5,
+              starterCode: '<!-- viewport 메타 태그 -->\n',
+              feedback: {
+                perfect: '완벽한 viewport 설정이에요!',
+                good: 'Viewport를 잘 설정했어요!',
+                partial: '일부 속성이 빠졌어요.',
+                wrong: 'Viewport 문법을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w36-m2',
+          title: 'Media Query 기초',
+          description: '화면 크기에 따라 스타일을 바꿔봐요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          phase: 'use',
+          isKeyMission: true,
+          exp: 40,
+          estimatedMinutes: 30,
+          concept: 'Media Query',
+          conceptExplanation: 'Media Query는 화면 크기, 방향, 해상도 등에 따라 다른 CSS를 적용하는 기술이에요! @media (조건) { 스타일 } 형태로 사용해요. 예를 들어 @media (max-width: 768px)는 화면이 768px 이하일 때만 적용되는 스타일이에요. 반응형 디자인의 핵심 기술입니다!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'Media Query의 문법을 이해하고 사용할 수 있다',
+            'max-width와 min-width의 차이를 설명할 수 있다',
+            '화면 크기에 따라 레이아웃을 변경할 수 있다'
+          ],
+          realWorldExample: 'PC에서는 3열, 태블릿에서는 2열, 모바일에서는 1열로 보이는 웹사이트가 바로 Media Query를 사용한 거예요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* 태블릿 (768px 이하): 2열로 변경 */
+    /* 여기에 media query 작성 */
+
+    /* 모바일 (480px 이하): 1열로 변경 */
+    /* 여기에 media query 작성 */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+    <div class="box">Box 6</div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* 태블릿 (768px 이하): 2열로 변경 */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* 모바일 (480px 이하): 1열로 변경 */
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .box {
+        font-size: 18px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+    <div class="box">Box 6</div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 @media (max-width: 768px) { ... }',
+            '💡 작은 화면일수록 열 개수를 줄이세요',
+            '💡 여러 media query를 순서대로 사용할 수 있어요'
+          ],
+          commonMistakes: [
+            '@media를 빠뜨리는 경우',
+            'max-width와 min-width를 헷갈리는 경우',
+            'media query 순서가 잘못된 경우 (큰 것부터 작은 순으로)'
+          ],
+          testCases: [
+            {
+              input: '태블릿 media query',
+              expectedOutput: '@media (max-width: 768px)',
+              description: '768px 이하에서 2열로 변경되는지 확인'
+            },
+            {
+              input: '모바일 media query',
+              expectedOutput: '@media (max-width: 480px)',
+              description: '480px 이하에서 1열로 변경되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Media Query 실습',
+              description: '다양한 breakpoint에서 레이아웃을 변경하세요',
+              difficulty: 'medium',
+              hints: [
+                '3단계 breakpoint를 만드세요',
+                '각 화면 크기에 맞게 조절하세요'
+              ],
+              estimatedMinutes: 12,
+              starterCode: '/* Media Query 연습 */\n',
+              feedback: {
+                perfect: 'Media Query를 완벽히 이해했어요!',
+                good: '반응형 디자인을 잘 만들었어요!',
+                partial: '일부 breakpoint가 작동하지 않아요.',
+                wrong: 'Media Query 문법을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w36-m3',
+          title: '모바일 우선 접근법',
+          description: '작은 화면부터 설계하는 방법을 배워요',
+          type: 'interactive-lesson',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 30,
+          estimatedMinutes: 25,
+          concept: 'Mobile First',
+          conceptExplanation: '모바일 우선(Mobile First)은 작은 화면(모바일)을 기본으로 디자인하고, 큰 화면(태블릿, PC)으로 확장하는 방법이에요! min-width를 사용해서 "이 크기 이상에서는 이렇게"라고 추가해가는 방식이에요. 더 효율적이고 성능도 좋아요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            '모바일 우선 접근법의 장점을 이해할 수 있다',
+            'min-width를 사용한 media query를 작성할 수 있다',
+            'Desktop First와 Mobile First의 차이를 설명할 수 있다'
+          ],
+          realWorldExample: '전 세계 웹 트래픽의 60% 이상이 모바일이에요! 그래서 모바일을 먼저 생각하는 게 중요해요.',
+          hints: [
+            '💡 기본 스타일은 모바일용으로 작성',
+            '💡 min-width로 큰 화면에 추가 스타일 적용',
+            '💡 모바일 → 태블릿 → PC 순서로 확장'
+          ],
+          conceptCards: [
+            {
+              title: 'Desktop First',
+              description: 'PC를 기본으로 max-width로 줄여가는 방식. 예전 방법.'
+            },
+            {
+              title: 'Mobile First',
+              description: '모바일을 기본으로 min-width로 늘려가는 방식. 현대적 방법!'
+            },
+            {
+              title: '장점',
+              description: '성능 향상, 코드 간결, 모바일 사용자 우선, 점진적 개선'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Mobile First 이해하기',
+              description: 'Mobile First 접근법의 핵심을 이해했는지 확인합니다',
+              difficulty: 'easy',
+              hints: [
+                '강의 내용을 다시 읽어보세요',
+                'min-width를 사용하는 이유를 생각해보세요'
+              ],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'Mobile First를 완벽히 이해했어요!',
+                good: '개념을 잘 파악했어요!',
+                partial: '기본은 이해했어요.',
+                wrong: '강의를 다시 복습해보세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w36-m4',
+          title: 'Breakpoint 설정하기',
+          description: '화면 크기 기준점을 정해봐요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          phase: 'use',
+          exp: 30,
+          estimatedMinutes: 25,
+          concept: 'Breakpoint',
+          conceptExplanation: 'Breakpoint는 레이아웃이 바뀌는 화면 크기의 기준점이에요! 일반적으로 모바일(~576px), 태블릿(577px~768px), 작은 PC(769px~992px), 큰 PC(993px~)로 나눠요. Bootstrap 같은 프레임워크들도 비슷한 breakpoint를 사용해요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            '표준 breakpoint 값들을 이해할 수 있다',
+            '프로젝트에 맞는 breakpoint를 선택할 수 있다',
+            'CSS 변수로 breakpoint를 관리할 수 있다'
+          ],
+          realWorldExample: '아이폰 SE(375px), 아이패드(768px), 맥북(1440px) 등 실제 기기 크기를 고려해서 breakpoint를 정해요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* 태블릿 (576px 이상): 2열 */
+    /* 여기에 breakpoint 추가 */
+
+    /* 작은 PC (768px 이상): 3열 */
+    /* 여기에 breakpoint 추가 */
+
+    /* 큰 PC (992px 이상): 4열 */
+    /* 여기에 breakpoint 추가 */
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>반응형 카드 레이아웃</h1>
+    <p>화면 크기를 조절해보세요!</p>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h3>카드 1</h3>
+      <p>화면 크기에 따라 열 개수가 바뀌어요</p>
+    </div>
+    <div class="card">
+      <h3>카드 2</h3>
+      <p>모바일: 1열, 태블릿: 2열</p>
+    </div>
+    <div class="card">
+      <h3>카드 3</h3>
+      <p>작은 PC: 3열, 큰 PC: 4열</p>
+    </div>
+    <div class="card">
+      <h3>카드 4</h3>
+      <p>Breakpoint를 잘 설정하면 완벽!</p>
+    </div>
+    <div class="card">
+      <h3>카드 5</h3>
+      <p>실제 기기에서 테스트해보세요</p>
+    </div>
+    <div class="card">
+      <h3>카드 6</h3>
+      <p>반응형 디자인은 필수예요!</p>
+    </div>
+    <div class="card">
+      <h3>카드 7</h3>
+      <p>사용자 경험이 중요해요</p>
+    </div>
+    <div class="card">
+      <h3>카드 8</h3>
+      <p>모든 화면에서 완벽하게!</p>
+    </div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* 태블릿 (576px 이상): 2열 */
+    @media (min-width: 576px) {
+      .container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* 작은 PC (768px 이상): 3열 */
+    @media (min-width: 768px) {
+      .container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* 큰 PC (992px 이상): 4열 */
+    @media (min-width: 992px) {
+      .container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>반응형 카드 레이아웃</h1>
+    <p>화면 크기를 조절해보세요!</p>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h3>카드 1</h3>
+      <p>화면 크기에 따라 열 개수가 바뀌어요</p>
+    </div>
+    <div class="card">
+      <h3>카드 2</h3>
+      <p>모바일: 1열, 태블릿: 2열</p>
+    </div>
+    <div class="card">
+      <h3>카드 3</h3>
+      <p>작은 PC: 3열, 큰 PC: 4열</p>
+    </div>
+    <div class="card">
+      <h3>카드 4</h3>
+      <p>Breakpoint를 잘 설정하면 완벽!</p>
+    </div>
+    <div class="card">
+      <h3>카드 5</h3>
+      <p>실제 기기에서 테스트해보세요</p>
+    </div>
+    <div class="card">
+      <h3>카드 6</h3>
+      <p>반응형 디자인은 필수예요!</p>
+    </div>
+    <div class="card">
+      <h3>카드 7</h3>
+      <p>사용자 경험이 중요해요</p>
+    </div>
+    <div class="card">
+      <h3>카드 8</h3>
+      <p>모든 화면에서 완벽하게!</p>
+    </div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 Mobile First: min-width 사용',
+            '💡 576px, 768px, 992px breakpoint 사용',
+            '💡 작은 화면부터 큰 화면 순서로'
+          ],
+          commonMistakes: [
+            'breakpoint 순서가 잘못된 경우',
+            'max-width를 사용하는 경우 (Mobile First에서는 min-width)',
+            'breakpoint 값을 중복해서 사용하는 경우'
+          ],
+          testCases: [
+            {
+              input: '576px breakpoint',
+              expectedOutput: '@media (min-width: 576px)',
+              description: '2열로 변경되는지 확인'
+            },
+            {
+              input: '768px breakpoint',
+              expectedOutput: '@media (min-width: 768px)',
+              description: '3열로 변경되는지 확인'
+            },
+            {
+              input: '992px breakpoint',
+              expectedOutput: '@media (min-width: 992px)',
+              description: '4열로 변경되는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Breakpoint 마스터하기',
+              description: '표준 breakpoint로 완벽한 반응형을 만드세요',
+              difficulty: 'medium',
+              hints: [
+                '4단계 breakpoint를 모두 사용하세요',
+                '각 단계에서 최적의 레이아웃을 생각하세요'
+              ],
+              estimatedMinutes: 10,
+              starterCode: '/* Breakpoint 설정 */\n',
+              feedback: {
+                perfect: 'Breakpoint를 완벽히 설정했어요!',
+                good: '반응형 레이아웃이 잘 작동해요!',
+                partial: '일부 breakpoint가 빠졌어요.',
+                wrong: 'Breakpoint 개념을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w36-m5',
+          title: '반응형 이미지',
+          description: '화면 크기에 맞게 이미지를 조절해봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 25,
+          estimatedMinutes: 20,
+          concept: '반응형 이미지',
+          conceptExplanation: '반응형 이미지는 화면 크기에 따라 자동으로 크기가 조절되는 이미지예요! max-width: 100%와 height: auto를 사용하면 부모 요소에 맞춰서 크기가 조절돼요. 큰 이미지도 작은 화면에서 잘 보이게 만들 수 있어요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            '반응형 이미지의 기본 CSS를 작성할 수 있다',
+            'object-fit 속성을 이해하고 사용할 수 있다',
+            '이미지 비율을 유지하는 방법을 알 수 있다'
+          ],
+          realWorldExample: '인스타그램이나 유튜브에서 이미지와 동영상이 화면 크기에 맞춰 자동으로 조절되는 것처럼요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .image-container {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    /* 반응형 이미지 스타일을 추가하세요 */
+    .responsive-img {
+      /* 여기에 반응형 이미지 CSS */
+    }
+
+    /* 비율을 유지하는 컨테이너 */
+    .aspect-ratio-box {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 비율 */
+      background: #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .aspect-ratio-box .img-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <h2>기본 반응형 이미지</h2>
+    <div class="img-placeholder responsive-img" style="background: linear-gradient(to right, #ff6b6b, #ffa500); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; border-radius: 8px;">
+      📸 이미지
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>16:9 비율 유지</h2>
+    <div class="aspect-ratio-box">
+      <div class="img-placeholder">🎬</div>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>여러 이미지 갤러리</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+      <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px;">🌅</div>
+      <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px;">🏔️</div>
+      <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px;">🌲</div>
+    </div>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .image-container {
+      max-width: 800px;
+      margin: 0 auto 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .aspect-ratio-box {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 비율 */
+      background: #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .aspect-ratio-box .img-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <h2>기본 반응형 이미지</h2>
+    <div class="img-placeholder responsive-img" style="background: linear-gradient(to right, #ff6b6b, #ffa500); height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; border-radius: 8px;">
+      📸 이미지
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>16:9 비율 유지</h2>
+    <div class="aspect-ratio-box">
+      <div class="img-placeholder">🎬</div>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <h2>여러 이미지 갤러리</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+      <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px;">🌅</div>
+      <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px;">🏔️</div>
+      <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px;">🌲</div>
+    </div>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 max-width: 100%로 부모 요소보다 커지지 않게',
+            '💡 height: auto로 비율 유지',
+            '💡 display: block으로 하단 여백 제거'
+          ],
+          commonMistakes: [
+            'width: 100%와 max-width: 100%를 혼동하는 경우',
+            'height를 고정값으로 주는 경우 (비율이 깨짐)',
+            'object-fit을 모르는 경우'
+          ],
+          testCases: [
+            {
+              input: '반응형 이미지 설정',
+              expectedOutput: 'max-width: 100%',
+              description: '이미지가 반응형으로 작동하는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '완벽한 반응형 이미지',
+              description: '모든 화면에서 완벽하게 보이는 이미지를 만드세요',
+              difficulty: 'easy',
+              hints: [
+                'max-width와 height를 모두 설정하세요',
+                '비율을 유지하는 것이 중요해요'
+              ],
+              estimatedMinutes: 6,
+              starterCode: '/* 반응형 이미지 */\n',
+              feedback: {
+                perfect: '완벽한 반응형 이미지예요!',
+                good: '이미지가 잘 조절돼요!',
+                partial: '일부 속성이 빠졌어요.',
+                wrong: '반응형 이미지 개념을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        // Due to length, I'll add missions 6-10 in the next edit
+        {
+          id: 'w36-m6',
+          title: '반응형 폰트 크기',
+          description: '화면에 맞게 글자 크기를 조절해봐요',
+          type: 'coding',
+          difficulty: 'beginner',
+          language: 'html',
+          phase: 'use',
+          exp: 25,
+          estimatedMinutes: 20,
+          concept: '반응형 타이포그래피',
+          conceptExplanation: '반응형 폰트는 화면 크기에 따라 글자 크기가 자동으로 조절돼요! vw(viewport width) 단위를 사용하거나, clamp() 함수로 최소/최대 크기를 지정할 수 있어요. 작은 화면에서도 읽기 쉽고, 큰 화면에서도 예쁘게 보이게 만들 수 있어요!',
+          cstaStandard: '2-AP-17',
+          learningObjectives: [
+            'vw, vh 같은 viewport 단위를 이해할 수 있다',
+            'clamp() 함수로 폰트 크기를 제한할 수 있다',
+            '가독성을 고려한 폰트 크기를 설정할 수 있다'
+          ],
+          realWorldExample: '뉴욕타임스 같은 뉴스 사이트에서 제목이 화면 크기에 맞춰 자동으로 조절되는 것이 반응형 폰트예요!',
+          starterCode: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      /* clamp()를 사용해 24px~64px 사이로 조절하세요 */
+      /* 화면 너비의 5%를 기본값으로 */
+      margin: 0 0 20px 0;
+    }
+
+    .hero p {
+      /* clamp()를 사용해 16px~24px 사이로 조절하세요 */
+      /* 화면 너비의 2%를 기본값으로 */
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      /* 반응형 폰트 크기 설정 */
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>반응형 타이포그래피</h1>
+    <p>화면 크기를 조절하면 글자 크기도 자동으로 변해요!</p>
+  </div>
+
+  <div class="content">
+    <h2>clamp() 함수</h2>
+    <p>clamp(최소값, 선호값, 최대값) 형태로 사용해요. 선호값은 보통 vw 단위를 사용하고, 최소/최대값으로 범위를 제한해요.</p>
+
+    <h2>vw 단위</h2>
+    <p>vw는 viewport width의 약자로, 화면 너비의 %를 의미해요. 1vw = 화면 너비의 1%예요.</p>
+
+    <h2>가독성</h2>
+    <p>본문은 16px 이상, 제목은 화면에 맞게 조절하되 너무 작거나 크지 않게 해요!</p>
+  </div>
+</body>
+</html>`,
+          solution: `<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(24px, 5vw, 64px);
+      margin: 0 0 20px 0;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 2vw, 24px);
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      font-size: clamp(20px, 3vw, 32px);
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>반응형 타이포그래피</h1>
+    <p>화면 크기를 조절하면 글자 크기도 자동으로 변해요!</p>
+  </div>
+
+  <div class="content">
+    <h2>clamp() 함수</h2>
+    <p>clamp(최소값, 선호값, 최대값) 형태로 사용해요. 선호값은 보통 vw 단위를 사용하고, 최소/최대값으로 범위를 제한해요.</p>
+
+    <h2>vw 단위</h2>
+    <p>vw는 viewport width의 약자로, 화면 너비의 %를 의미해요. 1vw = 화면 너비의 1%예요.</p>
+
+    <h2>가독성</h2>
+    <p>본문은 16px 이상, 제목은 화면에 맞게 조절하되 너무 작거나 크지 않게 해요!</p>
+  </div>
+</body>
+</html>`,
+          hints: [
+            '💡 clamp(최소, 선호, 최대) 형태로 사용',
+            '💡 제목: clamp(24px, 5vw, 64px)',
+            '💡 설명: clamp(16px, 2vw, 24px)'
+          ],
+          commonMistakes: [
+            'clamp() 문법을 잘못 사용하는 경우',
+            'vw만 사용해서 너무 작아지거나 커지는 경우',
+            '본문 폰트를 너무 작게 하는 경우 (가독성 저하)'
+          ],
+          testCases: [
+            {
+              input: '제목 폰트 크기',
+              expectedOutput: 'clamp',
+              description: 'clamp() 함수를 사용했는지 확인'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '반응형 타이포그래피 마스터',
+              description: '완벽한 반응형 폰트 시스템을 만드세요',
+              difficulty: 'medium',
+              hints: [
+                'clamp()를 모든 제목에 적용하세요',
+                '가독성을 최우선으로 생각하세요'
+              ],
+              estimatedMinutes: 8,
+              starterCode: '/* 반응형 폰트 */\n',
+              feedback: {
+                perfect: '완벽한 타이포그래피예요!',
+                good: '반응형 폰트를 잘 설정했어요!',
+                partial: '일부 폰트 크기를 조정하세요.',
+                wrong: 'clamp() 사용법을 다시 확인하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        }
       ]
     },
     {
