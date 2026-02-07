@@ -2553,76 +2553,11 @@ console.log(user.age);`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'JavaScript 객체 핵심 이해',
-              description: 'JavaScript 객체의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['JavaScript 객체의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'JavaScript 객체 개념을 완벽하게 이해했어요!',
-                good: 'JavaScript 객체의 핵심을 잘 파악했어요!',
-                partial: 'JavaScript 객체의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'JavaScript 객체의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'JavaScript 객체 예제 분석',
-              description: 'JavaScript 객체 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'JavaScript 객체 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'JavaScript 객체 코드 수정',
-              description: '주어진 코드에서 JavaScript 객체 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'JavaScript 객체의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'JavaScript 객체 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'JavaScript 객체 직접 구현',
-              description: 'JavaScript 객체을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'JavaScript 객체의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'JavaScript 객체 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'JavaScript 객체 심화 도전',
-              description: 'JavaScript 객체을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'JavaScript 객체을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'JavaScript 객체 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '객체 만들기', description: '이름, 나이, 취미를 가진 객체를 만드세요.', difficulty: 'easy', hints: ['{ } 안에 속성을 넣어요', 'key: value 형태로 작성'], estimatedMinutes: 3, starterCode: '// person 객체를 만드세요\nconst person = {\n  // name, age, hobby 속성 추가\n};\nconsole.log(person.name);', solution: 'const person = {\n  name: "홍길동",\n  age: 15,\n  hobby: "코딩"\n};\nconsole.log(person.name);', feedback: { perfect: '객체를 완벽하게 만들었어요!', good: '좋아요!', partial: '속성 3개를 모두 넣으세요.', wrong: '{ key: value } 형태로 작성하세요.' } },
+            { id: 'c2', title: '속성 접근하기', description: '점 표기법과 괄호 표기법으로 객체 속성에 접근하세요.', difficulty: 'easy', hints: ['obj.key 또는 obj["key"]'], estimatedMinutes: 4, starterCode: 'const car = { brand: "현대", model: "아반떼", year: 2024 };\n// 점 표기법으로 brand 출력\nconsole.log();\n// 괄호 표기법으로 model 출력\nconsole.log();', solution: 'const car = { brand: "현대", model: "아반떼", year: 2024 };\nconsole.log(car.brand);\nconsole.log(car["model"]);', feedback: { perfect: '두 가지 접근 방법을 잘 이해했어요!', good: '좋아요!', partial: '괄호 표기법도 시도하세요.', wrong: 'obj.key 또는 obj["key"]를 사용하세요.' } },
+            { id: 'c3', title: '속성 추가/수정/삭제', description: '객체의 속성을 동적으로 변경하세요.', difficulty: 'medium', hints: ['obj.newKey = value로 추가', 'delete obj.key로 삭제'], estimatedMinutes: 5, starterCode: 'const user = { name: "코딩왕", level: 1 };\n// level을 5로 수정\n// score 속성을 100으로 추가\n// name 속성 삭제\nconsole.log(user);', solution: 'const user = { name: "코딩왕", level: 1 };\nuser.level = 5;\nuser.score = 100;\ndelete user.name;\nconsole.log(user); // { level: 5, score: 100 }', feedback: { perfect: '속성 조작을 완벽히 이해했어요!', good: '잘했어요!', partial: '삭제도 시도하세요.', wrong: 'obj.key = value로 수정/추가, delete obj.key로 삭제하세요.' } },
+            { id: 'c4', title: '학생 프로필 객체', description: '학생 정보를 객체로 구성하고 성적 평균을 계산하세요.', difficulty: 'medium', hints: ['scores를 배열로 저장', 'reduce로 합계 구하기'], estimatedMinutes: 8, starterCode: 'const student = {\n  name: "김철수",\n  scores: [90, 85, 92, 78, 95],\n  // getAverage 메서드 추가\n};\nconsole.log(student.getAverage());', solution: 'const student = {\n  name: "김철수",\n  scores: [90, 85, 92, 78, 95],\n  getAverage() {\n    const sum = this.scores.reduce((a, b) => a + b, 0);\n    return sum / this.scores.length;\n  }\n};\nconsole.log(student.getAverage()); // 88', feedback: { perfect: '메서드까지 완벽하게 구현했어요!', good: '잘했어요!', partial: 'this.scores를 사용하세요.', wrong: 'getAverage() { } 메서드를 추가하세요.' } },
+            { id: 'c5', title: '게임 캐릭터 객체', description: '게임 캐릭터 객체를 만들고 레벨업 기능을 구현하세요.', difficulty: 'hard', hints: ['this로 자신의 속성에 접근', '메서드로 상태 변경'], estimatedMinutes: 12, starterCode: 'const hero = {\n  name: "전사",\n  level: 1,\n  hp: 100,\n  atk: 10,\n  // levelUp: 레벨+1, hp+20, atk+5\n  // attack: "name의 공격! atk 데미지!" 출력\n  // status: 모든 정보 출력\n};\nhero.levelUp();\nhero.attack();\nhero.status();', solution: 'const hero = {\n  name: "전사",\n  level: 1,\n  hp: 100,\n  atk: 10,\n  levelUp() {\n    this.level++;\n    this.hp += 20;\n    this.atk += 5;\n    console.log("레벨 업! Lv." + this.level);\n  },\n  attack() {\n    console.log(this.name + "의 공격! " + this.atk + " 데미지!");\n  },\n  status() {\n    console.log("=== " + this.name + " ===");\n    console.log("Lv." + this.level + " HP:" + this.hp + " ATK:" + this.atk);\n  }\n};\nhero.levelUp();\nhero.attack();\nhero.status();', feedback: { perfect: '게임 캐릭터 객체를 완벽하게 구현했어요!', good: '잘했어요!', partial: '메서드에서 this를 사용하세요.', wrong: 'this.level++ 형태로 속성을 변경하세요.' } }
           ],
           unlocked: true,
           completed: false,
@@ -2699,76 +2634,11 @@ console.log(calculator.result);`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '객체 메서드 핵심 이해',
-              description: '객체 메서드의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['객체 메서드의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '객체 메서드 개념을 완벽하게 이해했어요!',
-                good: '객체 메서드의 핵심을 잘 파악했어요!',
-                partial: '객체 메서드의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '객체 메서드의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '객체 메서드 예제 분석',
-              description: '객체 메서드 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '객체 메서드 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '객체 메서드 코드 수정',
-              description: '주어진 코드에서 객체 메서드 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '객체 메서드의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '객체 메서드 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '객체 메서드 직접 구현',
-              description: '객체 메서드을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '객체 메서드의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '객체 메서드 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '객체 메서드 심화 도전',
-              description: '객체 메서드을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '객체 메서드을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '객체 메서드 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'Object.keys() 사용', description: '객체의 키 목록을 배열로 추출하세요.', difficulty: 'easy', hints: ['Object.keys(obj)는 키 배열 반환'], estimatedMinutes: 3, starterCode: 'const fruit = { apple: 3, banana: 5, orange: 2 };\n// Object.keys()로 키 배열 추출\nconst keys = \nconsole.log(keys);', solution: 'const fruit = { apple: 3, banana: 5, orange: 2 };\nconst keys = Object.keys(fruit);\nconsole.log(keys); // ["apple", "banana", "orange"]', feedback: { perfect: 'Object.keys() 완벽!', good: '좋아요!', partial: 'Object.keys(객체)를 사용하세요.', wrong: 'Object.keys(fruit) 형태입니다.' } },
+            { id: 'c2', title: 'Object.values() 사용', description: '객체의 값 목록을 배열로 추출하세요.', difficulty: 'easy', hints: ['Object.values(obj)는 값 배열 반환'], estimatedMinutes: 3, starterCode: 'const scores = { math: 90, eng: 85, sci: 92 };\n// Object.values()로 값 배열 추출\nconst vals = \n// 합계 구하기\nconst total = \nconsole.log(vals, total);', solution: 'const scores = { math: 90, eng: 85, sci: 92 };\nconst vals = Object.values(scores);\nconst total = vals.reduce((a, b) => a + b, 0);\nconsole.log(vals, total); // [90, 85, 92] 267', feedback: { perfect: 'Object.values와 reduce 조합 완벽!', good: '값 추출은 정확해요!', partial: 'reduce로 합계를 구하세요.', wrong: 'Object.values(scores)를 사용하세요.' } },
+            { id: 'c3', title: 'Object.entries() 반복', description: 'Object.entries()로 키-값 쌍을 반복하세요.', difficulty: 'medium', hints: ['for (const [key, value] of Object.entries(obj))'], estimatedMinutes: 5, starterCode: 'const menu = { 김밥: 3000, 라면: 4000, 떡볶이: 3500 };\n// Object.entries()로 "메뉴: 가격원" 형태로 출력\nfor () {\n  console.log();\n}', solution: 'const menu = { 김밥: 3000, 라면: 4000, 떡볶이: 3500 };\nfor (const [name, price] of Object.entries(menu)) {\n  console.log(name + ": " + price + "원");\n}', feedback: { perfect: 'entries 반복을 완벽히 이해했어요!', good: '잘했어요!', partial: '구조 분해를 사용해보세요.', wrong: 'for (const [k, v] of Object.entries(obj))를 사용하세요.' } },
+            { id: 'c4', title: '객체 변환하기', description: 'Object.entries와 Object.fromEntries로 객체를 변환하세요.', difficulty: 'medium', hints: ['entries → map → fromEntries'], estimatedMinutes: 8, starterCode: 'const prices = { apple: 1000, banana: 1500, orange: 2000 };\n// 모든 가격을 10% 할인한 새 객체 만들기\nconst discounted = \nconsole.log(discounted);', solution: 'const prices = { apple: 1000, banana: 1500, orange: 2000 };\nconst discounted = Object.fromEntries(\n  Object.entries(prices).map(([k, v]) => [k, v * 0.9])\n);\nconsole.log(discounted);', feedback: { perfect: '객체 변환 패턴을 완벽히 이해했어요!', good: '좋은 접근이에요!', partial: 'entries → map → fromEntries 체인을 사용하세요.', wrong: 'Object.entries().map()으로 변환하세요.' } },
+            { id: 'c5', title: '계산기 객체', description: 'add, subtract, multiply, divide 메서드가 있는 계산기를 만드세요.', difficulty: 'hard', hints: ['각 메서드에서 this.result를 업데이트', '체이닝을 위해 this를 반환'], estimatedMinutes: 12, starterCode: 'const calc = {\n  result: 0,\n  // add(n): result에 n 더하기\n  // subtract(n): result에서 n 빼기\n  // multiply(n): result에 n 곱하기\n  // reset(): result를 0으로\n  // getResult(): result 반환\n};\ncalc.add(10);\ncalc.multiply(3);\ncalc.subtract(5);\nconsole.log(calc.getResult());', solution: 'const calc = {\n  result: 0,\n  add(n) { this.result += n; return this; },\n  subtract(n) { this.result -= n; return this; },\n  multiply(n) { this.result *= n; return this; },\n  reset() { this.result = 0; return this; },\n  getResult() { return this.result; }\n};\ncalc.add(10).multiply(3).subtract(5);\nconsole.log(calc.getResult()); // 25', feedback: { perfect: '메서드 체이닝까지 완벽!', good: '계산기가 잘 작동해요!', partial: 'this를 반환하면 체이닝이 가능해요.', wrong: '각 메서드에서 this.result를 변경하세요.' } }
           ],
           unlocked: true,
           completed: false,
@@ -2826,76 +2696,11 @@ printUserInfo({ name: "이민수", age: 16, email: "lee@example.com" });`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '구조 분해 할당 핵심 이해',
-              description: '구조 분해 할당의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['구조 분해 할당의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '구조 분해 할당 개념을 완벽하게 이해했어요!',
-                good: '구조 분해 할당의 핵심을 잘 파악했어요!',
-                partial: '구조 분해 할당의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '구조 분해 할당의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '구조 분해 할당 예제 분석',
-              description: '구조 분해 할당 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '구조 분해 할당 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '구조 분해 할당 코드 수정',
-              description: '주어진 코드에서 구조 분해 할당 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '구조 분해 할당의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '구조 분해 할당 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '구조 분해 할당 직접 구현',
-              description: '구조 분해 할당을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '구조 분해 할당의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '구조 분해 할당 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '구조 분해 할당 심화 도전',
-              description: '구조 분해 할당을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '구조 분해 할당을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '구조 분해 할당 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '배열 구조 분해', description: '배열에서 값을 변수로 추출하세요.', difficulty: 'easy', hints: ['const [a, b] = [1, 2]'], estimatedMinutes: 3, starterCode: 'const colors = ["빨강", "파랑", "초록"];\n// 구조 분해로 first, second, third 변수에 할당\nconst [] = colors;\nconsole.log(first, second, third);', solution: 'const colors = ["빨강", "파랑", "초록"];\nconst [first, second, third] = colors;\nconsole.log(first, second, third);', feedback: { perfect: '배열 구조 분해 완벽!', good: '좋아요!', partial: '변수 3개를 배열에서 추출하세요.', wrong: 'const [a, b, c] = array 형태를 사용하세요.' } },
+            { id: 'c2', title: '객체 구조 분해', description: '객체에서 속성을 변수로 추출하세요.', difficulty: 'easy', hints: ['const { name, age } = person'], estimatedMinutes: 4, starterCode: 'const user = { name: "홍길동", age: 15, school: "코딩중학교" };\n// 구조 분해로 name, age, school 추출\nconst { } = user;\nconsole.log(name, age, school);', solution: 'const user = { name: "홍길동", age: 15, school: "코딩중학교" };\nconst { name, age, school } = user;\nconsole.log(name, age, school);', feedback: { perfect: '객체 구조 분해 완벽!', good: '좋아요!', partial: '속성 이름과 같은 변수명을 사용하세요.', wrong: 'const { key1, key2 } = obj 형태입니다.' } },
+            { id: 'c3', title: '기본값과 별칭', description: '구조 분해에서 기본값과 별칭을 사용하세요.', difficulty: 'medium', hints: ['{ name: n } 별칭, { age = 0 } 기본값'], estimatedMinutes: 5, starterCode: 'const config = { theme: "dark", lang: "ko" };\n// theme을 t로 별칭, fontSize는 기본값 16\nconst { } = config;\nconsole.log(t, fontSize);', solution: 'const config = { theme: "dark", lang: "ko" };\nconst { theme: t, fontSize = 16 } = config;\nconsole.log(t, fontSize); // "dark" 16', feedback: { perfect: '별칭과 기본값을 완벽히 이해했어요!', good: '좋아요!', partial: '기본값은 = 로 설정하세요.', wrong: '{ key: alias, key2 = default } 형태입니다.' } },
+            { id: 'c4', title: '중첩 구조 분해', description: '중첩 객체에서 깊은 값을 추출하세요.', difficulty: 'medium', hints: ['{ address: { city } } 형태'], estimatedMinutes: 7, starterCode: 'const student = {\n  name: "김철수",\n  scores: { math: 90, eng: 85 },\n  address: { city: "서울", district: "강남" }\n};\n// 중첩 구조 분해로 name, math, city 추출\nconst { } = student;\nconsole.log(name, math, city);', solution: 'const student = {\n  name: "김철수",\n  scores: { math: 90, eng: 85 },\n  address: { city: "서울", district: "강남" }\n};\nconst { name, scores: { math }, address: { city } } = student;\nconsole.log(name, math, city); // 김철수 90 서울', feedback: { perfect: '중첩 구조 분해 완벽!', good: '잘했어요!', partial: 'scores: { math } 형태로 깊이 접근하세요.', wrong: '{ outer: { inner } } 패턴을 사용하세요.' } },
+            { id: 'c5', title: '함수 매개변수 구조 분해', description: '함수 매개변수에서 직접 구조 분해하세요.', difficulty: 'hard', hints: ['function({ name, age }) 형태'], estimatedMinutes: 10, starterCode: '// 사용자 정보를 출력하는 함수\n// 매개변수에서 name, age, hobby를 구조 분해\nfunction printUser(/* 여기에 구조 분해 */) {\n  console.log(name + " (" + age + "세) - " + hobby);\n}\nprintUser({ name: "홍길동", age: 15, hobby: "코딩", school: "중학교" });', solution: 'function printUser({ name, age, hobby }) {\n  console.log(name + " (" + age + "세) - " + hobby);\n}\nprintUser({ name: "홍길동", age: 15, hobby: "코딩", school: "중학교" });', feedback: { perfect: '함수 매개변수 구조 분해 완벽!', good: '잘했어요!', partial: '매개변수를 { name, age, hobby }로 바꾸세요.', wrong: 'function fn({ key1, key2 }) 형태입니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -2954,76 +2759,11 @@ console.log(mergeArrays([1, 2], [3, 4]));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Spread 연산자 핵심 이해',
-              description: 'Spread 연산자의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Spread 연산자의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Spread 연산자 개념을 완벽하게 이해했어요!',
-                good: 'Spread 연산자의 핵심을 잘 파악했어요!',
-                partial: 'Spread 연산자의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Spread 연산자의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Spread 연산자 예제 분석',
-              description: 'Spread 연산자 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Spread 연산자 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Spread 연산자 코드 수정',
-              description: '주어진 코드에서 Spread 연산자 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Spread 연산자의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Spread 연산자 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Spread 연산자 직접 구현',
-              description: 'Spread 연산자을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Spread 연산자의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Spread 연산자 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Spread 연산자 심화 도전',
-              description: 'Spread 연산자을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Spread 연산자을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Spread 연산자 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '배열 복사', description: 'Spread로 배열을 복사하세요.', difficulty: 'easy', hints: ['[...arr]로 얕은 복사'], estimatedMinutes: 3, starterCode: 'const original = [1, 2, 3];\n// Spread로 복사본 만들기\nconst copy = \ncopy.push(4);\nconsole.log(original, copy);', solution: 'const original = [1, 2, 3];\nconst copy = [...original];\ncopy.push(4);\nconsole.log(original, copy); // [1,2,3] [1,2,3,4]', feedback: { perfect: 'Spread 복사를 완벽히 이해했어요!', good: '좋아요!', partial: '[...배열] 형태를 사용하세요.', wrong: 'const copy = [...original]을 사용하세요.' } },
+            { id: 'c2', title: '배열 합치기', description: 'Spread로 두 배열을 합치세요.', difficulty: 'easy', hints: ['[...arr1, ...arr2]'], estimatedMinutes: 3, starterCode: 'const fruits = ["사과", "바나나"];\nconst vegs = ["당근", "양파"];\n// 두 배열을 합쳐서 하나로\nconst all = \nconsole.log(all);', solution: 'const fruits = ["사과", "바나나"];\nconst vegs = ["당근", "양파"];\nconst all = [...fruits, ...vegs];\nconsole.log(all);', feedback: { perfect: '배열 합치기 완벽!', good: '좋아요!', partial: '두 배열 모두 spread하세요.', wrong: '[...arr1, ...arr2] 형태입니다.' } },
+            { id: 'c3', title: '객체 합치기', description: 'Spread로 객체를 합치세요.', difficulty: 'medium', hints: ['{...obj1, ...obj2}'], estimatedMinutes: 5, starterCode: 'const defaults = { theme: "light", lang: "en", size: 14 };\nconst userPref = { theme: "dark", lang: "ko" };\n// 합치기 (userPref가 defaults를 덮어씀)\nconst config = \nconsole.log(config);', solution: 'const defaults = { theme: "light", lang: "en", size: 14 };\nconst userPref = { theme: "dark", lang: "ko" };\nconst config = { ...defaults, ...userPref };\nconsole.log(config); // { theme: "dark", lang: "ko", size: 14 }', feedback: { perfect: '객체 스프레드와 오버라이드를 완벽히 이해!', good: '잘했어요!', partial: '나중에 오는 객체가 앞의 것을 덮어써요.', wrong: '{ ...obj1, ...obj2 } 형태입니다.' } },
+            { id: 'c4', title: '불변성 유지 업데이트', description: 'Spread로 원본을 변경하지 않고 업데이트하세요.', difficulty: 'medium', hints: ['{...obj, key: newValue}'], estimatedMinutes: 7, starterCode: 'const user = { name: "홍길동", age: 15, level: 1 };\n// 원본 변경 없이 level만 2로 업데이트\nconst updated = \nconsole.log(user.level, updated.level);', solution: 'const user = { name: "홍길동", age: 15, level: 1 };\nconst updated = { ...user, level: 2 };\nconsole.log(user.level, updated.level); // 1 2', feedback: { perfect: '불변성 유지 패턴 완벽!', good: '좋아요!', partial: '{ ...obj, key: newValue }를 사용하세요.', wrong: '스프레드 후 바꿀 속성을 덮어씁니다.' } },
+            { id: 'c5', title: '배열 요소 추가/제거', description: 'Spread로 배열 요소를 불변적으로 추가/제거하세요.', difficulty: 'hard', hints: ['추가: [...arr, newItem]', '제거: arr.filter()와 조합'], estimatedMinutes: 10, starterCode: 'const todos = ["공부", "운동", "독서"];\n// "코딩"을 맨 앞에 추가 (원본 변경 없이)\nconst added = \n// "운동"을 제거 (원본 변경 없이)\nconst removed = \nconsole.log(added);\nconsole.log(removed);', solution: 'const todos = ["공부", "운동", "독서"];\nconst added = ["코딩", ...todos];\nconst removed = todos.filter(t => t !== "운동");\nconsole.log(added); // ["코딩", "공부", "운동", "독서"]\nconsole.log(removed); // ["공부", "독서"]', feedback: { perfect: '불변 배열 조작을 완벽히 이해했어요!', good: '잘했어요!', partial: 'filter로 제거, spread로 추가하세요.', wrong: '["새요소", ...배열]로 앞에 추가합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -3084,76 +2824,11 @@ console.log(sum(1, 2, 3, 4, 5));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Rest 파라미터 핵심 이해',
-              description: 'Rest 파라미터의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Rest 파라미터의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Rest 파라미터 개념을 완벽하게 이해했어요!',
-                good: 'Rest 파라미터의 핵심을 잘 파악했어요!',
-                partial: 'Rest 파라미터의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Rest 파라미터의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Rest 파라미터 예제 분석',
-              description: 'Rest 파라미터 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Rest 파라미터 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Rest 파라미터 코드 수정',
-              description: '주어진 코드에서 Rest 파라미터 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Rest 파라미터의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Rest 파라미터 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Rest 파라미터 직접 구현',
-              description: 'Rest 파라미터을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Rest 파라미터의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Rest 파라미터 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Rest 파라미터 심화 도전',
-              description: 'Rest 파라미터을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Rest 파라미터을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Rest 파라미터 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '합계 함수', description: 'Rest 파라미터로 여러 숫자의 합계를 구하세요.', difficulty: 'easy', hints: ['function sum(...nums)'], estimatedMinutes: 3, starterCode: '// 몇 개든 받을 수 있는 합계 함수\nfunction sum(/* rest 파라미터 */) {\n  return nums.reduce((a, b) => a + b, 0);\n}\nconsole.log(sum(1, 2, 3)); // 6\nconsole.log(sum(10, 20, 30, 40)); // 100', solution: 'function sum(...nums) {\n  return nums.reduce((a, b) => a + b, 0);\n}\nconsole.log(sum(1, 2, 3)); // 6\nconsole.log(sum(10, 20, 30, 40)); // 100', feedback: { perfect: 'Rest 파라미터 완벽!', good: '좋아요!', partial: '...nums를 매개변수에 쓰세요.', wrong: 'function fn(...args) 형태입니다.' } },
+            { id: 'c2', title: '첫 요소 분리', description: 'Rest로 첫 요소와 나머지를 분리하세요.', difficulty: 'easy', hints: ['const [first, ...rest] = arr'], estimatedMinutes: 3, starterCode: 'const scores = [95, 82, 78, 90, 88];\n// 첫 번째와 나머지 분리\nconst [] = scores;\nconsole.log("최고점:", best);\nconsole.log("나머지:", others);', solution: 'const scores = [95, 82, 78, 90, 88];\nconst [best, ...others] = scores;\nconsole.log("최고점:", best);\nconsole.log("나머지:", others);', feedback: { perfect: '배열 Rest 완벽!', good: '좋아요!', partial: '[first, ...rest] 패턴을 사용하세요.', wrong: 'const [a, ...b] = array 형태입니다.' } },
+            { id: 'c3', title: '객체 나머지 속성', description: 'Rest로 특정 속성을 제외한 나머지를 모으세요.', difficulty: 'medium', hints: ['const { id, ...data } = obj'], estimatedMinutes: 5, starterCode: 'const response = { id: 1, name: "홍길동", age: 15, email: "test@test.com" };\n// id를 제외한 나머지를 data로 모으기\nconst { } = response;\nconsole.log("ID:", id);\nconsole.log("데이터:", data);', solution: 'const response = { id: 1, name: "홍길동", age: 15, email: "test@test.com" };\nconst { id, ...data } = response;\nconsole.log("ID:", id);\nconsole.log("데이터:", data);', feedback: { perfect: '객체 Rest 패턴 완벽!', good: '좋아요!', partial: '{ 제외할키, ...나머지 } 형태를 사용하세요.', wrong: 'const { key, ...rest } = obj 형태입니다.' } },
+            { id: 'c4', title: '첫 인자 + 나머지', description: 'Rest로 첫 번째 인자와 나머지를 분리하는 함수를 만드세요.', difficulty: 'medium', hints: ['function fn(first, ...rest)'], estimatedMinutes: 7, starterCode: '// 첫 인자를 tag로, 나머지를 items로 받는 함수\nfunction createList(/* 매개변수 */) {\n  console.log("<" + tag + ">");\n  items.forEach(item => console.log("  <li>" + item + "</li>"));\n  console.log("</" + tag + ">");\n}\ncreateList("ul", "사과", "바나나", "딸기");', solution: 'function createList(tag, ...items) {\n  console.log("<" + tag + ">");\n  items.forEach(item => console.log("  <li>" + item + "</li>"));\n  console.log("</" + tag + ">");\n}\ncreateList("ul", "사과", "바나나", "딸기");', feedback: { perfect: '첫 인자 + Rest 조합 완벽!', good: '잘했어요!', partial: '(tag, ...items) 형태를 사용하세요.', wrong: 'function fn(first, ...rest) 형태입니다.' } },
+            { id: 'c5', title: 'Rest + Spread 조합', description: 'Rest로 받고 Spread로 전달하는 패턴을 구현하세요.', difficulty: 'hard', hints: ['...로 받아서 ...로 전달'], estimatedMinutes: 10, starterCode: '// wrapper: 로그를 남기고 원래 함수 호출\nfunction withLog(fn, /* 나머지 인자들 */) {\n  console.log("호출:", fn.name, args);\n  return fn(/* args를 spread로 전달 */);\n}\nfunction add(a, b) { return a + b; }\nconsole.log(withLog(add, 3, 5)); // 호출: add [3,5] → 8', solution: 'function withLog(fn, ...args) {\n  console.log("호출:", fn.name, args);\n  return fn(...args);\n}\nfunction add(a, b) { return a + b; }\nconsole.log(withLog(add, 3, 5)); // 8', feedback: { perfect: 'Rest+Spread 고급 패턴 완벽!', good: '잘했어요!', partial: 'fn(...args)로 스프레드 전달하세요.', wrong: '...args로 모아서 fn(...args)로 전달합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -3222,76 +2897,11 @@ console.log(result);`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'JSON 핵심 이해',
-              description: 'JSON의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['JSON의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'JSON 개념을 완벽하게 이해했어요!',
-                good: 'JSON의 핵심을 잘 파악했어요!',
-                partial: 'JSON의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'JSON의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'JSON 예제 분석',
-              description: 'JSON 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'JSON 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'JSON 코드 수정',
-              description: '주어진 코드에서 JSON 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'JSON의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'JSON 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'JSON 직접 구현',
-              description: 'JSON을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'JSON의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'JSON 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'JSON 심화 도전',
-              description: 'JSON을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'JSON을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'JSON 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'JSON.stringify()', description: '객체를 JSON 문자열로 변환하세요.', difficulty: 'easy', hints: ['JSON.stringify(obj)'], estimatedMinutes: 3, starterCode: 'const data = { name: "홍길동", age: 15, skills: ["JS", "Python"] };\n// JSON 문자열로 변환\nconst json = \nconsole.log(json);\nconsole.log(typeof json);', solution: 'const data = { name: "홍길동", age: 15, skills: ["JS", "Python"] };\nconst json = JSON.stringify(data);\nconsole.log(json);\nconsole.log(typeof json); // "string"', feedback: { perfect: 'stringify 완벽!', good: '좋아요!', partial: 'JSON.stringify(객체)를 사용하세요.', wrong: 'JSON.stringify(data)로 문자열로 변환합니다.' } },
+            { id: 'c2', title: 'JSON.parse()', description: 'JSON 문자열을 객체로 변환하세요.', difficulty: 'easy', hints: ['JSON.parse(str)'], estimatedMinutes: 3, starterCode: 'const jsonStr = \'{"name":"김철수","score":95}\';\n// 객체로 변환\nconst obj = \nconsole.log(obj.name, obj.score);', solution: 'const jsonStr = \'{"name":"김철수","score":95}\';\nconst obj = JSON.parse(jsonStr);\nconsole.log(obj.name, obj.score); // 김철수 95', feedback: { perfect: 'parse 완벽!', good: '좋아요!', partial: 'JSON.parse(문자열)을 사용하세요.', wrong: 'JSON.parse(jsonStr)로 객체로 변환합니다.' } },
+            { id: 'c3', title: 'JSON 포맷팅', description: 'JSON.stringify에 들여쓰기 옵션을 사용하세요.', difficulty: 'medium', hints: ['JSON.stringify(obj, null, 2)'], estimatedMinutes: 4, starterCode: 'const config = { theme: "dark", font: { size: 14, family: "Arial" } };\n// 2칸 들여쓰기로 보기 좋게 출력\nconsole.log(JSON.stringify());', solution: 'const config = { theme: "dark", font: { size: 14, family: "Arial" } };\nconsole.log(JSON.stringify(config, null, 2));', feedback: { perfect: 'JSON 포맷팅 완벽!', good: '좋아요!', partial: '세 번째 인자로 들여쓰기를 지정하세요.', wrong: 'JSON.stringify(obj, null, 2)로 포맷합니다.' } },
+            { id: 'c4', title: '깊은 복사', description: 'JSON을 활용한 객체 깊은 복사를 하세요.', difficulty: 'medium', hints: ['JSON.parse(JSON.stringify(obj))'], estimatedMinutes: 6, starterCode: 'const original = { name: "A", scores: [90, 85] };\n// 깊은 복사 (JSON 활용)\nconst deep = \ndeep.scores.push(95);\nconsole.log(original.scores); // [90, 85] (변경 없어야 함)\nconsole.log(deep.scores); // [90, 85, 95]', solution: 'const original = { name: "A", scores: [90, 85] };\nconst deep = JSON.parse(JSON.stringify(original));\ndeep.scores.push(95);\nconsole.log(original.scores); // [90, 85]\nconsole.log(deep.scores); // [90, 85, 95]', feedback: { perfect: 'JSON 깊은 복사 완벽!', good: '잘했어요!', partial: 'stringify 후 parse하면 깊은 복사예요.', wrong: 'JSON.parse(JSON.stringify(obj))를 사용하세요.' } },
+            { id: 'c5', title: 'localStorage 데이터 관리', description: 'JSON으로 localStorage에 데이터를 저장/불러오기하세요.', difficulty: 'hard', hints: ['저장: JSON.stringify', '불러오기: JSON.parse'], estimatedMinutes: 10, starterCode: '// localStorage에 배열 저장/불러오기\nfunction saveTodos(todos) {\n  // JSON으로 변환하여 저장\n}\nfunction loadTodos() {\n  // 저장된 JSON을 배열로 변환하여 반환\n  // 없으면 빈 배열 반환\n}\nconst todos = ["공부", "운동"];\nsaveTodos(todos);\nconsole.log(loadTodos());', solution: 'function saveTodos(todos) {\n  localStorage.setItem("todos", JSON.stringify(todos));\n}\nfunction loadTodos() {\n  const saved = localStorage.getItem("todos");\n  return saved ? JSON.parse(saved) : [];\n}\nconst todos = ["공부", "운동"];\nsaveTodos(todos);\nconsole.log(loadTodos());', feedback: { perfect: 'localStorage + JSON 완벽!', good: '잘했어요!', partial: 'setItem에서 stringify, getItem에서 parse하세요.', wrong: 'JSON.stringify로 저장, JSON.parse로 불러옵니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -3352,76 +2962,11 @@ console.log(findFirstEven([1, 3, 5]));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Array.find() 핵심 이해',
-              description: 'Array.find()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Array.find()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Array.find() 개념을 완벽하게 이해했어요!',
-                good: 'Array.find()의 핵심을 잘 파악했어요!',
-                partial: 'Array.find()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Array.find()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Array.find() 예제 분석',
-              description: 'Array.find() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Array.find() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Array.find() 코드 수정',
-              description: '주어진 코드에서 Array.find() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.find()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Array.find() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Array.find() 직접 구현',
-              description: 'Array.find()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Array.find()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Array.find() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Array.find() 심화 도전',
-              description: 'Array.find()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Array.find()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Array.find() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '요소 찾기', description: 'find로 조건에 맞는 첫 요소를 찾으세요.', difficulty: 'easy', hints: ['arr.find(x => 조건)'], estimatedMinutes: 3, starterCode: 'const nums = [3, 7, 2, 9, 4, 1];\n// 5보다 큰 첫 번째 숫자 찾기\nconst found = \nconsole.log(found);', solution: 'const nums = [3, 7, 2, 9, 4, 1];\nconst found = nums.find(n => n > 5);\nconsole.log(found); // 7', feedback: { perfect: 'find 완벽!', good: '좋아요!', partial: '조건을 콜백으로 전달하세요.', wrong: 'arr.find(x => x > 5) 형태입니다.' } },
+            { id: 'c2', title: 'ID로 객체 찾기', description: 'find로 특정 id의 객체를 찾으세요.', difficulty: 'easy', hints: ['arr.find(item => item.id === 찾을값)'], estimatedMinutes: 4, starterCode: 'const users = [\n  { id: 1, name: "김철수" },\n  { id: 2, name: "이영희" },\n  { id: 3, name: "박민수" }\n];\n// id가 2인 사용자 찾기\nconst user = \nconsole.log(user.name);', solution: 'const users = [\n  { id: 1, name: "김철수" },\n  { id: 2, name: "이영희" },\n  { id: 3, name: "박민수" }\n];\nconst user = users.find(u => u.id === 2);\nconsole.log(user.name); // 이영희', feedback: { perfect: 'ID 검색 완벽!', good: '좋아요!', partial: 'u => u.id === 2 형태를 사용하세요.', wrong: 'arr.find(item => item.id === value)입니다.' } },
+            { id: 'c3', title: 'findIndex 사용', description: 'findIndex로 인덱스를 찾으세요.', difficulty: 'medium', hints: ['findIndex는 인덱스 반환, 없으면 -1'], estimatedMinutes: 5, starterCode: 'const words = ["apple", "banana", "cherry", "date"];\n// 5글자 이상인 첫 단어의 인덱스\nconst idx = \nconsole.log(idx, words[idx]);', solution: 'const words = ["apple", "banana", "cherry", "date"];\nconst idx = words.findIndex(w => w.length >= 5);\nconsole.log(idx, words[idx]); // 0 apple', feedback: { perfect: 'findIndex 완벽!', good: '좋아요!', partial: 'findIndex(조건)을 사용하세요.', wrong: 'arr.findIndex(x => 조건) 형태입니다.' } },
+            { id: 'c4', title: '상품 검색', description: 'find로 상품을 이름 또는 카테고리로 검색하세요.', difficulty: 'medium', hints: ['includes()로 부분 일치 검색'], estimatedMinutes: 7, starterCode: 'const products = [\n  { name: "노트북", price: 1200000, category: "전자제품" },\n  { name: "마우스", price: 35000, category: "전자제품" },\n  { name: "책상", price: 250000, category: "가구" }\n];\n// 이름에 "노트"가 포함된 상품 찾기\nconst result = \nconsole.log(result);', solution: 'const products = [\n  { name: "노트북", price: 1200000, category: "전자제품" },\n  { name: "마우스", price: 35000, category: "전자제품" },\n  { name: "책상", price: 250000, category: "가구" }\n];\nconst result = products.find(p => p.name.includes("노트"));\nconsole.log(result);', feedback: { perfect: '상품 검색 구현 완벽!', good: '잘했어요!', partial: 'includes()로 부분 검색하세요.', wrong: 'p.name.includes("검색어")를 조건에 넣으세요.' } },
+            { id: 'c5', title: 'find vs filter 비교', description: 'find와 filter의 차이를 이해하고 활용하세요.', difficulty: 'hard', hints: ['find: 첫 번째 하나만', 'filter: 모든 일치 항목'], estimatedMinutes: 10, starterCode: 'const scores = [85, 92, 78, 95, 88, 90];\n// find: 90 이상인 첫 점수\nconst first90 = \n// filter: 90 이상인 모든 점수\nconst all90 = \n// find: 정확히 100인 점수 (없음)\nconst exact100 = \nconsole.log(first90, all90, exact100);', solution: 'const scores = [85, 92, 78, 95, 88, 90];\nconst first90 = scores.find(s => s >= 90);\nconst all90 = scores.filter(s => s >= 90);\nconst exact100 = scores.find(s => s === 100);\nconsole.log(first90, all90, exact100); // 92 [92,95,90] undefined', feedback: { perfect: 'find와 filter의 차이를 완벽히 이해!', good: '잘했어요!', partial: 'find는 하나, filter는 배열 반환', wrong: 'find는 undefined, filter는 빈 배열을 반환합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -3496,76 +3041,11 @@ console.log(allPositive([1, -2, 3]));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Array.some() / Array.every() 핵심 이해',
-              description: 'Array.some() / Array.every()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Array.some() / Array.every()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Array.some() / Array.every() 개념을 완벽하게 이해했어요!',
-                good: 'Array.some() / Array.every()의 핵심을 잘 파악했어요!',
-                partial: 'Array.some() / Array.every()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Array.some() / Array.every()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Array.some() / Array.every() 예제 분석',
-              description: 'Array.some() / Array.every() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Array.some() / Array.every() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Array.some() / Array.every() 코드 수정',
-              description: '주어진 코드에서 Array.some() / Array.every() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.some() / Array.every()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Array.some() / Array.every() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Array.some() / Array.every() 직접 구현',
-              description: 'Array.some() / Array.every()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Array.some() / Array.every()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Array.some() / Array.every() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Array.some() / Array.every() 심화 도전',
-              description: 'Array.some() / Array.every()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Array.some() / Array.every()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Array.some() / Array.every() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'some() 기본', description: 'some으로 하나라도 조건을 만족하는지 확인하세요.', difficulty: 'easy', hints: ['arr.some(x => 조건) → true/false'], estimatedMinutes: 3, starterCode: 'const ages = [12, 15, 8, 20, 17];\n// 성인(18세 이상)이 한 명이라도 있는지\nconst hasAdult = \nconsole.log(hasAdult);', solution: 'const ages = [12, 15, 8, 20, 17];\nconst hasAdult = ages.some(a => a >= 18);\nconsole.log(hasAdult); // true', feedback: { perfect: 'some() 완벽!', good: '좋아요!', partial: 'some(x => 조건)을 사용하세요.', wrong: 'arr.some(a => a >= 18) 형태입니다.' } },
+            { id: 'c2', title: 'every() 기본', description: 'every로 모두 조건을 만족하는지 확인하세요.', difficulty: 'easy', hints: ['arr.every(x => 조건) → true/false'], estimatedMinutes: 3, starterCode: 'const scores = [85, 92, 78, 90, 88];\n// 모두 70점 이상인지\nconst allPass = \nconsole.log(allPass);', solution: 'const scores = [85, 92, 78, 90, 88];\nconst allPass = scores.every(s => s >= 70);\nconsole.log(allPass); // true', feedback: { perfect: 'every() 완벽!', good: '좋아요!', partial: 'every(x => 조건)을 사용하세요.', wrong: 'arr.every(s => s >= 70) 형태입니다.' } },
+            { id: 'c3', title: '유효성 검사', description: 'every로 모든 입력값이 유효한지 검사하세요.', difficulty: 'medium', hints: ['빈 문자열 체크: str.length > 0'], estimatedMinutes: 5, starterCode: 'const fields = ["홍길동", "test@test.com", "1234"];\nconst emptyFields = ["홍길동", "", "1234"];\n// 모든 필드가 비어있지 않은지 검사\nfunction isValid(arr) {\n  return \n}\nconsole.log(isValid(fields)); // true\nconsole.log(isValid(emptyFields)); // false', solution: 'const fields = ["홍길동", "test@test.com", "1234"];\nconst emptyFields = ["홍길동", "", "1234"];\nfunction isValid(arr) {\n  return arr.every(f => f.length > 0);\n}\nconsole.log(isValid(fields)); // true\nconsole.log(isValid(emptyFields)); // false', feedback: { perfect: 'every로 유효성 검사 완벽!', good: '잘했어요!', partial: 'every로 모든 요소를 검사하세요.', wrong: 'arr.every(f => f.length > 0) 형태입니다.' } },
+            { id: 'c4', title: '권한 확인', description: 'some으로 특정 권한이 있는지 확인하세요.', difficulty: 'medium', hints: ['some(r => r === "admin")'], estimatedMinutes: 6, starterCode: 'const user = { name: "김철수", roles: ["user", "editor"] };\n// admin 권한이 있는지 확인\nconst isAdmin = \n// editor 권한이 있는지 확인\nconst isEditor = \nconsole.log("Admin:", isAdmin, "Editor:", isEditor);', solution: 'const user = { name: "김철수", roles: ["user", "editor"] };\nconst isAdmin = user.roles.some(r => r === "admin");\nconst isEditor = user.roles.some(r => r === "editor");\nconsole.log("Admin:", isAdmin, "Editor:", isEditor); // false true', feedback: { perfect: '권한 확인 완벽!', good: '좋아요!', partial: 'roles.some(r => r === "권한")을 사용하세요.', wrong: 'arr.some(x => x === "값") 형태입니다.' } },
+            { id: 'c5', title: 'some + every 조합', description: '복합 조건을 some과 every로 검증하세요.', difficulty: 'hard', hints: ['조건을 나눠서 각각 검증'], estimatedMinutes: 10, starterCode: 'const students = [\n  { name: "A", score: 85, attendance: 95 },\n  { name: "B", score: 45, attendance: 80 },\n  { name: "C", score: 92, attendance: 98 }\n];\n// 1. 모든 학생이 출석률 70% 이상인가?\nconst allAttend = \n// 2. 90점 이상인 학생이 있는가?\nconst hasExcellent = \n// 3. 낙제(50점 미만)인 학생이 있는가?\nconst hasFail = \nconsole.log(allAttend, hasExcellent, hasFail);', solution: 'const students = [\n  { name: "A", score: 85, attendance: 95 },\n  { name: "B", score: 45, attendance: 80 },\n  { name: "C", score: 92, attendance: 98 }\n];\nconst allAttend = students.every(s => s.attendance >= 70);\nconst hasExcellent = students.some(s => s.score >= 90);\nconst hasFail = students.some(s => s.score < 50);\nconsole.log(allAttend, hasExcellent, hasFail); // true true true', feedback: { perfect: 'some/every 조합을 완벽히 활용했어요!', good: '잘했어요!', partial: 'every와 some을 적절히 선택하세요.', wrong: '모두 = every, 하나라도 = some입니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -3636,76 +3116,11 @@ console.log(getExpensiveProductNames(products));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '객체 배열 처리 핵심 이해',
-              description: '객체 배열 처리의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['객체 배열 처리의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '객체 배열 처리 개념을 완벽하게 이해했어요!',
-                good: '객체 배열 처리의 핵심을 잘 파악했어요!',
-                partial: '객체 배열 처리의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '객체 배열 처리의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '객체 배열 처리 예제 분석',
-              description: '객체 배열 처리 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '객체 배열 처리 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '객체 배열 처리 코드 수정',
-              description: '주어진 코드에서 객체 배열 처리 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '객체 배열 처리의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '객체 배열 처리 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '객체 배열 처리 직접 구현',
-              description: '객체 배열 처리을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '객체 배열 처리의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '객체 배열 처리 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '객체 배열 처리 심화 도전',
-              description: '객체 배열 처리을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '객체 배열 처리을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '객체 배열 처리 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '속성 추출', description: 'map으로 객체 배열에서 특정 속성을 추출하세요.', difficulty: 'easy', hints: ['arr.map(item => item.key)'], estimatedMinutes: 3, starterCode: 'const users = [\n  { name: "김철수", email: "cs@test.com" },\n  { name: "이영희", email: "yh@test.com" }\n];\n// 이름만 추출\nconst names = \nconsole.log(names);', solution: 'const users = [\n  { name: "김철수", email: "cs@test.com" },\n  { name: "이영희", email: "yh@test.com" }\n];\nconst names = users.map(u => u.name);\nconsole.log(names); // ["김철수", "이영희"]', feedback: { perfect: '속성 추출 완벽!', good: '좋아요!', partial: 'map(u => u.name)을 사용하세요.', wrong: 'arr.map(item => item.속성) 형태입니다.' } },
+            { id: 'c2', title: '조건부 필터', description: 'filter로 특정 조건의 객체만 골라내세요.', difficulty: 'easy', hints: ['arr.filter(item => item.key > value)'], estimatedMinutes: 4, starterCode: 'const products = [\n  { name: "노트북", price: 1200000 },\n  { name: "마우스", price: 35000 },\n  { name: "키보드", price: 89000 }\n];\n// 10만원 이하 상품만\nconst cheap = \nconsole.log(cheap);', solution: 'const products = [\n  { name: "노트북", price: 1200000 },\n  { name: "마우스", price: 35000 },\n  { name: "키보드", price: 89000 }\n];\nconst cheap = products.filter(p => p.price <= 100000);\nconsole.log(cheap);', feedback: { perfect: '조건부 필터 완벽!', good: '좋아요!', partial: 'filter(p => p.price <= 100000)을 사용하세요.', wrong: 'arr.filter(item => 조건) 형태입니다.' } },
+            { id: 'c3', title: '정렬하기', description: 'sort로 객체 배열을 속성 기준으로 정렬하세요.', difficulty: 'medium', hints: ['arr.sort((a, b) => a.key - b.key)'], estimatedMinutes: 5, starterCode: 'const students = [\n  { name: "A", score: 78 },\n  { name: "B", score: 92 },\n  { name: "C", score: 85 }\n];\n// 점수 내림차순 정렬\nstudents.sort();\nconsole.log(students);', solution: 'const students = [\n  { name: "A", score: 78 },\n  { name: "B", score: 92 },\n  { name: "C", score: 85 }\n];\nstudents.sort((a, b) => b.score - a.score);\nconsole.log(students);', feedback: { perfect: '객체 정렬 완벽!', good: '잘했어요!', partial: 'sort((a, b) => b.score - a.score)를 사용하세요.', wrong: '비교 함수에서 속성끼리 빼기합니다.' } },
+            { id: 'c4', title: '그룹핑', description: 'reduce로 객체 배열을 카테고리별로 그룹핑하세요.', difficulty: 'hard', hints: ['reduce로 객체에 카테고리별 배열 만들기'], estimatedMinutes: 10, starterCode: 'const items = [\n  { name: "사과", category: "과일" },\n  { name: "당근", category: "채소" },\n  { name: "바나나", category: "과일" },\n  { name: "양파", category: "채소" }\n];\n// 카테고리별 그룹핑\nconst grouped = items.reduce((acc, item) => {\n  // 여기에 코드\n  return acc;\n}, {});\nconsole.log(grouped);', solution: 'const items = [\n  { name: "사과", category: "과일" },\n  { name: "당근", category: "채소" },\n  { name: "바나나", category: "과일" },\n  { name: "양파", category: "채소" }\n];\nconst grouped = items.reduce((acc, item) => {\n  if (!acc[item.category]) acc[item.category] = [];\n  acc[item.category].push(item.name);\n  return acc;\n}, {});\nconsole.log(grouped);', feedback: { perfect: '그룹핑을 완벽하게 구현!', good: '잘했어요!', partial: '카테고리 키로 배열을 만드세요.', wrong: 'acc[category] = [] 후 push하세요.' } },
+            { id: 'c5', title: '통계 계산', description: '객체 배열에서 평균, 최대, 최소를 구하세요.', difficulty: 'hard', hints: ['reduce로 합계 → 평균', 'Math.max(...arr)'], estimatedMinutes: 10, starterCode: 'const sales = [\n  { month: "1월", amount: 5000000 },\n  { month: "2월", amount: 3500000 },\n  { month: "3월", amount: 7200000 }\n];\n// 총 매출, 평균, 최고/최저 월\nconst total = \nconst avg = \nconst best = \nconsole.log("총:", total, "평균:", avg, "최고:", best.month);', solution: 'const sales = [\n  { month: "1월", amount: 5000000 },\n  { month: "2월", amount: 3500000 },\n  { month: "3월", amount: 7200000 }\n];\nconst total = sales.reduce((sum, s) => sum + s.amount, 0);\nconst avg = Math.round(total / sales.length);\nconst best = sales.reduce((max, s) => s.amount > max.amount ? s : max);\nconsole.log("총:", total, "평균:", avg, "최고:", best.month);', feedback: { perfect: '통계 계산을 완벽하게 구현!', good: '잘했어요!', partial: 'reduce로 합계와 최대를 구하세요.', wrong: 'reduce((sum, item) => sum + item.amount, 0)입니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -3773,76 +3188,11 @@ console.log(sortByScore(students));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Array.sort() 핵심 이해',
-              description: 'Array.sort()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Array.sort()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Array.sort() 개념을 완벽하게 이해했어요!',
-                good: 'Array.sort()의 핵심을 잘 파악했어요!',
-                partial: 'Array.sort()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Array.sort()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Array.sort() 예제 분석',
-              description: 'Array.sort() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Array.sort() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Array.sort() 코드 수정',
-              description: '주어진 코드에서 Array.sort() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.sort()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Array.sort() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Array.sort() 직접 구현',
-              description: 'Array.sort()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Array.sort()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Array.sort() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Array.sort() 심화 도전',
-              description: 'Array.sort()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Array.sort()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Array.sort() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '숫자 정렬', description: '비교 함수로 숫자를 올바르게 정렬하세요.', difficulty: 'easy', hints: ['sort((a, b) => a - b) 오름차순'], estimatedMinutes: 3, starterCode: 'const nums = [10, 5, 8, 1, 7, 3];\n// 오름차순 정렬\nnums.sort();\nconsole.log(nums);\n// 내림차순 정렬\nnums.sort();\nconsole.log(nums);', solution: 'const nums = [10, 5, 8, 1, 7, 3];\nnums.sort((a, b) => a - b);\nconsole.log(nums); // [1, 3, 5, 7, 8, 10]\nnums.sort((a, b) => b - a);\nconsole.log(nums); // [10, 8, 7, 5, 3, 1]', feedback: { perfect: '숫자 정렬 완벽!', good: '좋아요!', partial: '비교 함수를 사용하세요.', wrong: 'sort((a, b) => a - b) 형태입니다.' } },
+            { id: 'c2', title: '문자열 정렬', description: '한글/영어 문자열을 정렬하세요.', difficulty: 'easy', hints: ['localeCompare()로 한글 정렬'], estimatedMinutes: 4, starterCode: 'const names = ["다영", "가영", "나영", "라영"];\n// 한글 가나다순 정렬\nnames.sort();\nconsole.log(names);', solution: 'const names = ["다영", "가영", "나영", "라영"];\nnames.sort((a, b) => a.localeCompare(b));\nconsole.log(names); // ["가영", "나영", "다영", "라영"]', feedback: { perfect: '문자열 정렬 완벽!', good: '좋아요!', partial: 'localeCompare를 사용하세요.', wrong: 'a.localeCompare(b)로 비교합니다.' } },
+            { id: 'c3', title: '객체 정렬', description: '객체 배열을 특정 속성으로 정렬하세요.', difficulty: 'medium', hints: ['sort((a, b) => a.속성 - b.속성)'], estimatedMinutes: 5, starterCode: 'const students = [\n  { name: "김철수", score: 78 },\n  { name: "이영희", score: 95 },\n  { name: "박민수", score: 82 }\n];\n// 점수 높은순으로 정렬\nstudents.sort();\nstudents.forEach(s => console.log(s.name + ": " + s.score));', solution: 'const students = [\n  { name: "김철수", score: 78 },\n  { name: "이영희", score: 95 },\n  { name: "박민수", score: 82 }\n];\nstudents.sort((a, b) => b.score - a.score);\nstudents.forEach(s => console.log(s.name + ": " + s.score));', feedback: { perfect: '객체 속성 정렬 완벽!', good: '잘했어요!', partial: 'b.score - a.score로 내림차순', wrong: 'sort((a, b) => b.score - a.score)입니다.' } },
+            { id: 'c4', title: '다중 기준 정렬', description: '1차: 학년, 2차: 이름순으로 정렬하세요.', difficulty: 'medium', hints: ['1차 기준이 같으면 2차로 비교'], estimatedMinutes: 8, starterCode: 'const students = [\n  { name: "김철수", grade: 2 },\n  { name: "이영희", grade: 1 },\n  { name: "가나다", grade: 2 },\n  { name: "박민수", grade: 1 }\n];\n// 학년 오름차순, 같은 학년이면 이름순\nstudents.sort();\nstudents.forEach(s => console.log(s.grade + "학년 " + s.name));', solution: 'const students = [\n  { name: "김철수", grade: 2 },\n  { name: "이영희", grade: 1 },\n  { name: "가나다", grade: 2 },\n  { name: "박민수", grade: 1 }\n];\nstudents.sort((a, b) => {\n  if (a.grade !== b.grade) return a.grade - b.grade;\n  return a.name.localeCompare(b.name);\n});\nstudents.forEach(s => console.log(s.grade + "학년 " + s.name));', feedback: { perfect: '다중 기준 정렬 완벽!', good: '잘했어요!', partial: '학년이 같으면 이름으로 비교하세요.', wrong: '먼저 grade로 비교, 같으면 name으로 비교합니다.' } },
+            { id: 'c5', title: '커스텀 우선순위 정렬', description: '특정 우선순위 기준으로 정렬하세요.', difficulty: 'hard', hints: ['우선순위 맵을 만들어 참조'], estimatedMinutes: 10, starterCode: 'const tasks = [\n  { title: "보고서", priority: "low" },\n  { title: "버그수정", priority: "high" },\n  { title: "회의준비", priority: "medium" },\n  { title: "배포", priority: "high" }\n];\n// high > medium > low 순서로 정렬\nconst order = { high: 0, medium: 1, low: 2 };\ntasks.sort();\ntasks.forEach(t => console.log(t.priority + " - " + t.title));', solution: 'const tasks = [\n  { title: "보고서", priority: "low" },\n  { title: "버그수정", priority: "high" },\n  { title: "회의준비", priority: "medium" },\n  { title: "배포", priority: "high" }\n];\nconst order = { high: 0, medium: 1, low: 2 };\ntasks.sort((a, b) => order[a.priority] - order[b.priority]);\ntasks.forEach(t => console.log(t.priority + " - " + t.title));', feedback: { perfect: '커스텀 우선순위 정렬 완벽!', good: '잘했어요!', partial: 'order 맵을 비교 함수에서 참조하세요.', wrong: 'order[a.priority] - order[b.priority]로 비교합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -3932,76 +3282,11 @@ console.log(analyzeScores(students));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '배열/객체 종합 활용 핵심 이해',
-              description: '배열/객체 종합 활용의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['배열/객체 종합 활용의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '배열/객체 종합 활용 개념을 완벽하게 이해했어요!',
-                good: '배열/객체 종합 활용의 핵심을 잘 파악했어요!',
-                partial: '배열/객체 종합 활용의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '배열/객체 종합 활용의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '배열/객체 종합 활용 예제 분석',
-              description: '배열/객체 종합 활용 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '배열/객체 종합 활용 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '배열/객체 종합 활용 코드 수정',
-              description: '주어진 코드에서 배열/객체 종합 활용 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '배열/객체 종합 활용의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '배열/객체 종합 활용 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '배열/객체 종합 활용 직접 구현',
-              description: '배열/객체 종합 활용을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '배열/객체 종합 활용의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '배열/객체 종합 활용 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '배열/객체 종합 활용 심화 도전',
-              description: '배열/객체 종합 활용을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '배열/객체 종합 활용을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '배열/객체 종합 활용 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '데이터 변환', description: 'map으로 객체 형태를 변환하세요.', difficulty: 'easy', hints: ['map(item => ({ ...item, newKey: value }))'], estimatedMinutes: 4, starterCode: 'const users = [\n  { firstName: "철수", lastName: "김" },\n  { firstName: "영희", lastName: "이" }\n];\n// fullName 속성 추가\nconst result = users.map(u => ({\n  // 여기에 코드\n}));\nconsole.log(result);', solution: 'const users = [\n  { firstName: "철수", lastName: "김" },\n  { firstName: "영희", lastName: "이" }\n];\nconst result = users.map(u => ({\n  ...u,\n  fullName: u.lastName + u.firstName\n}));\nconsole.log(result);', feedback: { perfect: '데이터 변환 완벽!', good: '좋아요!', partial: 'spread로 기존 속성을 유지하세요.', wrong: '{ ...u, fullName: 이름 } 형태입니다.' } },
+            { id: 'c2', title: '필터 + 정렬', description: '조건 필터 후 정렬하세요.', difficulty: 'easy', hints: ['filter().sort() 체이닝'], estimatedMinutes: 5, starterCode: 'const products = [\n  { name: "A", price: 15000, rating: 4.5 },\n  { name: "B", price: 8000, rating: 3.8 },\n  { name: "C", price: 25000, rating: 4.9 },\n  { name: "D", price: 12000, rating: 4.2 }\n];\n// 만원 이상만 필터 후 rating 높은순\nconst result = \nconsole.log(result);', solution: 'const products = [\n  { name: "A", price: 15000, rating: 4.5 },\n  { name: "B", price: 8000, rating: 3.8 },\n  { name: "C", price: 25000, rating: 4.9 },\n  { name: "D", price: 12000, rating: 4.2 }\n];\nconst result = products\n  .filter(p => p.price >= 10000)\n  .sort((a, b) => b.rating - a.rating);\nconsole.log(result);', feedback: { perfect: '필터+정렬 체이닝 완벽!', good: '좋아요!', partial: 'filter().sort()를 체이닝하세요.', wrong: '.filter(조건).sort(비교함수)입니다.' } },
+            { id: 'c3', title: '그룹 + 집계', description: 'reduce로 그룹핑하고 집계하세요.', difficulty: 'medium', hints: ['reduce로 카테고리별 합계'], estimatedMinutes: 8, starterCode: 'const sales = [\n  { category: "전자", amount: 500000 },\n  { category: "식품", amount: 150000 },\n  { category: "전자", amount: 300000 },\n  { category: "식품", amount: 200000 }\n];\n// 카테고리별 매출 합계\nconst totals = sales.reduce((acc, s) => {\n  // 여기에 코드\n  return acc;\n}, {});\nconsole.log(totals);', solution: 'const sales = [\n  { category: "전자", amount: 500000 },\n  { category: "식품", amount: 150000 },\n  { category: "전자", amount: 300000 },\n  { category: "식품", amount: 200000 }\n];\nconst totals = sales.reduce((acc, s) => {\n  acc[s.category] = (acc[s.category] || 0) + s.amount;\n  return acc;\n}, {});\nconsole.log(totals); // { 전자: 800000, 식품: 350000 }', feedback: { perfect: '그룹 집계 완벽!', good: '잘했어요!', partial: 'acc[category] = (acc[category] || 0) + amount', wrong: 'reduce로 카테고리별 합계를 누적하세요.' } },
+            { id: 'c4', title: '다단계 파이프라인', description: '여러 메서드를 체이닝하여 데이터를 처리하세요.', difficulty: 'hard', hints: ['filter → map → sort → slice'], estimatedMinutes: 10, starterCode: 'const students = [\n  { name: "A", score: 85, grade: 2 },\n  { name: "B", score: 92, grade: 1 },\n  { name: "C", score: 45, grade: 2 },\n  { name: "D", score: 78, grade: 1 },\n  { name: "E", score: 95, grade: 2 }\n];\n// 60점 이상 → 등급 추가(A/B/C) → 점수 내림차순 → 상위 3명 이름\nconst top3 = \nconsole.log(top3);', solution: 'const students = [\n  { name: "A", score: 85, grade: 2 },\n  { name: "B", score: 92, grade: 1 },\n  { name: "C", score: 45, grade: 2 },\n  { name: "D", score: 78, grade: 1 },\n  { name: "E", score: 95, grade: 2 }\n];\nconst top3 = students\n  .filter(s => s.score >= 60)\n  .sort((a, b) => b.score - a.score)\n  .slice(0, 3)\n  .map(s => s.name);\nconsole.log(top3); // ["E", "B", "A"]', feedback: { perfect: '다단계 체이닝 완벽!', good: '잘했어요!', partial: 'filter→sort→slice→map 순서로 체이닝하세요.', wrong: '.filter().sort().slice(0,3).map()입니다.' } },
+            { id: 'c5', title: '실전 데이터 처리', description: '실전 데이터를 종합적으로 처리하세요.', difficulty: 'hard', hints: ['여러 메서드를 조합하세요', 'reduce로 통계를 계산하세요'], estimatedMinutes: 15, starterCode: 'const orders = [\n  { id: 1, product: "노트북", qty: 2, price: 1000000, status: "완료" },\n  { id: 2, product: "마우스", qty: 5, price: 30000, status: "완료" },\n  { id: 3, product: "키보드", qty: 3, price: 80000, status: "취소" },\n  { id: 4, product: "모니터", qty: 1, price: 500000, status: "완료" }\n];\n// 1. 완료된 주문만 필터\n// 2. 각 주문의 총액(qty * price) 계산\n// 3. 총액 내림차순 정렬\n// 4. 전체 매출 합계\nconst result = \nconst totalRevenue = \nconsole.log(result);\nconsole.log("총 매출:", totalRevenue);', solution: 'const orders = [\n  { id: 1, product: "노트북", qty: 2, price: 1000000, status: "완료" },\n  { id: 2, product: "마우스", qty: 5, price: 30000, status: "완료" },\n  { id: 3, product: "키보드", qty: 3, price: 80000, status: "취소" },\n  { id: 4, product: "모니터", qty: 1, price: 500000, status: "완료" }\n];\nconst result = orders\n  .filter(o => o.status === "완료")\n  .map(o => ({ ...o, total: o.qty * o.price }))\n  .sort((a, b) => b.total - a.total);\nconst totalRevenue = result.reduce((sum, o) => sum + o.total, 0);\nconsole.log(result);\nconsole.log("총 매출:", totalRevenue); // 2650000', feedback: { perfect: '실전 데이터 처리를 완벽하게 해냈어요!', good: '잘했어요!', partial: '필터→변환→정렬→집계 순서로 처리하세요.', wrong: 'filter→map→sort→reduce 체이닝입니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -4067,76 +3352,11 @@ changeTitle();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'document.getElementById() 핵심 이해',
-              description: 'document.getElementById()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['document.getElementById()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'document.getElementById() 개념을 완벽하게 이해했어요!',
-                good: 'document.getElementById()의 핵심을 잘 파악했어요!',
-                partial: 'document.getElementById()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'document.getElementById()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'document.getElementById() 예제 분석',
-              description: 'document.getElementById() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'document.getElementById() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'document.getElementById() 코드 수정',
-              description: '주어진 코드에서 document.getElementById() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'document.getElementById()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'document.getElementById() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'document.getElementById() 직접 구현',
-              description: 'document.getElementById()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'document.getElementById()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'document.getElementById() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'document.getElementById() 심화 도전',
-              description: 'document.getElementById()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'document.getElementById()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'document.getElementById() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'ID로 요소 선택하기', description: 'getElementById로 특정 ID의 요소를 선택하세요.', difficulty: 'easy', hints: ['document.getElementById("아이디")를 사용하세요', '선택한 요소를 변수에 저장하세요'], estimatedMinutes: 3, starterCode: '// HTML: <h1 id="title">안녕하세요</h1>\n// id가 "title"인 요소를 선택하세요\nconst heading = // TODO: getElementById 사용\nconsole.log(heading.textContent);', solution: '// HTML: <h1 id="title">안녕하세요</h1>\nconst heading = document.getElementById("title");\nconsole.log(heading.textContent);', feedback: { perfect: 'getElementById를 완벽하게 사용했어요!', good: 'ID로 요소를 잘 선택했어요!', partial: 'document.getElementById("아이디") 형태를 사용하세요.', wrong: 'document.getElementById("title")로 요소를 선택합니다.' } },
+            { id: 'c2', title: '선택한 요소 텍스트 변경', description: 'getElementById로 선택한 요소의 텍스트를 변경하세요.', difficulty: 'easy', hints: ['textContent 속성으로 텍스트를 변경합니다', '요소.textContent = "새 텍스트"'], estimatedMinutes: 4, starterCode: '// HTML: <p id="message">원래 메시지</p>\nconst el = document.getElementById("message");\n// TODO: 텍스트를 "변경된 메시지"로 바꾸세요\n', solution: '// HTML: <p id="message">원래 메시지</p>\nconst el = document.getElementById("message");\nel.textContent = "변경된 메시지";', feedback: { perfect: 'textContent로 텍스트 변경을 완벽하게 했어요!', good: '텍스트 변경이 잘 됐어요!', partial: 'el.textContent = "새텍스트" 형태를 사용하세요.', wrong: '선택한 요소의 textContent에 새 문자열을 대입하세요.' } },
+            { id: 'c3', title: '여러 요소 선택 및 수정', description: '여러 ID의 요소를 각각 선택하고 내용을 수정하세요.', difficulty: 'medium', hints: ['getElementById를 여러 번 호출하세요', '각 요소의 textContent를 변경하세요'], estimatedMinutes: 5, starterCode: '// HTML: <span id="name">이름</span> <span id="age">나이</span>\n// TODO: name을 "홍길동"으로, age를 "15"로 변경\nconst nameEl = \nconst ageEl = \n', solution: '// HTML: <span id="name">이름</span> <span id="age">나이</span>\nconst nameEl = document.getElementById("name");\nconst ageEl = document.getElementById("age");\nnameEl.textContent = "홍길동";\nageEl.textContent = "15";', feedback: { perfect: '여러 요소를 완벽하게 선택하고 수정했어요!', good: '잘했어요! 두 요소 모두 변경됐어요.', partial: '두 요소 모두 getElementById로 선택하세요.', wrong: 'document.getElementById("id")로 각 요소를 선택합니다.' } },
+            { id: 'c4', title: 'null 체크하기', description: 'getElementById가 null을 반환하는 경우를 처리하세요.', difficulty: 'medium', hints: ['존재하지 않는 ID는 null을 반환합니다', 'if문으로 null 체크를 하세요'], estimatedMinutes: 6, starterCode: '// TODO: "content" ID 요소를 찾고, 있으면 텍스트 변경, 없으면 경고 출력\nconst el = document.getElementById("content");\n// TODO: null 체크 후 처리\n', solution: 'const el = document.getElementById("content");\nif (el !== null) {\n  el.textContent = "내용이 변경됨";\n} else {\n  console.log("요소를 찾을 수 없습니다");\n}', feedback: { perfect: 'null 체크까지 완벽하게 처리했어요!', good: '좋아요! 안전한 코드 작성법이에요.', partial: 'if (el !== null) 또는 if (el)로 체크하세요.', wrong: 'getElementById는 요소가 없으면 null을 반환해요. if문으로 확인하세요.' } },
+            { id: 'c5', title: '카운터 만들기', description: 'getElementById와 이벤트로 간단한 카운터를 만드세요.', difficulty: 'hard', hints: ['버튼에 onclick을 연결하세요', '숫자를 변수에 저장하고 textContent로 표시'], estimatedMinutes: 8, starterCode: '// HTML: <span id="count">0</span> <button id="btn">+1</button>\nlet count = 0;\nconst display = document.getElementById("count");\nconst btn = document.getElementById("btn");\n// TODO: 버튼 클릭 시 count를 1 증가하고 화면에 표시\n', solution: 'let count = 0;\nconst display = document.getElementById("count");\nconst btn = document.getElementById("btn");\nbtn.addEventListener("click", function() {\n  count++;\n  display.textContent = count;\n});', feedback: { perfect: '카운터를 완벽하게 구현했어요! getElementById 마스터!', good: '카운터가 잘 작동해요!', partial: 'addEventListener로 클릭 이벤트를 연결하세요.', wrong: 'btn.addEventListener("click", function() { count++; display.textContent = count; })' } }
           ],
           unlocked: true,
           completed: false,
@@ -4194,76 +3414,11 @@ changeButtonText();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'document.querySelector() 핵심 이해',
-              description: 'document.querySelector()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['document.querySelector()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'document.querySelector() 개념을 완벽하게 이해했어요!',
-                good: 'document.querySelector()의 핵심을 잘 파악했어요!',
-                partial: 'document.querySelector()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'document.querySelector()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'document.querySelector() 예제 분석',
-              description: 'document.querySelector() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'document.querySelector() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'document.querySelector() 코드 수정',
-              description: '주어진 코드에서 document.querySelector() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'document.querySelector()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'document.querySelector() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'document.querySelector() 직접 구현',
-              description: 'document.querySelector()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'document.querySelector()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'document.querySelector() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'document.querySelector() 심화 도전',
-              description: 'document.querySelector()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'document.querySelector()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'document.querySelector() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'CSS 선택자로 요소 선택', description: 'querySelector로 CSS 선택자를 사용해 요소를 선택하세요.', difficulty: 'easy', hints: ['querySelector는 CSS 선택자를 사용합니다', '#은 ID, .은 클래스 선택자'], estimatedMinutes: 3, starterCode: '// HTML: <p class="intro">소개글입니다</p>\n// TODO: class가 "intro"인 요소를 선택하세요\nconst el = // querySelector 사용\nconsole.log(el.textContent);', solution: '// HTML: <p class="intro">소개글입니다</p>\nconst el = document.querySelector(".intro");\nconsole.log(el.textContent);', feedback: { perfect: 'querySelector를 완벽하게 사용했어요!', good: 'CSS 선택자를 잘 활용했어요!', partial: '.클래스명으로 클래스를 선택합니다.', wrong: 'document.querySelector(".intro")를 사용하세요.' } },
+            { id: 'c2', title: 'querySelectorAll로 여러 요소', description: 'querySelectorAll로 여러 요소를 한번에 선택하세요.', difficulty: 'easy', hints: ['querySelectorAll은 NodeList를 반환합니다', 'forEach로 반복할 수 있어요'], estimatedMinutes: 4, starterCode: '// HTML: <li class="item">A</li><li class="item">B</li><li class="item">C</li>\n// TODO: 모든 .item 요소를 선택하고 텍스트 출력\nconst items = // querySelectorAll 사용\nitems.forEach(function(item) {\n  console.log(item.textContent);\n});', solution: '// HTML: <li class="item">A</li><li class="item">B</li><li class="item">C</li>\nconst items = document.querySelectorAll(".item");\nitems.forEach(function(item) {\n  console.log(item.textContent);\n});', feedback: { perfect: 'querySelectorAll과 forEach를 완벽하게 조합했어요!', good: '여러 요소 선택이 잘 됐어요!', partial: 'document.querySelectorAll(".item")을 사용하세요.', wrong: 'querySelectorAll은 NodeList를 반환하고 forEach로 반복합니다.' } },
+            { id: 'c3', title: '복합 선택자 활용', description: '자식 선택자, 속성 선택자 등 복합 CSS 선택자를 사용하세요.', difficulty: 'medium', hints: ['"div > p"는 div의 직접 자식 p를 선택', '"[type=text]"는 속성 선택자'], estimatedMinutes: 5, starterCode: '// HTML: <div id="form"><input type="text"><input type="password"></div>\n// TODO: #form 안의 type="text"인 input 선택\nconst textInput = // 복합 선택자 사용\nconsole.log(textInput.type);', solution: '// HTML: <div id="form"><input type="text"><input type="password"></div>\nconst textInput = document.querySelector("#form input[type=text]");\nconsole.log(textInput.type); // "text"', feedback: { perfect: '복합 선택자를 완벽하게 활용했어요!', good: '좋은 선택자 조합이에요!', partial: '"#form input[type=text]" 형태를 사용하세요.', wrong: 'CSS 선택자를 조합하여 사용합니다: "#id 태그[속성=값]"' } },
+            { id: 'c4', title: 'querySelector vs getElementById 비교', description: '두 메서드의 차이점을 코드로 확인하세요.', difficulty: 'medium', hints: ['querySelector는 CSS 선택자 문법을 사용', 'getElementById는 ID만 직접 입력'], estimatedMinutes: 6, starterCode: '// HTML: <h1 id="title" class="main">제목</h1>\n// TODO: 같은 요소를 두 가지 방법으로 선택\nconst el1 = // getElementById 사용\nconst el2 = // querySelector 사용\nconsole.log(el1 === el2); // true여야 함', solution: '// HTML: <h1 id="title" class="main">제목</h1>\nconst el1 = document.getElementById("title");\nconst el2 = document.querySelector("#title");\nconsole.log(el1 === el2); // true', feedback: { perfect: '두 메서드의 차이를 완벽히 이해했어요!', good: '좋아요! 같은 요소를 다르게 선택할 수 있어요.', partial: 'querySelector에서는 #을 붙여야 ID 선택이 됩니다.', wrong: 'getElementById("title")과 querySelector("#title")은 같은 요소를 선택합니다.' } },
+            { id: 'c5', title: '탭 메뉴 선택 구현', description: 'querySelectorAll로 탭 버튼들을 선택하고 클릭 이벤트를 연결하세요.', difficulty: 'hard', hints: ['querySelectorAll로 모든 탭 선택', 'forEach로 각 탭에 이벤트 연결'], estimatedMinutes: 8, starterCode: '// HTML: <button class="tab" data-target="home">홈</button>\n//        <button class="tab" data-target="about">소개</button>\n// TODO: 모든 .tab 버튼에 클릭 시 data-target 값을 출력하는 이벤트 연결\nconst tabs = document.querySelectorAll(".tab");\n// TODO: forEach로 각 탭에 addEventListener 연결\n', solution: 'const tabs = document.querySelectorAll(".tab");\ntabs.forEach(function(tab) {\n  tab.addEventListener("click", function() {\n    console.log("선택된 탭: " + tab.dataset.target);\n  });\n});', feedback: { perfect: 'querySelectorAll + forEach + addEventListener 조합을 완벽하게 구현했어요!', good: '탭 이벤트가 잘 연결됐어요!', partial: 'forEach 안에서 addEventListener를 사용하세요.', wrong: 'tabs.forEach(function(tab) { tab.addEventListener("click", ...) })' } }
           ],
           unlocked: true,
           completed: false,
@@ -4321,76 +3476,11 @@ setContent();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'textContent vs innerHTML 핵심 이해',
-              description: 'textContent vs innerHTML의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['textContent vs innerHTML의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'textContent vs innerHTML 개념을 완벽하게 이해했어요!',
-                good: 'textContent vs innerHTML의 핵심을 잘 파악했어요!',
-                partial: 'textContent vs innerHTML의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'textContent vs innerHTML의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'textContent vs innerHTML 예제 분석',
-              description: 'textContent vs innerHTML 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'textContent vs innerHTML 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'textContent vs innerHTML 코드 수정',
-              description: '주어진 코드에서 textContent vs innerHTML 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'textContent vs innerHTML의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'textContent vs innerHTML 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'textContent vs innerHTML 직접 구현',
-              description: 'textContent vs innerHTML을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'textContent vs innerHTML의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'textContent vs innerHTML 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'textContent vs innerHTML 심화 도전',
-              description: 'textContent vs innerHTML을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'textContent vs innerHTML을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'textContent vs innerHTML 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'textContent로 텍스트 변경', description: 'textContent를 사용하여 순수 텍스트를 설정하세요.', difficulty: 'easy', hints: ['textContent는 HTML 태그를 해석하지 않습니다', '요소.textContent = "텍스트"'], estimatedMinutes: 3, starterCode: '// HTML: <div id="box">기존 내용</div>\nconst box = document.getElementById("box");\n// TODO: textContent로 "Hello World"를 설정\n', solution: 'const box = document.getElementById("box");\nbox.textContent = "Hello World";', feedback: { perfect: 'textContent 사용법을 완벽하게 이해했어요!', good: '텍스트가 잘 변경됐어요!', partial: 'box.textContent = "Hello World"를 사용하세요.', wrong: 'textContent는 순수 텍스트만 설정합니다.' } },
+            { id: 'c2', title: 'innerHTML로 HTML 삽입', description: 'innerHTML을 사용하여 HTML 요소를 삽입하세요.', difficulty: 'easy', hints: ['innerHTML은 HTML 태그를 해석합니다', '요소.innerHTML = "<태그>내용</태그>"'], estimatedMinutes: 4, starterCode: '// HTML: <div id="content"></div>\nconst content = document.getElementById("content");\n// TODO: innerHTML로 "<strong>중요한 내용</strong>"을 삽입\n', solution: 'const content = document.getElementById("content");\ncontent.innerHTML = "<strong>중요한 내용</strong>";', feedback: { perfect: 'innerHTML로 HTML 삽입을 완벽하게 했어요!', good: 'HTML이 잘 삽입됐어요!', partial: 'content.innerHTML = "<strong>중요한 내용</strong>"', wrong: 'innerHTML에 HTML 문자열을 대입하면 태그가 해석됩니다.' } },
+            { id: 'c3', title: '두 속성의 차이점 확인', description: 'textContent와 innerHTML에 같은 HTML 문자열을 넣고 차이를 확인하세요.', difficulty: 'medium', hints: ['textContent는 태그를 문자 그대로 표시', 'innerHTML은 태그를 해석하여 렌더링'], estimatedMinutes: 5, starterCode: '// HTML: <div id="a"></div> <div id="b"></div>\nconst a = document.getElementById("a");\nconst b = document.getElementById("b");\nconst html = "<em>강조</em> 텍스트";\n// TODO: a에는 textContent로, b에는 innerHTML로 html을 설정\n// 결과 차이를 확인하세요\n', solution: 'const a = document.getElementById("a");\nconst b = document.getElementById("b");\nconst html = "<em>강조</em> 텍스트";\na.textContent = html; // "<em>강조</em> 텍스트" 그대로 표시\nb.innerHTML = html;  // "강조" 가 이탤릭체로 표시', feedback: { perfect: '두 속성의 차이를 완벽하게 이해했어요!', good: '좋아요! 차이가 명확하죠?', partial: 'textContent는 태그를 문자로, innerHTML은 해석합니다.', wrong: 'a.textContent = html은 태그 문자열 그대로, b.innerHTML = html은 렌더링합니다.' } },
+            { id: 'c4', title: '리스트를 innerHTML로 생성', description: 'innerHTML로 동적 리스트를 생성하세요.', difficulty: 'medium', hints: ['배열을 map으로 변환하고 join으로 합치세요', 'innerHTML에 전체 HTML을 설정'], estimatedMinutes: 7, starterCode: '// HTML: <ul id="list"></ul>\nconst fruits = ["사과", "바나나", "포도"];\nconst list = document.getElementById("list");\n// TODO: fruits 배열로 <li> 목록을 innerHTML로 생성\n', solution: 'const fruits = ["사과", "바나나", "포도"];\nconst list = document.getElementById("list");\nlist.innerHTML = fruits.map(function(f) {\n  return "<li>" + f + "</li>";\n}).join("");', feedback: { perfect: 'map + join + innerHTML 조합을 완벽하게 활용했어요!', good: '리스트가 잘 생성됐어요!', partial: 'map으로 <li> 태그를 만들고 join("")으로 합치세요.', wrong: 'fruits.map(f => "<li>" + f + "</li>").join("")을 innerHTML에 설정합니다.' } },
+            { id: 'c5', title: 'XSS 방지와 안전한 사용', description: '사용자 입력을 안전하게 처리하는 방법을 이해하세요.', difficulty: 'hard', hints: ['사용자 입력에는 textContent를 사용하세요', 'innerHTML에 사용자 입력을 넣으면 위험합니다'], estimatedMinutes: 8, starterCode: '// 사용자가 입력한 값 (악의적일 수 있음)\nconst userInput = "<script>alert(1)</script>안녕";\nconst safe = document.getElementById("safe");\nconst unsafe = document.getElementById("unsafe");\n// TODO: safe에는 안전하게(textContent), unsafe에는 innerHTML로 표시\n// 어느 것이 안전한지 확인하세요\n', solution: 'const userInput = "<script>alert(1)</script>안녕";\nconst safe = document.getElementById("safe");\nconst unsafe = document.getElementById("unsafe");\nsafe.textContent = userInput;  // 안전: 태그가 문자로 표시\nunsafe.innerHTML = userInput;  // 위험: 스크립트 실행 가능', feedback: { perfect: 'XSS 방지의 핵심을 완벽하게 이해했어요!', good: '보안을 고려한 코드 작성을 잘했어요!', partial: '사용자 입력에는 항상 textContent를 사용하세요.', wrong: 'innerHTML에 사용자 입력을 넣으면 XSS 공격에 취약합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -4450,76 +3540,11 @@ styleBox();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'element.style 핵심 이해',
-              description: 'element.style의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['element.style의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'element.style 개념을 완벽하게 이해했어요!',
-                good: 'element.style의 핵심을 잘 파악했어요!',
-                partial: 'element.style의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'element.style의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'element.style 예제 분석',
-              description: 'element.style 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'element.style 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'element.style 코드 수정',
-              description: '주어진 코드에서 element.style 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'element.style의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'element.style 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'element.style 직접 구현',
-              description: 'element.style을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'element.style의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'element.style 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'element.style 심화 도전',
-              description: 'element.style을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'element.style을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'element.style 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '배경색 변경하기', description: 'style 속성으로 요소의 배경색을 변경하세요.', difficulty: 'easy', hints: ['element.style.backgroundColor = "색상"', 'CSS의 background-color는 JS에서 backgroundColor'], estimatedMinutes: 3, starterCode: '// HTML: <div id="box">박스</div>\nconst box = document.getElementById("box");\n// TODO: 배경색을 파란색(#3498db)으로 변경\n', solution: 'const box = document.getElementById("box");\nbox.style.backgroundColor = "#3498db";', feedback: { perfect: 'style로 배경색 변경을 완벽하게 했어요!', good: '배경색이 잘 변경됐어요!', partial: 'box.style.backgroundColor = "색상"을 사용하세요.', wrong: 'element.style.backgroundColor에 색상값을 대입합니다.' } },
+            { id: 'c2', title: '여러 스타일 동시 적용', description: '하나의 요소에 여러 CSS 속성을 동시에 적용하세요.', difficulty: 'easy', hints: ['각 속성을 따로 설정하세요', 'fontSize, color, padding 등'], estimatedMinutes: 4, starterCode: '// HTML: <p id="text">스타일 적용</p>\nconst text = document.getElementById("text");\n// TODO: 글자크기 24px, 색상 흰색(#fff), 배경 검정(#333), 패딩 10px\n', solution: 'const text = document.getElementById("text");\ntext.style.fontSize = "24px";\ntext.style.color = "#fff";\ntext.style.backgroundColor = "#333";\ntext.style.padding = "10px";', feedback: { perfect: '여러 스타일을 완벽하게 적용했어요!', good: '잘했어요! 스타일이 잘 적용됐어요!', partial: '각 속성을 element.style.속성명 = "값"으로 설정하세요.', wrong: 'CSS에서 font-size는 JS에서 fontSize (카멜케이스)입니다.' } },
+            { id: 'c3', title: 'cssText로 한번에 적용', description: 'cssText를 사용하여 여러 스타일을 한번에 적용하세요.', difficulty: 'medium', hints: ['cssText에 CSS 문자열을 넣으세요', 'CSS 문법 그대로 사용 가능'], estimatedMinutes: 5, starterCode: '// HTML: <div id="card">카드</div>\nconst card = document.getElementById("card");\n// TODO: cssText로 border, border-radius, padding, box-shadow를 한번에 적용\n', solution: 'const card = document.getElementById("card");\ncard.style.cssText = "border: 1px solid #ddd; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);";', feedback: { perfect: 'cssText를 완벽하게 활용했어요!', good: 'cssText로 한번에 적용했어요!', partial: 'element.style.cssText = "속성: 값; 속성: 값;"', wrong: 'cssText에 일반 CSS 문법을 문자열로 넣으면 됩니다.' } },
+            { id: 'c4', title: '버튼 호버 효과', description: 'mouseenter/mouseleave로 호버 효과를 구현하세요.', difficulty: 'medium', hints: ['mouseenter 이벤트에서 스타일 변경', 'mouseleave 이벤트에서 원래로 복구'], estimatedMinutes: 7, starterCode: '// HTML: <button id="btn">호버 테스트</button>\nconst btn = document.getElementById("btn");\n// TODO: 마우스 올리면 배경 파랑+글자 흰색, 벗어나면 원래대로\nbtn.addEventListener("mouseenter", function() {\n  // 스타일 변경\n});\nbtn.addEventListener("mouseleave", function() {\n  // 원래대로\n});', solution: 'const btn = document.getElementById("btn");\nbtn.addEventListener("mouseenter", function() {\n  btn.style.backgroundColor = "#3498db";\n  btn.style.color = "#fff";\n});\nbtn.addEventListener("mouseleave", function() {\n  btn.style.backgroundColor = "";\n  btn.style.color = "";\n});', feedback: { perfect: '호버 효과를 이벤트로 완벽하게 구현했어요!', good: '호버 효과가 잘 작동해요!', partial: 'mouseleave에서 스타일을 빈 문자열로 초기화하세요.', wrong: 'mouseenter에서 변경, mouseleave에서 style.속성 = ""로 리셋합니다.' } },
+            { id: 'c5', title: '프로그레스 바 만들기', description: 'style.width를 동적으로 변경하여 프로그레스 바를 구현하세요.', difficulty: 'hard', hints: ['width를 퍼센트로 설정: "50%"', 'setInterval로 점진적 증가'], estimatedMinutes: 8, starterCode: '// HTML: <div id="bar" style="height:20px;background:#3498db;width:0%"></div>\nconst bar = document.getElementById("bar");\nlet progress = 0;\n// TODO: 100ms마다 progress를 5씩 증가하고 bar의 width를 업데이트\n// 100%에 도달하면 멈추기\n', solution: 'const bar = document.getElementById("bar");\nlet progress = 0;\nconst timer = setInterval(function() {\n  progress += 5;\n  bar.style.width = progress + "%";\n  if (progress >= 100) {\n    clearInterval(timer);\n    console.log("완료!");\n  }\n}, 100);', feedback: { perfect: '프로그레스 바를 완벽하게 구현했어요!', good: '잘 작동하는 프로그레스 바에요!', partial: 'bar.style.width = progress + "%"로 너비를 설정하세요.', wrong: 'setInterval에서 progress 증가 후 style.width를 업데이트합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -4578,76 +3603,11 @@ highlightBox();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'element.classList 핵심 이해',
-              description: 'element.classList의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['element.classList의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'element.classList 개념을 완벽하게 이해했어요!',
-                good: 'element.classList의 핵심을 잘 파악했어요!',
-                partial: 'element.classList의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'element.classList의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'element.classList 예제 분석',
-              description: 'element.classList 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'element.classList 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'element.classList 코드 수정',
-              description: '주어진 코드에서 element.classList 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'element.classList의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'element.classList 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'element.classList 직접 구현',
-              description: 'element.classList을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'element.classList의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'element.classList 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'element.classList 심화 도전',
-              description: 'element.classList을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'element.classList을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'element.classList 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'classList.add()로 클래스 추가', description: 'classList.add()로 요소에 CSS 클래스를 추가하세요.', difficulty: 'easy', hints: ['element.classList.add("클래스명")', '여러 클래스를 한번에 추가 가능'], estimatedMinutes: 3, starterCode: '// HTML: <div id="box">박스</div>\n// CSS: .highlight { background: yellow; } .rounded { border-radius: 8px; }\nconst box = document.getElementById("box");\n// TODO: "highlight"와 "rounded" 클래스를 추가\n', solution: 'const box = document.getElementById("box");\nbox.classList.add("highlight", "rounded");', feedback: { perfect: 'classList.add를 완벽하게 사용했어요!', good: '클래스가 잘 추가됐어요!', partial: 'classList.add("클래스1", "클래스2")로 여러 개를 추가합니다.', wrong: 'element.classList.add("클래스명")으로 클래스를 추가합니다.' } },
+            { id: 'c2', title: 'classList.remove()로 클래스 제거', description: 'classList.remove()로 특정 클래스를 제거하세요.', difficulty: 'easy', hints: ['element.classList.remove("클래스명")'], estimatedMinutes: 3, starterCode: '// HTML: <div id="alert" class="box warning active">경고</div>\nconst alert = document.getElementById("alert");\n// TODO: "warning" 클래스를 제거하세요\nconsole.log(alert.className); // 제거 후 확인', solution: 'const alert = document.getElementById("alert");\nalert.classList.remove("warning");\nconsole.log(alert.className); // "box active"', feedback: { perfect: 'classList.remove를 완벽하게 사용했어요!', good: '클래스가 잘 제거됐어요!', partial: 'classList.remove("warning")을 사용하세요.', wrong: 'element.classList.remove("클래스명")으로 클래스를 제거합니다.' } },
+            { id: 'c3', title: 'classList.toggle()로 토글', description: 'classList.toggle()로 클래스를 켜고 끄세요.', difficulty: 'medium', hints: ['toggle은 있으면 제거, 없으면 추가', 'classList.contains()로 존재 여부 확인'], estimatedMinutes: 5, starterCode: '// HTML: <button id="btn">메뉴</button> <nav id="menu" class="hidden">메뉴</nav>\n// CSS: .hidden { display: none; }\nconst btn = document.getElementById("btn");\nconst menu = document.getElementById("menu");\n// TODO: 버튼 클릭 시 menu의 "hidden" 클래스를 토글\nbtn.addEventListener("click", function() {\n  // toggle 사용\n});', solution: 'const btn = document.getElementById("btn");\nconst menu = document.getElementById("menu");\nbtn.addEventListener("click", function() {\n  menu.classList.toggle("hidden");\n});', feedback: { perfect: 'classList.toggle을 완벽하게 활용했어요!', good: '토글이 잘 작동해요!', partial: 'menu.classList.toggle("hidden")을 사용하세요.', wrong: 'toggle("클래스명")은 있으면 제거, 없으면 추가합니다.' } },
+            { id: 'c4', title: 'classList.contains()로 확인', description: 'contains로 클래스 존재 여부를 확인하고 분기하세요.', difficulty: 'medium', hints: ['classList.contains("클래스명")는 true/false 반환'], estimatedMinutes: 5, starterCode: '// HTML: <div id="user" class="admin premium">사용자</div>\nconst user = document.getElementById("user");\n// TODO: "admin" 클래스가 있으면 "관리자입니다" 출력\n// TODO: "guest" 클래스가 있으면 "손님입니다" 출력, 없으면 "손님 아닙니다"\n', solution: 'const user = document.getElementById("user");\nif (user.classList.contains("admin")) {\n  console.log("관리자입니다");\n}\nif (user.classList.contains("guest")) {\n  console.log("손님입니다");\n} else {\n  console.log("손님 아닙니다");\n}', feedback: { perfect: 'contains로 조건 분기를 완벽하게 했어요!', good: '클래스 체크가 잘 됐어요!', partial: 'classList.contains("클래스명")으로 확인하세요.', wrong: 'contains는 해당 클래스가 있으면 true, 없으면 false를 반환합니다.' } },
+            { id: 'c5', title: '활성 탭 전환 구현', description: 'classList를 활용하여 활성 탭을 전환하세요.', difficulty: 'hard', hints: ['모든 탭에서 active 제거 후 클릭한 탭에 추가', 'querySelectorAll + forEach 사용'], estimatedMinutes: 8, starterCode: '// HTML: <button class="tab active">탭1</button>\n//        <button class="tab">탭2</button>\n//        <button class="tab">탭3</button>\n// CSS: .active { background: blue; color: white; }\nconst tabs = document.querySelectorAll(".tab");\n// TODO: 탭 클릭 시 모든 탭에서 active 제거 후 클릭한 탭에 active 추가\ntabs.forEach(function(tab) {\n  tab.addEventListener("click", function() {\n    // 구현하세요\n  });\n});', solution: 'const tabs = document.querySelectorAll(".tab");\ntabs.forEach(function(tab) {\n  tab.addEventListener("click", function() {\n    tabs.forEach(function(t) { t.classList.remove("active"); });\n    tab.classList.add("active");\n  });\n});', feedback: { perfect: '활성 탭 전환을 완벽하게 구현했어요!', good: '탭 전환이 잘 작동해요!', partial: '먼저 모든 탭에서 active를 제거한 후 클릭된 탭에 추가하세요.', wrong: 'forEach로 모든 탭의 active를 remove한 후, 현재 탭에 add합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -4711,76 +3671,11 @@ setupButton();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'addEventListener("click") 핵심 이해',
-              description: 'addEventListener("click")의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['addEventListener("click")의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'addEventListener("click") 개념을 완벽하게 이해했어요!',
-                good: 'addEventListener("click")의 핵심을 잘 파악했어요!',
-                partial: 'addEventListener("click")의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'addEventListener("click")의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'addEventListener("click") 예제 분석',
-              description: 'addEventListener("click") 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'addEventListener("click") 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'addEventListener("click") 코드 수정',
-              description: '주어진 코드에서 addEventListener("click") 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'addEventListener("click")의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'addEventListener("click") 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'addEventListener("click") 직접 구현',
-              description: 'addEventListener("click")을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'addEventListener("click")의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'addEventListener("click") 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'addEventListener("click") 심화 도전',
-              description: 'addEventListener("click")을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'addEventListener("click")을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'addEventListener("click") 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '클릭 이벤트 연결', description: 'addEventListener로 버튼에 클릭 이벤트를 연결하세요.', difficulty: 'easy', hints: ['element.addEventListener("click", 함수)', '함수 안에 실행할 코드를 작성'], estimatedMinutes: 3, starterCode: '// HTML: <button id="btn">클릭하세요</button>\nconst btn = document.getElementById("btn");\n// TODO: 버튼 클릭 시 "버튼이 클릭됨!" 출력\n', solution: 'const btn = document.getElementById("btn");\nbtn.addEventListener("click", function() {\n  console.log("버튼이 클릭됨!");\n});', feedback: { perfect: 'addEventListener를 완벽하게 사용했어요!', good: '클릭 이벤트가 잘 연결됐어요!', partial: 'addEventListener("click", function() { })를 사용하세요.', wrong: 'btn.addEventListener("click", function() { 코드 })로 이벤트를 연결합니다.' } },
+            { id: 'c2', title: '이벤트 객체 활용', description: '이벤트 핸들러에서 event 객체를 활용하세요.', difficulty: 'easy', hints: ['함수의 매개변수로 event를 받을 수 있어요', 'event.target은 이벤트가 발생한 요소'], estimatedMinutes: 4, starterCode: '// HTML: <button id="btn">클릭</button>\nconst btn = document.getElementById("btn");\n// TODO: 클릭 시 event.target의 textContent를 출력\nbtn.addEventListener("click", function(event) {\n  // event.target 사용\n});', solution: 'const btn = document.getElementById("btn");\nbtn.addEventListener("click", function(event) {\n  console.log("클릭된 요소: " + event.target.textContent);\n});', feedback: { perfect: 'event 객체를 완벽하게 활용했어요!', good: 'event.target을 잘 사용했어요!', partial: 'event.target은 이벤트가 발생한 실제 요소입니다.', wrong: 'function(event) { event.target }으로 이벤트 대상을 확인합니다.' } },
+            { id: 'c3', title: '여러 버튼에 이벤트 연결', description: 'querySelectorAll과 forEach로 여러 버튼에 이벤트를 연결하세요.', difficulty: 'medium', hints: ['querySelectorAll로 모든 버튼 선택', 'forEach로 각각에 addEventListener'], estimatedMinutes: 5, starterCode: '// HTML: <button class="color-btn" data-color="red">빨강</button>\n//        <button class="color-btn" data-color="blue">파랑</button>\n//        <button class="color-btn" data-color="green">초록</button>\nconst buttons = document.querySelectorAll(".color-btn");\n// TODO: 각 버튼 클릭 시 해당 data-color 값을 출력\n', solution: 'const buttons = document.querySelectorAll(".color-btn");\nbuttons.forEach(function(btn) {\n  btn.addEventListener("click", function() {\n    console.log("선택한 색상: " + btn.dataset.color);\n  });\n});', feedback: { perfect: '여러 요소에 이벤트를 완벽하게 연결했어요!', good: '모든 버튼에 잘 연결됐어요!', partial: 'forEach 안에서 addEventListener를 호출하세요.', wrong: 'buttons.forEach(function(btn) { btn.addEventListener("click", ...) })' } },
+            { id: 'c4', title: 'removeEventListener 사용', description: '이벤트 리스너를 제거하는 방법을 이해하세요.', difficulty: 'medium', hints: ['제거하려면 함수에 이름이 있어야 합니다', '같은 함수 참조를 전달해야 제거됨'], estimatedMinutes: 6, starterCode: '// HTML: <button id="btn">한번만 클릭</button>\nconst btn = document.getElementById("btn");\n// TODO: 한 번 클릭하면 "클릭됨!" 출력 후 이벤트 리스너를 제거하세요\n// 힌트: 함수에 이름을 붙여야 remove 가능\n', solution: 'const btn = document.getElementById("btn");\nfunction handleClick() {\n  console.log("클릭됨!");\n  btn.removeEventListener("click", handleClick);\n}\nbtn.addEventListener("click", handleClick);', feedback: { perfect: 'removeEventListener를 완벽하게 이해했어요!', good: '이벤트 제거가 잘 작동해요!', partial: '기명 함수를 만들어 add와 remove에 같은 함수를 전달하세요.', wrong: 'removeEventListener에 addEventListener와 같은 함수 참조를 전달해야 합니다.' } },
+            { id: 'c5', title: '좋아요 버튼 만들기', description: '클릭할 때마다 좋아요 수가 증가하는 버튼을 만드세요.', difficulty: 'hard', hints: ['변수에 카운트를 저장하세요', 'textContent로 화면에 표시'], estimatedMinutes: 8, starterCode: '// HTML: <button id="like-btn">좋아요 0</button>\nlet likeCount = 0;\nconst likeBtn = document.getElementById("like-btn");\n// TODO: 클릭마다 likeCount 증가, 버튼 텍스트를 "좋아요 N"으로 업데이트\n', solution: 'let likeCount = 0;\nconst likeBtn = document.getElementById("like-btn");\nlikeBtn.addEventListener("click", function() {\n  likeCount++;\n  likeBtn.textContent = "좋아요 " + likeCount;\n});', feedback: { perfect: '좋아요 버튼을 완벽하게 구현했어요!', good: '카운터가 잘 동작해요!', partial: 'likeCount++ 후 textContent를 업데이트하세요.', wrong: '클릭 이벤트에서 변수를 증가시키고 textContent에 반영합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -4851,76 +3746,11 @@ setupCounter();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '이벤트와 상태 관리 핵심 이해',
-              description: '이벤트와 상태 관리의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['이벤트와 상태 관리의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '이벤트와 상태 관리 개념을 완벽하게 이해했어요!',
-                good: '이벤트와 상태 관리의 핵심을 잘 파악했어요!',
-                partial: '이벤트와 상태 관리의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '이벤트와 상태 관리의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '이벤트와 상태 관리 예제 분석',
-              description: '이벤트와 상태 관리 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '이벤트와 상태 관리 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '이벤트와 상태 관리 코드 수정',
-              description: '주어진 코드에서 이벤트와 상태 관리 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '이벤트와 상태 관리의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '이벤트와 상태 관리 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '이벤트와 상태 관리 직접 구현',
-              description: '이벤트와 상태 관리을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '이벤트와 상태 관리의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '이벤트와 상태 관리 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '이벤트와 상태 관리 심화 도전',
-              description: '이벤트와 상태 관리을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '이벤트와 상태 관리을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '이벤트와 상태 관리 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '변수로 상태 관리', description: '변수를 사용하여 현재 상태를 관리하세요.', difficulty: 'easy', hints: ['let으로 상태 변수를 선언하세요', '이벤트에서 상태를 업데이트'], estimatedMinutes: 3, starterCode: '// HTML: <button id="toggle">OFF</button>\nlet isOn = false;\nconst btn = document.getElementById("toggle");\n// TODO: 클릭마다 isOn을 반전시키고 버튼 텍스트를 ON/OFF로 변경\n', solution: 'let isOn = false;\nconst btn = document.getElementById("toggle");\nbtn.addEventListener("click", function() {\n  isOn = !isOn;\n  btn.textContent = isOn ? "ON" : "OFF";\n});', feedback: { perfect: '상태 토글을 완벽하게 구현했어요!', good: 'ON/OFF 전환이 잘 돼요!', partial: 'isOn = !isOn으로 불리언을 반전시키세요.', wrong: '!연산자로 true/false를 반전시키고 삼항연산자로 텍스트를 결정합니다.' } },
+            { id: 'c2', title: '상태에 따른 스타일 변경', description: '상태값에 따라 요소의 스타일을 동적으로 변경하세요.', difficulty: 'easy', hints: ['상태에 따라 classList를 토글하세요', '또는 style을 직접 변경'], estimatedMinutes: 4, starterCode: '// HTML: <div id="box">박스</div> <button id="btn">색상 변경</button>\nlet colorIndex = 0;\nconst colors = ["#e74c3c", "#3498db", "#2ecc71"];\nconst box = document.getElementById("box");\nconst btn = document.getElementById("btn");\n// TODO: 클릭마다 다음 색상으로 변경 (순환)\n', solution: 'let colorIndex = 0;\nconst colors = ["#e74c3c", "#3498db", "#2ecc71"];\nconst box = document.getElementById("box");\nconst btn = document.getElementById("btn");\nbtn.addEventListener("click", function() {\n  colorIndex = (colorIndex + 1) % colors.length;\n  box.style.backgroundColor = colors[colorIndex];\n});', feedback: { perfect: '색상 순환을 완벽하게 구현했어요!', good: '색상 변경이 잘 돼요!', partial: '% 연산자로 배열을 순환하세요.', wrong: '(index + 1) % array.length로 순환 인덱스를 만듭니다.' } },
+            { id: 'c3', title: '배열로 목록 상태 관리', description: '배열을 상태로 사용하여 목록을 관리하세요.', difficulty: 'medium', hints: ['배열에 push로 추가', '상태 변경 후 화면을 다시 그리세요'], estimatedMinutes: 6, starterCode: '// HTML: <input id="input"> <button id="add">추가</button> <ul id="list"></ul>\nconst items = [];\nconst input = document.getElementById("input");\nconst addBtn = document.getElementById("add");\nconst list = document.getElementById("list");\n// TODO: 추가 버튼 클릭 시 input 값을 items에 추가하고 목록을 다시 그리기\nfunction render() {\n  // items 배열로 <li> 목록 생성\n}\n', solution: 'const items = [];\nconst input = document.getElementById("input");\nconst addBtn = document.getElementById("add");\nconst list = document.getElementById("list");\nfunction render() {\n  list.innerHTML = items.map(function(item) {\n    return "<li>" + item + "</li>";\n  }).join("");\n}\naddBtn.addEventListener("click", function() {\n  if (input.value.trim() !== "") {\n    items.push(input.value);\n    input.value = "";\n    render();\n  }\n});', feedback: { perfect: '상태 기반 렌더링을 완벽하게 구현했어요!', good: '목록 관리가 잘 돼요!', partial: 'push로 추가 후 render 함수로 화면을 갱신하세요.', wrong: 'items 배열을 업데이트하고 innerHTML로 다시 그립니다.' } },
+            { id: 'c4', title: '객체로 복합 상태 관리', description: '여러 상태를 하나의 객체로 관리하세요.', difficulty: 'medium', hints: ['state 객체에 여러 속성을 저장', '상태 변경 후 UI를 갱신하세요'], estimatedMinutes: 7, starterCode: '// HTML: <span id="score">0</span> <span id="level">1</span>\n// <button id="earn">점수 획득</button>\nconst state = { score: 0, level: 1 };\n// TODO: earn 클릭 시 score +10, score >= 100이면 level +1, score 리셋\nfunction updateUI() {\n  document.getElementById("score").textContent = state.score;\n  document.getElementById("level").textContent = state.level;\n}\n', solution: 'const state = { score: 0, level: 1 };\nfunction updateUI() {\n  document.getElementById("score").textContent = state.score;\n  document.getElementById("level").textContent = state.level;\n}\ndocument.getElementById("earn").addEventListener("click", function() {\n  state.score += 10;\n  if (state.score >= 100) {\n    state.level++;\n    state.score = 0;\n  }\n  updateUI();\n});', feedback: { perfect: '복합 상태 관리를 완벽하게 구현했어요!', good: '상태와 UI가 잘 동기화돼요!', partial: '상태 변경 후 updateUI()를 호출하세요.', wrong: 'state 객체를 업데이트하고 updateUI로 화면을 갱신합니다.' } },
+            { id: 'c5', title: '되돌리기(Undo) 기능', description: '상태 히스토리를 저장하여 되돌리기를 구현하세요.', difficulty: 'hard', hints: ['히스토리 배열에 이전 상태를 push', 'Undo 시 pop으로 이전 상태 복원'], estimatedMinutes: 8, starterCode: '// HTML: <span id="count">0</span>\n// <button id="plus">+1</button> <button id="undo">Undo</button>\nlet count = 0;\nconst history = [];\n// TODO: +1 클릭 시 현재값을 history에 저장 후 count 증가\n// Undo 클릭 시 history에서 pop하여 복원\n', solution: 'let count = 0;\nconst history = [];\nconst display = document.getElementById("count");\ndocument.getElementById("plus").addEventListener("click", function() {\n  history.push(count);\n  count++;\n  display.textContent = count;\n});\ndocument.getElementById("undo").addEventListener("click", function() {\n  if (history.length > 0) {\n    count = history.pop();\n    display.textContent = count;\n  }\n});', feedback: { perfect: 'Undo 기능을 완벽하게 구현했어요!', good: '히스토리 관리가 잘 돼요!', partial: '변경 전에 history.push, Undo 시 history.pop을 사용하세요.', wrong: 'push로 이전 상태를 저장하고, pop으로 복원합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -4990,76 +3820,11 @@ setupGreeting();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'input 이벤트 핵심 이해',
-              description: 'input 이벤트의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['input 이벤트의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'input 이벤트 개념을 완벽하게 이해했어요!',
-                good: 'input 이벤트의 핵심을 잘 파악했어요!',
-                partial: 'input 이벤트의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'input 이벤트의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'input 이벤트 예제 분석',
-              description: 'input 이벤트 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'input 이벤트 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'input 이벤트 코드 수정',
-              description: '주어진 코드에서 input 이벤트 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'input 이벤트의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'input 이벤트 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'input 이벤트 직접 구현',
-              description: 'input 이벤트을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'input 이벤트의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'input 이벤트 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'input 이벤트 심화 도전',
-              description: 'input 이벤트을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'input 이벤트을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'input 이벤트 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'input 이벤트 기본', description: 'input 이벤트로 실시간 입력값을 감지하세요.', difficulty: 'easy', hints: ['"input" 이벤트는 값이 변경될 때마다 발생', 'event.target.value로 현재 값 읽기'], estimatedMinutes: 3, starterCode: '// HTML: <input id="name" type="text"> <span id="output"></span>\nconst nameInput = document.getElementById("name");\nconst output = document.getElementById("output");\n// TODO: 입력할 때마다 output에 실시간 표시\n', solution: 'const nameInput = document.getElementById("name");\nconst output = document.getElementById("output");\nnameInput.addEventListener("input", function(e) {\n  output.textContent = e.target.value;\n});', feedback: { perfect: 'input 이벤트를 완벽하게 활용했어요!', good: '실시간 입력 감지가 잘 돼요!', partial: 'addEventListener("input", function(e) { })를 사용하세요.', wrong: '"input" 이벤트에서 e.target.value로 현재 입력값을 읽습니다.' } },
+            { id: 'c2', title: '글자수 카운터', description: 'input 이벤트로 실시간 글자수를 세세요.', difficulty: 'easy', hints: ['value.length로 글자수를 구하세요'], estimatedMinutes: 4, starterCode: '// HTML: <textarea id="text"></textarea> <span id="charCount">0</span>/200\nconst textarea = document.getElementById("text");\nconst counter = document.getElementById("charCount");\n// TODO: 입력할 때마다 글자수를 counter에 표시\n', solution: 'const textarea = document.getElementById("text");\nconst counter = document.getElementById("charCount");\ntextarea.addEventListener("input", function(e) {\n  counter.textContent = e.target.value.length;\n});', feedback: { perfect: '글자수 카운터를 완벽하게 만들었어요!', good: '실시간 카운팅이 잘 돼요!', partial: 'e.target.value.length로 글자수를 구하세요.', wrong: 'input 이벤트에서 value.length를 textContent에 표시합니다.' } },
+            { id: 'c3', title: '실시간 검색 필터', description: 'input 이벤트로 리스트를 실시간 필터링하세요.', difficulty: 'medium', hints: ['입력값을 포함하는 항목만 표시', 'filter + includes 사용'], estimatedMinutes: 6, starterCode: '// HTML: <input id="search"> <ul id="list"></ul>\nconst items = ["사과", "바나나", "포도", "딸기", "오렌지"];\nconst search = document.getElementById("search");\nconst list = document.getElementById("list");\n// TODO: 검색어 입력 시 실시간으로 목록 필터링\nfunction render(filtered) {\n  list.innerHTML = filtered.map(function(f) { return "<li>" + f + "</li>"; }).join("");\n}\nrender(items);\n', solution: 'const items = ["사과", "바나나", "포도", "딸기", "오렌지"];\nconst search = document.getElementById("search");\nconst list = document.getElementById("list");\nfunction render(filtered) {\n  list.innerHTML = filtered.map(function(f) { return "<li>" + f + "</li>"; }).join("");\n}\nrender(items);\nsearch.addEventListener("input", function(e) {\n  const keyword = e.target.value;\n  const filtered = items.filter(function(item) {\n    return item.includes(keyword);\n  });\n  render(filtered);\n});', feedback: { perfect: '실시간 검색 필터를 완벽하게 구현했어요!', good: '필터링이 잘 작동해요!', partial: 'filter + includes로 검색어가 포함된 항목만 골라내세요.', wrong: 'input 이벤트에서 items.filter(item => item.includes(keyword))를 사용합니다.' } },
+            { id: 'c4', title: 'change vs input 이벤트', description: 'change와 input 이벤트의 차이를 이해하세요.', difficulty: 'medium', hints: ['input: 값이 바뀔 때마다 발생', 'change: 포커스를 잃을 때 발생'], estimatedMinutes: 5, starterCode: '// HTML: <input id="field"> <p id="inputLog"></p> <p id="changeLog"></p>\nconst field = document.getElementById("field");\n// TODO: input 이벤트와 change 이벤트를 각각 연결하여 차이를 확인\n// input: "입력중: " + 현재값 표시\n// change: "확정: " + 현재값 표시\n', solution: 'const field = document.getElementById("field");\nfield.addEventListener("input", function(e) {\n  document.getElementById("inputLog").textContent = "입력중: " + e.target.value;\n});\nfield.addEventListener("change", function(e) {\n  document.getElementById("changeLog").textContent = "확정: " + e.target.value;\n});', feedback: { perfect: '두 이벤트의 차이를 완벽하게 이해했어요!', good: '좋아요! 타이밍 차이가 명확하죠?', partial: 'input은 매 키입력마다, change는 포커스 잃을 때 발생합니다.', wrong: '"input"은 실시간, "change"는 최종 확정 시 발생하는 이벤트입니다.' } },
+            { id: 'c5', title: '비밀번호 강도 체커', description: 'input 이벤트로 비밀번호 강도를 실시간으로 체크하세요.', difficulty: 'hard', hints: ['길이, 숫자 포함, 특수문자 포함 등을 체크', '조건에 따라 강도 텍스트와 색상 변경'], estimatedMinutes: 8, starterCode: '// HTML: <input id="pw" type="password"> <span id="strength"></span>\nconst pw = document.getElementById("pw");\nconst strength = document.getElementById("strength");\n// TODO: 비밀번호 입력 시 강도 표시\n// 6자 미만: 약함(빨강), 6-9자: 보통(주황), 10자 이상+숫자포함: 강함(초록)\n', solution: 'const pw = document.getElementById("pw");\nconst strength = document.getElementById("strength");\npw.addEventListener("input", function(e) {\n  const val = e.target.value;\n  const hasNumber = /[0-9]/.test(val);\n  if (val.length < 6) {\n    strength.textContent = "약함";\n    strength.style.color = "red";\n  } else if (val.length >= 10 && hasNumber) {\n    strength.textContent = "강함";\n    strength.style.color = "green";\n  } else {\n    strength.textContent = "보통";\n    strength.style.color = "orange";\n  }\n});', feedback: { perfect: '비밀번호 강도 체커를 완벽하게 구현했어요!', good: '강도 판별이 잘 돼요!', partial: '길이와 숫자 포함 여부를 조건으로 사용하세요.', wrong: 'if/else로 길이와 정규식 체크 후 텍스트와 색상을 변경합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -5138,76 +3903,11 @@ setupList();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'document.createElement() 핵심 이해',
-              description: 'document.createElement()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['document.createElement()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'document.createElement() 개념을 완벽하게 이해했어요!',
-                good: 'document.createElement()의 핵심을 잘 파악했어요!',
-                partial: 'document.createElement()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'document.createElement()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'document.createElement() 예제 분석',
-              description: 'document.createElement() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'document.createElement() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'document.createElement() 코드 수정',
-              description: '주어진 코드에서 document.createElement() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'document.createElement()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'document.createElement() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'document.createElement() 직접 구현',
-              description: 'document.createElement()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'document.createElement()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'document.createElement() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'document.createElement() 심화 도전',
-              description: 'document.createElement()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'document.createElement()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'document.createElement() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '요소 생성하고 추가하기', description: 'createElement로 요소를 만들고 DOM에 추가하세요.', difficulty: 'easy', hints: ['document.createElement("태그명")', 'appendChild로 부모에 추가'], estimatedMinutes: 3, starterCode: '// HTML: <ul id="list"></ul>\nconst list = document.getElementById("list");\n// TODO: <li> 요소를 만들어 "새 항목"이라는 텍스트를 넣고 list에 추가\n', solution: 'const list = document.getElementById("list");\nconst li = document.createElement("li");\nli.textContent = "새 항목";\nlist.appendChild(li);', feedback: { perfect: 'createElement + appendChild를 완벽하게 사용했어요!', good: '요소 추가가 잘 됐어요!', partial: 'createElement로 만들고 textContent 설정 후 appendChild하세요.', wrong: 'createElement("li")로 만들고 textContent 설정 후 부모.appendChild(자식)' } },
+            { id: 'c2', title: '속성과 스타일 설정', description: '생성한 요소에 속성과 스타일을 설정하세요.', difficulty: 'easy', hints: ['setAttribute로 속성 추가', 'classList.add로 클래스 추가'], estimatedMinutes: 4, starterCode: '// HTML: <div id="container"></div>\nconst container = document.getElementById("container");\n// TODO: <a> 태그를 만들어 href="https://example.com", class="link", 텍스트 "링크" 설정 후 추가\n', solution: 'const container = document.getElementById("container");\nconst link = document.createElement("a");\nlink.setAttribute("href", "https://example.com");\nlink.classList.add("link");\nlink.textContent = "링크";\ncontainer.appendChild(link);', feedback: { perfect: '속성과 클래스 설정을 완벽하게 했어요!', good: '요소 설정이 잘 됐어요!', partial: 'setAttribute로 href, classList.add로 클래스를 추가하세요.', wrong: 'setAttribute("속성명", "값")과 classList.add("클래스명")을 사용합니다.' } },
+            { id: 'c3', title: '동적 리스트 만들기', description: '배열 데이터로 리스트를 동적으로 생성하세요.', difficulty: 'medium', hints: ['forEach로 배열을 순회하며 createElement', '각 요소를 appendChild로 추가'], estimatedMinutes: 6, starterCode: '// HTML: <ul id="menu"></ul>\nconst menuItems = ["홈", "소개", "연락처", "블로그"];\nconst menu = document.getElementById("menu");\n// TODO: menuItems 배열로 <li> 요소들을 동적으로 생성하여 추가\n', solution: 'const menuItems = ["홈", "소개", "연락처", "블로그"];\nconst menu = document.getElementById("menu");\nmenuItems.forEach(function(item) {\n  const li = document.createElement("li");\n  li.textContent = item;\n  menu.appendChild(li);\n});', feedback: { perfect: '동적 리스트를 완벽하게 생성했어요!', good: '리스트가 잘 만들어졌어요!', partial: 'forEach 안에서 createElement + appendChild를 반복하세요.', wrong: '배열.forEach에서 각 항목마다 li를 만들어 부모에 추가합니다.' } },
+            { id: 'c4', title: 'DocumentFragment 활용', description: 'DocumentFragment로 성능을 최적화하여 여러 요소를 추가하세요.', difficulty: 'medium', hints: ['document.createDocumentFragment()로 가상 컨테이너 생성', 'fragment에 먼저 추가 후 한번에 DOM에 추가'], estimatedMinutes: 7, starterCode: '// HTML: <ul id="list"></ul>\nconst data = Array.from({length: 100}, function(_, i) { return "항목 " + (i + 1); });\nconst list = document.getElementById("list");\n// TODO: DocumentFragment를 사용하여 100개 항목을 효율적으로 추가\n', solution: 'const data = Array.from({length: 100}, function(_, i) { return "항목 " + (i + 1); });\nconst list = document.getElementById("list");\nconst fragment = document.createDocumentFragment();\ndata.forEach(function(text) {\n  const li = document.createElement("li");\n  li.textContent = text;\n  fragment.appendChild(li);\n});\nlist.appendChild(fragment);', feedback: { perfect: 'DocumentFragment를 완벽하게 활용했어요! 성능도 최적!', good: 'fragment 사용이 잘 됐어요!', partial: 'fragment에 먼저 모든 요소를 추가한 후 한번에 DOM에 넣으세요.', wrong: 'createDocumentFragment()로 가상 컨테이너를 만들어 한번에 추가합니다.' } },
+            { id: 'c5', title: '삭제 버튼이 있는 목록', description: '각 항목에 삭제 버튼을 추가하여 동적 삭제를 구현하세요.', difficulty: 'hard', hints: ['li 안에 span과 button을 함께 추가', '삭제 버튼에 이벤트로 parentElement.remove()'], estimatedMinutes: 8, starterCode: '// HTML: <ul id="list"></ul>\nconst items = ["공부", "운동", "독서"];\nconst list = document.getElementById("list");\n// TODO: 각 항목에 텍스트와 [삭제] 버튼을 만들고, 삭제 클릭 시 해당 li 제거\nfunction addItem(text) {\n  // li, span, button 생성 및 조합\n}\nitems.forEach(addItem);', solution: 'const items = ["공부", "운동", "독서"];\nconst list = document.getElementById("list");\nfunction addItem(text) {\n  const li = document.createElement("li");\n  const span = document.createElement("span");\n  span.textContent = text;\n  const delBtn = document.createElement("button");\n  delBtn.textContent = "삭제";\n  delBtn.addEventListener("click", function() {\n    li.remove();\n  });\n  li.appendChild(span);\n  li.appendChild(delBtn);\n  list.appendChild(li);\n}\nitems.forEach(addItem);', feedback: { perfect: '삭제 기능이 있는 동적 목록을 완벽하게 구현했어요!', good: '삭제 기능이 잘 작동해요!', partial: 'button에 click 이벤트로 li.remove()를 호출하세요.', wrong: '삭제 버튼의 click에서 부모 li를 remove()로 제거합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -5295,76 +3995,11 @@ setupForm();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '폼 유효성 검사 핵심 이해',
-              description: '폼 유효성 검사의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['폼 유효성 검사의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '폼 유효성 검사 개념을 완벽하게 이해했어요!',
-                good: '폼 유효성 검사의 핵심을 잘 파악했어요!',
-                partial: '폼 유효성 검사의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '폼 유효성 검사의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '폼 유효성 검사 예제 분석',
-              description: '폼 유효성 검사 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '폼 유효성 검사 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '폼 유효성 검사 코드 수정',
-              description: '주어진 코드에서 폼 유효성 검사 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '폼 유효성 검사의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '폼 유효성 검사 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '폼 유효성 검사 직접 구현',
-              description: '폼 유효성 검사을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '폼 유효성 검사의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '폼 유효성 검사 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '폼 유효성 검사 심화 도전',
-              description: '폼 유효성 검사을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '폼 유효성 검사을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '폼 유효성 검사 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '빈 값 체크하기', description: '입력 필드가 비어있는지 확인하세요.', difficulty: 'easy', hints: ['value.trim() === ""로 빈값 확인', 'trim()은 앞뒤 공백을 제거'], estimatedMinutes: 3, starterCode: '// HTML: <input id="name"> <button id="submit">제출</button> <span id="error"></span>\nconst nameInput = document.getElementById("name");\nconst submitBtn = document.getElementById("submit");\nconst error = document.getElementById("error");\n// TODO: 제출 시 name이 비어있으면 에러 메시지 표시\nsubmitBtn.addEventListener("click", function() {\n  // 빈값 체크\n});', solution: 'const nameInput = document.getElementById("name");\nconst submitBtn = document.getElementById("submit");\nconst error = document.getElementById("error");\nsubmitBtn.addEventListener("click", function() {\n  if (nameInput.value.trim() === "") {\n    error.textContent = "이름을 입력하세요";\n    error.style.color = "red";\n  } else {\n    error.textContent = "";\n    console.log("제출: " + nameInput.value);\n  }\n});', feedback: { perfect: '빈값 검증을 완벽하게 구현했어요!', good: '검증이 잘 돼요!', partial: 'value.trim() === ""로 빈값을 체크하세요.', wrong: 'trim()으로 공백을 제거한 후 빈 문자열인지 확인합니다.' } },
+            { id: 'c2', title: '이메일 형식 검증', description: '입력된 이메일이 올바른 형식인지 확인하세요.', difficulty: 'easy', hints: ['@와 .이 포함되어 있는지 확인', 'includes()로 간단히 체크'], estimatedMinutes: 4, starterCode: '// HTML: <input id="email" type="text"> <span id="msg"></span>\nconst emailInput = document.getElementById("email");\nconst msg = document.getElementById("msg");\n// TODO: input 이벤트로 이메일에 @와 .이 포함되어 있는지 실시간 검증\nemailInput.addEventListener("input", function(e) {\n  const value = e.target.value;\n  // 검증 로직\n});', solution: 'const emailInput = document.getElementById("email");\nconst msg = document.getElementById("msg");\nemailInput.addEventListener("input", function(e) {\n  const value = e.target.value;\n  if (value.includes("@") && value.includes(".")) {\n    msg.textContent = "올바른 형식";\n    msg.style.color = "green";\n  } else {\n    msg.textContent = "@와 .을 포함해야 합니다";\n    msg.style.color = "red";\n  }\n});', feedback: { perfect: '이메일 검증을 완벽하게 구현했어요!', good: '기본 검증이 잘 돼요!', partial: 'includes("@") && includes(".")로 확인하세요.', wrong: '문자열.includes()로 특정 문자가 포함되어 있는지 확인합니다.' } },
+            { id: 'c3', title: '비밀번호 길이 검증', description: '비밀번호의 최소/최대 길이를 검증하세요.', difficulty: 'medium', hints: ['value.length로 길이를 확인', '최소 8자, 최대 20자 등으로 설정'], estimatedMinutes: 5, starterCode: '// HTML: <input id="pw" type="password"> <span id="pwMsg"></span>\nconst pw = document.getElementById("pw");\nconst pwMsg = document.getElementById("pwMsg");\n// TODO: 8자 미만이면 "8자 이상 필요", 20자 초과면 "20자 이하로", 적합하면 "사용 가능"\npw.addEventListener("input", function(e) {\n  const len = e.target.value.length;\n  // 검증 로직\n});', solution: 'const pw = document.getElementById("pw");\nconst pwMsg = document.getElementById("pwMsg");\npw.addEventListener("input", function(e) {\n  const len = e.target.value.length;\n  if (len < 8) {\n    pwMsg.textContent = "8자 이상 필요 (" + len + "/8)";\n    pwMsg.style.color = "red";\n  } else if (len > 20) {\n    pwMsg.textContent = "20자 이하로 입력하세요";\n    pwMsg.style.color = "red";\n  } else {\n    pwMsg.textContent = "사용 가능 (" + len + "자)";\n    pwMsg.style.color = "green";\n  }\n});', feedback: { perfect: '비밀번호 길이 검증을 완벽하게 했어요!', good: '길이 검증이 잘 돼요!', partial: 'if/else if로 길이 범위를 체크하세요.', wrong: 'value.length로 길이를 구해 조건 분기합니다.' } },
+            { id: 'c4', title: '비밀번호 확인 일치', description: '비밀번호와 확인 입력이 일치하는지 검증하세요.', difficulty: 'medium', hints: ['두 input의 value를 비교하세요', '!== 연산자 사용'], estimatedMinutes: 6, starterCode: '// HTML: <input id="pw"> <input id="pwConfirm"> <span id="match"></span>\nconst pw = document.getElementById("pw");\nconst pwConfirm = document.getElementById("pwConfirm");\nconst match = document.getElementById("match");\n// TODO: pwConfirm 입력 시 pw와 일치하는지 실시간 확인\npwConfirm.addEventListener("input", function() {\n  // 일치 여부 표시\n});', solution: 'const pw = document.getElementById("pw");\nconst pwConfirm = document.getElementById("pwConfirm");\nconst match = document.getElementById("match");\npwConfirm.addEventListener("input", function() {\n  if (pwConfirm.value === pw.value) {\n    match.textContent = "비밀번호가 일치합니다";\n    match.style.color = "green";\n  } else {\n    match.textContent = "비밀번호가 일치하지 않습니다";\n    match.style.color = "red";\n  }\n});', feedback: { perfect: '비밀번호 일치 검증을 완벽하게 했어요!', good: '일치 확인이 잘 돼요!', partial: 'pwConfirm.value === pw.value로 비교하세요.', wrong: '두 입력 필드의 value를 === 연산자로 비교합니다.' } },
+            { id: 'c5', title: '종합 폼 유효성 검사', description: '여러 필드를 종합적으로 검증하는 폼을 만드세요.', difficulty: 'hard', hints: ['모든 필드를 검사하는 validate 함수', '모두 통과해야 제출 가능'], estimatedMinutes: 8, starterCode: '// HTML: <input id="name"> <input id="email"> <input id="age">\n// <button id="submit">가입</button> <div id="errors"></div>\n// TODO: 제출 시 모든 필드 검증: name(비어있지 않음), email(@포함), age(1-120 숫자)\nfunction validate() {\n  const errors = [];\n  // 검증 로직 - 에러가 있으면 errors 배열에 push\n  return errors;\n}\n', solution: 'function validate() {\n  const errors = [];\n  const name = document.getElementById("name").value.trim();\n  const email = document.getElementById("email").value.trim();\n  const age = parseInt(document.getElementById("age").value);\n  if (name === "") errors.push("이름을 입력하세요");\n  if (!email.includes("@")) errors.push("올바른 이메일을 입력하세요");\n  if (isNaN(age) || age < 1 || age > 120) errors.push("나이는 1-120 사이 숫자");\n  return errors;\n}\ndocument.getElementById("submit").addEventListener("click", function() {\n  const errors = validate();\n  const errDiv = document.getElementById("errors");\n  if (errors.length > 0) {\n    errDiv.innerHTML = errors.map(function(e) { return "<p style=\'color:red\'>" + e + "</p>"; }).join("");\n  } else {\n    errDiv.innerHTML = "<p style=\'color:green\'>가입 성공!</p>";\n  }\n});', feedback: { perfect: '종합 유효성 검사를 완벽하게 구현했어요!', good: '여러 필드 검증이 잘 돼요!', partial: '각 필드별 검증 조건을 추가하고 errors 배열에 push하세요.', wrong: '각 필드를 검사하여 에러 메시지를 배열에 모은 후 표시합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -5430,76 +4065,11 @@ saveAndLoadName("김코딩");`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'localStorage 핵심 이해',
-              description: 'localStorage의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['localStorage의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'localStorage 개념을 완벽하게 이해했어요!',
-                good: 'localStorage의 핵심을 잘 파악했어요!',
-                partial: 'localStorage의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'localStorage의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'localStorage 예제 분석',
-              description: 'localStorage 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'localStorage 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'localStorage 코드 수정',
-              description: '주어진 코드에서 localStorage 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'localStorage의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'localStorage 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'localStorage 직접 구현',
-              description: 'localStorage을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'localStorage의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'localStorage 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'localStorage 심화 도전',
-              description: 'localStorage을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'localStorage을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'localStorage 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '데이터 저장하기', description: 'localStorage.setItem으로 데이터를 저장하세요.', difficulty: 'easy', hints: ['localStorage.setItem("키", "값")', '문자열만 저장 가능'], estimatedMinutes: 3, starterCode: '// TODO: localStorage에 "username"이라는 키로 "홍길동"을 저장하세요\n// 저장 후 확인\nconsole.log(localStorage.getItem("username"));', solution: 'localStorage.setItem("username", "홍길동");\nconsole.log(localStorage.getItem("username")); // "홍길동"', feedback: { perfect: 'localStorage 저장을 완벽하게 했어요!', good: '데이터가 잘 저장됐어요!', partial: 'localStorage.setItem("키", "값")을 사용하세요.', wrong: 'setItem에 키와 값을 문자열로 전달합니다.' } },
+            { id: 'c2', title: '데이터 읽기와 삭제', description: 'getItem과 removeItem을 사용하세요.', difficulty: 'easy', hints: ['getItem으로 읽기, removeItem으로 삭제'], estimatedMinutes: 4, starterCode: 'localStorage.setItem("theme", "dark");\n// TODO: "theme" 값을 읽어서 출력\nconst theme = \nconsole.log(theme);\n// TODO: "theme"을 삭제\n\nconsole.log(localStorage.getItem("theme")); // null', solution: 'localStorage.setItem("theme", "dark");\nconst theme = localStorage.getItem("theme");\nconsole.log(theme); // "dark"\nlocalStorage.removeItem("theme");\nconsole.log(localStorage.getItem("theme")); // null', feedback: { perfect: '읽기와 삭제를 완벽하게 했어요!', good: '잘했어요!', partial: 'getItem으로 읽고 removeItem으로 삭제하세요.', wrong: 'getItem("키")으로 읽고, removeItem("키")으로 삭제합니다.' } },
+            { id: 'c3', title: '객체/배열 저장하기', description: 'JSON.stringify로 객체를 localStorage에 저장하세요.', difficulty: 'medium', hints: ['저장: JSON.stringify(obj)', '읽기: JSON.parse(str)'], estimatedMinutes: 5, starterCode: 'const user = { name: "홍길동", age: 15, scores: [90, 85, 92] };\n// TODO: user를 localStorage에 저장하고 다시 읽어오세요\n// 저장\n\n// 읽기\nconst loaded = \nconsole.log(loaded.name, loaded.scores);', solution: 'const user = { name: "홍길동", age: 15, scores: [90, 85, 92] };\nlocalStorage.setItem("user", JSON.stringify(user));\nconst loaded = JSON.parse(localStorage.getItem("user"));\nconsole.log(loaded.name, loaded.scores);', feedback: { perfect: 'JSON + localStorage 조합을 완벽하게 했어요!', good: '객체 저장이 잘 됐어요!', partial: 'JSON.stringify로 변환 후 저장, JSON.parse로 복원하세요.', wrong: '객체는 JSON.stringify()로 문자열로 변환해야 localStorage에 저장됩니다.' } },
+            { id: 'c4', title: '설정 저장/불러오기', description: '사용자 설정을 localStorage로 유지하세요.', difficulty: 'medium', hints: ['페이지 로드 시 저장된 설정을 불러오세요', '없으면 기본값을 사용'], estimatedMinutes: 7, starterCode: '// TODO: loadSettings()로 저장된 설정을 불러오고 (없으면 기본값)\n// saveSettings()로 현재 설정을 저장\nfunction loadSettings() {\n  const saved = localStorage.getItem("settings");\n  // TODO: saved가 있으면 파싱, 없으면 기본값 반환\n  return { theme: "light", fontSize: 14, lang: "ko" };\n}\nfunction saveSettings(settings) {\n  // TODO: settings를 localStorage에 저장\n}', solution: 'function loadSettings() {\n  const saved = localStorage.getItem("settings");\n  if (saved) {\n    return JSON.parse(saved);\n  }\n  return { theme: "light", fontSize: 14, lang: "ko" };\n}\nfunction saveSettings(settings) {\n  localStorage.setItem("settings", JSON.stringify(settings));\n}\nconst settings = loadSettings();\nsettings.theme = "dark";\nsaveSettings(settings);', feedback: { perfect: '설정 저장/불러오기를 완벽하게 구현했어요!', good: '설정 관리가 잘 돼요!', partial: 'saved가 null이면 기본값, 아니면 JSON.parse하세요.', wrong: 'getItem이 null이면 기본값 객체를 반환합니다.' } },
+            { id: 'c5', title: '장바구니 localStorage 구현', description: 'localStorage로 장바구니 추가/삭제/목록 기능을 만드세요.', difficulty: 'hard', hints: ['배열을 JSON으로 저장/불러오기', '추가/삭제 후 다시 저장'], estimatedMinutes: 8, starterCode: '// TODO: 장바구니 함수 3개 구현\nfunction getCart() {\n  // localStorage에서 cart 배열을 불러오기 (없으면 빈 배열)\n}\nfunction addToCart(item) {\n  // 장바구니에 item 추가 후 저장\n}\nfunction removeFromCart(index) {\n  // 해당 인덱스 항목 제거 후 저장\n}', solution: 'function getCart() {\n  const saved = localStorage.getItem("cart");\n  return saved ? JSON.parse(saved) : [];\n}\nfunction addToCart(item) {\n  const cart = getCart();\n  cart.push(item);\n  localStorage.setItem("cart", JSON.stringify(cart));\n}\nfunction removeFromCart(index) {\n  const cart = getCart();\n  cart.splice(index, 1);\n  localStorage.setItem("cart", JSON.stringify(cart));\n}\naddToCart("노트북");\naddToCart("마우스");\nconsole.log(getCart());', feedback: { perfect: '장바구니 CRUD를 완벽하게 구현했어요!', good: '장바구니 기능이 잘 작동해요!', partial: 'getCart에서 불러오고 push/splice 후 다시 setItem으로 저장하세요.', wrong: 'JSON.parse로 배열 불러오기 → 수정 → JSON.stringify로 다시 저장합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -5579,76 +4149,11 @@ setupDarkMode();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '다크모드 구현 핵심 이해',
-              description: '다크모드 구현의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['다크모드 구현의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '다크모드 구현 개념을 완벽하게 이해했어요!',
-                good: '다크모드 구현의 핵심을 잘 파악했어요!',
-                partial: '다크모드 구현의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '다크모드 구현의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '다크모드 구현 예제 분석',
-              description: '다크모드 구현 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '다크모드 구현 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '다크모드 구현 코드 수정',
-              description: '주어진 코드에서 다크모드 구현 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '다크모드 구현의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '다크모드 구현 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '다크모드 구현 직접 구현',
-              description: '다크모드 구현을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '다크모드 구현의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '다크모드 구현 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '다크모드 구현 심화 도전',
-              description: '다크모드 구현을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '다크모드 구현을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '다크모드 구현 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'body에 클래스 토글', description: 'body의 classList를 토글하여 다크모드를 전환하세요.', difficulty: 'easy', hints: ['document.body.classList.toggle("dark")', 'CSS에서 .dark 클래스 스타일 정의'], estimatedMinutes: 3, starterCode: '// CSS: .dark { background: #1a1a2e; color: #eee; }\n// HTML: <button id="toggleBtn">다크모드</button>\nconst toggleBtn = document.getElementById("toggleBtn");\n// TODO: 버튼 클릭 시 body에 "dark" 클래스 토글\n', solution: 'const toggleBtn = document.getElementById("toggleBtn");\ntoggleBtn.addEventListener("click", function() {\n  document.body.classList.toggle("dark");\n});', feedback: { perfect: '다크모드 토글을 완벽하게 구현했어요!', good: '클래스 토글이 잘 돼요!', partial: 'document.body.classList.toggle("dark")를 사용하세요.', wrong: 'body의 classList.toggle("dark")로 다크/라이트 모드를 전환합니다.' } },
+            { id: 'c2', title: '버튼 텍스트 변경', description: '다크모드 상태에 따라 버튼 텍스트를 변경하세요.', difficulty: 'easy', hints: ['classList.contains("dark")로 현재 상태 확인', '삼항연산자로 텍스트 결정'], estimatedMinutes: 4, starterCode: '// HTML: <button id="btn">다크모드 켜기</button>\nconst btn = document.getElementById("btn");\n// TODO: 클릭 시 토글 후, 현재 상태에 따라 버튼 텍스트 변경\nbtn.addEventListener("click", function() {\n  document.body.classList.toggle("dark");\n  // 버튼 텍스트 업데이트\n});', solution: 'const btn = document.getElementById("btn");\nbtn.addEventListener("click", function() {\n  document.body.classList.toggle("dark");\n  const isDark = document.body.classList.contains("dark");\n  btn.textContent = isDark ? "라이트모드 켜기" : "다크모드 켜기";\n});', feedback: { perfect: '상태에 따른 텍스트 변경을 완벽하게 했어요!', good: '텍스트가 잘 바뀌어요!', partial: 'contains("dark")로 현재 상태를 확인하세요.', wrong: 'toggle 후 contains로 현재 상태를 확인하여 텍스트를 결정합니다.' } },
+            { id: 'c3', title: 'localStorage로 설정 저장', description: '다크모드 설정을 localStorage에 저장하세요.', difficulty: 'medium', hints: ['localStorage.setItem("darkMode", "true/false")', '페이지 로드 시 저장된 설정 적용'], estimatedMinutes: 6, starterCode: '// TODO: 페이지 로드 시 저장된 다크모드 설정을 적용하고\n// 토글할 때마다 설정을 저장하세요\nconst btn = document.getElementById("btn");\n// 페이지 로드 시 설정 적용\nconst savedMode = localStorage.getItem("darkMode");\n// TODO: savedMode가 "true"이면 dark 클래스 추가\n\nbtn.addEventListener("click", function() {\n  document.body.classList.toggle("dark");\n  // TODO: 현재 상태를 localStorage에 저장\n});', solution: 'const btn = document.getElementById("btn");\nconst savedMode = localStorage.getItem("darkMode");\nif (savedMode === "true") {\n  document.body.classList.add("dark");\n}\nbtn.addEventListener("click", function() {\n  document.body.classList.toggle("dark");\n  const isDark = document.body.classList.contains("dark");\n  localStorage.setItem("darkMode", isDark);\n});', feedback: { perfect: '다크모드 설정 저장까지 완벽하게 구현했어요!', good: '설정이 잘 저장돼요!', partial: 'localStorage에 "true"/"false"를 저장하고 로드 시 확인하세요.', wrong: 'setItem으로 저장, getItem으로 불러와 적용합니다.' } },
+            { id: 'c4', title: 'CSS 변수로 테마 구현', description: 'CSS 커스텀 속성(변수)을 JS로 변경하여 테마를 구현하세요.', difficulty: 'medium', hints: ['document.documentElement.style.setProperty("--변수", "값")', 'CSS 변수: var(--변수명)'], estimatedMinutes: 7, starterCode: '// CSS: :root { --bg: #fff; --text: #333; --primary: #3498db; }\n//       body { background: var(--bg); color: var(--text); }\n// TODO: 다크모드 시 CSS 변수를 변경하세요\nconst root = document.documentElement;\nfunction setDarkTheme() {\n  // CSS 변수 변경\n}\nfunction setLightTheme() {\n  // CSS 변수 원래대로\n}', solution: 'const root = document.documentElement;\nfunction setDarkTheme() {\n  root.style.setProperty("--bg", "#1a1a2e");\n  root.style.setProperty("--text", "#eee");\n  root.style.setProperty("--primary", "#e94560");\n}\nfunction setLightTheme() {\n  root.style.setProperty("--bg", "#fff");\n  root.style.setProperty("--text", "#333");\n  root.style.setProperty("--primary", "#3498db");\n}', feedback: { perfect: 'CSS 변수로 테마 전환을 완벽하게 구현했어요!', good: 'CSS 변수 활용이 훌륭해요!', partial: 'setProperty("--변수명", "값")으로 CSS 변수를 변경하세요.', wrong: 'document.documentElement.style.setProperty로 CSS 커스텀 속성을 변경합니다.' } },
+            { id: 'c5', title: '시스템 다크모드 감지', description: 'matchMedia로 시스템 다크모드 설정을 감지하세요.', difficulty: 'hard', hints: ['window.matchMedia("(prefers-color-scheme: dark)")', '.matches로 현재 상태 확인'], estimatedMinutes: 8, starterCode: '// TODO: 시스템 다크모드 감지하여 자동 적용\n// 1. 현재 시스템 설정 확인\n// 2. 설정 변경 시 자동 반응\nconst darkQuery = window.matchMedia("(prefers-color-scheme: dark)");\n// TODO: 현재 시스템 설정에 따라 적용\n// TODO: 시스템 설정 변경 감지\n', solution: 'const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");\nif (darkQuery.matches) {\n  document.body.classList.add("dark");\n}\ndarkQuery.addEventListener("change", function(e) {\n  if (e.matches) {\n    document.body.classList.add("dark");\n  } else {\n    document.body.classList.remove("dark");\n  }\n});', feedback: { perfect: '시스템 다크모드 감지를 완벽하게 구현했어요!', good: '시스템 설정 연동이 잘 돼요!', partial: 'darkQuery.matches로 현재 상태, "change" 이벤트로 변경을 감지하세요.', wrong: 'matchMedia의 matches 속성과 change 이벤트를 사용합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -5738,76 +4243,11 @@ setupTodoApp();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Todo 앱 - CRUD의 C 핵심 이해',
-              description: 'Todo 앱 - CRUD의 C의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Todo 앱 - CRUD의 C의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Todo 앱 - CRUD의 C 개념을 완벽하게 이해했어요!',
-                good: 'Todo 앱 - CRUD의 C의 핵심을 잘 파악했어요!',
-                partial: 'Todo 앱 - CRUD의 C의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Todo 앱 - CRUD의 C의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Todo 앱 - CRUD의 C 예제 분석',
-              description: 'Todo 앱 - CRUD의 C 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Todo 앱 - CRUD의 C 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Todo 앱 - CRUD의 C 코드 수정',
-              description: '주어진 코드에서 Todo 앱 - CRUD의 C 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Todo 앱 - CRUD의 C의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Todo 앱 - CRUD의 C 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Todo 앱 - CRUD의 C 직접 구현',
-              description: 'Todo 앱 - CRUD의 C을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Todo 앱 - CRUD의 C의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Todo 앱 - CRUD의 C 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Todo 앱 - CRUD의 C 심화 도전',
-              description: 'Todo 앱 - CRUD의 C을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Todo 앱 - CRUD의 C을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Todo 앱 - CRUD의 C 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'input에서 값 읽기', description: 'input 요소의 값을 읽어 배열에 추가하세요.', difficulty: 'easy', hints: ['input.value로 현재 입력값 읽기', 'push로 배열에 추가'], estimatedMinutes: 3, starterCode: '// HTML: <input id="todoInput"> <button id="addBtn">추가</button>\nconst todos = [];\nconst input = document.getElementById("todoInput");\nconst addBtn = document.getElementById("addBtn");\n// TODO: 추가 버튼 클릭 시 input 값을 todos에 push하고 input 비우기\naddBtn.addEventListener("click", function() {\n  // 구현\n});', solution: 'const todos = [];\nconst input = document.getElementById("todoInput");\nconst addBtn = document.getElementById("addBtn");\naddBtn.addEventListener("click", function() {\n  if (input.value.trim() !== "") {\n    todos.push(input.value);\n    input.value = "";\n    console.log(todos);\n  }\n});', feedback: { perfect: 'Todo 추가(Create)를 완벽하게 구현했어요!', good: 'input 값 읽기가 잘 돼요!', partial: 'input.value로 값을 읽고 push 후 value를 비우세요.', wrong: 'todos.push(input.value) 후 input.value = ""로 초기화합니다.' } },
+            { id: 'c2', title: 'Todo 목록 렌더링', description: '배열을 화면에 리스트로 렌더링하세요.', difficulty: 'easy', hints: ['innerHTML로 리스트 생성', 'map + join 패턴 사용'], estimatedMinutes: 4, starterCode: '// HTML: <ul id="todoList"></ul>\nconst todos = ["공부하기", "운동하기", "독서하기"];\nconst list = document.getElementById("todoList");\n// TODO: render 함수를 완성하여 todos를 <li>로 표시\nfunction render() {\n  list.innerHTML = // todos를 <li>로 변환\n}\nrender();', solution: 'const todos = ["공부하기", "운동하기", "독서하기"];\nconst list = document.getElementById("todoList");\nfunction render() {\n  list.innerHTML = todos.map(function(todo) {\n    return "<li>" + todo + "</li>";\n  }).join("");\n}\nrender();', feedback: { perfect: 'Todo 렌더링을 완벽하게 구현했어요!', good: '목록이 잘 표시돼요!', partial: 'map으로 <li> 태그를 만들고 join("")으로 합치세요.', wrong: 'todos.map(t => "<li>" + t + "</li>").join("")을 innerHTML에 설정합니다.' } },
+            { id: 'c3', title: '추가 + 렌더링 연결', description: 'Todo 추가 후 자동으로 화면을 갱신하세요.', difficulty: 'medium', hints: ['push 후 render() 호출', 'render 함수가 전체를 다시 그림'], estimatedMinutes: 5, starterCode: '// HTML: <input id="input"> <button id="add">추가</button> <ul id="list"></ul>\nconst todos = [];\nfunction render() {\n  document.getElementById("list").innerHTML = todos.map(function(t) {\n    return "<li>" + t + "</li>";\n  }).join("");\n}\n// TODO: 추가 버튼 클릭 시 값 추가하고 render() 호출\ndocument.getElementById("add").addEventListener("click", function() {\n  // 구현\n});', solution: 'const todos = [];\nfunction render() {\n  document.getElementById("list").innerHTML = todos.map(function(t) {\n    return "<li>" + t + "</li>";\n  }).join("");\n}\ndocument.getElementById("add").addEventListener("click", function() {\n  const input = document.getElementById("input");\n  if (input.value.trim() !== "") {\n    todos.push(input.value);\n    input.value = "";\n    render();\n  }\n});', feedback: { perfect: '추가 후 렌더링까지 완벽하게 연결했어요!', good: '추가와 렌더링이 잘 연동돼요!', partial: 'push 후에 render()를 호출하세요.', wrong: 'todos.push(값) 후 render()를 호출하면 화면이 갱신됩니다.' } },
+            { id: 'c4', title: 'Enter 키로 추가', description: 'Enter 키를 눌러도 Todo가 추가되도록 구현하세요.', difficulty: 'medium', hints: ['keydown 또는 keyup 이벤트 사용', 'event.key === "Enter" 확인'], estimatedMinutes: 6, starterCode: '// HTML: <input id="input"> <button id="add">추가</button>\nconst todos = [];\nfunction addTodo() {\n  const input = document.getElementById("input");\n  if (input.value.trim() !== "") {\n    todos.push(input.value);\n    input.value = "";\n    console.log(todos);\n  }\n}\n// 버튼 클릭으로 추가\ndocument.getElementById("add").addEventListener("click", addTodo);\n// TODO: Enter 키로도 추가\n', solution: 'const todos = [];\nfunction addTodo() {\n  const input = document.getElementById("input");\n  if (input.value.trim() !== "") {\n    todos.push(input.value);\n    input.value = "";\n    console.log(todos);\n  }\n}\ndocument.getElementById("add").addEventListener("click", addTodo);\ndocument.getElementById("input").addEventListener("keydown", function(e) {\n  if (e.key === "Enter") {\n    addTodo();\n  }\n});', feedback: { perfect: 'Enter 키 이벤트를 완벽하게 추가했어요!', good: 'Enter 키가 잘 동작해요!', partial: 'keydown 이벤트에서 e.key === "Enter"를 확인하세요.', wrong: 'addEventListener("keydown", function(e) { if (e.key === "Enter") addTodo() })' } },
+            { id: 'c5', title: '빈 값 방지 + 중복 방지', description: '빈 값과 중복된 Todo를 방지하는 로직을 추가하세요.', difficulty: 'hard', hints: ['trim()으로 빈값 체크', 'includes()로 중복 체크'], estimatedMinutes: 8, starterCode: 'const todos = ["공부하기"];\nfunction addTodo(text) {\n  // TODO: 빈 값이면 "할 일을 입력하세요" 경고\n  // TODO: 이미 있는 항목이면 "이미 있는 항목입니다" 경고\n  // TODO: 통과하면 추가\n}\naddTodo(""); // 빈값\naddTodo("공부하기"); // 중복\naddTodo("운동하기"); // 정상 추가', solution: 'const todos = ["공부하기"];\nfunction addTodo(text) {\n  const trimmed = text.trim();\n  if (trimmed === "") {\n    console.log("할 일을 입력하세요");\n    return;\n  }\n  if (todos.includes(trimmed)) {\n    console.log("이미 있는 항목입니다");\n    return;\n  }\n  todos.push(trimmed);\n  console.log("추가됨:", trimmed, todos);\n}\naddTodo(""); // 빈값\naddTodo("공부하기"); // 중복\naddTodo("운동하기"); // 정상 추가', feedback: { perfect: '빈값 + 중복 방지를 완벽하게 구현했어요!', good: '검증 로직이 잘 작동해요!', partial: 'trim()과 includes()로 각각 체크 후 early return하세요.', wrong: '먼저 trim()으로 빈값 확인, includes()로 중복 확인 후 추가합니다.' } }
           ],
           unlocked: true,
           completed: false,
@@ -5901,76 +4341,11 @@ setupTodoAppWithDelete();`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Todo 앱 - CRUD의 D 핵심 이해',
-              description: 'Todo 앱 - CRUD의 D의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Todo 앱 - CRUD의 D의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Todo 앱 - CRUD의 D 개념을 완벽하게 이해했어요!',
-                good: 'Todo 앱 - CRUD의 D의 핵심을 잘 파악했어요!',
-                partial: 'Todo 앱 - CRUD의 D의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Todo 앱 - CRUD의 D의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Todo 앱 - CRUD의 D 예제 분석',
-              description: 'Todo 앱 - CRUD의 D 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Todo 앱 - CRUD의 D 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Todo 앱 - CRUD의 D 코드 수정',
-              description: '주어진 코드에서 Todo 앱 - CRUD의 D 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Todo 앱 - CRUD의 D의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Todo 앱 - CRUD의 D 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Todo 앱 - CRUD의 D 직접 구현',
-              description: 'Todo 앱 - CRUD의 D을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Todo 앱 - CRUD의 D의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Todo 앱 - CRUD의 D 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Todo 앱 - CRUD의 D 심화 도전',
-              description: 'Todo 앱 - CRUD의 D을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Todo 앱 - CRUD의 D을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Todo 앱 - CRUD의 D 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: 'splice로 배열 항목 삭제', description: 'splice를 사용하여 배열에서 특정 인덱스의 항목을 삭제하세요.', difficulty: 'easy', hints: ['arr.splice(index, 1)로 1개 삭제', '인덱스를 정확히 지정하세요'], estimatedMinutes: 3, starterCode: 'const todos = ["공부", "운동", "독서", "코딩"];\n// TODO: 인덱스 1의 항목("운동")을 삭제\n\nconsole.log(todos); // ["공부", "독서", "코딩"]', solution: 'const todos = ["공부", "운동", "독서", "코딩"];\ntodos.splice(1, 1);\nconsole.log(todos); // ["공부", "독서", "코딩"]', feedback: { perfect: 'splice 삭제를 완벽하게 이해했어요!', good: '삭제가 잘 됐어요!', partial: 'splice(인덱스, 삭제할개수)를 사용하세요.', wrong: 'arr.splice(1, 1)은 인덱스 1에서 1개를 삭제합니다.' } },
+            { id: 'c2', title: 'filter로 항목 삭제', description: 'filter를 사용하여 불변적으로 항목을 제거하세요.', difficulty: 'easy', hints: ['filter는 원본을 변경하지 않고 새 배열 반환', '삭제할 항목을 제외하는 조건'], estimatedMinutes: 4, starterCode: 'const todos = ["공부", "운동", "독서", "코딩"];\n// TODO: "운동"을 제외한 새 배열 만들기 (filter 사용)\nconst newTodos = \nconsole.log(newTodos); // ["공부", "독서", "코딩"]\nconsole.log(todos); // 원본 유지: ["공부", "운동", "독서", "코딩"]', solution: 'const todos = ["공부", "운동", "독서", "코딩"];\nconst newTodos = todos.filter(function(t) { return t !== "운동"; });\nconsole.log(newTodos); // ["공부", "독서", "코딩"]\nconsole.log(todos); // ["공부", "운동", "독서", "코딩"]', feedback: { perfect: 'filter로 불변 삭제를 완벽하게 했어요!', good: 'filter 사용이 잘 됐어요!', partial: 'filter(t => t !== "삭제할값")으로 제외하세요.', wrong: 'filter는 조건에 맞는 것만 남긴 새 배열을 반환합니다.' } },
+            { id: 'c3', title: '삭제 버튼으로 Todo 삭제', description: '각 Todo 항목에 삭제 버튼을 추가하고 클릭 시 삭제하세요.', difficulty: 'medium', hints: ['각 li에 data-index 속성으로 인덱스 저장', '삭제 후 render() 호출'], estimatedMinutes: 6, starterCode: 'let todos = ["공부", "운동", "독서"];\nconst list = document.getElementById("list");\nfunction render() {\n  list.innerHTML = todos.map(function(todo, i) {\n    return "<li>" + todo + " <button onclick=\'deleteTodo(" + i + ")\'>삭제</button></li>";\n  }).join("");\n}\n// TODO: deleteTodo 함수 구현 - 해당 인덱스의 항목 삭제 후 render\nfunction deleteTodo(index) {\n  // 구현\n}\nrender();', solution: 'let todos = ["공부", "운동", "독서"];\nconst list = document.getElementById("list");\nfunction render() {\n  list.innerHTML = todos.map(function(todo, i) {\n    return "<li>" + todo + " <button onclick=\'deleteTodo(" + i + ")\'>삭제</button></li>";\n  }).join("");\n}\nfunction deleteTodo(index) {\n  todos.splice(index, 1);\n  render();\n}\nrender();', feedback: { perfect: 'Todo 삭제를 완벽하게 구현했어요!', good: '삭제 기능이 잘 작동해요!', partial: 'splice로 삭제 후 render()를 호출하세요.', wrong: 'todos.splice(index, 1)로 삭제하고 render()로 화면을 갱신합니다.' } },
+            { id: 'c4', title: '삭제 확인 대화상자', description: '삭제 전에 확인 대화상자를 표시하세요.', difficulty: 'medium', hints: ['confirm()은 확인/취소 대화상자 표시', 'true이면 삭제 진행'], estimatedMinutes: 5, starterCode: 'let todos = ["공부", "운동", "독서"];\n// TODO: confirm으로 확인 후 삭제하는 함수\nfunction deleteTodo(index) {\n  // confirm 대화상자 표시 후 확인 시에만 삭제\n}\ndeleteTodo(1); // "운동을 삭제할까요?" 확인 후 삭제', solution: 'let todos = ["공부", "운동", "독서"];\nfunction deleteTodo(index) {\n  if (confirm(todos[index] + "을(를) 삭제할까요?")) {\n    todos.splice(index, 1);\n    console.log("삭제됨:", todos);\n  } else {\n    console.log("삭제 취소");\n  }\n}\ndeleteTodo(1);', feedback: { perfect: '삭제 확인 기능을 완벽하게 추가했어요!', good: '확인 대화상자가 잘 작동해요!', partial: 'confirm()의 반환값(true/false)으로 분기하세요.', wrong: 'if (confirm("메시지")) { 삭제 진행 }으로 확인을 받습니다.' } },
+            { id: 'c5', title: '전체 삭제 + 개별 삭제', description: '개별 삭제와 전체 삭제 기능을 모두 구현하세요.', difficulty: 'hard', hints: ['전체 삭제: 배열을 비우기', '개별 삭제: splice + render'], estimatedMinutes: 8, starterCode: '// HTML: <button id="clearAll">전체 삭제</button> <ul id="list"></ul>\nlet todos = ["공부", "운동", "독서", "코딩"];\nconst list = document.getElementById("list");\nfunction render() {\n  list.innerHTML = todos.map(function(t, i) {\n    return "<li>" + t + " <button onclick=\'deleteTodo(" + i + ")\'>X</button></li>";\n  }).join("");\n}\n// TODO: 개별 삭제 함수\nfunction deleteTodo(index) {\n}\n// TODO: 전체 삭제 - clearAll 버튼에 이벤트 연결\n\nrender();', solution: 'let todos = ["공부", "운동", "독서", "코딩"];\nconst list = document.getElementById("list");\nfunction render() {\n  list.innerHTML = todos.map(function(t, i) {\n    return "<li>" + t + " <button onclick=\'deleteTodo(" + i + ")\'>X</button></li>";\n  }).join("");\n}\nfunction deleteTodo(index) {\n  todos.splice(index, 1);\n  render();\n}\ndocument.getElementById("clearAll").addEventListener("click", function() {\n  if (confirm("모두 삭제할까요?")) {\n    todos = [];\n    render();\n  }\n});\nrender();', feedback: { perfect: '개별 + 전체 삭제를 완벽하게 구현했어요!', good: '두 가지 삭제 모두 잘 작동해요!', partial: '전체 삭제는 todos = []로 배열을 비우고 render()하세요.', wrong: '개별은 splice, 전체는 빈 배열 대입 후 render()를 호출합니다.' } }
           ],
           unlocked: true,
           completed: false,

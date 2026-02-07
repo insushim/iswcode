@@ -2017,187 +2017,198 @@ export const unit8: Unit = {
             { input: '색상 변화', expectedOutput: '부드러운 그라데이션', description: '시각적 품질' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "스크린세이버의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 스크린세이버 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '랜덤 별 배경 그리기',
+              description: '캔버스에 랜덤 위치와 크기의 별(원)을 100개 그려서 밤하늘 배경을 만드세요.',
+              difficulty: 'easy',
+              hints: ['Math.random()으로 x, y, 반지름을 랜덤 생성하세요', 'for문으로 100번 반복하세요', 'arc()로 원을 그리고 fillStyle로 색상을 지정하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'ctx.fillStyle = "black";\n' +
+                'ctx.fillRect(0, 0, 400, 400);\n\n' +
+                'for (var i = 0; i < 100; i++) {\n' +
+                '  var x = ___;  // 0~400 랜덤\n' +
+                '  var y = ___;  // 0~400 랜덤\n' +
+                '  var r = ___;  // 1~3 랜덤\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, r, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "white";\n' +
+                '  ctx.fill();\n' +
+                '}',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'ctx.fillStyle = "black";\n' +
+                'ctx.fillRect(0, 0, 400, 400);\n\n' +
+                'for (var i = 0; i < 100; i++) {\n' +
+                '  var x = Math.random() * 400;\n' +
+                '  var y = Math.random() * 400;\n' +
+                '  var r = Math.random() * 2 + 1;\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, r, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "white";\n' +
+                '  ctx.fill();\n' +
+                '}',
+              feedback: { perfect: '아름다운 밤하늘을 만들었어요! 랜덤과 반복문을 잘 활용했어요!', good: '별이 잘 그려졌어요! 크기 범위를 조금 더 조정해보세요.', partial: '별이 그려지긴 하는데 위치나 크기가 고정되어 있어요.', wrong: 'Math.random() * 400으로 랜덤 좌표를, Math.random() * 2 + 1로 크기를 만드세요.' }
+            },
+            {
+              id: 'c2',
+              title: '떠다니는 원 애니메이션',
+              description: '원이 화면을 가로로 이동하고, 오른쪽 끝에 도달하면 왼쪽에서 다시 나타나는 애니메이션을 만드세요.',
+              difficulty: 'easy',
+              hints: ['x 좌표를 매 프레임 증가시키세요', 'x가 캔버스 너비를 넘으면 0으로 초기화하세요', 'requestAnimationFrame으로 반복하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 0, y = 200, speed = 2;\n\n' +
+                'function animate() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, 20, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "cyan";\n' +
+                '  ctx.fill();\n' +
+                '  // TODO: x를 speed만큼 이동\n' +
+                '  // TODO: x > 420이면 -20으로 리셋\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 0, y = 200, speed = 2;\n\n' +
+                'function animate() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, 20, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "cyan";\n' +
+                '  ctx.fill();\n' +
+                '  x += speed;\n' +
+                '  if (x > 420) x = -20;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              feedback: { perfect: '부드러운 애니메이션이에요! 스크린세이버의 기본 원리를 마스터했어요!', good: '원이 움직여요! 경계 처리를 조금 더 다듬어보세요.', partial: '원은 보이지만 움직이지 않아요. x += speed를 추가하세요.', wrong: 'x += speed로 이동시키고, if (x > 420) x = -20으로 되감기 하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '색상이 변하는 원',
+              description: 'hsl 색상을 프레임마다 변경하여 무지개처럼 색이 바뀌는 원을 만드세요.',
+              difficulty: 'medium',
+              hints: ['hue 값(0~360)을 매 프레임 1씩 증가시키세요', 'hsl(hue, 80%, 50%) 형식으로 색상을 지정하세요', 'hue가 360을 넘으면 0으로 리셋하세요'],
+              estimatedMinutes: 6,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var hue = 0;\n\n' +
+                'function animate() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(200, 200, 80, 0, Math.PI * 2);\n' +
+                '  // TODO: hsl 색상으로 fillStyle 설정\n' +
+                '  ctx.fill();\n' +
+                '  // TODO: hue를 1 증가, 360 넘으면 0으로\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var hue = 0;\n\n' +
+                'function animate() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(200, 200, 80, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "hsl(" + hue + ", 80%, 50%)";\n' +
+                '  ctx.fill();\n' +
+                '  hue = (hue + 1) % 360;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              feedback: { perfect: '무지개 원을 완벽하게 만들었어요! HSL 색상 모델을 잘 활용했어요!', good: '색이 변해요! hue 범위 처리를 확인해보세요.', partial: '원은 보이지만 색이 변하지 않아요. hue 값을 증가시키세요.', wrong: 'ctx.fillStyle = "hsl(" + hue + ", 80%, 50%)"로 색상을 지정하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '바운스하는 공 스크린세이버',
+              description: '공이 벽에 부딪히면 튕기는 스크린세이버를 만드세요.',
+              difficulty: 'medium',
+              hints: ['dx, dy로 속도를 관리하세요', '벽에 닿으면 해당 방향의 속도를 -1 곱하세요', '공의 반지름도 경계 계산에 포함하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 200, y = 200, r = 15;\n' +
+                'var dx = 3, dy = 2;\n\n' +
+                'function animate() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, r, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "lime";\n' +
+                '  ctx.fill();\n' +
+                '  x += dx; y += dy;\n' +
+                '  // TODO: x가 벽에 닿으면 dx 반전\n' +
+                '  // TODO: y가 벽에 닿으면 dy 반전\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 200, y = 200, r = 15;\n' +
+                'var dx = 3, dy = 2;\n\n' +
+                'function animate() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, r, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "lime";\n' +
+                '  ctx.fill();\n' +
+                '  x += dx; y += dy;\n' +
+                '  if (x + r > 400 || x - r < 0) dx = -dx;\n' +
+                '  if (y + r > 400 || y - r < 0) dy = -dy;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              feedback: { perfect: 'DVD 로고처럼 완벽하게 바운스해요! 경계 처리를 정확하게 했어요!', good: '공이 튕겨요! 반지름을 경계 계산에 포함하면 더 자연스러워요.', partial: '공이 움직이지만 벽에서 멈추거나 사라져요.', wrong: 'if (x+r > 400 || x-r < 0) dx = -dx; 로 벽 충돌 시 방향을 반전하세요.' }
+            },
+            {
+              id: 'c5',
+              title: '궤적을 남기는 스크린세이버',
+              description: '바운스하는 공이 궤적(trail)을 남기도록 만드세요. 배경을 반투명하게 덮어서 페이드 효과를 만듭니다.',
+              difficulty: 'hard',
+              hints: ['clearRect 대신 반투명 배경을 그리세요', 'rgba(0,0,0,0.05)로 서서히 지워지게 하세요', '색상도 hue로 변하게 하면 더 아름다워요'],
+              estimatedMinutes: 8,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 200, y = 200, r = 10;\n' +
+                'var dx = 4, dy = 3, hue = 0;\n\n' +
+                'function animate() {\n' +
+                '  // TODO: 반투명 검정 배경으로 페이드 효과\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, r, 0, Math.PI * 2);\n' +
+                '  // TODO: hsl 색상 설정\n' +
+                '  ctx.fill();\n' +
+                '  x += dx; y += dy;\n' +
+                '  if (x+r > 400 || x-r < 0) dx = -dx;\n' +
+                '  if (y+r > 400 || y-r < 0) dy = -dy;\n' +
+                '  // TODO: hue 증가\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 200, y = 200, r = 10;\n' +
+                'var dx = 4, dy = 3, hue = 0;\n\n' +
+                'function animate() {\n' +
+                '  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(x, y, r, 0, Math.PI * 2);\n' +
+                '  ctx.fillStyle = "hsl(" + hue + ", 100%, 60%)";\n' +
+                '  ctx.fill();\n' +
+                '  x += dx; y += dy;\n' +
+                '  if (x+r > 400 || x-r < 0) dx = -dx;\n' +
+                '  if (y+r > 400 || y-r < 0) dy = -dy;\n' +
+                '  hue = (hue + 2) % 360;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              feedback: { perfect: '환상적인 궤적 스크린세이버에요! 페이드 효과와 색상 변화가 아름다워요!', good: '궤적이 보여요! 페이드 속도를 조정해서 더 예쁘게 만들어보세요.', partial: '공은 움직이지만 궤적이 남지 않아요. 반투명 배경을 사용하세요.', wrong: 'clearRect 대신 rgba(0,0,0,0.05)로 fillRect하면 이전 프레임이 서서히 사라져요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -2238,187 +2249,230 @@ export const unit8: Unit = {
             { input: '사용자 반응', expectedOutput: '흥미로운 비주얼', description: '창의성 평가' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "종합 작품의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 종합 작품 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '파티클 객체 생성 함수',
+              description: '위치, 속도, 색상, 수명을 가진 파티클 객체를 생성하는 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['객체에 x, y, vx, vy, life 속성을 넣으세요', 'life는 1.0에서 시작하여 점점 줄어들어요', '색상은 hsl로 랜덤하게 지정하세요'],
+              estimatedMinutes: 4,
+              starterCode: 'function createParticle(x, y) {\n' +
+                '  return {\n' +
+                '    x: x, y: y,\n' +
+                '    vx: ___,  // -2 ~ 2 랜덤\n' +
+                '    vy: ___,  // -2 ~ 2 랜덤\n' +
+                '    life: ___,\n' +
+                '    color: "hsl(" + Math.floor(Math.random()*360) + ",80%,60%)"\n' +
+                '  };\n' +
+                '}',
+              solution: 'function createParticle(x, y) {\n' +
+                '  return {\n' +
+                '    x: x, y: y,\n' +
+                '    vx: (Math.random() - 0.5) * 4,\n' +
+                '    vy: (Math.random() - 0.5) * 4,\n' +
+                '    life: 1.0,\n' +
+                '    color: "hsl(" + Math.floor(Math.random()*360) + ",80%,60%)"\n' +
+                '  };\n' +
+                '}',
+              feedback: { perfect: '파티클 객체를 완벽하게 설계했어요!', good: '잘 만들었어요! 속도 범위를 확인해보세요.', partial: '객체는 만들었지만 랜덤 속도가 없어요.', wrong: '(Math.random() - 0.5) * 4로 -2~2 사이 랜덤 속도를 만드세요.' }
+            },
+            {
+              id: 'c2',
+              title: '파티클 배열 관리',
+              description: '파티클 배열에 추가하고 수명이 끝난 파티클을 제거하는 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['push로 추가, filter로 제거하세요', 'life > 0인 파티클만 남기세요', '매 프레임 life를 0.02씩 감소시키세요'],
+              estimatedMinutes: 5,
+              starterCode: 'var particles = [];\n\n' +
+                'function addParticles(x, y, count) {\n' +
+                '  for (var i = 0; i < count; i++) {\n' +
+                '    // TODO: createParticle 결과를 push\n' +
+                '  }\n' +
+                '}\n\n' +
+                'function updateParticles() {\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    particles[i].x += particles[i].vx;\n' +
+                '    particles[i].y += particles[i].vy;\n' +
+                '    // TODO: life 감소\n' +
+                '  }\n' +
+                '  // TODO: 살아있는 파티클만 남기기\n' +
+                '}',
+              solution: 'var particles = [];\n\n' +
+                'function addParticles(x, y, count) {\n' +
+                '  for (var i = 0; i < count; i++) {\n' +
+                '    particles.push(createParticle(x, y));\n' +
+                '  }\n' +
+                '}\n\n' +
+                'function updateParticles() {\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    particles[i].x += particles[i].vx;\n' +
+                '    particles[i].y += particles[i].vy;\n' +
+                '    particles[i].life -= 0.02;\n' +
+                '  }\n' +
+                '  particles = particles.filter(function(p) { return p.life > 0; });\n' +
+                '}',
+              feedback: { perfect: '파티클 배열을 완벽하게 관리해요!', good: '잘했어요! 제거 로직을 확인해보세요.', partial: '추가는 되지만 제거가 안 돼요.', wrong: 'filter(function(p) { return p.life > 0; })로 죽은 파티클을 제거하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '마우스 따라다니는 파티클',
+              description: '마우스 위치에서 파티클이 생성되고 사라지는 인터랙티브 효과를 만드세요.',
+              difficulty: 'medium',
+              hints: ['mousemove 이벤트로 마우스 좌표를 얻으세요', '매 프레임 마우스 위치에 파티클 생성', 'life를 투명도로 사용하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var mouseX = 200, mouseY = 200;\n\n' +
+                'canvas.addEventListener("mousemove", function(e) {\n' +
+                '  // TODO: 마우스 좌표 저장\n' +
+                '});\n\n' +
+                'function animate() {\n' +
+                '  ctx.fillStyle = "rgba(0,0,0,0.1)";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  addParticles(mouseX, mouseY, 3);\n' +
+                '  updateParticles();\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    var p = particles[i];\n' +
+                '    ctx.globalAlpha = p.life;\n' +
+                '    ctx.beginPath();\n' +
+                '    ctx.arc(p.x, p.y, 3, 0, Math.PI*2);\n' +
+                '    ctx.fillStyle = p.color;\n' +
+                '    ctx.fill();\n' +
+                '  }\n' +
+                '  ctx.globalAlpha = 1;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var mouseX = 200, mouseY = 200;\n\n' +
+                'canvas.addEventListener("mousemove", function(e) {\n' +
+                '  mouseX = e.offsetX;\n' +
+                '  mouseY = e.offsetY;\n' +
+                '});\n\n' +
+                'function animate() {\n' +
+                '  ctx.fillStyle = "rgba(0,0,0,0.1)";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  addParticles(mouseX, mouseY, 3);\n' +
+                '  updateParticles();\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    var p = particles[i];\n' +
+                '    ctx.globalAlpha = p.life;\n' +
+                '    ctx.beginPath();\n' +
+                '    ctx.arc(p.x, p.y, 3, 0, Math.PI*2);\n' +
+                '    ctx.fillStyle = p.color;\n' +
+                '    ctx.fill();\n' +
+                '  }\n' +
+                '  ctx.globalAlpha = 1;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              feedback: { perfect: '아름다운 마우스 파티클 효과에요!', good: '파티클이 잘 보여요! 마우스 추적을 확인하세요.', partial: '파티클은 보이지만 마우스를 따라가지 않아요.', wrong: 'mouseX = e.offsetX; mouseY = e.offsetY;로 좌표를 업데이트하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '중력 파티클 분수',
+              description: '위로 발사된 파티클이 중력에 의해 떨어지는 분수 효과를 만드세요.',
+              difficulty: 'medium',
+              hints: ['vy에 매 프레임 중력값(0.05)을 더하세요', '초기 vy는 음수(위쪽)로 설정하세요', '하단 중앙에서 생성하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'function createFountainParticle() {\n' +
+                '  return {\n' +
+                '    x: 200, y: 380,\n' +
+                '    vx: (Math.random() - 0.5) * 3,\n' +
+                '    vy: ___,  // -4 ~ -2 (위쪽)\n' +
+                '    life: 1.0,\n' +
+                '    color: "hsl(" + Math.floor(Math.random()*60+180) + ",90%,60%)"\n' +
+                '  };\n' +
+                '}\n\n' +
+                'function updateFountain() {\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    particles[i].x += particles[i].vx;\n' +
+                '    particles[i].y += particles[i].vy;\n' +
+                '    // TODO: 중력 적용\n' +
+                '    particles[i].life -= 0.01;\n' +
+                '  }\n' +
+                '  particles = particles.filter(function(p) { return p.life > 0; });\n' +
+                '}',
+              solution: 'function createFountainParticle() {\n' +
+                '  return {\n' +
+                '    x: 200, y: 380,\n' +
+                '    vx: (Math.random() - 0.5) * 3,\n' +
+                '    vy: -Math.random() * 2 - 2,\n' +
+                '    life: 1.0,\n' +
+                '    color: "hsl(" + Math.floor(Math.random()*60+180) + ",90%,60%)"\n' +
+                '  };\n' +
+                '}\n\n' +
+                'function updateFountain() {\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    particles[i].x += particles[i].vx;\n' +
+                '    particles[i].y += particles[i].vy;\n' +
+                '    particles[i].vy += 0.05;\n' +
+                '    particles[i].life -= 0.01;\n' +
+                '  }\n' +
+                '  particles = particles.filter(function(p) { return p.life > 0; });\n' +
+                '}',
+              feedback: { perfect: '아름다운 파티클 분수에요! 중력 시뮬레이션을 완벽하게 구현했어요!', good: '분수가 잘 나와요! 중력 값을 조절해보세요.', partial: '파티클이 올라가지만 내려오지 않아요.', wrong: 'vy를 음수로 시작하고 매 프레임 vy += 0.05로 중력을 적용하세요.' }
+            },
+            {
+              id: 'c5',
+              title: '클릭 폭죽 + 마우스 궤적 종합',
+              description: '클릭하면 폭죽이 터지고, 마우스 이동 시 궤적이 남는 종합 작품을 만드세요.',
+              difficulty: 'hard',
+              hints: ['click에서 폭죽 파티클 20개 생성', 'mousemove에서 궤적 파티클 2개 생성', '같은 배열에서 관리하세요'],
+              estimatedMinutes: 8,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var particles = [];\n\n' +
+                'canvas.addEventListener("click", function(e) {\n' +
+                '  // TODO: 클릭 위치에 파티클 20개 생성\n' +
+                '});\n\n' +
+                'canvas.addEventListener("mousemove", function(e) {\n' +
+                '  // TODO: 마우스 위치에 파티클 2개 생성\n' +
+                '});\n\n' +
+                'function animate() {\n' +
+                '  ctx.fillStyle = "rgba(0,0,0,0.08)";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  updateParticles();\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    var p = particles[i];\n' +
+                '    ctx.globalAlpha = p.life;\n' +
+                '    ctx.beginPath();\n' +
+                '    ctx.arc(p.x, p.y, 4*p.life, 0, Math.PI*2);\n' +
+                '    ctx.fillStyle = p.color;\n' +
+                '    ctx.fill();\n' +
+                '  }\n' +
+                '  ctx.globalAlpha = 1;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var particles = [];\n\n' +
+                'canvas.addEventListener("click", function(e) {\n' +
+                '  addParticles(e.offsetX, e.offsetY, 20);\n' +
+                '});\n\n' +
+                'canvas.addEventListener("mousemove", function(e) {\n' +
+                '  addParticles(e.offsetX, e.offsetY, 2);\n' +
+                '});\n\n' +
+                'function animate() {\n' +
+                '  ctx.fillStyle = "rgba(0,0,0,0.08)";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  updateParticles();\n' +
+                '  for (var i = 0; i < particles.length; i++) {\n' +
+                '    var p = particles[i];\n' +
+                '    ctx.globalAlpha = p.life;\n' +
+                '    ctx.beginPath();\n' +
+                '    ctx.arc(p.x, p.y, 4*p.life, 0, Math.PI*2);\n' +
+                '    ctx.fillStyle = p.color;\n' +
+                '    ctx.fill();\n' +
+                '  }\n' +
+                '  ctx.globalAlpha = 1;\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              feedback: { perfect: '놀라운 인터랙티브 아트에요!', good: '멋진 작품이에요! 파티클 수를 조절해보세요.', partial: '이벤트는 등록했지만 파티클이 생성되지 않아요.', wrong: 'addParticles(e.offsetX, e.offsetY, 20)으로 클릭 위치에 파티클을 생성하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -2924,187 +2978,163 @@ export const unit8: Unit = {
             { input: '화면 경계', expectedOutput: '경계에서 멈춤', description: '경계 처리' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "키보드 입력의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 키보드 입력 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '키 이벤트 감지하기',
+              description: 'keydown 이벤트를 등록해서 어떤 키가 눌렸는지 표시하세요.',
+              difficulty: 'easy',
+              hints: ['document.addEventListener("keydown", ...)를 사용하세요', 'e.key로 눌린 키 이름을 얻을 수 있어요', 'textContent로 화면에 표시하세요'],
+              estimatedMinutes: 4,
+              starterCode: 'var display = document.getElementById("display");\n\n' +
+                '// TODO: keydown 이벤트 리스너 등록\n' +
+                '// 눌린 키를 display.textContent에 표시\n',
+              solution: 'var display = document.getElementById("display");\n\n' +
+                'document.addEventListener("keydown", function(e) {\n' +
+                '  display.textContent = "눌린 키: " + e.key;\n' +
+                '});',
+              feedback: { perfect: '키 이벤트를 완벽하게 감지해요!', good: '이벤트가 잘 등록됐어요!', partial: '이벤트는 등록했지만 키 이름이 표시되지 않아요.', wrong: 'document.addEventListener("keydown", function(e) { ... })를 사용하세요.' }
+            },
+            {
+              id: 'c2',
+              title: '방향키로 사각형 이동',
+              description: '방향키를 누르면 사각형이 해당 방향으로 이동하도록 만드세요.',
+              difficulty: 'easy',
+              hints: ['ArrowUp, ArrowDown, ArrowLeft, ArrowRight를 확인하세요', 'if-else로 각 방향별 이동을 처리하세요', '이동 후 화면을 다시 그려야 해요'],
+              estimatedMinutes: 5,
+              starterCode: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 190, y = 190;\n\n' +
+                'function draw() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.fillStyle = "blue";\n' +
+                '  ctx.fillRect(x, y, 20, 20);\n' +
+                '}\n\n' +
+                'document.addEventListener("keydown", function(e) {\n' +
+                '  // TODO: ArrowUp이면 y -= 5\n' +
+                '  // TODO: ArrowDown이면 y += 5\n' +
+                '  // TODO: ArrowLeft이면 x -= 5\n' +
+                '  // TODO: ArrowRight이면 x += 5\n' +
+                '  draw();\n' +
+                '});\n' +
+                'draw();',
+              solution: 'var canvas = document.getElementById("canvas");\n' +
+                'var ctx = canvas.getContext("2d");\n' +
+                'var x = 190, y = 190;\n\n' +
+                'function draw() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.fillStyle = "blue";\n' +
+                '  ctx.fillRect(x, y, 20, 20);\n' +
+                '}\n\n' +
+                'document.addEventListener("keydown", function(e) {\n' +
+                '  if (e.key === "ArrowUp") y -= 5;\n' +
+                '  else if (e.key === "ArrowDown") y += 5;\n' +
+                '  else if (e.key === "ArrowLeft") x -= 5;\n' +
+                '  else if (e.key === "ArrowRight") x += 5;\n' +
+                '  draw();\n' +
+                '});\n' +
+                'draw();',
+              feedback: { perfect: '방향키로 완벽하게 이동해요!', good: '이동은 되지만 일부 방향이 빠졌어요.', partial: '키 이벤트는 잡지만 이동이 안 돼요.', wrong: 'if (e.key === "ArrowUp") y -= 5; 형태로 4방향을 모두 처리하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '동시 키 입력 처리',
+              description: 'keys 객체로 여러 키를 동시에 추적하여 대각선 이동을 가능하게 만드세요.',
+              difficulty: 'medium',
+              hints: ['keydown에서 true, keyup에서 false를 저장하세요', 'animate 루프에서 keys 상태를 확인하세요', '대각선은 두 조건이 동시에 true일 때에요'],
+              estimatedMinutes: 7,
+              starterCode: 'var x = 190, y = 190, speed = 3;\n' +
+                'var keys = {};\n\n' +
+                'document.addEventListener("keydown", function(e) {\n' +
+                '  // TODO: keys[e.key] = true\n' +
+                '});\n' +
+                'document.addEventListener("keyup", function(e) {\n' +
+                '  // TODO: keys[e.key] = false\n' +
+                '});\n\n' +
+                'function animate() {\n' +
+                '  if (keys["ArrowUp"]) y -= speed;\n' +
+                '  if (keys["ArrowDown"]) y += speed;\n' +
+                '  if (keys["ArrowLeft"]) x -= speed;\n' +
+                '  if (keys["ArrowRight"]) x += speed;\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.fillStyle = "green";\n' +
+                '  ctx.fillRect(x, y, 20, 20);\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              solution: 'var x = 190, y = 190, speed = 3;\n' +
+                'var keys = {};\n\n' +
+                'document.addEventListener("keydown", function(e) {\n' +
+                '  keys[e.key] = true;\n' +
+                '});\n' +
+                'document.addEventListener("keyup", function(e) {\n' +
+                '  keys[e.key] = false;\n' +
+                '});\n\n' +
+                'function animate() {\n' +
+                '  if (keys["ArrowUp"]) y -= speed;\n' +
+                '  if (keys["ArrowDown"]) y += speed;\n' +
+                '  if (keys["ArrowLeft"]) x -= speed;\n' +
+                '  if (keys["ArrowRight"]) x += speed;\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.fillStyle = "green";\n' +
+                '  ctx.fillRect(x, y, 20, 20);\n' +
+                '  requestAnimationFrame(animate);\n' +
+                '}\n' +
+                'animate();',
+              feedback: { perfect: '동시 입력 처리를 완벽하게 했어요!', good: '잘했어요! keyup도 잊지 마세요.', partial: 'keydown은 되지만 keyup이 없어요.', wrong: 'keydown에서 keys[e.key]=true, keyup에서 keys[e.key]=false를 설정하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '화면 경계 제한',
+              description: '플레이어가 캔버스 밖으로 나가지 않도록 경계를 제한하세요.',
+              difficulty: 'medium',
+              hints: ['Math.max와 Math.min을 사용하세요', 'x는 0 이상, 캔버스너비-크기 이하', 'y도 같은 방식으로 제한하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'var canvasW = 400, canvasH = 400;\n' +
+                'var pw = 20, ph = 20;\n' +
+                'var x = 190, y = 190;\n\n' +
+                'function clampPosition() {\n' +
+                '  // TODO: x를 0 ~ (canvasW-pw) 범위로 제한\n' +
+                '  // TODO: y를 0 ~ (canvasH-ph) 범위로 제한\n' +
+                '}',
+              solution: 'var canvasW = 400, canvasH = 400;\n' +
+                'var pw = 20, ph = 20;\n' +
+                'var x = 190, y = 190;\n\n' +
+                'function clampPosition() {\n' +
+                '  x = Math.max(0, Math.min(x, canvasW - pw));\n' +
+                '  y = Math.max(0, Math.min(y, canvasH - ph));\n' +
+                '}',
+              feedback: { perfect: '경계 처리를 완벽하게 했어요!', good: '한 방향은 잘 되지만 다른 방향을 확인하세요.', partial: 'x만 제한하고 y는 빠졌어요.', wrong: 'Math.max(0, Math.min(x, canvasW - pw))로 범위를 제한하세요.' }
+            },
+            {
+              id: 'c5',
+              title: '스프린트 기능 추가',
+              description: 'Shift 키를 누르고 있으면 이동 속도가 2배가 되는 스프린트 기능을 추가하세요.',
+              difficulty: 'hard',
+              hints: ['keys["Shift"]가 true이면 속도를 2배로', '기본 속도와 스프린트 속도를 분리하세요', 'Shift를 떼면 원래 속도로 돌아와야 해요'],
+              estimatedMinutes: 6,
+              starterCode: 'var baseSpeed = 3;\n' +
+                'var keys = {};\n' +
+                'var x = 190, y = 190;\n\n' +
+                'function update() {\n' +
+                '  // TODO: Shift면 baseSpeed*2, 아니면 baseSpeed\n' +
+                '  var currentSpeed = ___;\n' +
+                '  if (keys["ArrowUp"]) y -= currentSpeed;\n' +
+                '  if (keys["ArrowDown"]) y += currentSpeed;\n' +
+                '  if (keys["ArrowLeft"]) x -= currentSpeed;\n' +
+                '  if (keys["ArrowRight"]) x += currentSpeed;\n' +
+                '}',
+              solution: 'var baseSpeed = 3;\n' +
+                'var keys = {};\n' +
+                'var x = 190, y = 190;\n\n' +
+                'function update() {\n' +
+                '  var currentSpeed = keys["Shift"] ? baseSpeed * 2 : baseSpeed;\n' +
+                '  if (keys["ArrowUp"]) y -= currentSpeed;\n' +
+                '  if (keys["ArrowDown"]) y += currentSpeed;\n' +
+                '  if (keys["ArrowLeft"]) x -= currentSpeed;\n' +
+                '  if (keys["ArrowRight"]) x += currentSpeed;\n' +
+                '}',
+              feedback: { perfect: '스프린트 기능을 완벽하게 구현했어요!', good: '속도 변화가 잘 돼요!', partial: '항상 빠른 속도이거나 항상 느려요.', wrong: 'keys["Shift"] ? baseSpeed * 2 : baseSpeed 로 조건부 속도를 설정하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -3150,187 +3180,148 @@ export const unit8: Unit = {
             { input: '모서리만 살짝 닿음', expectedOutput: 'true', description: '경계 케이스' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "충돌 감지의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 충돌 감지 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '두 점 사이 거리 계산',
+              description: '두 점 (x1,y1)과 (x2,y2) 사이의 거리를 계산하는 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['피타고라스 정리를 사용하세요', 'Math.sqrt와 곱셈을 사용하세요', '이것이 원형 충돌 감지의 기본이에요'],
+              estimatedMinutes: 4,
+              starterCode: 'function distance(x1, y1, x2, y2) {\n' +
+                '  var dx = ___;  // x2 - x1\n' +
+                '  var dy = ___;  // y2 - y1\n' +
+                '  return ___;   // sqrt(dx*dx + dy*dy)\n' +
+                '}',
+              solution: 'function distance(x1, y1, x2, y2) {\n' +
+                '  var dx = x2 - x1;\n' +
+                '  var dy = y2 - y1;\n' +
+                '  return Math.sqrt(dx * dx + dy * dy);\n' +
+                '}',
+              feedback: { perfect: '거리 계산을 완벽하게 했어요!', good: '거의 맞았어요! 제곱근을 잊지 마세요.', partial: '차이값은 구했지만 제곱합의 제곱근을 계산하세요.', wrong: 'Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))로 거리를 구하세요.' }
+            },
+            {
+              id: 'c2',
+              title: '원과 원의 충돌 감지',
+              description: '두 원이 겹치는지 확인하는 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['distance 함수로 중심 간 거리를 구하세요', '거리 < 반지름1 + 반지름2 이면 충돌', '등호도 충돌로 판정하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'function circleCollision(c1, c2) {\n' +
+                '  var dist = distance(c1.x, c1.y, c2.x, c2.y);\n' +
+                '  // TODO: 거리와 반지름 합 비교\n' +
+                '  return ___;\n' +
+                '}',
+              solution: 'function circleCollision(c1, c2) {\n' +
+                '  var dist = distance(c1.x, c1.y, c2.x, c2.y);\n' +
+                '  return dist <= c1.r + c2.r;\n' +
+                '}',
+              feedback: { perfect: '원형 충돌 감지를 완벽하게 구현했어요!', good: '잘했어요! 경계 조건도 처리하면 더 정확해요.', partial: '거리는 구했지만 비교가 빠졌어요.', wrong: 'return dist <= c1.r + c2.r;로 반지름 합과 비교하세요.' }
+            },
+            {
+              id: 'c3',
+              title: 'AABB 사각형 충돌 감지',
+              description: '두 사각형(x,y,w,h)이 겹치는지 확인하는 함수를 만드세요.',
+              difficulty: 'medium',
+              hints: ['4가지 비충돌 조건 중 하나라도 해당되면 false', 'r1.x+r1.w < r2.x 이면 r1이 왼쪽', '상하좌우 모두 확인하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'function rectCollision(r1, r2) {\n' +
+                '  if (r1.x + r1.w < r2.x) return false;\n' +
+                '  if (___) return false;  // r1이 오른쪽\n' +
+                '  if (___) return false;  // r1이 위쪽\n' +
+                '  if (___) return false;  // r1이 아래쪽\n' +
+                '  return true;\n' +
+                '}',
+              solution: 'function rectCollision(r1, r2) {\n' +
+                '  if (r1.x + r1.w < r2.x) return false;\n' +
+                '  if (r1.x > r2.x + r2.w) return false;\n' +
+                '  if (r1.y + r1.h < r2.y) return false;\n' +
+                '  if (r1.y > r2.y + r2.h) return false;\n' +
+                '  return true;\n' +
+                '}',
+              feedback: { perfect: 'AABB 충돌 감지를 완벽하게 구현했어요!', good: '거의 맞았어요! 하나의 조건을 다시 확인하세요.', partial: '일부 방향만 확인했어요.', wrong: '4방향 비충돌 조건을 모두 확인 후 true를 반환하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '충돌 시 색상 변경',
+              description: '마우스로 움직이는 원이 고정 원과 충돌하면 빨간색으로 변하게 만드세요.',
+              difficulty: 'medium',
+              hints: ['mousemove로 좌표 업데이트', 'circleCollision으로 충돌 확인', '충돌이면 red, 아니면 green'],
+              estimatedMinutes: 6,
+              starterCode: 'var player = { x: 200, y: 200, r: 20 };\n' +
+                'var target = { x: 300, y: 250, r: 30 };\n\n' +
+                'canvas.addEventListener("mousemove", function(e) {\n' +
+                '  player.x = e.offsetX;\n' +
+                '  player.y = e.offsetY;\n' +
+                '});\n\n' +
+                'function draw() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  var hit = ___;  // circleCollision 호출\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(player.x, player.y, player.r, 0, Math.PI*2);\n' +
+                '  ctx.fillStyle = hit ? "red" : "green";\n' +
+                '  ctx.fill();\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(target.x, target.y, target.r, 0, Math.PI*2);\n' +
+                '  ctx.fillStyle = "orange";\n' +
+                '  ctx.fill();\n' +
+                '  requestAnimationFrame(draw);\n' +
+                '}\n' +
+                'draw();',
+              solution: 'var player = { x: 200, y: 200, r: 20 };\n' +
+                'var target = { x: 300, y: 250, r: 30 };\n\n' +
+                'canvas.addEventListener("mousemove", function(e) {\n' +
+                '  player.x = e.offsetX;\n' +
+                '  player.y = e.offsetY;\n' +
+                '});\n\n' +
+                'function draw() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  var hit = circleCollision(player, target);\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(player.x, player.y, player.r, 0, Math.PI*2);\n' +
+                '  ctx.fillStyle = hit ? "red" : "green";\n' +
+                '  ctx.fill();\n' +
+                '  ctx.beginPath();\n' +
+                '  ctx.arc(target.x, target.y, target.r, 0, Math.PI*2);\n' +
+                '  ctx.fillStyle = "orange";\n' +
+                '  ctx.fill();\n' +
+                '  requestAnimationFrame(draw);\n' +
+                '}\n' +
+                'draw();',
+              feedback: { perfect: '충돌 시각화를 완벽하게 했어요!', good: '충돌 감지는 되지만 색상 변경을 확인하세요.', partial: '원은 그려지지만 충돌 판정이 없어요.', wrong: 'var hit = circleCollision(player, target);로 충돌 여부를 확인하세요.' }
+            },
+            {
+              id: 'c5',
+              title: '다중 적 충돌 처리',
+              description: '여러 적 원과 플레이어의 충돌을 감지하고 충돌한 적을 제거하세요.',
+              difficulty: 'hard',
+              hints: ['적 배열을 filter로 처리하세요', '충돌하지 않은 적만 남기세요', '제거된 수만큼 점수를 올리세요'],
+              estimatedMinutes: 8,
+              starterCode: 'var player = { x: 200, y: 200, r: 15 };\n' +
+                'var enemies = [];\n' +
+                'var score = 0;\n\n' +
+                'for (var i = 0; i < 5; i++) {\n' +
+                '  enemies.push({ x: Math.random()*360+20, y: Math.random()*360+20, r: 10 });\n' +
+                '}\n\n' +
+                'function checkCollisions() {\n' +
+                '  var before = enemies.length;\n' +
+                '  // TODO: 충돌하지 않은 적만 남기기\n' +
+                '  enemies = ___;\n' +
+                '  // TODO: 제거된 수만큼 score 증가\n' +
+                '  score += ___;\n' +
+                '}',
+              solution: 'var player = { x: 200, y: 200, r: 15 };\n' +
+                'var enemies = [];\n' +
+                'var score = 0;\n\n' +
+                'for (var i = 0; i < 5; i++) {\n' +
+                '  enemies.push({ x: Math.random()*360+20, y: Math.random()*360+20, r: 10 });\n' +
+                '}\n\n' +
+                'function checkCollisions() {\n' +
+                '  var before = enemies.length;\n' +
+                '  enemies = enemies.filter(function(e) { return !circleCollision(player, e); });\n' +
+                '  score += before - enemies.length;\n' +
+                '}',
+              feedback: { perfect: '다중 충돌 처리를 완벽하게 했어요!', good: '충돌 감지는 되는데 점수 계산을 확인하세요.', partial: '충돌은 감지하지만 적이 제거되지 않아요.', wrong: 'enemies.filter(function(e) { return !circleCollision(player, e); })로 충돌한 적을 제거하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -3368,187 +3359,158 @@ export const unit8: Unit = {
             { input: '게임 종료', expectedOutput: '최고 점수와 비교', description: '최고 점수 갱신' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "점수 관리의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 점수 관리 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '점수 변수 관리',
+              description: '점수를 저장하고 증감하는 기본 점수 시스템을 만드세요.',
+              difficulty: 'easy',
+              hints: ['score 변수를 0으로 초기화하세요', 'addScore에서 더하세요', '음수 방지에 Math.max(0, ...)를 사용하세요'],
+              estimatedMinutes: 4,
+              starterCode: 'var score = 0;\n\n' +
+                'function addScore(points) {\n' +
+                '  // TODO: score에 points 더하기\n' +
+                '}\n\n' +
+                'function loseScore(points) {\n' +
+                '  // TODO: score에서 빼기 (0 미만 방지)\n' +
+                '}\n\n' +
+                'function getScore() { return score; }',
+              solution: 'var score = 0;\n\n' +
+                'function addScore(points) {\n' +
+                '  score += points;\n' +
+                '}\n\n' +
+                'function loseScore(points) {\n' +
+                '  score = Math.max(0, score - points);\n' +
+                '}\n\n' +
+                'function getScore() { return score; }',
+              feedback: { perfect: '점수 시스템의 기본을 완벽하게 만들었어요!', good: '점수 증감은 되지만 음수 방지를 추가하세요.', partial: '더하기만 되고 빼기가 안 돼요.', wrong: 'score += points로 더하고, Math.max(0, score - points)로 빼세요.' }
+            },
+            {
+              id: 'c2',
+              title: '점수 화면에 표시',
+              description: '캔버스에 현재 점수를 표시하는 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['ctx.font로 글꼴을 설정하세요', 'ctx.fillText로 텍스트를 그리세요', '좌상단에 표시하면 좋아요'],
+              estimatedMinutes: 4,
+              starterCode: 'function drawScore(ctx, score) {\n' +
+                '  // TODO: 글꼴 설정 (20px Arial)\n' +
+                '  // TODO: 흰색으로 설정\n' +
+                '  // TODO: "Score: "+score를 (10,30)에 표시\n' +
+                '}',
+              solution: 'function drawScore(ctx, score) {\n' +
+                '  ctx.font = "20px Arial";\n' +
+                '  ctx.fillStyle = "white";\n' +
+                '  ctx.fillText("Score: " + score, 10, 30);\n' +
+                '}',
+              feedback: { perfect: '깔끔한 점수 표시에요!', good: '표시는 되는데 위치를 조정해보세요.', partial: '글꼴은 설정했지만 텍스트가 안 보여요.', wrong: 'ctx.fillText("Score: " + score, 10, 30)을 사용하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '최고 점수 저장',
+              description: 'localStorage로 최고 점수를 저장하고 불러오는 기능을 만드세요.',
+              difficulty: 'medium',
+              hints: ['localStorage.setItem으로 저장하세요', 'localStorage.getItem으로 불러오세요', '값이 없으면 0을 기본값으로 사용하세요'],
+              estimatedMinutes: 6,
+              starterCode: 'function saveHighScore(score) {\n' +
+                '  var current = getHighScore();\n' +
+                '  if (score > current) {\n' +
+                '    // TODO: localStorage에 저장\n' +
+                '  }\n' +
+                '}\n\n' +
+                'function getHighScore() {\n' +
+                '  // TODO: localStorage에서 가져오기 (없으면 0)\n' +
+                '  return ___;\n' +
+                '}',
+              solution: 'function saveHighScore(score) {\n' +
+                '  var current = getHighScore();\n' +
+                '  if (score > current) {\n' +
+                '    localStorage.setItem("highScore", score);\n' +
+                '  }\n' +
+                '}\n\n' +
+                'function getHighScore() {\n' +
+                '  return parseInt(localStorage.getItem("highScore")) || 0;\n' +
+                '}',
+              feedback: { perfect: '최고 점수 저장을 완벽하게 했어요!', good: '저장은 되는데 불러오기 타입 변환을 확인하세요.', partial: 'localStorage 사용법을 다시 확인하세요.', wrong: 'localStorage.setItem("highScore", score)로 저장하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '콤보 시스템 구현',
+              description: '연속 처치 시 콤보가 쌓이고 보너스 점수를 주는 시스템을 만드세요.',
+              difficulty: 'medium',
+              hints: ['combo로 연속 횟수 추적', '처치 시 combo++, 놓치면 0', '점수 = 기본점수 * (1 + combo * 0.1)'],
+              estimatedMinutes: 6,
+              starterCode: 'var score = 0;\n' +
+                'var combo = 0;\n\n' +
+                'function onEnemyKill(basePoints) {\n' +
+                '  // TODO: combo 증가\n' +
+                '  // TODO: 배율 계산: 1 + combo * 0.1\n' +
+                '  // TODO: score에 basePoints * 배율 더하기\n' +
+                '}\n\n' +
+                'function onMiss() {\n' +
+                '  // TODO: combo 리셋\n' +
+                '}',
+              solution: 'var score = 0;\n' +
+                'var combo = 0;\n\n' +
+                'function onEnemyKill(basePoints) {\n' +
+                '  combo++;\n' +
+                '  var multiplier = 1 + combo * 0.1;\n' +
+                '  score += Math.floor(basePoints * multiplier);\n' +
+                '}\n\n' +
+                'function onMiss() {\n' +
+                '  combo = 0;\n' +
+                '}',
+              feedback: { perfect: '콤보 시스템을 완벽하게 만들었어요!', good: '콤보는 올라가는데 배율 계산을 확인하세요.', partial: 'combo 증가는 되지만 점수에 반영이 안 돼요.', wrong: 'combo++ 후 multiplier = 1 + combo * 0.1로 계산하세요.' }
+            },
+            {
+              id: 'c5',
+              title: '점수 팝업 효과',
+              description: '점수 획득 시 "+10" 텍스트가 떠올랐다 사라지는 효과를 만드세요.',
+              difficulty: 'hard',
+              hints: ['팝업 객체에 x, y, text, life 속성을 넣으세요', '매 프레임 y를 줄여서 위로 올리세요', 'life를 투명도로 사용하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'var popups = [];\n\n' +
+                'function createPopup(x, y, text) {\n' +
+                '  popups.push({ x: x, y: y, text: text, life: 1.0 });\n' +
+                '}\n\n' +
+                'function updatePopups() {\n' +
+                '  for (var i = 0; i < popups.length; i++) {\n' +
+                '    // TODO: y를 1씩 감소\n' +
+                '    // TODO: life를 0.02씩 감소\n' +
+                '  }\n' +
+                '  // TODO: life > 0인 것만 남기기\n' +
+                '}\n\n' +
+                'function drawPopups(ctx) {\n' +
+                '  ctx.font = "16px Arial";\n' +
+                '  for (var i = 0; i < popups.length; i++) {\n' +
+                '    var p = popups[i];\n' +
+                '    ctx.globalAlpha = p.life;\n' +
+                '    ctx.fillStyle = "yellow";\n' +
+                '    ctx.fillText(p.text, p.x, p.y);\n' +
+                '  }\n' +
+                '  ctx.globalAlpha = 1;\n' +
+                '}',
+              solution: 'var popups = [];\n\n' +
+                'function createPopup(x, y, text) {\n' +
+                '  popups.push({ x: x, y: y, text: text, life: 1.0 });\n' +
+                '}\n\n' +
+                'function updatePopups() {\n' +
+                '  for (var i = 0; i < popups.length; i++) {\n' +
+                '    popups[i].y -= 1;\n' +
+                '    popups[i].life -= 0.02;\n' +
+                '  }\n' +
+                '  popups = popups.filter(function(p) { return p.life > 0; });\n' +
+                '}\n\n' +
+                'function drawPopups(ctx) {\n' +
+                '  ctx.font = "16px Arial";\n' +
+                '  for (var i = 0; i < popups.length; i++) {\n' +
+                '    var p = popups[i];\n' +
+                '    ctx.globalAlpha = p.life;\n' +
+                '    ctx.fillStyle = "yellow";\n' +
+                '    ctx.fillText(p.text, p.x, p.y);\n' +
+                '  }\n' +
+                '  ctx.globalAlpha = 1;\n' +
+                '}',
+              feedback: { perfect: '점수 팝업 효과가 완벽해요!', good: '팝업은 보이지만 위로 올라가는 효과를 확인하세요.', partial: '팝업이 생기지만 사라지지 않아요.', wrong: 'y -= 1로 위로 올리고 life -= 0.02로 서서히 사라지게 하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -3586,187 +3548,132 @@ export const unit8: Unit = {
             { input: '적 20마리', expectedOutput: '정상 작동', description: '다중 객체 관리' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "적 생성의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 적 생성 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '적 객체 생성 함수',
+              description: '랜덤 위치와 속도를 가진 적 객체를 생성하는 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['x는 0~400 랜덤, y는 화면 위(-20)에서 시작', 'speed는 1~3 사이 랜덤', '객체에 x, y, speed, r 속성을 넣으세요'],
+              estimatedMinutes: 4,
+              starterCode: 'function createEnemy() {\n' +
+                '  return {\n' +
+                '    x: ___,    // 0~400 랜덤\n' +
+                '    y: ___,    // 화면 위에서 시작\n' +
+                '    speed: ___, // 1~3 랜덤\n' +
+                '    r: 15\n' +
+                '  };\n' +
+                '}',
+              solution: 'function createEnemy() {\n' +
+                '  return {\n' +
+                '    x: Math.random() * 400,\n' +
+                '    y: -20,\n' +
+                '    speed: Math.random() * 2 + 1,\n' +
+                '    r: 15\n' +
+                '  };\n' +
+                '}',
+              feedback: { perfect: '적 객체를 완벽하게 만들었어요!', good: '잘 만들었어요! 시작 위치를 확인하세요.', partial: '객체는 만들었지만 랜덤 값이 없어요.', wrong: 'Math.random() * 400으로 x를, -20으로 y를 설정하세요.' }
+            },
+            {
+              id: 'c2',
+              title: '적 배열에 주기적으로 추가',
+              description: '일정 간격으로 적을 생성하여 배열에 추가하는 로직을 만드세요.',
+              difficulty: 'easy',
+              hints: ['프레임 카운터로 간격을 조절하세요', '60프레임(약 1초)마다 적 추가', '% 연산자로 주기를 확인하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'var enemies = [];\n' +
+                'var frameCount = 0;\n' +
+                'var spawnInterval = 60;\n\n' +
+                'function spawnEnemies() {\n' +
+                '  frameCount++;\n' +
+                '  // TODO: frameCount가 spawnInterval의 배수이면 적 추가\n' +
+                '  if (___) {\n' +
+                '    enemies.push(createEnemy());\n' +
+                '  }\n' +
+                '}',
+              solution: 'var enemies = [];\n' +
+                'var frameCount = 0;\n' +
+                'var spawnInterval = 60;\n\n' +
+                'function spawnEnemies() {\n' +
+                '  frameCount++;\n' +
+                '  if (frameCount % spawnInterval === 0) {\n' +
+                '    enemies.push(createEnemy());\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '주기적 적 생성을 완벽하게 구현했어요!', good: '적이 생성돼요! 간격을 조정해보세요.', partial: '프레임은 세지만 조건이 맞지 않아요.', wrong: 'frameCount % spawnInterval === 0으로 주기를 확인하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '적 이동 및 화면 밖 제거',
+              description: '적을 아래로 이동시키고, 화면 밖으로 나간 적을 배열에서 제거하세요.',
+              difficulty: 'medium',
+              hints: ['y += speed로 아래로 이동시키세요', 'y > 420이면 화면 밖이에요', 'filter로 화면 안의 적만 남기세요'],
+              estimatedMinutes: 6,
+              starterCode: 'function updateEnemies() {\n' +
+                '  for (var i = 0; i < enemies.length; i++) {\n' +
+                '    // TODO: 아래로 이동\n' +
+                '  }\n' +
+                '  // TODO: 화면 안의 적만 남기기 (y < 420)\n' +
+                '  enemies = ___;\n' +
+                '}',
+              solution: 'function updateEnemies() {\n' +
+                '  for (var i = 0; i < enemies.length; i++) {\n' +
+                '    enemies[i].y += enemies[i].speed;\n' +
+                '  }\n' +
+                '  enemies = enemies.filter(function(e) { return e.y < 420; });\n' +
+                '}',
+              feedback: { perfect: '적 이동과 제거를 완벽하게 했어요!', good: '이동은 되지만 화면 밖 제거를 확인하세요.', partial: '적이 움직이지 않아요. y += speed를 추가하세요.', wrong: 'enemies[i].y += enemies[i].speed로 이동, filter로 y < 420인 적만 남기세요.' }
+            },
+            {
+              id: 'c4',
+              title: '적 그리기 함수',
+              description: '배열의 모든 적을 캔버스에 빨간 원으로 그리는 함수를 만드세요.',
+              difficulty: 'medium',
+              hints: ['for문으로 배열을 순회하세요', 'arc()로 원을 그리세요', 'fillStyle을 red로 설정하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'function drawEnemies(ctx) {\n' +
+                '  ctx.fillStyle = "red";\n' +
+                '  for (var i = 0; i < enemies.length; i++) {\n' +
+                '    var e = enemies[i];\n' +
+                '    // TODO: beginPath, arc, fill로 원 그리기\n' +
+                '  }\n' +
+                '}',
+              solution: 'function drawEnemies(ctx) {\n' +
+                '  ctx.fillStyle = "red";\n' +
+                '  for (var i = 0; i < enemies.length; i++) {\n' +
+                '    var e = enemies[i];\n' +
+                '    ctx.beginPath();\n' +
+                '    ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);\n' +
+                '    ctx.fill();\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '적 그리기를 완벽하게 했어요!', good: '원이 보여요! 크기를 확인하세요.', partial: '루프는 돌지만 원이 안 그려져요.', wrong: 'ctx.beginPath(); ctx.arc(e.x, e.y, e.r, 0, Math.PI*2); ctx.fill();로 그리세요.' }
+            },
+            {
+              id: 'c5',
+              title: '난이도 증가 적 생성',
+              description: '시간이 지나면 적 생성 간격이 줄어들고 속도가 빨라지는 시스템을 만드세요.',
+              difficulty: 'hard',
+              hints: ['spawnInterval을 서서히 줄이세요', '최소 간격(예: 20)을 설정하세요', '시간에 따라 적 속도 보너스를 추가하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'var spawnInterval = 60;\n' +
+                'var minInterval = 20;\n' +
+                'var difficultyTimer = 0;\n\n' +
+                'function increaseDifficulty() {\n' +
+                '  difficultyTimer++;\n' +
+                '  // TODO: 300프레임(5초)마다 spawnInterval을 5 줄이기\n' +
+                '  // TODO: minInterval 미만으로 내려가지 않게\n' +
+                '}',
+              solution: 'var spawnInterval = 60;\n' +
+                'var minInterval = 20;\n' +
+                'var difficultyTimer = 0;\n\n' +
+                'function increaseDifficulty() {\n' +
+                '  difficultyTimer++;\n' +
+                '  if (difficultyTimer % 300 === 0) {\n' +
+                '    spawnInterval = Math.max(minInterval, spawnInterval - 5);\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '난이도 증가를 완벽하게 구현했어요! 게임이 점점 어려워져요!', good: '난이도가 올라가요! 최소 간격 제한을 확인하세요.', partial: '간격은 줄지만 제한이 없어서 0 이하로 내려가요.', wrong: 'Math.max(minInterval, spawnInterval - 5)로 최소값을 보장하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -3804,187 +3711,121 @@ export const unit8: Unit = {
             { input: '재시작 버튼', expectedOutput: '모든 값 초기화', description: '재시작' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "게임 상태의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 게임 상태 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '게임 오버 변수 관리',
+              description: 'isGameOver 변수로 게임 상태를 관리하고, 게임 오버 시 루프를 멈추는 코드를 작성하세요.',
+              difficulty: 'easy',
+              hints: ['isGameOver가 true이면 requestAnimationFrame을 호출하지 마세요', '조건문으로 분기하세요', 'return으로 함수를 일찍 종료하세요'],
+              estimatedMinutes: 4,
+              starterCode: 'var isGameOver = false;\n\n' +
+                'function gameLoop() {\n' +
+                '  // TODO: isGameOver가 true이면 return\n' +
+                '  update();\n' +
+                '  draw();\n' +
+                '  requestAnimationFrame(gameLoop);\n' +
+                '}',
+              solution: 'var isGameOver = false;\n\n' +
+                'function gameLoop() {\n' +
+                '  if (isGameOver) return;\n' +
+                '  update();\n' +
+                '  draw();\n' +
+                '  requestAnimationFrame(gameLoop);\n' +
+                '}',
+              feedback: { perfect: '게임 루프 제어를 완벽하게 했어요!', good: '거의 맞았어요! return 위치를 확인하세요.', partial: '조건문은 있지만 루프가 멈추지 않아요.', wrong: 'if (isGameOver) return;을 루프 맨 처음에 넣으세요.' }
+            },
+            {
+              id: 'c2',
+              title: 'HP 시스템 구현',
+              description: '플레이어의 HP를 관리하고, HP가 0이 되면 게임 오버를 발생시키는 시스템을 만드세요.',
+              difficulty: 'easy',
+              hints: ['hp 변수를 초기화하세요', 'takeDamage에서 hp를 줄이세요', 'hp <= 0이면 isGameOver = true'],
+              estimatedMinutes: 5,
+              starterCode: 'var hp = 100;\n' +
+                'var isGameOver = false;\n\n' +
+                'function takeDamage(amount) {\n' +
+                '  // TODO: hp에서 amount 빼기\n' +
+                '  // TODO: hp가 0 이하면 게임 오버\n' +
+                '}',
+              solution: 'var hp = 100;\n' +
+                'var isGameOver = false;\n\n' +
+                'function takeDamage(amount) {\n' +
+                '  hp -= amount;\n' +
+                '  if (hp <= 0) {\n' +
+                '    hp = 0;\n' +
+                '    isGameOver = true;\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: 'HP 시스템을 완벽하게 만들었어요!', good: 'HP 감소는 되지만 게임 오버 조건을 확인하세요.', partial: 'HP는 줄지만 게임 오버가 발생하지 않아요.', wrong: 'hp -= amount 후 if (hp <= 0) isGameOver = true;로 처리하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '게임 오버 화면 표시',
+              description: '게임 오버 시 "GAME OVER"와 최종 점수를 화면 중앙에 표시하세요.',
+              difficulty: 'medium',
+              hints: ['큰 폰트(40px)로 GAME OVER를 표시하세요', 'textAlign을 center로 설정하세요', '아래에 최종 점수도 표시하세요'],
+              estimatedMinutes: 6,
+              starterCode: 'function drawGameOver(ctx, score) {\n' +
+                '  // TODO: 반투명 검정 오버레이\n' +
+                '  ctx.fillStyle = "rgba(0,0,0,0.7)";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  // TODO: "GAME OVER" 텍스트 (40px, 흰색, 중앙)\n' +
+                '  // TODO: "Score: " + score (20px, 중앙 아래)\n' +
+                '}',
+              solution: 'function drawGameOver(ctx, score) {\n' +
+                '  ctx.fillStyle = "rgba(0,0,0,0.7)";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  ctx.textAlign = "center";\n' +
+                '  ctx.font = "40px Arial";\n' +
+                '  ctx.fillStyle = "white";\n' +
+                '  ctx.fillText("GAME OVER", 200, 180);\n' +
+                '  ctx.font = "20px Arial";\n' +
+                '  ctx.fillText("Score: " + score, 200, 220);\n' +
+                '  ctx.textAlign = "left";\n' +
+                '}',
+              feedback: { perfect: '게임 오버 화면이 완벽해요!', good: '텍스트가 보여요! 정렬을 확인하세요.', partial: '오버레이는 있지만 텍스트가 안 보여요.', wrong: 'ctx.textAlign = "center"로 중앙 정렬 후 fillText로 텍스트를 표시하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '재시작 기능 구현',
+              description: '모든 게임 변수를 초기화하고 게임을 다시 시작하는 함수를 만드세요.',
+              difficulty: 'medium',
+              hints: ['모든 변수를 초기값으로 되돌리세요', 'enemies 배열을 비우세요', 'isGameOver를 false로 바꾸고 gameLoop를 다시 시작하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'function restart() {\n' +
+                '  // TODO: score를 0으로\n' +
+                '  // TODO: hp를 100으로\n' +
+                '  // TODO: enemies 배열 비우기\n' +
+                '  // TODO: isGameOver를 false로\n' +
+                '  // TODO: gameLoop() 재시작\n' +
+                '}',
+              solution: 'function restart() {\n' +
+                '  score = 0;\n' +
+                '  hp = 100;\n' +
+                '  enemies = [];\n' +
+                '  isGameOver = false;\n' +
+                '  frameCount = 0;\n' +
+                '  gameLoop();\n' +
+                '}',
+              feedback: { perfect: '재시작을 완벽하게 구현했어요!', good: '대부분 초기화했지만 빠진 변수가 있어요.', partial: '일부만 초기화해서 이전 게임 데이터가 남아요.', wrong: '모든 변수(score, hp, enemies, isGameOver)를 초기값으로 리셋하세요.' }
+            },
+            {
+              id: 'c5',
+              title: '클릭으로 재시작하기',
+              description: '게임 오버 상태에서 클릭하면 재시작되는 이벤트를 등록하세요.',
+              difficulty: 'hard',
+              hints: ['click 이벤트를 등록하세요', 'isGameOver가 true일 때만 재시작하세요', '게임 중에는 클릭이 재시작을 하면 안 돼요'],
+              estimatedMinutes: 6,
+              starterCode: 'canvas.addEventListener("click", function(e) {\n' +
+                '  // TODO: 게임 오버 상태일 때만 restart() 호출\n' +
+                '});',
+              solution: 'canvas.addEventListener("click", function(e) {\n' +
+                '  if (isGameOver) {\n' +
+                '    restart();\n' +
+                '  }\n' +
+                '});',
+              feedback: { perfect: '클릭 재시작을 완벽하게 구현했어요!', good: '재시작은 되지만 게임 중에도 클릭 시 재시작돼요.', partial: '이벤트는 등록했지만 조건 분기가 없어요.', wrong: 'if (isGameOver) restart();로 게임 오버일 때만 재시작하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -4022,187 +3863,135 @@ export const unit8: Unit = {
             { input: '음소거 버튼', expectedOutput: '소리 끄기', description: '볼륨 컨트롤' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "오디오의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 오디오 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: 'Audio 객체로 소리 재생',
+              description: 'new Audio()로 효과음을 재생하는 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['new Audio(url)로 오디오 객체를 만드세요', '.play()로 재생하세요', '볼륨은 volume 속성으로 조절해요'],
+              estimatedMinutes: 4,
+              starterCode: 'function playSound(url) {\n' +
+                '  // TODO: new Audio로 소리 만들기\n' +
+                '  // TODO: 볼륨 0.5로 설정\n' +
+                '  // TODO: play() 호출\n' +
+                '}',
+              solution: 'function playSound(url) {\n' +
+                '  var sound = new Audio(url);\n' +
+                '  sound.volume = 0.5;\n' +
+                '  sound.play();\n' +
+                '}',
+              feedback: { perfect: '소리 재생을 완벽하게 했어요!', good: '소리가 나요! 볼륨 설정을 확인하세요.', partial: 'Audio 객체는 만들었지만 play가 없어요.', wrong: 'var sound = new Audio(url); sound.volume = 0.5; sound.play();를 사용하세요.' }
+            },
+            {
+              id: 'c2',
+              title: '배경 음악 루프 재생',
+              description: '배경 음악을 반복 재생하고 일시정지/재개할 수 있는 컨트롤러를 만드세요.',
+              difficulty: 'easy',
+              hints: ['loop 속성을 true로 설정하세요', 'pause()로 일시정지하세요', 'play()로 다시 재생하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'var bgm = new Audio("bgm.mp3");\n' +
+                '// TODO: loop를 true로 설정\n\n' +
+                'function toggleBGM() {\n' +
+                '  // TODO: paused 상태이면 play, 아니면 pause\n' +
+                '}',
+              solution: 'var bgm = new Audio("bgm.mp3");\n' +
+                'bgm.loop = true;\n\n' +
+                'function toggleBGM() {\n' +
+                '  if (bgm.paused) {\n' +
+                '    bgm.play();\n' +
+                '  } else {\n' +
+                '    bgm.pause();\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '배경 음악 컨트롤을 완벽하게 했어요!', good: '재생은 되지만 토글을 확인하세요.', partial: 'loop는 설정했지만 토글이 안 돼요.', wrong: 'bgm.paused를 확인해서 play()와 pause()를 전환하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '볼륨 슬라이더 연결',
+              description: 'range input으로 게임 볼륨을 조절하는 기능을 만드세요.',
+              difficulty: 'medium',
+              hints: ['input 이벤트를 사용하세요', 'value는 0~100이므로 100으로 나누세요', 'volume은 0~1 사이 값이에요'],
+              estimatedMinutes: 5,
+              starterCode: 'var slider = document.getElementById("volume");\n' +
+                'var bgm = new Audio("bgm.mp3");\n\n' +
+                'slider.addEventListener("input", function(e) {\n' +
+                '  // TODO: slider 값(0~100)을 0~1로 변환하여 bgm.volume에 설정\n' +
+                '  bgm.volume = ___;\n' +
+                '});',
+              solution: 'var slider = document.getElementById("volume");\n' +
+                'var bgm = new Audio("bgm.mp3");\n\n' +
+                'slider.addEventListener("input", function(e) {\n' +
+                '  bgm.volume = e.target.value / 100;\n' +
+                '});',
+              feedback: { perfect: '볼륨 조절을 완벽하게 했어요!', good: '볼륨이 바뀌어요! 범위 변환을 확인하세요.', partial: '이벤트는 잡지만 볼륨이 안 바뀌어요.', wrong: 'e.target.value / 100으로 0~1 범위로 변환하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '효과음 풀 만들기',
+              description: '같은 효과음을 여러 번 겹쳐서 재생할 수 있도록 오디오 풀을 만드세요.',
+              difficulty: 'medium',
+              hints: ['Audio 객체를 미리 여러 개 만들어두세요', '재생 중이 아닌 것을 찾아 사용하세요', 'ended 상태인 것부터 재사용하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'function createSoundPool(url, size) {\n' +
+                '  var pool = [];\n' +
+                '  for (var i = 0; i < size; i++) {\n' +
+                '    pool.push(new Audio(url));\n' +
+                '  }\n' +
+                '  return pool;\n' +
+                '}\n\n' +
+                'function playFromPool(pool) {\n' +
+                '  for (var i = 0; i < pool.length; i++) {\n' +
+                '    // TODO: paused 또는 ended 상태인 소리 찾아 재생\n' +
+                '    if (___) {\n' +
+                '      pool[i].currentTime = 0;\n' +
+                '      pool[i].play();\n' +
+                '      return;\n' +
+                '    }\n' +
+                '  }\n' +
+                '}',
+              solution: 'function createSoundPool(url, size) {\n' +
+                '  var pool = [];\n' +
+                '  for (var i = 0; i < size; i++) {\n' +
+                '    pool.push(new Audio(url));\n' +
+                '  }\n' +
+                '  return pool;\n' +
+                '}\n\n' +
+                'function playFromPool(pool) {\n' +
+                '  for (var i = 0; i < pool.length; i++) {\n' +
+                '    if (pool[i].paused || pool[i].ended) {\n' +
+                '      pool[i].currentTime = 0;\n' +
+                '      pool[i].play();\n' +
+                '      return;\n' +
+                '    }\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '사운드 풀을 완벽하게 구현했어요! 겹치는 효과음 처리의 핵심이에요!', good: '풀은 만들었지만 재사용 조건을 확인하세요.', partial: '풀은 있지만 재생 가능한 소리를 못 찾아요.', wrong: 'pool[i].paused || pool[i].ended로 사용 가능한 소리를 찾으세요.' }
+            },
+            {
+              id: 'c5',
+              title: '음소거 토글 버튼',
+              description: '모든 게임 소리를 한 번에 음소거/해제하는 시스템을 만드세요.',
+              difficulty: 'hard',
+              hints: ['isMuted 플래그를 사용하세요', '모든 오디오의 muted 속성을 변경하세요', '버튼 텍스트도 함께 바꾸세요'],
+              estimatedMinutes: 6,
+              starterCode: 'var isMuted = false;\n' +
+                'var allSounds = [bgm, sfxPool[0], sfxPool[1]];\n\n' +
+                'function toggleMute() {\n' +
+                '  // TODO: isMuted 반전\n' +
+                '  // TODO: 모든 소리의 muted 속성을 isMuted로 설정\n' +
+                '  // TODO: 버튼 텍스트 업데이트\n' +
+                '}',
+              solution: 'var isMuted = false;\n' +
+                'var allSounds = [bgm, sfxPool[0], sfxPool[1]];\n\n' +
+                'function toggleMute() {\n' +
+                '  isMuted = !isMuted;\n' +
+                '  for (var i = 0; i < allSounds.length; i++) {\n' +
+                '    allSounds[i].muted = isMuted;\n' +
+                '  }\n' +
+                '  document.getElementById("muteBtn").textContent = isMuted ? "Unmute" : "Mute";\n' +
+                '}',
+              feedback: { perfect: '음소거 시스템을 완벽하게 만들었어요!', good: '소리는 꺼지지만 버튼 텍스트 업데이트를 확인하세요.', partial: '일부 소리만 음소거돼요. 모든 소리를 처리하세요.', wrong: 'isMuted = !isMuted 후 모든 소리의 muted 속성을 변경하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -4240,187 +4029,156 @@ export const unit8: Unit = {
             { input: '점수 100', expectedOutput: '레벨 2 진입', description: '레벨 업' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "레벨의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 레벨 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '레벨 변수와 경험치',
+              description: '경험치가 일정량 쌓이면 레벨이 올라가는 시스템을 만드세요.',
+              difficulty: 'easy',
+              hints: ['exp가 expToLevel 이상이면 레벨업', '레벨업 시 exp에서 expToLevel을 빼세요', 'expToLevel도 레벨에 따라 증가시키세요'],
+              estimatedMinutes: 4,
+              starterCode: 'var level = 1;\n' +
+                'var exp = 0;\n' +
+                'var expToLevel = 100;\n\n' +
+                'function addExp(amount) {\n' +
+                '  exp += amount;\n' +
+                '  // TODO: exp >= expToLevel이면 레벨업\n' +
+                '  // TODO: exp에서 expToLevel 빼기\n' +
+                '  // TODO: level 1 증가\n' +
+                '  // TODO: expToLevel을 1.5배로 증가\n' +
+                '}',
+              solution: 'var level = 1;\n' +
+                'var exp = 0;\n' +
+                'var expToLevel = 100;\n\n' +
+                'function addExp(amount) {\n' +
+                '  exp += amount;\n' +
+                '  while (exp >= expToLevel) {\n' +
+                '    exp -= expToLevel;\n' +
+                '    level++;\n' +
+                '    expToLevel = Math.floor(expToLevel * 1.5);\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '레벨 시스템을 완벽하게 만들었어요!', good: '레벨업이 되요! 연속 레벨업 처리를 확인하세요.', partial: '한 번은 레벨업하지만 경험치 초과분이 사라져요.', wrong: 'while(exp >= expToLevel)로 연속 레벨업을 처리하세요.' }
+            },
+            {
+              id: 'c2',
+              title: '레벨별 적 속도 조절',
+              description: '레벨이 올라갈수록 적의 이동 속도가 빨라지는 시스템을 만드세요.',
+              difficulty: 'easy',
+              hints: ['baseSpeed에 레벨 보너스를 더하세요', '너무 빨라지지 않도록 최대 속도를 제한하세요', 'Math.min으로 제한하세요'],
+              estimatedMinutes: 4,
+              starterCode: 'function getEnemySpeed(level) {\n' +
+                '  var baseSpeed = 1;\n' +
+                '  var bonus = ___;  // level * 0.3\n' +
+                '  var maxSpeed = 5;\n' +
+                '  // TODO: baseSpeed + bonus를 maxSpeed로 제한하여 반환\n' +
+                '  return ___;\n' +
+                '}',
+              solution: 'function getEnemySpeed(level) {\n' +
+                '  var baseSpeed = 1;\n' +
+                '  var bonus = level * 0.3;\n' +
+                '  var maxSpeed = 5;\n' +
+                '  return Math.min(baseSpeed + bonus, maxSpeed);\n' +
+                '}',
+              feedback: { perfect: '레벨별 속도 조절을 완벽하게 했어요!', good: '속도가 올라가요! 최대 속도 제한을 확인하세요.', partial: '보너스는 있지만 제한이 없어요.', wrong: 'Math.min(baseSpeed + bonus, maxSpeed)로 제한하세요.' }
+            },
+            {
+              id: 'c3',
+              title: '레벨 진행바 그리기',
+              description: '현재 경험치 진행률을 시각적으로 보여주는 진행바를 그리세요.',
+              difficulty: 'medium',
+              hints: ['exp / expToLevel로 비율을 구하세요', '배경 바를 먼저 그리고 위에 진행 바를 그리세요', '비율 * 전체 너비로 진행 바 너비를 계산하세요'],
+              estimatedMinutes: 6,
+              starterCode: 'function drawExpBar(ctx, exp, expToLevel) {\n' +
+                '  var barWidth = 200;\n' +
+                '  var barHeight = 15;\n' +
+                '  var x = 100, y = 380;\n' +
+                '  var ratio = ___;  // exp / expToLevel\n' +
+                '  // TODO: 회색 배경 바 그리기\n' +
+                '  // TODO: 초록색 진행 바 그리기 (너비 = barWidth * ratio)\n' +
+                '}',
+              solution: 'function drawExpBar(ctx, exp, expToLevel) {\n' +
+                '  var barWidth = 200;\n' +
+                '  var barHeight = 15;\n' +
+                '  var x = 100, y = 380;\n' +
+                '  var ratio = exp / expToLevel;\n' +
+                '  ctx.fillStyle = "gray";\n' +
+                '  ctx.fillRect(x, y, barWidth, barHeight);\n' +
+                '  ctx.fillStyle = "lime";\n' +
+                '  ctx.fillRect(x, y, barWidth * ratio, barHeight);\n' +
+                '}',
+              feedback: { perfect: '경험치 진행바를 완벽하게 그렸어요!', good: '바가 보여요! 진행률 계산을 확인하세요.', partial: '배경만 보이고 진행 바가 안 채워져요.', wrong: 'exp / expToLevel로 비율을 구해서 barWidth * ratio로 너비를 계산하세요.' }
+            },
+            {
+              id: 'c4',
+              title: '레벨업 알림 효과',
+              description: '레벨업 시 "LEVEL UP!" 텍스트가 나타났다 사라지는 효과를 만드세요.',
+              difficulty: 'medium',
+              hints: ['showTimer 변수로 표시 시간을 관리하세요', '레벨업 시 showTimer를 큰 값으로 설정', '매 프레임 감소시키며 0이면 안 보여요'],
+              estimatedMinutes: 6,
+              starterCode: 'var levelUpTimer = 0;\n\n' +
+                'function onLevelUp() {\n' +
+                '  // TODO: levelUpTimer를 120(2초)으로 설정\n' +
+                '}\n\n' +
+                'function drawLevelUp(ctx) {\n' +
+                '  if (levelUpTimer > 0) {\n' +
+                '    // TODO: levelUpTimer를 투명도로 사용 (timer/120)\n' +
+                '    ctx.globalAlpha = ___;\n' +
+                '    ctx.font = "30px Arial";\n' +
+                '    ctx.fillStyle = "gold";\n' +
+                '    ctx.textAlign = "center";\n' +
+                '    ctx.fillText("LEVEL UP!", 200, 200);\n' +
+                '    ctx.textAlign = "left";\n' +
+                '    ctx.globalAlpha = 1;\n' +
+                '    // TODO: levelUpTimer 감소\n' +
+                '  }\n' +
+                '}',
+              solution: 'var levelUpTimer = 0;\n\n' +
+                'function onLevelUp() {\n' +
+                '  levelUpTimer = 120;\n' +
+                '}\n\n' +
+                'function drawLevelUp(ctx) {\n' +
+                '  if (levelUpTimer > 0) {\n' +
+                '    ctx.globalAlpha = levelUpTimer / 120;\n' +
+                '    ctx.font = "30px Arial";\n' +
+                '    ctx.fillStyle = "gold";\n' +
+                '    ctx.textAlign = "center";\n' +
+                '    ctx.fillText("LEVEL UP!", 200, 200);\n' +
+                '    ctx.textAlign = "left";\n' +
+                '    ctx.globalAlpha = 1;\n' +
+                '    levelUpTimer--;\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '레벨업 알림을 완벽하게 구현했어요!', good: '텍스트가 보여요! 페이드 효과를 확인하세요.', partial: '텍스트가 나타나지만 사라지지 않아요.', wrong: 'levelUpTimer / 120으로 투명도를 설정하고 매 프레임 감소시키세요.' }
+            },
+            {
+              id: 'c5',
+              title: '웨이브 시스템 구현',
+              description: '정해진 수의 적을 처치하면 다음 웨이브로 넘어가는 시스템을 만드세요.',
+              difficulty: 'hard',
+              hints: ['wave 변수와 enemiesPerWave를 관리하세요', '처치한 적 수를 세서 웨이브 클리어를 판단하세요', '다음 웨이브는 적이 더 많아요'],
+              estimatedMinutes: 7,
+              starterCode: 'var wave = 1;\n' +
+                'var enemiesPerWave = 5;\n' +
+                'var killsInWave = 0;\n\n' +
+                'function onEnemyKilled() {\n' +
+                '  killsInWave++;\n' +
+                '  // TODO: killsInWave >= enemiesPerWave이면 다음 웨이브\n' +
+                '  // TODO: wave 증가, killsInWave 리셋\n' +
+                '  // TODO: enemiesPerWave를 wave * 5로 증가\n' +
+                '}',
+              solution: 'var wave = 1;\n' +
+                'var enemiesPerWave = 5;\n' +
+                'var killsInWave = 0;\n\n' +
+                'function onEnemyKilled() {\n' +
+                '  killsInWave++;\n' +
+                '  if (killsInWave >= enemiesPerWave) {\n' +
+                '    wave++;\n' +
+                '    killsInWave = 0;\n' +
+                '    enemiesPerWave = wave * 5;\n' +
+                '  }\n' +
+                '}',
+              feedback: { perfect: '웨이브 시스템을 완벽하게 만들었어요!', good: '웨이브 전환이 돼요! 적 수 증가를 확인하세요.', partial: '킬은 세지만 웨이브 전환이 안 돼요.', wrong: 'if (killsInWave >= enemiesPerWave)로 웨이브 클리어를 확인하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -4462,187 +4220,155 @@ export const unit8: Unit = {
             { input: '여러 번 재시작', expectedOutput: '초기화 정상', description: '재시작' }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "게임 완성의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 게임 완성 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1',
+              title: '게임 초기화 함수',
+              description: '게임에 필요한 모든 변수와 객체를 초기화하는 init 함수를 만드세요.',
+              difficulty: 'easy',
+              hints: ['플레이어, 적, 점수, HP 등을 모두 초기화하세요', 'player 객체를 화면 중앙에 배치하세요', '배열은 빈 배열로 초기화하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'var player, enemies, score, hp, isGameOver;\n\n' +
+                'function init() {\n' +
+                '  // TODO: player 초기화 (x:200, y:350, r:15)\n' +
+                '  // TODO: enemies를 빈 배열로\n' +
+                '  // TODO: score를 0으로\n' +
+                '  // TODO: hp를 100으로\n' +
+                '  // TODO: isGameOver를 false로\n' +
+                '}',
+              solution: 'var player, enemies, score, hp, isGameOver;\n\n' +
+                'function init() {\n' +
+                '  player = { x: 200, y: 350, r: 15 };\n' +
+                '  enemies = [];\n' +
+                '  score = 0;\n' +
+                '  hp = 100;\n' +
+                '  isGameOver = false;\n' +
+                '}',
+              feedback: { perfect: '게임 초기화를 완벽하게 했어요!', good: '대부분 초기화했지만 빠진 항목이 있어요.', partial: '일부만 초기화해서 이전 데이터가 남아요.', wrong: '모든 변수를 초기값으로 설정하세요.' }
+            },
+            {
+              id: 'c2',
+              title: '메인 게임 루프 작성',
+              description: 'update와 draw를 순서대로 호출하는 메인 게임 루프를 작성하세요.',
+              difficulty: 'easy',
+              hints: ['게임 오버가 아닐 때만 실행하세요', 'update -> draw -> requestAnimationFrame 순서', 'isGameOver이면 drawGameOver를 호출하세요'],
+              estimatedMinutes: 5,
+              starterCode: 'function gameLoop() {\n' +
+                '  if (isGameOver) {\n' +
+                '    // TODO: 게임 오버 화면 그리기\n' +
+                '    return;\n' +
+                '  }\n' +
+                '  // TODO: update() 호출\n' +
+                '  // TODO: draw() 호출\n' +
+                '  // TODO: requestAnimationFrame(gameLoop)\n' +
+                '}',
+              solution: 'function gameLoop() {\n' +
+                '  if (isGameOver) {\n' +
+                '    drawGameOver(ctx, score);\n' +
+                '    return;\n' +
+                '  }\n' +
+                '  update();\n' +
+                '  draw();\n' +
+                '  requestAnimationFrame(gameLoop);\n' +
+                '}',
+              feedback: { perfect: '게임 루프를 완벽하게 작성했어요!', good: '루프가 돌아요! 게임 오버 처리를 확인하세요.', partial: '루프는 있지만 게임 오버 시 멈추지 않아요.', wrong: 'isGameOver이면 drawGameOver 후 return, 아니면 update/draw/requestAnimationFrame 순서에요.' }
+            },
+            {
+              id: 'c3',
+              title: 'update 함수 통합',
+              description: '적 생성, 이동, 충돌, 점수를 한 곳에서 관리하는 update 함수를 작성하세요.',
+              difficulty: 'medium',
+              hints: ['spawnEnemies, updateEnemies, checkCollisions 순서로 호출', '난이도 증가도 호출하세요', '각 함수가 독립적으로 작동해야 해요'],
+              estimatedMinutes: 6,
+              starterCode: 'function update() {\n' +
+                '  // TODO: 적 생성 (spawnEnemies)\n' +
+                '  // TODO: 적 이동 (updateEnemies)\n' +
+                '  // TODO: 충돌 확인 (checkCollisions)\n' +
+                '  // TODO: 난이도 증가 (increaseDifficulty)\n' +
+                '}',
+              solution: 'function update() {\n' +
+                '  spawnEnemies();\n' +
+                '  updateEnemies();\n' +
+                '  checkCollisions();\n' +
+                '  increaseDifficulty();\n' +
+                '}',
+              feedback: { perfect: 'update를 깔끔하게 통합했어요! 모듈화의 장점이에요!', good: '대부분 포함했지만 빠진 단계가 있어요.', partial: '일부 함수만 호출하고 있어요.', wrong: 'spawnEnemies, updateEnemies, checkCollisions, increaseDifficulty를 순서대로 호출하세요.' }
+            },
+            {
+              id: 'c4',
+              title: 'draw 함수 통합',
+              description: '배경, 플레이어, 적, HUD(점수, HP)를 모두 그리는 draw 함수를 작성하세요.',
+              difficulty: 'medium',
+              hints: ['배경을 먼저 그리세요 (clearRect)', '플레이어, 적, UI 순서로 그리세요', 'UI는 게임 위에 그려야 해요'],
+              estimatedMinutes: 6,
+              starterCode: 'function draw() {\n' +
+                '  // TODO: 화면 지우기\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  // TODO: 배경색 칠하기 (검정)\n' +
+                '  // TODO: 플레이어 그리기 (drawPlayer)\n' +
+                '  // TODO: 적들 그리기 (drawEnemies)\n' +
+                '  // TODO: 점수 표시 (drawScore)\n' +
+                '  // TODO: HP 표시\n' +
+                '}',
+              solution: 'function draw() {\n' +
+                '  ctx.clearRect(0, 0, 400, 400);\n' +
+                '  ctx.fillStyle = "black";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  drawPlayer(ctx);\n' +
+                '  drawEnemies(ctx);\n' +
+                '  drawScore(ctx, score);\n' +
+                '  drawExpBar(ctx, exp, expToLevel);\n' +
+                '}',
+              feedback: { perfect: 'draw를 완벽하게 통합했어요! 렌더링 순서가 정확해요!', good: '대부분 그려지지만 빠진 요소가 있어요.', partial: '배경만 보이고 게임 요소가 안 그려져요.', wrong: 'clearRect 후 배경, 플레이어, 적, UI 순서로 그리세요.' }
+            },
+            {
+              id: 'c5',
+              title: '게임 시작 화면',
+              description: '"CLICK TO START" 시작 화면을 만들고, 클릭하면 게임이 시작되게 하세요.',
+              difficulty: 'hard',
+              hints: ['gameStarted 변수로 시작 여부를 관리하세요', '시작 전에는 타이틀 화면만 보여주세요', '클릭 시 init() 후 gameLoop()를 시작하세요'],
+              estimatedMinutes: 7,
+              starterCode: 'var gameStarted = false;\n\n' +
+                'function drawTitleScreen(ctx) {\n' +
+                '  ctx.fillStyle = "black";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  ctx.textAlign = "center";\n' +
+                '  // TODO: 게임 제목 (30px, 흰색)\n' +
+                '  // TODO: "Click to Start" (18px, 회색)\n' +
+                '  ctx.textAlign = "left";\n' +
+                '}\n\n' +
+                'canvas.addEventListener("click", function() {\n' +
+                '  if (!gameStarted) {\n' +
+                '    // TODO: gameStarted = true, init(), gameLoop()\n' +
+                '  } else if (isGameOver) {\n' +
+                '    // TODO: restart()\n' +
+                '  }\n' +
+                '});\n\n' +
+                'drawTitleScreen(ctx);',
+              solution: 'var gameStarted = false;\n\n' +
+                'function drawTitleScreen(ctx) {\n' +
+                '  ctx.fillStyle = "black";\n' +
+                '  ctx.fillRect(0, 0, 400, 400);\n' +
+                '  ctx.textAlign = "center";\n' +
+                '  ctx.font = "30px Arial";\n' +
+                '  ctx.fillStyle = "white";\n' +
+                '  ctx.fillText("Space Dodger", 200, 170);\n' +
+                '  ctx.font = "18px Arial";\n' +
+                '  ctx.fillStyle = "gray";\n' +
+                '  ctx.fillText("Click to Start", 200, 220);\n' +
+                '  ctx.textAlign = "left";\n' +
+                '}\n\n' +
+                'canvas.addEventListener("click", function() {\n' +
+                '  if (!gameStarted) {\n' +
+                '    gameStarted = true;\n' +
+                '    init();\n' +
+                '    gameLoop();\n' +
+                '  } else if (isGameOver) {\n' +
+                '    restart();\n' +
+                '  }\n' +
+                '});\n\n' +
+                'drawTitleScreen(ctx);',
+              feedback: { perfect: '게임 시작 화면을 완벽하게 만들었어요! 완성도 높은 게임이에요!', good: '시작 화면이 보여요! 클릭 처리를 확인하세요.', partial: '화면은 있지만 클릭이 작동하지 않아요.', wrong: '클릭 시 gameStarted=true, init(), gameLoop()를 순서대로 호출하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,

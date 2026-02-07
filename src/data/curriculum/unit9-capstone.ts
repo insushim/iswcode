@@ -306,187 +306,41 @@ export const unit9: Unit = {
             }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "시맨틱 HTML의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# 시맨틱 HTML 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1', title: '시맨틱 태그 기본', description: '시맨틱 HTML 태그의 올바른 사용법을 연습합니다.', difficulty: 'easy',
+              starterCode: '<!-- div 대신 시맨틱 태그를 사용하세요 -->\n<div class="header">\n  <div class="nav">메뉴</div>\n</div>\n<div class="content">본문</div>\n<div class="footer">푸터</div>',
+              solution: '<header>\n  <nav>메뉴</nav>\n</header>\n<main>본문</main>\n<footer>푸터</footer>',
+              hints: ['header, nav, main, footer 태그를 사용하세요', 'div를 의미에 맞는 태그로 바꾸세요', 'main 태그는 페이지당 하나만 사용하세요'], estimatedMinutes: 3,
+              feedback: { perfect: '시맨틱 태그를 완벽하게 변환했어요!', good: '태그 사용이 정확해요!', partial: 'main 태그도 사용해보세요.', wrong: 'div를 header, nav, main, footer로 바꾸세요.' }
+            },
+            {
+              id: 'c2', title: '섹션 구조화', description: '포트폴리오 페이지의 섹션을 시맨틱하게 구조화합니다.', difficulty: 'easy',
+              starterCode: '<!-- 포트폴리오 섹션을 시맨틱 태그로 변환하세요 -->\n<div id="about">\n  <h2>소개</h2>\n  <p>저는 학생 개발자입니다.</p>\n</div>\n<div id="projects">\n  <h2>프로젝트</h2>\n  <div class="project">프로젝트 1</div>\n</div>',
+              solution: '<section id="about">\n  <h2>소개</h2>\n  <p>저는 학생 개발자입니다.</p>\n</section>\n<section id="projects">\n  <h2>프로젝트</h2>\n  <article class="project">\n    <h3>프로젝트 1</h3>\n    <p>설명</p>\n  </article>\n</section>',
+              hints: ['section으로 큰 영역을 감싸세요', 'article로 독립적인 콘텐츠를 감싸세요', '각 section에 제목(h2)이 있어야 해요'], estimatedMinutes: 5,
+              feedback: { perfect: '섹션 구조화를 완벽하게 했어요!', good: 'section과 article 사용이 정확해요!', partial: 'article 태그도 사용해보세요.', wrong: 'div를 section과 article로 바꾸세요.' }
+            },
+            {
+              id: 'c3', title: '접근성 향상', description: '포트폴리오 HTML의 접근성 문제를 수정합니다.', difficulty: 'easy',
+              starterCode: '<!-- 접근성 문제를 수정하세요 -->\n<img src="photo.jpg">\n<a href="#">클릭</a>\n<div onclick="submit()">제출</div>\n<input type="text">',
+              solution: '<img src="photo.jpg" alt="프로필 사진">\n<a href="#projects">프로젝트 보기</a>\n<button onclick="submit()">제출</button>\n<label for="name">이름</label>\n<input type="text" id="name">',
+              hints: ['img에 alt 속성을 추가하세요', '의미 있는 링크 텍스트를 작성하세요', 'div 대신 button 태그를 사용하세요'], estimatedMinutes: 5,
+              feedback: { perfect: '접근성을 완벽하게 개선했어요!', good: '주요 문제를 잘 수정했어요!', partial: 'label과 input을 연결하세요.', wrong: 'alt, 의미있는 텍스트, button, label을 추가하세요.' }
+            },
+            {
+              id: 'c4', title: '포트폴리오 헤더 구현', description: '포트폴리오 헤더와 네비게이션을 직접 구현합니다.', difficulty: 'medium',
+              starterCode: '<!-- 포트폴리오 헤더를 완성하세요 -->\n<!-- 로고, 네비게이션(4개 링크), 모바일 메뉴 버튼 포함 -->\n<header>\n  <!-- 여기에 구현 -->\n</header>',
+              solution: '<header>\n  <div class="logo">\n    <h1>My Portfolio</h1>\n  </div>\n  <nav>\n    <a href="#about">소개</a>\n    <a href="#skills">기술</a>\n    <a href="#projects">프로젝트</a>\n    <a href="#contact">연락처</a>\n  </nav>\n  <button class="menu-btn" aria-label="메뉴 열기">\n    &#9776;\n  </button>\n</header>',
+              hints: ['aria-label로 버튼에 설명을 추가하세요', '&#9776;은 햄버거 메뉴 아이콘입니다', 'nav 안에 링크를 배치하세요'], estimatedMinutes: 8,
+              feedback: { perfect: '헤더를 완벽하게 구현했어요!', good: '네비게이션 구조가 좋아요!', partial: '모바일 메뉴 버튼도 추가하세요.', wrong: 'header 안에 logo, nav, button을 배치하세요.' }
+            },
+            {
+              id: 'c5', title: '프로젝트 카드 섹션', description: '포트폴리오의 프로젝트 카드 섹션을 완성합니다.', difficulty: 'medium',
+              starterCode: '<!-- 프로젝트 카드 2개를 포함한 섹션을 만드세요 -->\n<!-- 각 카드: 이미지, 제목, 설명, 기술 태그, 데모 링크 -->\n<section id="projects">\n  <h2>Projects</h2>\n  <!-- 여기에 카드 구현 -->\n</section>',
+              solution: '<section id="projects">\n  <h2>Projects</h2>\n  <div class="project-grid">\n    <article class="card">\n      <img src="project1.png" alt="할 일 앱 스크린샷">\n      <h3>할 일 관리 앱</h3>\n      <p>JavaScript로 만든 할 일 관리 앱</p>\n      <div class="tags">\n        <span>HTML</span><span>CSS</span><span>JS</span>\n      </div>\n      <a href="#" class="btn">Demo</a>\n    </article>\n    <article class="card">\n      <img src="project2.png" alt="게임 스크린샷">\n      <h3>웹 게임</h3>\n      <p>Canvas로 만든 게임</p>\n      <div class="tags">\n        <span>HTML</span><span>Canvas</span><span>JS</span>\n      </div>\n      <a href="#" class="btn">Demo</a>\n    </article>\n  </div>\n</section>',
+              hints: ['article 태그로 각 프로젝트를 감싸세요', 'img에 alt 속성을 꼭 추가하세요', 'span으로 기술 태그를 만드세요'], estimatedMinutes: 10,
+              feedback: { perfect: '프로젝트 섹션을 완벽하게 구현했어요!', good: '카드 구조가 잘 되었어요!', partial: '기술 태그와 링크를 추가하세요.', wrong: 'article 안에 img, h3, p, tags, a를 배치하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -538,187 +392,41 @@ export const unit9: Unit = {
             }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "CSS 변수와 그라데이션의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# CSS 변수와 그라데이션 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1', title: 'CSS 변수 정의하기', description: 'CSS 커스텀 프로퍼티를 정의하고 사용합니다.', difficulty: 'easy',
+              starterCode: ':root {\n  /* primary, secondary, text 색상 변수를 정의하세요 */\n}\n\nh1 {\n  /* primary 변수를 사용하세요 */\n  color: ;\n}',
+              solution: ':root {\n  --primary: #667eea;\n  --secondary: #764ba2;\n  --text: #333333;\n}\n\nh1 {\n  color: var(--primary);\n}\n\np {\n  color: var(--text);\n}',
+              hints: ['--이름 형식으로 변수를 만들어요', 'var(--이름)으로 변수를 사용해요', ':root는 최상위 요소를 의미해요'], estimatedMinutes: 3,
+              feedback: { perfect: 'CSS 변수를 완벽하게 사용했어요!', good: '변수 정의가 정확해요!', partial: 'var()로 변수를 참조해야 해요.', wrong: ':root에 --이름: 값; 형식으로 변수를 만드세요.' }
+            },
+            {
+              id: 'c2', title: '그라데이션 배경 만들기', description: 'linear-gradient로 그라데이션 배경을 만듭니다.', difficulty: 'easy',
+              starterCode: '.hero {\n  /* 대각선 그라데이션 배경을 만드세요 */\n  /* 파란색(#667eea)에서 보라색(#764ba2)으로 */\n  color: white;\n  padding: 4rem;\n}',
+              solution: '.hero {\n  background: linear-gradient(135deg, #667eea, #764ba2);\n  color: white;\n  padding: 4rem;\n  text-align: center;\n}',
+              hints: ['linear-gradient(각도, 색1, 색2) 형식이에요', '135deg은 왼쪽 위에서 오른쪽 아래 방향이에요', 'background 속성에 gradient를 적용해요'], estimatedMinutes: 4,
+              feedback: { perfect: '그라데이션을 완벽하게 적용했어요!', good: '색상 조합이 아름다워요!', partial: '각도(135deg)를 추가해보세요.', wrong: 'background: linear-gradient(135deg, 색1, 색2)를 사용하세요.' }
+            },
+            {
+              id: 'c3', title: 'CSS 변수로 다크모드', description: 'CSS 변수로 라이트/다크 테마를 전환합니다.', difficulty: 'medium',
+              starterCode: '/* 라이트/다크 테마를 CSS 변수로 구현하세요 */\n:root {\n  /* 라이트 테마 변수 */\n}\n\n[data-theme="dark"] {\n  /* 다크 테마 변수 (같은 변수명, 다른 값) */\n}\n\nbody {\n  background: var(--bg);\n  color: var(--text);\n}',
+              solution: ':root {\n  --bg: #ffffff;\n  --text: #333333;\n  --card-bg: #f5f5f5;\n  --primary: #667eea;\n}\n\n[data-theme="dark"] {\n  --bg: #0f172a;\n  --text: #e2e8f0;\n  --card-bg: #1e293b;\n  --primary: #818cf8;\n}\n\nbody {\n  background: var(--bg);\n  color: var(--text);\n  transition: background 0.3s, color 0.3s;\n}\n\n.card {\n  background: var(--card-bg);\n  padding: 1rem;\n  border-radius: 8px;\n}',
+              hints: ['같은 변수명으로 다른 값을 정의하면 테마 전환이 돼요', 'transition으로 부드러운 전환을 만들어요', 'data-theme 선택자가 :root 변수를 덮어씌워요'], estimatedMinutes: 8,
+              feedback: { perfect: '다크모드 전환을 완벽하게 구현했어요!', good: '테마 변수 구조가 좋아요!', partial: 'transition을 추가하면 부드럽게 전환돼요.', wrong: ':root와 [data-theme] 모두에 같은 변수명을 정의하세요.' }
+            },
+            {
+              id: 'c4', title: '카드 호버 효과', description: '프로젝트 카드에 CSS 변수와 호버 효과를 적용합니다.', difficulty: 'medium',
+              starterCode: '/* 프로젝트 카드 스타일을 완성하세요 */\n.project-card {\n  /* CSS 변수와 그림자, 둥근 모서리 적용 */\n}\n\n.project-card:hover {\n  /* 떠오르는 호버 효과 */\n}',
+              solution: '.project-card {\n  background: var(--card-bg, white);\n  border-radius: 12px;\n  overflow: hidden;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n  transition: transform 0.3s, box-shadow 0.3s;\n}\n\n.project-card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 8px 24px rgba(0,0,0,0.15);\n}\n\n.project-card img {\n  width: 100%;\n  height: 200px;\n  object-fit: cover;\n}\n\n.project-card .content {\n  padding: 1rem;\n}',
+              hints: ['var(--name, 기본값) 형식으로 기본값을 줄 수 있어요', 'hover에 transform과 shadow를 변경하면 효과적이에요', 'transition으로 부드러운 변화를 만드세요'], estimatedMinutes: 10,
+              feedback: { perfect: '카드 스타일이 세련되게 완성되었어요!', good: '호버 효과가 자연스러워요!', partial: 'transition을 추가해보세요.', wrong: 'box-shadow와 border-radius로 카드를 만드세요.' }
+            },
+            {
+              id: 'c5', title: '포트폴리오 통합 스타일', description: 'CSS 변수 + 그라데이션 + 호버 + 반응형을 통합합니다.', difficulty: 'hard',
+              starterCode: '/* 포트폴리오 전체 스타일을 완성하세요 */\n/* CSS 변수 정의 -> 기본 스타일 -> 그라데이션 헤더 -> 카드 -> 반응형 */\n:root {\n  /* 변수 정의 */\n}',
+              solution: ':root {\n  --primary: #667eea;\n  --secondary: #764ba2;\n  --bg: #f8f9fa;\n  --text: #333;\n  --card-bg: white;\n}\n\n* { margin: 0; box-sizing: border-box; }\nbody { font-family: sans-serif; background: var(--bg); color: var(--text); }\n\nheader {\n  background: linear-gradient(135deg, var(--primary), var(--secondary));\n  color: white;\n  padding: 4rem 2rem;\n  text-align: center;\n}\n\nnav { display: flex; justify-content: center; gap: 2rem; padding: 1rem; }\nnav a { color: var(--primary); text-decoration: none; }\nnav a:hover { text-decoration: underline; }\n\n.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1000px; margin: 0 auto; }\n\n.card { background: var(--card-bg); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s; }\n.card:hover { transform: translateY(-4px); }\n\nfooter { background: var(--text); color: var(--bg); text-align: center; padding: 2rem; }',
+              hints: ['CSS 변수로 색상을 통일하세요', 'auto-fit과 minmax로 반응형 그리드를 만드세요', 'gradient에 CSS 변수를 활용하세요'], estimatedMinutes: 15,
+              feedback: { perfect: '완성도 높은 포트폴리오 스타일이에요!', good: '전체 스타일이 일관적이에요!', partial: '반응형 그리드를 추가해보세요.', wrong: 'CSS 변수 정의부터 시작해서 각 섹션 스타일을 추가하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -919,187 +627,41 @@ export const unit9: Unit = {
             }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "CSS 애니메이션의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# CSS 애니메이션 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1', title: 'CSS transition 기본', description: 'transition으로 부드러운 변화를 만듭니다.', difficulty: 'easy',
+              starterCode: '.btn {\n  background: #667eea;\n  color: white;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  /* 호버 시 부드러운 전환 추가 */\n}\n\n.btn:hover {\n  background: #764ba2;\n}',
+              solution: '.btn {\n  background: #667eea;\n  color: white;\n  padding: 12px 24px;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: background 0.3s ease, transform 0.2s ease;\n}\n\n.btn:hover {\n  background: #764ba2;\n  transform: scale(1.05);\n}',
+              hints: ['transition: 속성 시간 ease 형식이에요', '여러 속성은 쉼표로 구분해요', 'ease는 부드러운 속도 곡선이에요'], estimatedMinutes: 3,
+              feedback: { perfect: 'transition을 완벽하게 적용했어요!', good: '부드러운 전환이에요!', partial: 'transform도 transition에 추가해보세요.', wrong: 'transition: background 0.3s ease를 .btn에 추가하세요.' }
+            },
+            {
+              id: 'c2', title: '@keyframes 페이드인', description: '@keyframes로 페이드인 애니메이션을 만듭니다.', difficulty: 'easy',
+              starterCode: '/* 페이드인 애니메이션을 만드세요 */\n@keyframes fadeIn {\n  /* from: 투명+아래, to: 불투명+제자리 */\n}\n\n.fade-in {\n  /* fadeIn 애니메이션 적용 */\n}',
+              solution: '@keyframes fadeIn {\n  from { opacity: 0; transform: translateY(20px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n.fade-in {\n  animation: fadeIn 0.6s ease-out forwards;\n}',
+              hints: ['opacity로 투명도를 제어해요', 'translateY로 위아래 이동 효과를 만들어요', 'forwards는 끝 상태를 유지해요'], estimatedMinutes: 5,
+              feedback: { perfect: '페이드인 애니메이션이 완벽해요!', good: '@keyframes 사용이 정확해요!', partial: 'forwards를 추가하면 끝 상태가 유지돼요.', wrong: '@keyframes에 from/to를 정의하고 animation으로 적용하세요.' }
+            },
+            {
+              id: 'c3', title: '카드 순차 등장', description: '카드가 순서대로 나타나는 애니메이션을 만듭니다.', difficulty: 'medium',
+              starterCode: '/* 카드가 순서대로 나타나는 애니메이션 */\n@keyframes slideUp {\n  /* 아래에서 위로 나타남 */\n}\n\n.card { /* 기본: 숨김 상태 */ }\n.card:nth-child(1) { /* 0초 지연 */ }\n.card:nth-child(2) { /* 0.2초 지연 */ }\n.card:nth-child(3) { /* 0.4초 지연 */ }',
+              solution: '@keyframes slideUp {\n  from { opacity: 0; transform: translateY(30px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n.card {\n  opacity: 0;\n  animation: slideUp 0.5s ease forwards;\n}\n\n.card:nth-child(1) { animation-delay: 0s; }\n.card:nth-child(2) { animation-delay: 0.2s; }\n.card:nth-child(3) { animation-delay: 0.4s; }',
+              hints: ['animation-delay로 지연 시간을 설정해요', 'nth-child로 순서별 다른 지연을 줘요', 'opacity: 0으로 초기 상태를 숨겨요'], estimatedMinutes: 7,
+              feedback: { perfect: '순차 애니메이션이 멋져요!', good: 'delay 설정이 정확해요!', partial: 'animation-delay를 nth-child별로 다르게 하세요.', wrong: 'animation-delay: 0s, 0.2s, 0.4s를 각 카드에 적용하세요.' }
+            },
+            {
+              id: 'c4', title: '로딩 스피너 만들기', description: 'CSS만으로 회전하는 로딩 스피너를 만듭니다.', difficulty: 'medium',
+              starterCode: '/* 회전하는 로딩 스피너 */\n@keyframes spin {\n  /* 0도에서 360도 회전 */\n}\n\n.spinner {\n  /* 원형 + 부분 테두리 + 회전 애니메이션 */\n  width: 40px;\n  height: 40px;\n}',
+              solution: '@keyframes spin {\n  from { transform: rotate(0deg); }\n  to { transform: rotate(360deg); }\n}\n\n.spinner {\n  width: 40px;\n  height: 40px;\n  border: 4px solid #e5e7eb;\n  border-top: 4px solid #667eea;\n  border-radius: 50%;\n  animation: spin 0.8s linear infinite;\n}',
+              hints: ['border-top만 다른 색으로 하면 스피너가 돼요', 'infinite로 계속 회전시켜요', 'linear는 일정한 속도로 회전해요'], estimatedMinutes: 10,
+              feedback: { perfect: '로딩 스피너가 완벽해요!', good: '회전 애니메이션이 자연스러워요!', partial: 'infinite 키워드를 추가하세요.', wrong: 'border-top 색상을 다르게 하고 spin 애니메이션을 적용하세요.' }
+            },
+            {
+              id: 'c5', title: '포트폴리오 애니메이션 통합', description: '포트폴리오에 페이드인 + 슬라이드업 + 펄스 애니메이션을 통합합니다.', difficulty: 'hard',
+              starterCode: '/* 포트폴리오에 적용할 애니메이션을 모두 만드세요 */\n/* 1. 헤더 텍스트: 페이드인 */\n/* 2. 프로젝트 카드: 순차 슬라이드업 */\n/* 3. CTA 버튼: 반복 펄스 */',
+              solution: '@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }\n@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }\n@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }\n\nheader h1 { animation: fadeIn 1s ease; }\nheader p { animation: fadeIn 1s ease 0.3s both; }\n\n.card { animation: slideUp 0.6s ease forwards; opacity: 0; }\n.card:nth-child(2) { animation-delay: 0.2s; }\n.card:nth-child(3) { animation-delay: 0.4s; }\n\n.cta-btn { animation: pulse 2s ease infinite; }',
+              hints: ['여러 @keyframes를 정의하세요', 'both는 forwards와 backwards를 합친 것이에요', 'infinite는 무한 반복이에요'], estimatedMinutes: 15,
+              feedback: { perfect: '애니메이션 통합이 완벽해요! 프로 수준이에요!', good: '여러 애니메이션을 잘 조합했어요!', partial: 'pulse 애니메이션도 추가해보세요.', wrong: '각 애니메이션을 @keyframes로 정의하고 적절한 요소에 적용하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -1767,187 +1329,41 @@ export const unit9: Unit = {
             }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "DOM 조작의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# DOM 조작 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1', title: 'DOM 요소 선택하기', description: 'querySelector로 HTML 요소를 선택합니다.', difficulty: 'easy',
+              starterCode: '// 다양한 방법으로 요소를 선택하세요\n// 1. id가 "timer"인 요소 선택\nconst timer = \n// 2. class가 "display"인 요소 선택\nconst display = \n// 3. 모든 button 요소 선택\nconst buttons = ',
+              solution: 'const timer = document.getElementById("timer");\nconst display = document.querySelector(".display");\nconst buttons = document.querySelectorAll("button");\n\nconsole.log("타이머:", timer);\nconsole.log("디스플레이:", display.textContent);\nconsole.log("버튼 수:", buttons.length);',
+              hints: ['getElementById는 id로 선택해요', 'querySelector는 CSS 선택자를 사용해요', 'querySelectorAll은 여러 요소를 선택해요'], estimatedMinutes: 3,
+              feedback: { perfect: 'DOM 선택을 완벽하게 했어요!', good: '선택자 사용이 정확해요!', partial: 'querySelectorAll도 사용해보세요.', wrong: 'getElementById나 querySelector를 사용하세요.' }
+            },
+            {
+              id: 'c2', title: '이벤트 리스너 등록', description: '버튼 클릭 이벤트를 처리합니다.', difficulty: 'easy',
+              starterCode: 'const startBtn = document.getElementById("startBtn");\n\n// startBtn 클릭 시 "타이머 시작!" 출력하고\n// 버튼 텍스트를 "진행 중..."으로 변경하세요',
+              solution: 'const startBtn = document.getElementById("startBtn");\n\nstartBtn.addEventListener("click", function() {\n  console.log("타이머 시작!");\n  startBtn.textContent = "진행 중...";\n  startBtn.disabled = true;\n});',
+              hints: ['addEventListener("click", 함수)를 사용하세요', 'textContent로 텍스트를 변경해요', 'disabled = true로 중복 클릭을 방지해요'], estimatedMinutes: 4,
+              feedback: { perfect: '이벤트 처리가 완벽해요!', good: '클릭 이벤트를 잘 처리했어요!', partial: 'disabled로 중복 클릭을 방지하세요.', wrong: 'addEventListener("click", function() {...})를 사용하세요.' }
+            },
+            {
+              id: 'c3', title: '카운트다운 타이머 구현', description: 'setInterval로 카운트다운 타이머를 만듭니다.', difficulty: 'medium',
+              starterCode: 'let timeLeft = 25 * 60; // 25분\nlet timerId = null;\nconst display = document.querySelector(".display");\n\n// 1초마다 timeLeft를 감소시키고 화면을 업데이트하세요\n// 0이 되면 타이머를 멈추세요\nfunction startTimer() {\n  // 구현하세요\n}\n\n// 초를 "25:00" 형식으로 변환하세요\nfunction formatTime(seconds) {\n  // 구현하세요\n}',
+              solution: 'let timeLeft = 25 * 60;\nlet timerId = null;\nconst display = document.querySelector(".display");\n\nfunction startTimer() {\n  timerId = setInterval(function() {\n    timeLeft--;\n    display.textContent = formatTime(timeLeft);\n    if (timeLeft <= 0) {\n      clearInterval(timerId);\n      display.textContent = "Done!";\n    }\n  }, 1000);\n}\n\nfunction formatTime(seconds) {\n  const m = Math.floor(seconds / 60);\n  const s = seconds % 60;\n  return m + ":" + String(s).padStart(2, "0");\n}',
+              hints: ['setInterval(함수, 1000)으로 1초마다 실행해요', 'padStart(2, "0")로 한 자리 수를 두 자리로 만들어요', 'clearInterval(timerId)로 멈춰요'], estimatedMinutes: 10,
+              feedback: { perfect: '타이머를 완벽하게 구현했어요!', good: '시간 포맷팅이 정확해요!', partial: 'clearInterval로 0에서 멈추게 하세요.', wrong: 'setInterval로 1초마다 감소시키고 clearInterval로 멈추세요.' }
+            },
+            {
+              id: 'c4', title: '동적 목록 추가', description: 'JavaScript로 학습 기록을 DOM에 추가합니다.', difficulty: 'medium',
+              starterCode: '// 학습 기록을 화면에 추가하는 함수를 만드세요\n// subject: 과목 이름, duration: 학습 시간(분)\nfunction addRecord(subject, duration) {\n  const list = document.getElementById("recordList");\n  // createElement로 새 항목을 만들고 list에 추가하세요\n}',
+              solution: 'function addRecord(subject, duration) {\n  const list = document.getElementById("recordList");\n  const card = document.createElement("div");\n  card.className = "record-card";\n  card.innerHTML = "<span>" + subject + "</span><span>" + duration + "분</span>";\n  list.prepend(card);\n\n  const empty = document.getElementById("emptyMessage");\n  if (empty) empty.style.display = "none";\n}\n\naddRecord("수학", 25);\naddRecord("영어", 30);',
+              hints: ['createElement로 새 요소를 만들어요', 'innerHTML로 내부 HTML을 설정해요', 'prepend로 맨 위에 추가해요'], estimatedMinutes: 10,
+              feedback: { perfect: '동적 목록 추가가 완벽해요!', good: 'DOM 조작이 정확해요!', partial: 'prepend로 최신 기록을 위에 추가하세요.', wrong: 'createElement + className + innerHTML + prepend를 사용하세요.' }
+            },
+            {
+              id: 'c5', title: '타이머 + 기록 통합', description: '타이머 완료 시 자동으로 기록을 추가하는 앱을 완성합니다.', difficulty: 'hard',
+              starterCode: '// 전체 앱 로직을 통합하세요\n// 시작 버튼 -> 타이머 시작 -> 완료 시 기록 추가\n// 리셋 버튼 -> 타이머 초기화\nlet timeLeft = 25 * 60;\nlet timerId = null;',
+              solution: 'let timeLeft = 25 * 60;\nlet timerId = null;\nconst display = document.querySelector(".display");\nconst startBtn = document.getElementById("startBtn");\nconst resetBtn = document.getElementById("resetBtn");\n\nfunction formatTime(s) {\n  return Math.floor(s/60) + ":" + String(s%60).padStart(2,"0");\n}\n\nstartBtn.addEventListener("click", function() {\n  if (timerId) return;\n  timerId = setInterval(function() {\n    timeLeft--;\n    display.textContent = formatTime(timeLeft);\n    if (timeLeft <= 0) {\n      clearInterval(timerId);\n      timerId = null;\n      addRecord("학습", 25);\n      alert("25분 완료!");\n    }\n  }, 1000);\n});\n\nresetBtn.addEventListener("click", function() {\n  clearInterval(timerId);\n  timerId = null;\n  timeLeft = 25 * 60;\n  display.textContent = formatTime(timeLeft);\n});',
+              hints: ['시작 시 if(timerId) return으로 중복 방지하세요', '리셋 시 clearInterval + 초기화를 하세요', '완료 시 addRecord로 기록을 추가하세요'], estimatedMinutes: 15,
+              feedback: { perfect: '앱 로직이 완벽하게 통합되었어요!', good: '이벤트 흐름이 잘 구성되었어요!', partial: '리셋 기능을 추가하세요.', wrong: '시작->타이머->완료->기록 흐름을 구현하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,
@@ -1997,187 +1413,41 @@ export const unit9: Unit = {
             }
           ],
                     challenges: [
-                    {
-                              "id": "c1",
-                              "title": "기본 실습",
-                              "description": "localStorage의 기본 문법을 연습합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "제시된 예제를 따라하세요",
-                                        "문법을 정확히 지키세요"
-                              ],
-                              "estimatedMinutes": 3,
-                              "starterCode": "# localStorage 기본 연습\n",
-                              "feedback": {
-                                        "perfect": "완벽한 코드예요!",
-                                        "good": "문법을 잘 이해했어요!",
-                                        "partial": "코드는 맞는데 일부 수정이 필요해요.",
-                                        "wrong": "문법을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c2",
-                              "title": "코드 수정하기",
-                              "description": "주어진 코드를 수정하여 올바르게 작동하게 만듭니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "에러 메시지를 잘 읽으세요",
-                                        "문법 오류를 찾으세요"
-                              ],
-                              "estimatedMinutes": 4,
-                              "starterCode": "# 이 코드를 수정하세요\n",
-                              "feedback": {
-                                        "perfect": "버그를 완벽하게 수정했어요!",
-                                        "good": "오류를 잘 찾았어요!",
-                                        "partial": "일부 오류만 수정했어요.",
-                                        "wrong": "에러 메시지를 확인하며 다시 시도하세요."
-                              }
-                    },
-                    {
-                              "id": "c3",
-                              "title": "코드 완성하기",
-                              "description": "빈 칸을 채워 코드를 완성합니다.",
-                              "difficulty": "easy",
-                              "hints": [
-                                        "빈 칸에 들어갈 내용을 추론하세요",
-                                        "전체 흐름을 파악하세요"
-                              ],
-                              "estimatedMinutes": 5,
-                              "starterCode": "# 빈 칸을 채우세요\n",
-                              "feedback": {
-                                        "perfect": "코드를 완벽하게 완성했어요!",
-                                        "good": "논리적으로 잘 채웠어요!",
-                                        "partial": "일부 빈 칸이 틀렸어요.",
-                                        "wrong": "코드의 흐름을 다시 생각해보세요."
-                              }
-                    },
-                    {
-                              "id": "c4",
-                              "title": "실용 코드 작성",
-                              "description": "실제로 사용할 수 있는 코드를 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "문제를 단계별로 나누세요",
-                                        "이전 예제를 참고하세요"
-                              ],
-                              "estimatedMinutes": 7,
-                              "starterCode": "# 실용적인 코드를 작성하세요\n",
-                              "feedback": {
-                                        "perfect": "실용적인 코드예요!",
-                                        "good": "잘 작동하는 코드예요!",
-                                        "partial": "기능은 하는데 개선이 필요해요.",
-                                        "wrong": "단계별로 다시 접근해보세요."
-                              }
-                    },
-                    {
-                              "id": "c5",
-                              "title": "응용 프로그램",
-                              "description": "배운 개념을 응용한 프로그램을 만듭니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "여러 개념을 조합하세요",
-                                        "창의적으로 접근하세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 응용 프로그램 만들기\n",
-                              "feedback": {
-                                        "perfect": "훌륭한 프로그램이에요!",
-                                        "good": "개념을 잘 응용했어요!",
-                                        "partial": "기본은 맞는데 기능이 부족해요.",
-                                        "wrong": "기본 개념을 다시 복습하세요."
-                              }
-                    },
-                    {
-                              "id": "c6",
-                              "title": "알고리즘 구현",
-                              "description": "주어진 알고리즘을 코드로 구현합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "알고리즘을 단계별로 분석하세요",
-                                        "의사코드로 먼저 생각하세요"
-                              ],
-                              "estimatedMinutes": 12,
-                              "starterCode": "# 알고리즘 구현\n",
-                              "feedback": {
-                                        "perfect": "알고리즘을 완벽히 구현했어요!",
-                                        "good": "논리가 정확해요!",
-                                        "partial": "로직에 일부 오류가 있어요.",
-                                        "wrong": "알고리즘을 단계별로 다시 생각하세요."
-                              }
-                    },
-                    {
-                              "id": "c7",
-                              "title": "최적화 도전",
-                              "description": "같은 기능을 더 효율적인 코드로 작성합니다.",
-                              "difficulty": "medium",
-                              "hints": [
-                                        "불필요한 코드를 제거하세요",
-                                        "더 간결한 방법을 찾으세요"
-                              ],
-                              "estimatedMinutes": 10,
-                              "starterCode": "# 코드를 최적화하세요\n",
-                              "feedback": {
-                                        "perfect": "최적화를 완벽하게 했어요!",
-                                        "good": "효율적인 코드예요!",
-                                        "partial": "좋아졌지만 더 개선할 수 있어요.",
-                                        "wrong": "기본 기능부터 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c8",
-                              "title": "프로젝트 1단계",
-                              "description": "작은 프로젝트의 첫 단계를 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "전체 구조를 먼저 설계하세요",
-                                        "한 기능씩 완성하세요"
-                              ],
-                              "estimatedMinutes": 15,
-                              "starterCode": "# 프로젝트 시작\n",
-                              "feedback": {
-                                        "perfect": "프로젝트를 훌륭하게 시작했어요!",
-                                        "good": "좋은 출발이에요!",
-                                        "partial": "기본 구조는 맞아요. 기능을 추가하세요.",
-                                        "wrong": "프로젝트 요구사항을 다시 확인하세요."
-                              }
-                    },
-                    {
-                              "id": "c9",
-                              "title": "프로젝트 2단계",
-                              "description": "프로젝트에 추가 기능을 구현합니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "기존 코드를 활용하세요",
-                                        "새 기능을 통합하세요"
-                              ],
-                              "estimatedMinutes": 18,
-                              "starterCode": "# 기능 추가\n",
-                              "feedback": {
-                                        "perfect": "모든 기능이 완벽해요!",
-                                        "good": "기능이 잘 작동해요!",
-                                        "partial": "일부 기능이 미완성이에요.",
-                                        "wrong": "한 기능씩 차근차근 추가하세요."
-                              }
-                    },
-                    {
-                              "id": "c10",
-                              "title": "최종 프로젝트",
-                              "description": "완성된 프로젝트를 만듭니다.",
-                              "difficulty": "hard",
-                              "hints": [
-                                        "모든 요구사항을 확인하세요",
-                                        "테스트를 해보세요",
-                                        "코드를 정리하세요"
-                              ],
-                              "estimatedMinutes": 25,
-                              "starterCode": "# 최종 프로젝트\n",
-                              "feedback": {
-                                        "perfect": "완벽한 프로젝트예요! 축하합니다!",
-                                        "good": "훌륭한 프로젝트예요!",
-                                        "partial": "거의 완성이에요! 마무리하세요.",
-                                        "wrong": "요구사항을 하나씩 체크하며 완성하세요."
-                              }
-                    }
+            {
+              id: 'c1', title: 'localStorage 기본 사용', description: 'localStorage에 데이터를 저장하고 불러옵니다.', difficulty: 'easy',
+              starterCode: '// localStorage에 이름을 저장하고 불러오세요\n// 1. setItem으로 "username" 키에 값 저장\n// 2. getItem으로 불러와서 출력',
+              solution: 'localStorage.setItem("username", "홍길동");\nconst name = localStorage.getItem("username");\nconsole.log("저장된 이름:", name);\n\n// 확인 후 삭제\n// localStorage.removeItem("username");',
+              hints: ['setItem(키, 값)으로 저장해요', 'getItem(키)으로 불러와요', 'removeItem(키)으로 삭제해요'], estimatedMinutes: 3,
+              feedback: { perfect: 'localStorage 사용이 완벽해요!', good: '기본 사용법을 잘 이해했어요!', partial: 'getItem으로 불러오는 것도 해보세요.', wrong: 'setItem("key", "value")와 getItem("key")를 사용하세요.' }
+            },
+            {
+              id: 'c2', title: 'JSON 데이터 저장', description: '객체를 JSON으로 변환하여 localStorage에 저장합니다.', difficulty: 'easy',
+              starterCode: '// 객체를 localStorage에 저장하세요\nconst record = { subject: "수학", duration: 25, date: "2024-03-01" };\n\n// 1. JSON.stringify로 문자열로 변환 후 저장\n// 2. getItem으로 불러온 후 JSON.parse로 복원',
+              solution: 'const record = { subject: "수학", duration: 25, date: "2024-03-01" };\nlocalStorage.setItem("lastRecord", JSON.stringify(record));\n\nconst saved = JSON.parse(localStorage.getItem("lastRecord"));\nconsole.log("과목:", saved.subject);\nconsole.log("시간:", saved.duration + "분");',
+              hints: ['JSON.stringify()로 객체를 문자열로 변환해요', 'JSON.parse()로 문자열을 객체로 복원해요', 'localStorage는 문자열만 저장할 수 있어요'], estimatedMinutes: 5,
+              feedback: { perfect: 'JSON 변환을 완벽하게 활용했어요!', good: 'stringify/parse 사용이 정확해요!', partial: 'JSON.parse로 복원해보세요.', wrong: 'JSON.stringify()로 저장하고 JSON.parse()로 불러오세요.' }
+            },
+            {
+              id: 'c3', title: '배열 데이터 관리', description: '학습 기록 배열을 localStorage로 관리합니다.', difficulty: 'medium',
+              starterCode: '// 학습 기록 배열을 localStorage로 관리하세요\nfunction saveRecords(records) {\n  // 배열을 localStorage에 저장\n}\n\nfunction loadRecords() {\n  // localStorage에서 배열을 불러오기 (없으면 빈 배열)\n}\n\nfunction addRecord(subject, duration) {\n  // 기존 기록에 새 항목 추가 후 저장\n}',
+              solution: 'function saveRecords(records) {\n  localStorage.setItem("records", JSON.stringify(records));\n}\n\nfunction loadRecords() {\n  const saved = localStorage.getItem("records");\n  return saved ? JSON.parse(saved) : [];\n}\n\nfunction addRecord(subject, duration) {\n  const records = loadRecords();\n  records.push({ subject, duration, date: new Date().toLocaleDateString() });\n  saveRecords(records);\n  return records;\n}\n\naddRecord("수학", 25);\naddRecord("영어", 30);\nconsole.log("기록:", loadRecords());',
+              hints: ['getItem이 null을 반환할 때 빈 배열을 반환하세요', 'push로 배열에 추가한 후 다시 저장하세요', '삼항 연산자로 null 체크를 할 수 있어요'], estimatedMinutes: 8,
+              feedback: { perfect: '배열 관리를 완벽하게 구현했어요!', good: 'null 처리가 정확해요!', partial: 'getItem이 null일 때 빈 배열을 반환하세요.', wrong: 'JSON.stringify/parse로 배열을 저장/로드하세요.' }
+            },
+            {
+              id: 'c4', title: '삭제와 통계 기능', description: '기록 삭제와 통계 계산 기능을 구현합니다.', difficulty: 'medium',
+              starterCode: '// 데이터 관리 함수를 구현하세요\nfunction clearAllRecords() {\n  // 모든 기록 삭제\n}\n\nfunction deleteRecord(index) {\n  // 특정 인덱스의 기록 삭제\n}\n\nfunction getStats() {\n  // 총 학습시간과 기록 수 반환\n}',
+              solution: 'function clearAllRecords() {\n  localStorage.removeItem("records");\n  console.log("모든 기록이 삭제되었습니다");\n}\n\nfunction deleteRecord(index) {\n  const records = loadRecords();\n  if (index >= 0 && index < records.length) {\n    records.splice(index, 1);\n    saveRecords(records);\n  }\n}\n\nfunction getStats() {\n  const records = loadRecords();\n  const totalTime = records.reduce(function(sum, r) { return sum + r.duration; }, 0);\n  return { count: records.length, totalMinutes: totalTime };\n}\n\nconsole.log("통계:", getStats());',
+              hints: ['removeItem으로 키를 삭제해요', 'splice(index, 1)로 배열에서 하나를 제거해요', 'reduce로 합계를 계산할 수 있어요'], estimatedMinutes: 10,
+              feedback: { perfect: '데이터 관리를 완벽하게 구현했어요!', good: 'CRUD 기능이 잘 작동해요!', partial: 'splice로 특정 항목을 삭제하세요.', wrong: 'removeItem, splice, reduce를 활용하세요.' }
+            },
+            {
+              id: 'c5', title: 'localStorage 통합 앱', description: '저장/로드/삭제/통계를 모두 포함한 데이터 관리 앱을 완성합니다.', difficulty: 'hard',
+              starterCode: '// localStorage를 활용한 완전한 데이터 관리 앱\n// save, load, add, remove, stats 기능을 모두 구현하세요\nconst app = {\n  // 메서드들을 구현하세요\n};',
+              solution: 'const app = {\n  save: function(records) { localStorage.setItem("records", JSON.stringify(records)); },\n  load: function() { const d = localStorage.getItem("records"); return d ? JSON.parse(d) : []; },\n  add: function(subject, duration) {\n    const r = this.load();\n    r.push({ subject: subject, duration: duration, date: new Date().toLocaleDateString(), id: Date.now() });\n    this.save(r);\n    return r;\n  },\n  remove: function(id) {\n    const r = this.load().filter(function(item) { return item.id !== id; });\n    this.save(r);\n    return r;\n  },\n  stats: function() {\n    const r = this.load();\n    return { count: r.length, total: r.reduce(function(s, x) { return s + x.duration; }, 0) };\n  }\n};\n\napp.add("수학", 25);\napp.add("영어", 30);\nconsole.log("통계:", app.stats());\nconsole.log("기록:", app.load());',
+              hints: ['this로 같은 객체의 메서드를 호출하세요', 'Date.now()로 고유 id를 만들 수 있어요', 'filter로 특정 id를 제외할 수 있어요'], estimatedMinutes: 15,
+              feedback: { perfect: 'localStorage 통합 앱이 완벽해요!', good: '객체 메서드 구조가 깔끔해요!', partial: 'stats 함수에 reduce를 사용하세요.', wrong: 'this를 사용해서 save/load를 재활용하세요.' }
+            }
           ],
           unlocked: true,
           completed: false,

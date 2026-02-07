@@ -4461,22 +4461,39 @@ export const unit5: Unit = {
           ],
           challenges: [
             {
-              id: 'c1',
-              title: 'Display 기본 실습',
-              description: 'block, inline, inline-block을 각각 적용해보세요',
-              difficulty: 'easy',
-              hints: [
-                '기본 태그들의 display 값을 확인하세요',
-                '각 속성의 차이를 직접 보세요'
-              ],
-              estimatedMinutes: 5,
-              starterCode: '/* display 속성 연습 */\n',
-              feedback: {
-                perfect: '완벽하게 이해했어요!',
-                good: 'Display 속성을 잘 사용했어요!',
-                partial: '일부만 맞았어요. 다시 확인하세요.',
-                wrong: 'Display 개념을 다시 복습하세요.'
-              }
+              id: 'c1', title: 'block과 inline 차이', description: 'block과 inline 요소의 차이를 직접 확인합니다.', difficulty: 'easy',
+              starterCode: '<!-- block과 inline의 차이를 확인하세요 -->\n<style>\n  .block-box {\n    background: lightblue;\n    padding: 10px;\n    margin: 5px;\n  }\n  .inline-text {\n    background: lightcoral;\n    padding: 5px;\n  }\n</style>\n\n<!-- div는 block, span은 inline -->\n<div class="block-box">Block 1</div>\n<div class="block-box">Block 2</div>\n<span class="inline-text">Inline 1</span>\n<span class="inline-text">Inline 2</span>',
+              solution: '<!-- block은 한 줄 전체를 차지, inline은 내용만큼만 -->\n<style>\n  .block-box {\n    display: block;\n    background: lightblue;\n    padding: 10px;\n    margin: 5px;\n    width: 200px;\n  }\n  .inline-text {\n    display: inline;\n    background: lightcoral;\n    padding: 5px;\n    /* width와 height는 inline에서 적용 안 됨 */\n  }\n</style>\n\n<div class="block-box">Block 1</div>\n<div class="block-box">Block 2</div>\n<span class="inline-text">Inline 1</span>\n<span class="inline-text">Inline 2</span>',
+              hints: ['block은 한 줄 전체를 차지해요', 'inline은 내용 크기만큼만 차지해요', 'inline에는 width/height가 적용되지 않아요'], estimatedMinutes: 3,
+              feedback: { perfect: 'block과 inline의 차이를 완벽하게 이해했어요!', good: '핵심 차이를 잘 파악했어요!', partial: 'inline에서 width가 적용되지 않는 이유를 확인하세요.', wrong: 'div는 block, span은 inline이 기본값이에요.' }
+            },
+            {
+              id: 'c2', title: 'inline-block 활용', description: 'inline-block으로 div를 나란히 배치합니다.', difficulty: 'easy',
+              starterCode: '<style>\n  .box {\n    width: 100px;\n    height: 100px;\n    background: #667eea;\n    color: white;\n    text-align: center;\n    line-height: 100px;\n    margin: 5px;\n    /* div를 옆으로 나란히 배치하세요 */\n  }\n</style>\n\n<div class="box">1</div>\n<div class="box">2</div>\n<div class="box">3</div>',
+              solution: '<style>\n  .box {\n    display: inline-block;\n    width: 100px;\n    height: 100px;\n    background: #667eea;\n    color: white;\n    text-align: center;\n    line-height: 100px;\n    margin: 5px;\n  }\n</style>\n\n<div class="box">1</div>\n<div class="box">2</div>\n<div class="box">3</div>',
+              hints: ['display: inline-block을 사용하세요', 'inline-block은 inline처럼 옆으로 배치되면서 width/height도 적용돼요', 'block 기본값을 inline-block으로 바꿔보세요'], estimatedMinutes: 4,
+              feedback: { perfect: 'inline-block을 완벽하게 사용했어요!', good: '나란히 배치가 잘 되었어요!', partial: 'display: inline-block을 추가했는지 확인하세요.', wrong: '.box에 display: inline-block을 추가하세요.' }
+            },
+            {
+              id: 'c3', title: 'span을 block으로 변환', description: 'display 속성으로 span을 block처럼 동작하게 만듭니다.', difficulty: 'medium',
+              starterCode: '<style>\n  .tag {\n    background: #e8e8ff;\n    color: #6366f1;\n    padding: 8px 16px;\n    border-radius: 4px;\n    /* span이 한 줄씩 차지하도록 만드세요 */\n    /* width도 설정해보세요 */\n  }\n</style>\n\n<span class="tag">HTML</span>\n<span class="tag">CSS</span>\n<span class="tag">JavaScript</span>',
+              solution: '<style>\n  .tag {\n    display: block;\n    background: #e8e8ff;\n    color: #6366f1;\n    padding: 8px 16px;\n    border-radius: 4px;\n    width: 200px;\n    margin-bottom: 8px;\n  }\n</style>\n\n<span class="tag">HTML</span>\n<span class="tag">CSS</span>\n<span class="tag">JavaScript</span>',
+              hints: ['display: block으로 span을 블록 요소로 바꾸세요', 'block으로 바꾸면 width, height, margin이 모두 적용돼요', 'margin-bottom으로 간격을 줄 수 있어요'], estimatedMinutes: 5,
+              feedback: { perfect: 'span을 block으로 완벽하게 변환했어요!', good: 'display 변경이 정확해요!', partial: 'width도 설정해보세요.', wrong: '.tag에 display: block을 추가하세요.' }
+            },
+            {
+              id: 'c4', title: '네비게이션 바 만들기', description: 'display 속성을 활용해 가로 네비게이션을 만듭니다.', difficulty: 'medium',
+              starterCode: '<style>\n  nav {\n    background: #333;\n    padding: 10px;\n  }\n  nav a {\n    color: white;\n    text-decoration: none;\n    padding: 10px 20px;\n    /* 가로로 나란히 + 높이/패딩 적용되게 만드세요 */\n  }\n  nav a:hover {\n    background: #555;\n  }\n</style>\n\n<nav>\n  <a href="#">홈</a>\n  <a href="#">소개</a>\n  <a href="#">프로젝트</a>\n  <a href="#">연락처</a>\n</nav>',
+              solution: '<style>\n  nav {\n    background: #333;\n    padding: 10px;\n  }\n  nav a {\n    display: inline-block;\n    color: white;\n    text-decoration: none;\n    padding: 10px 20px;\n    border-radius: 4px;\n  }\n  nav a:hover {\n    background: #555;\n  }\n</style>\n\n<nav>\n  <a href="#">홈</a>\n  <a href="#">소개</a>\n  <a href="#">프로젝트</a>\n  <a href="#">연락처</a>\n</nav>',
+              hints: ['a 태그는 기본이 inline이에요', 'inline-block으로 바꾸면 padding이 제대로 적용돼요', 'border-radius로 둥근 모서리를 추가해보세요'], estimatedMinutes: 7,
+              feedback: { perfect: '네비게이션 바를 완벽하게 만들었어요!', good: 'inline-block 활용이 정확해요!', partial: 'display: inline-block을 a 태그에 적용하세요.', wrong: 'nav a에 display: inline-block을 추가하면 padding이 제대로 동작해요.' }
+            },
+            {
+              id: 'c5', title: 'Display 속성 종합 활용', description: 'block, inline, inline-block을 상황에 맞게 사용합니다.', difficulty: 'hard',
+              starterCode: '<style>\n  .card {\n    /* block으로 한 줄 차지 + 너비 제한 */\n    background: white;\n    border: 1px solid #ddd;\n    border-radius: 8px;\n    padding: 16px;\n    margin-bottom: 12px;\n  }\n  .card .badge {\n    /* inline-block으로 옆으로 + 크기 설정 */\n    background: #667eea;\n    color: white;\n    padding: 2px 8px;\n    border-radius: 12px;\n    font-size: 12px;\n  }\n  .card .title {\n    /* block으로 제목을 한 줄 차지 */\n    font-size: 18px;\n    font-weight: bold;\n    margin: 8px 0;\n  }\n</style>\n\n<div class="card">\n  <span class="badge">NEW</span>\n  <span class="badge">HTML</span>\n  <div class="title">웹 개발 입문</div>\n  <span>초급</span> | <span>30분</span>\n</div>',
+              solution: '<style>\n  .card {\n    display: block;\n    width: 320px;\n    background: white;\n    border: 1px solid #ddd;\n    border-radius: 8px;\n    padding: 16px;\n    margin-bottom: 12px;\n  }\n  .card .badge {\n    display: inline-block;\n    background: #667eea;\n    color: white;\n    padding: 2px 8px;\n    border-radius: 12px;\n    font-size: 12px;\n    margin-right: 4px;\n  }\n  .card .title {\n    display: block;\n    font-size: 18px;\n    font-weight: bold;\n    margin: 8px 0;\n  }\n  .card .info {\n    display: inline;\n    color: #666;\n    font-size: 14px;\n  }\n</style>\n\n<div class="card">\n  <span class="badge">NEW</span>\n  <span class="badge">HTML</span>\n  <div class="title">웹 개발 입문</div>\n  <span class="info">초급</span> | <span class="info">30분</span>\n</div>',
+              hints: ['카드 자체는 block으로 너비를 제한하세요', '뱃지는 inline-block으로 옆으로 나란히 배치하세요', '제목은 block으로 한 줄을 차지하게 하세요'], estimatedMinutes: 10,
+              feedback: { perfect: 'display 속성을 상황에 맞게 완벽하게 사용했어요!', good: '각 요소에 적절한 display를 적용했어요!', partial: 'badge에 inline-block을 적용해보세요.', wrong: 'block, inline, inline-block을 각 요소의 역할에 맞게 설정하세요.' }
             }
           ],
           unlocked: true,
