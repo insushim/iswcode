@@ -7122,7 +7122,656 @@ export const unit5: Unit = {
       title: 'CSS 애니메이션',
       description: '움직이고 변하는 멋진 효과를 만들어요',
       missions: [
-        // 10 missions: transition, transform, hover 효과, animation, keyframes, 페이드 인, 슬라이드, 회전, 바운스, 주간 프로젝트: 인터랙티브 카드
+        {
+          id: 'w37-m1',
+          title: 'transition 기초',
+          description: 'CSS transition으로 부드러운 변화를 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'CSS transition',
+          conceptExplanation: 'transition은 속성이 변할 때 부드럽게 전환되게 해요. transition: 속성 시간 타이밍; 형태로 사용해요!',
+          starterCode: '.btn { background: #3498db; color: white; padding: 10px 20px; /* transition 추가 */ }\\n.btn:hover { background: #2980b9; }',
+          solution: '.btn { background: #3498db; color: white; padding: 10px 20px; transition: background 0.3s ease; }\\n.btn:hover { background: #2980b9; }',
+          hints: [
+            'transition: 속성 시간 타이밍; 형태예요',
+            'ease는 자연스러운 가감속이에요',
+            '0.3s 정도가 자연스러운 속도예요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'CSS transition 기초 연습',
+              description: 'CSS transition의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['CSS transition의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'CSS transition 기초를 완벽하게 익혔어요!',
+                good: 'CSS transition 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'CSS transition 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'CSS transition 응용',
+              description: 'CSS transition을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['CSS transition의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'CSS transition 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'CSS transition 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'CSS transition 심화 도전',
+              description: 'CSS transition을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'CSS transition 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m2',
+          title: 'transform 기초',
+          description: 'CSS transform으로 요소를 변형해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'CSS transform',
+          conceptExplanation: 'transform은 요소를 회전(rotate), 크기 변경(scale), 이동(translate), 기울이기(skew) 할 수 있어요!',
+          starterCode: '.card { width: 200px; padding: 20px; background: white; border-radius: 8px; /* hover시 transform */ }',
+          solution: '.card { width: 200px; padding: 20px; background: white; border-radius: 8px; transition: transform 0.3s ease; }\\n.card:hover { transform: translateY(-5px) scale(1.02); }',
+          hints: [
+            'translateY(-5px)는 위로 5px 이동',
+            'scale(1.02)는 2% 확대',
+            'transition을 함께 사용해야 부드러워요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'CSS transform 기초 연습',
+              description: 'CSS transform의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['CSS transform의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'CSS transform 기초를 완벽하게 익혔어요!',
+                good: 'CSS transform 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'CSS transform 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'CSS transform 응용',
+              description: 'CSS transform을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['CSS transform의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'CSS transform 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'CSS transform 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'CSS transform 심화 도전',
+              description: 'CSS transform을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'CSS transform 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m3',
+          title: 'hover 효과 만들기',
+          description: '마우스를 올렸을 때 멋진 효과를 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'hover 효과',
+          conceptExplanation: ':hover 선택자와 transition, transform을 조합하면 인터랙티브한 UI를 만들 수 있어요!',
+          starterCode: '.link { color: #333; text-decoration: none; padding-bottom: 2px; }\\n.link:hover { /* 밑줄 효과 */ }',
+          solution: '.link { color: #333; text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; transition: all 0.3s ease; }\\n.link:hover { color: #3498db; border-bottom-color: #3498db; }',
+          hints: [
+            'border-bottom으로 밑줄을 만들어요',
+            'transparent에서 색상으로 변하게 하세요',
+            'transition으로 부드럽게 전환하세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'hover 효과 기초 연습',
+              description: 'hover 효과의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['hover 효과의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'hover 효과 기초를 완벽하게 익혔어요!',
+                good: 'hover 효과 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'hover 효과 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'hover 효과 응용',
+              description: 'hover 효과을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['hover 효과의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'hover 효과 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'hover 효과 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'hover 효과 심화 도전',
+              description: 'hover 효과을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'hover 효과 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m4',
+          title: '@keyframes와 animation',
+          description: 'CSS animation으로 자동 애니메이션을 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'CSS animation',
+          conceptExplanation: '@keyframes로 애니메이션 단계를 정의하고 animation 속성으로 적용해요. transition은 트리거가 필요하지만 animation은 자동 실행돼요!',
+          starterCode: '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }\\n.loader { width: 40px; height: 40px; border: 3px solid #ddd; border-top-color: #3498db; border-radius: 50%; /* animation */ }',
+          solution: '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }\\n.loader { width: 40px; height: 40px; border: 3px solid #ddd; border-top-color: #3498db; border-radius: 50%; animation: spin 1s linear infinite; }',
+          hints: [
+            'animation: 이름 시간 타이밍 반복;',
+            'infinite는 무한 반복',
+            'linear은 일정한 속도'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'CSS animation 기초 연습',
+              description: 'CSS animation의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['CSS animation의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'CSS animation 기초를 완벽하게 익혔어요!',
+                good: 'CSS animation 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'CSS animation 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'CSS animation 응용',
+              description: 'CSS animation을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['CSS animation의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'CSS animation 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'CSS animation 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'CSS animation 심화 도전',
+              description: 'CSS animation을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'CSS animation 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m5',
+          title: '페이드 인 효과',
+          description: '요소가 서서히 나타나는 효과를 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'fade-in 애니메이션',
+          conceptExplanation: 'opacity를 0에서 1로 변화시키면 페이드 인 효과가 돼요. forwards를 추가하면 마지막 상태를 유지해요!',
+          starterCode: '@keyframes fadeIn { /* 페이드 인 정의 */ }\\n.fade-in { opacity: 0; /* animation 적용 */ }',
+          solution: '@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }\\n.fade-in { opacity: 0; animation: fadeIn 0.6s ease forwards; }',
+          hints: [
+            'from { opacity: 0; } to { opacity: 1; }',
+            'forwards로 마지막 상태 유지',
+            'translateY를 함께 쓰면 더 멋져요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'fade-in 애니메이션 기초 연습',
+              description: 'fade-in 애니메이션의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['fade-in 애니메이션의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'fade-in 애니메이션 기초를 완벽하게 익혔어요!',
+                good: 'fade-in 애니메이션 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'fade-in 애니메이션 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'fade-in 애니메이션 응용',
+              description: 'fade-in 애니메이션을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['fade-in 애니메이션의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'fade-in 애니메이션 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'fade-in 애니메이션 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'fade-in 애니메이션 심화 도전',
+              description: 'fade-in 애니메이션을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'fade-in 애니메이션 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m6',
+          title: '슬라이드 효과',
+          description: '요소가 옆에서 미끄러지듯 나타나게 해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'slide 애니메이션',
+          conceptExplanation: 'translateX로 좌우 이동, translateY로 상하 이동을 만들어요. 처음 위치에서 최종 위치로 이동하는 애니메이션이에요!',
+          starterCode: '@keyframes slideRight { /* 왼쪽에서 오른쪽으로 */ }\\n.slide { /* animation 적용 */ }',
+          solution: '@keyframes slideRight { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }\\n.slide { animation: slideRight 0.5s ease-out forwards; }',
+          hints: [
+            'translateX(-100%)는 왼쪽 바깥',
+            'ease-out은 끝이 부드러워요',
+            'opacity와 함께 쓰면 자연스러워요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'slide 애니메이션 기초 연습',
+              description: 'slide 애니메이션의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['slide 애니메이션의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'slide 애니메이션 기초를 완벽하게 익혔어요!',
+                good: 'slide 애니메이션 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'slide 애니메이션 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'slide 애니메이션 응용',
+              description: 'slide 애니메이션을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['slide 애니메이션의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'slide 애니메이션 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'slide 애니메이션 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'slide 애니메이션 심화 도전',
+              description: 'slide 애니메이션을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'slide 애니메이션 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m7',
+          title: '회전 효과',
+          description: '요소를 돌아가게 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'rotate 애니메이션',
+          conceptExplanation: 'transform: rotate()를 애니메이션하면 회전 효과를 만들 수 있어요. 360deg가 한 바퀴!',
+          starterCode: '@keyframes rotate { /* 한바퀴 회전 */ }\\n.icon { display: inline-block; font-size: 32px; }\\n.icon:hover { /* 회전 애니메이션 */ }',
+          solution: '@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }\\n.icon { display: inline-block; font-size: 32px; transition: transform 0.5s ease; }\\n.icon:hover { transform: rotate(360deg); }',
+          hints: [
+            'rotate(360deg)는 한 바퀴',
+            'hover에 transition으로도 가능해요',
+            'display: inline-block이 필요해요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'rotate 애니메이션 기초 연습',
+              description: 'rotate 애니메이션의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['rotate 애니메이션의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'rotate 애니메이션 기초를 완벽하게 익혔어요!',
+                good: 'rotate 애니메이션 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'rotate 애니메이션 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'rotate 애니메이션 응용',
+              description: 'rotate 애니메이션을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['rotate 애니메이션의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'rotate 애니메이션 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'rotate 애니메이션 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'rotate 애니메이션 심화 도전',
+              description: 'rotate 애니메이션을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'rotate 애니메이션 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m8',
+          title: '바운스 효과',
+          description: '통통 튀는 듯한 애니메이션을 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'bounce 애니메이션',
+          conceptExplanation: '@keyframes에서 여러 단계를 정의해서 통통 튀는 느낌을 만들어요. 0%, 40%, 60%, 80%, 100% 같이 세밀하게 나누면 더 자연스러워요!',
+          starterCode: '@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { /* 튀어오르기 */ } }\\n.bounce { /* animation 적용 */ }',
+          solution: '@keyframes bounce { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-30px); } 60% { transform: translateY(-15px); } }\\n.bounce { animation: bounce 1s ease infinite; }',
+          hints: [
+            '여러 % 단계로 나누세요',
+            'translateY 음수는 위로 이동',
+            'ease로 자연스러운 움직임을 만드세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'bounce 애니메이션 기초 연습',
+              description: 'bounce 애니메이션의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['bounce 애니메이션의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'bounce 애니메이션 기초를 완벽하게 익혔어요!',
+                good: 'bounce 애니메이션 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'bounce 애니메이션 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'bounce 애니메이션 응용',
+              description: 'bounce 애니메이션을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['bounce 애니메이션의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'bounce 애니메이션 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'bounce 애니메이션 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'bounce 애니메이션 심화 도전',
+              description: 'bounce 애니메이션을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'bounce 애니메이션 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m9',
+          title: 'animation 속성 심화',
+          description: 'animation의 다양한 속성을 마스터해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'animation 속성',
+          conceptExplanation: 'animation-delay(지연), animation-direction(방향), animation-fill-mode(유지), animation-play-state(일시정지) 등 다양한 속성이 있어요!',
+          starterCode: '.box-1 { animation: fadeIn 0.5s ease forwards; }\\n.box-2 { /* 0.3s 지연 후 fadeIn */ }\\n.box-3 { /* 0.6s 지연 후 fadeIn */ }',
+          solution: '.box-1 { animation: fadeIn 0.5s ease forwards; }\\n.box-2 { animation: fadeIn 0.5s ease 0.3s forwards; }\\n.box-3 { animation: fadeIn 0.5s ease 0.6s forwards; }',
+          hints: [
+            'animation의 4번째 값이 delay예요',
+            'forwards로 마지막 상태 유지',
+            '시차를 두면 순차적 효과가 돼요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'animation 속성 기초 연습',
+              description: 'animation 속성의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['animation 속성의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'animation 속성 기초를 완벽하게 익혔어요!',
+                good: 'animation 속성 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'animation 속성 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'animation 속성 응용',
+              description: 'animation 속성을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['animation 속성의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'animation 속성 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'animation 속성 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'animation 속성 심화 도전',
+              description: 'animation 속성을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'animation 속성 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w37-m10',
+          title: '주간 프로젝트: 인터랙티브 카드',
+          description: '이번 주 배운 모든 애니메이션을 활용해 카드를 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'css',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '종합 애니메이션',
+          conceptExplanation: 'transition, transform, animation, @keyframes를 모두 조합하면 프로처럼 멋진 인터랙티브 카드를 만들 수 있어요!',
+          starterCode: '.card { padding: 20px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* transition 추가 */ }\\n.card:hover { /* hover 효과 */ }\\n.card .icon { /* 애니메이션 효과 */ }',
+          solution: '.card { padding: 20px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s ease; }\\n.card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }\\n.card .icon { animation: bounce 2s ease infinite; }',
+          hints: [
+            'card에 transition을 먼저 추가하세요',
+            'hover에 translateY와 box-shadow를 변경하세요',
+            'icon에 반복 애니메이션을 적용하세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '종합 애니메이션 기초 연습',
+              description: '종합 애니메이션의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['종합 애니메이션의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '종합 애니메이션 기초를 완벽하게 익혔어요!',
+                good: '종합 애니메이션 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '종합 애니메이션 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '종합 애니메이션 응용',
+              description: '종합 애니메이션을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['종합 애니메이션의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '종합 애니메이션 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '종합 애니메이션 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '종합 애니메이션 심화 도전',
+              description: '종합 애니메이션을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '종합 애니메이션 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        }
       ]
     },
     {
@@ -7131,7 +7780,656 @@ export const unit5: Unit = {
       title: '종합 프로젝트',
       description: 'HTML과 CSS를 모두 활용해서 완전한 웹사이트를 만들어요',
       missions: [
-        // 10 missions: 프로젝트 기획, 와이어프레임, HTML 구조, CSS 리셋, 헤더 만들기, 히어로 섹션, 콘텐츠 섹션, 푸터, 반응형 적용, 최종 프로젝트: 개인 포트폴리오 사이트
+        {
+          id: 'w38-m1',
+          title: '프로젝트 기획',
+          description: '나만의 웹사이트 아이디어를 기획해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '웹 프로젝트 기획',
+          conceptExplanation: '좋은 웹사이트는 기획부터 시작해요! 누가, 왜, 어떤 내용을 볼지 먼저 정하면 훨씬 좋은 결과가 나와요.',
+          starterCode: '<!-- 프로젝트 기획서를 HTML로 작성하세요 -->\\n<h1>나의 웹사이트 기획서</h1>\\n<h2>1. 주제</h2>\\n<p><!-- 주제 작성 --></p>',
+          solution: '<h1>나의 웹사이트 기획서</h1>\\n<h2>1. 주제</h2>\\n<p>나만의 포트폴리오 사이트</p>\\n<h2>2. 대상</h2>\\n<p>미래의 고용주, 동료 개발자</p>\\n<h2>3. 핵심 섹션</h2>\\n<ul>\\n  <li>소개</li>\\n  <li>프로젝트</li>\\n  <li>기술 스택</li>\\n  <li>연락처</li>\\n</ul>',
+          hints: [
+            '주제, 대상, 핵심 섹션을 정하세요',
+            '3-5개 주요 섹션을 기획하세요',
+            '각 섹션에 들어갈 내용을 간단히 적으세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '웹 프로젝트 기획 기초 연습',
+              description: '웹 프로젝트 기획의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['웹 프로젝트 기획의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '웹 프로젝트 기획 기초를 완벽하게 익혔어요!',
+                good: '웹 프로젝트 기획 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '웹 프로젝트 기획 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '웹 프로젝트 기획 응용',
+              description: '웹 프로젝트 기획을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['웹 프로젝트 기획의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '웹 프로젝트 기획 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '웹 프로젝트 기획 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '웹 프로젝트 기획 심화 도전',
+              description: '웹 프로젝트 기획을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '웹 프로젝트 기획 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m2',
+          title: '와이어프레임',
+          description: 'HTML로 웹사이트의 뼈대를 설계해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '와이어프레임',
+          conceptExplanation: '와이어프레임은 웹사이트의 설계도예요. 세부 디자인 전에 전체 구조를 먼저 잡는 게 중요해요!',
+          starterCode: '<!-- 와이어프레임: 기본 구조만 잡기 -->\\n<header><!-- 로고, 네비게이션 --></header>\\n<main><!-- 메인 콘텐츠 --></main>\\n<footer><!-- 하단 정보 --></footer>',
+          solution: '<header>\\n  <nav>\\n    <a href="#">로고</a>\\n    <a href="#about">소개</a>\\n    <a href="#projects">프로젝트</a>\\n    <a href="#contact">연락처</a>\\n  </nav>\\n</header>\\n<main>\\n  <section id="hero">히어로 영역</section>\\n  <section id="about">소개 영역</section>\\n  <section id="projects">프로젝트 영역</section>\\n</main>\\n<footer>\\n  <p>Copyright 2024</p>\\n</footer>',
+          hints: [
+            '시맨틱 태그를 사용하세요',
+            'header, main, footer로 큰 영역을 나누세요',
+            'section으로 콘텐츠를 구분하세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '와이어프레임 기초 연습',
+              description: '와이어프레임의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['와이어프레임의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '와이어프레임 기초를 완벽하게 익혔어요!',
+                good: '와이어프레임 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '와이어프레임 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '와이어프레임 응용',
+              description: '와이어프레임을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['와이어프레임의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '와이어프레임 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '와이어프레임 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '와이어프레임 심화 도전',
+              description: '와이어프레임을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '와이어프레임 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m3',
+          title: 'HTML 구조 작성',
+          description: '시맨틱 태그로 완전한 HTML을 작성해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '시맨틱 HTML',
+          conceptExplanation: 'header, nav, main, section, article, footer 등 시맨틱 태그를 사용하면 검색엔진과 스크린 리더가 웹사이트를 더 잘 이해해요!',
+          starterCode: '<!DOCTYPE html>\\n<html lang="ko">\\n<head>\\n  <meta charset="UTF-8">\\n  <title>나의 사이트</title>\\n</head>\\n<body>\\n  <!-- 시맨틱 태그로 구조 작성 -->\\n</body>\\n</html>',
+          solution: '<!DOCTYPE html>\\n<html lang="ko">\\n<head>\\n  <meta charset="UTF-8">\\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\\n  <title>나의 포트폴리오</title>\\n</head>\\n<body>\\n  <header>\\n    <nav><a href="#about">소개</a> <a href="#work">작품</a></nav>\\n  </header>\\n  <main>\\n    <section id="about"><h2>About Me</h2></section>\\n    <section id="work"><h2>My Work</h2></section>\\n  </main>\\n  <footer><p>&copy; 2024</p></footer>\\n</body>\\n</html>',
+          hints: [
+            'viewport 메타 태그를 잊지 마세요',
+            'nav 안에 링크를 넣으세요',
+            'main 안에 section으로 나누세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '시맨틱 HTML 기초 연습',
+              description: '시맨틱 HTML의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['시맨틱 HTML의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '시맨틱 HTML 기초를 완벽하게 익혔어요!',
+                good: '시맨틱 HTML 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '시맨틱 HTML 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '시맨틱 HTML 응용',
+              description: '시맨틱 HTML을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['시맨틱 HTML의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '시맨틱 HTML 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '시맨틱 HTML 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '시맨틱 HTML 심화 도전',
+              description: '시맨틱 HTML을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '시맨틱 HTML 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m4',
+          title: 'CSS 리셋과 기본 스타일',
+          description: '깔끔한 시작을 위해 CSS를 초기화해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: 'CSS 리셋',
+          conceptExplanation: '브라우저마다 기본 스타일이 달라서, CSS 리셋으로 통일한 후 시작해야 일관된 디자인을 만들 수 있어요!',
+          starterCode: '/* CSS 리셋 */\\n* { /* 리셋 스타일 */ }\\nbody { /* 기본 폰트 설정 */ }\\na { /* 링크 기본 스타일 */ }',
+          solution: '* { margin: 0; padding: 0; box-sizing: border-box; }\\nbody { font-family: "Pretendard", sans-serif; line-height: 1.6; color: #333; }\\na { text-decoration: none; color: inherit; }\\nimg { max-width: 100%; display: block; }',
+          hints: [
+            'box-sizing: border-box는 필수!',
+            '기본 margin, padding을 0으로',
+            'font-family와 line-height를 설정하세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'CSS 리셋 기초 연습',
+              description: 'CSS 리셋의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['CSS 리셋의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: 'CSS 리셋 기초를 완벽하게 익혔어요!',
+                good: 'CSS 리셋 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: 'CSS 리셋 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'CSS 리셋 응용',
+              description: 'CSS 리셋을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['CSS 리셋의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: 'CSS 리셋 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: 'CSS 리셋 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'CSS 리셋 심화 도전',
+              description: 'CSS 리셋을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: 'CSS 리셋 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m5',
+          title: '헤더 만들기',
+          description: '네비게이션이 포함된 멋진 헤더를 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '헤더 & 네비게이션',
+          conceptExplanation: '헤더는 웹사이트의 첫인상! 로고와 네비게이션을 flexbox로 배치하면 깔끔한 헤더를 만들 수 있어요.',
+          starterCode: 'header { /* 헤더 스타일 */ }\\nnav { /* flexbox 배치 */ }\\nnav a { /* 링크 스타일 */ }',
+          solution: 'header { background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); padding: 15px 30px; position: sticky; top: 0; z-index: 100; }\\nnav { display: flex; justify-content: space-between; align-items: center; }\\nnav a { padding: 8px 16px; transition: color 0.3s; }\\nnav a:hover { color: #3498db; }',
+          hints: [
+            'display: flex로 가로 배치',
+            'justify-content: space-between으로 양쪽 정렬',
+            'position: sticky로 상단 고정'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '헤더 & 네비게이션 기초 연습',
+              description: '헤더 & 네비게이션의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['헤더 & 네비게이션의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '헤더 & 네비게이션 기초를 완벽하게 익혔어요!',
+                good: '헤더 & 네비게이션 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '헤더 & 네비게이션 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '헤더 & 네비게이션 응용',
+              description: '헤더 & 네비게이션을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['헤더 & 네비게이션의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '헤더 & 네비게이션 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '헤더 & 네비게이션 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '헤더 & 네비게이션 심화 도전',
+              description: '헤더 & 네비게이션을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '헤더 & 네비게이션 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m6',
+          title: '히어로 섹션',
+          description: '방문자의 눈길을 끄는 히어로 섹션을 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '히어로 섹션',
+          conceptExplanation: '히어로 섹션은 웹사이트에 처음 들어왔을 때 보이는 큰 영역이에요. 인상적인 제목과 소개로 방문자를 사로잡아요!',
+          starterCode: '.hero { /* 히어로 섹션 스타일 */ }\\n.hero h1 { /* 제목 스타일 */ }\\n.hero p { /* 설명 스타일 */ }',
+          solution: '.hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px; }\\n.hero h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 20px; }\\n.hero p { font-size: 1.2rem; max-width: 600px; opacity: 0.9; }',
+          hints: [
+            'min-height: 80vh로 화면 가득 채우기',
+            'flexbox로 중앙 정렬',
+            'gradient 배경으로 세련되게'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '히어로 섹션 기초 연습',
+              description: '히어로 섹션의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['히어로 섹션의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '히어로 섹션 기초를 완벽하게 익혔어요!',
+                good: '히어로 섹션 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '히어로 섹션 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '히어로 섹션 응용',
+              description: '히어로 섹션을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['히어로 섹션의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '히어로 섹션 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '히어로 섹션 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '히어로 섹션 심화 도전',
+              description: '히어로 섹션을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '히어로 섹션 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m7',
+          title: '콘텐츠 섹션',
+          description: '프로젝트와 소개를 보여주는 섹션을 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '콘텐츠 레이아웃',
+          conceptExplanation: 'Grid나 Flexbox로 카드 형태의 콘텐츠를 깔끔하게 배치할 수 있어요. 일관된 간격과 정렬이 중요해요!',
+          starterCode: '.projects { /* 프로젝트 섹션 */ }\\n.project-grid { /* 그리드 배치 */ }\\n.project-card { /* 카드 스타일 */ }',
+          solution: '.projects { padding: 60px 30px; max-width: 1200px; margin: 0 auto; }\\n.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }\\n.project-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: transform 0.3s; }\\n.project-card:hover { transform: translateY(-5px); }',
+          hints: [
+            'grid로 반응형 카드 배치',
+            'auto-fit과 minmax로 자동 조절',
+            'max-width로 최대 너비 제한'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '콘텐츠 레이아웃 기초 연습',
+              description: '콘텐츠 레이아웃의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['콘텐츠 레이아웃의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '콘텐츠 레이아웃 기초를 완벽하게 익혔어요!',
+                good: '콘텐츠 레이아웃 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '콘텐츠 레이아웃 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '콘텐츠 레이아웃 응용',
+              description: '콘텐츠 레이아웃을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['콘텐츠 레이아웃의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '콘텐츠 레이아웃 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '콘텐츠 레이아웃 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '콘텐츠 레이아웃 심화 도전',
+              description: '콘텐츠 레이아웃을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '콘텐츠 레이아웃 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m8',
+          title: '푸터 만들기',
+          description: '정보가 담긴 깔끔한 푸터를 만들어요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '푸터 디자인',
+          conceptExplanation: '푸터에는 연락처, 소셜 링크, 저작권 정보 등을 넣어요. 웹사이트의 마지막 인상을 결정하는 중요한 부분이에요!',
+          starterCode: 'footer { /* 푸터 스타일 */ }\\n.footer-content { /* 내용 배치 */ }\\n.social-links a { /* 소셜 링크 */ }',
+          solution: 'footer { background: #2c3e50; color: white; padding: 40px 30px; text-align: center; }\\n.footer-content { max-width: 800px; margin: 0 auto; }\\n.social-links { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }\\n.social-links a { color: white; opacity: 0.8; transition: opacity 0.3s; }\\n.social-links a:hover { opacity: 1; }',
+          hints: [
+            '어두운 배경에 밝은 텍스트',
+            'flexbox로 소셜 링크 정렬',
+            'opacity로 hover 효과'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '푸터 디자인 기초 연습',
+              description: '푸터 디자인의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['푸터 디자인의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '푸터 디자인 기초를 완벽하게 익혔어요!',
+                good: '푸터 디자인 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '푸터 디자인 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '푸터 디자인 응용',
+              description: '푸터 디자인을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['푸터 디자인의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '푸터 디자인 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '푸터 디자인 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '푸터 디자인 심화 도전',
+              description: '푸터 디자인을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '푸터 디자인 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m9',
+          title: '반응형 적용',
+          description: '모바일에서도 잘 보이게 반응형을 적용해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '반응형 디자인',
+          conceptExplanation: 'media query로 화면 크기에 따라 레이아웃을 변경해요. 모바일 우선(mobile-first) 접근이 좋아요!',
+          starterCode: '/* 768px 이하에서의 반응형 */\\n@media (max-width: 768px) {\\n  /* 네비게이션 */\\n  /* 히어로 섹션 */\\n  /* 프로젝트 그리드 */\\n}',
+          solution: '@media (max-width: 768px) {\\n  nav { flex-direction: column; gap: 10px; }\\n  .hero h1 { font-size: 1.8rem; }\\n  .project-grid { grid-template-columns: 1fr; }\\n  .hero { min-height: 60vh; padding: 30px 20px; }\\n}',
+          hints: [
+            'nav를 세로 배치로 변경',
+            '폰트 크기를 줄이세요',
+            '그리드를 1열로 변경'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '반응형 디자인 기초 연습',
+              description: '반응형 디자인의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['반응형 디자인의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '반응형 디자인 기초를 완벽하게 익혔어요!',
+                good: '반응형 디자인 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '반응형 디자인 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '반응형 디자인 응용',
+              description: '반응형 디자인을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['반응형 디자인의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '반응형 디자인 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '반응형 디자인 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '반응형 디자인 심화 도전',
+              description: '반응형 디자인을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '반응형 디자인 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        },
+        {
+          id: 'w38-m10',
+          title: '최종 프로젝트: 개인 포트폴리오',
+          description: '이번 유닛에서 배운 모든 걸 활용해 포트폴리오를 완성해요',
+          type: 'coding',
+          difficulty: 'intermediate',
+          language: 'html',
+          exp: 20,
+          estimatedMinutes: 20,
+          concept: '포트폴리오 완성',
+          conceptExplanation: 'HTML 시맨틱 태그, CSS Flexbox/Grid, 애니메이션, 반응형을 모두 활용해서 나만의 멋진 포트폴리오를 완성해요!',
+          starterCode: '/* 최종 프로젝트: 모든 기술을 종합하세요 */\\n/* header + hero + about + projects + footer */\\n/* transition + animation + responsive */\\n',
+          solution: '/* 완성된 포트폴리오는 header, hero, about, projects, footer 섹션을 포함하고, 모든 섹션에 적절한 스타일과 애니메이션이 적용되어 있어야 해요! */',
+          hints: [
+            '각 섹션별로 하나씩 완성하세요',
+            '이전 미션의 코드를 참고하세요',
+            '반응형 테스트를 꼭 해보세요'
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '포트폴리오 완성 기초 연습',
+              description: '포트폴리오 완성의 기본 사용법을 연습합니다.',
+              difficulty: 'easy',
+              hints: ['포트폴리오 완성의 기본 문법을 확인하세요', '강의 예제를 참고하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '포트폴리오 완성 기초를 완벽하게 익혔어요!',
+                good: '포트폴리오 완성 기본을 잘 이해했어요!',
+                partial: '기본 문법을 다시 확인해보세요.',
+                wrong: '포트폴리오 완성 강의를 다시 복습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '포트폴리오 완성 응용',
+              description: '포트폴리오 완성을 활용한 응용 문제를 풀어봅니다.',
+              difficulty: 'medium',
+              hints: ['포트폴리오 완성의 핵심 패턴을 활용하세요', '단계별로 접근하세요'],
+              estimatedMinutes: 8,
+              feedback: {
+                perfect: '포트폴리오 완성 응용을 완벽하게 했어요!',
+                good: '응용 실력이 좋아요!',
+                partial: '방향은 맞아요. 세부사항을 조정하세요.',
+                wrong: '포트폴리오 완성 기초부터 다시 확인하세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '포트폴리오 완성 심화 도전',
+              description: '포트폴리오 완성을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 기법을 조합해보세요', '창의적으로 접근하세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 12,
+              feedback: {
+                perfect: '포트폴리오 완성 마스터! 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 도전하세요.'
+              }
+            }
+          ],
+          unlocked: true,
+          completed: false
+        }
       ]
     }
   ]

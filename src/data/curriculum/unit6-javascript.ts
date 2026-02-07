@@ -2288,6 +2288,78 @@ console.log(doubleNumbers([1, 2, 3, 4, 5]));`,
               description: '다른 배열에도 작동해야 해요'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Array.map() 핵심 이해',
+              description: 'Array.map()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Array.map()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Array.map() 개념을 완벽하게 이해했어요!',
+                good: 'Array.map()의 핵심을 잘 파악했어요!',
+                partial: 'Array.map()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Array.map()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Array.map() 예제 분석',
+              description: 'Array.map() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Array.map() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Array.map() 코드 수정',
+              description: '주어진 코드에서 Array.map() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.map()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Array.map() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Array.map() 직접 구현',
+              description: 'Array.map()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Array.map()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Array.map() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Array.map() 심화 도전',
+              description: 'Array.map()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Array.map()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Array.map() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -2342,6 +2414,78 @@ console.log(getEvenNumbers([1, 2, 3, 4, 5, 6]));`,
               input: '[10, 15, 20, 25, 30]',
               expectedOutput: '[10, 20, 30]',
               description: '다른 배열에도 작동해야 해요'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Array.filter() 핵심 이해',
+              description: 'Array.filter()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Array.filter()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Array.filter() 개념을 완벽하게 이해했어요!',
+                good: 'Array.filter()의 핵심을 잘 파악했어요!',
+                partial: 'Array.filter()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Array.filter()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Array.filter() 예제 분석',
+              description: 'Array.filter() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Array.filter() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Array.filter() 코드 수정',
+              description: '주어진 코드에서 Array.filter() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.filter()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Array.filter() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Array.filter() 직접 구현',
+              description: 'Array.filter()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Array.filter()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Array.filter() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Array.filter() 심화 도전',
+              description: 'Array.filter()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Array.filter()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Array.filter() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -2400,6 +2544,78 @@ console.log(sumArray([1, 2, 3, 4, 5]));`,
               description: '다른 배열의 합계'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Array.reduce() 핵심 이해',
+              description: 'Array.reduce()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Array.reduce()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Array.reduce() 개념을 완벽하게 이해했어요!',
+                good: 'Array.reduce()의 핵심을 잘 파악했어요!',
+                partial: 'Array.reduce()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Array.reduce()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Array.reduce() 예제 분석',
+              description: 'Array.reduce() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Array.reduce() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Array.reduce() 코드 수정',
+              description: '주어진 코드에서 Array.reduce() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.reduce()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Array.reduce() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Array.reduce() 직접 구현',
+              description: 'Array.reduce()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Array.reduce()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Array.reduce() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Array.reduce() 심화 도전',
+              description: 'Array.reduce()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Array.reduce()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Array.reduce() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -2456,6 +2672,78 @@ console.log(doubleEvenNumbers([1, 2, 3, 4, 5, 6]));`,
               input: '[5, 10, 15, 20]',
               expectedOutput: '[20, 40]',
               description: '10과 20만 짝수이므로 2배'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '메서드 체이닝 핵심 이해',
+              description: '메서드 체이닝의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['메서드 체이닝의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '메서드 체이닝 개념을 완벽하게 이해했어요!',
+                good: '메서드 체이닝의 핵심을 잘 파악했어요!',
+                partial: '메서드 체이닝의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '메서드 체이닝의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '메서드 체이닝 예제 분석',
+              description: '메서드 체이닝 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '메서드 체이닝 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '메서드 체이닝 코드 수정',
+              description: '주어진 코드에서 메서드 체이닝 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '메서드 체이닝의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '메서드 체이닝 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '메서드 체이닝 직접 구현',
+              description: '메서드 체이닝을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '메서드 체이닝의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '메서드 체이닝 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '메서드 체이닝 심화 도전',
+              description: '메서드 체이닝을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '메서드 체이닝을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '메서드 체이닝 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -2522,6 +2810,78 @@ console.log(user.age);`,
               input: 'createUser("김코딩", 15, "kim@example.com")',
               expectedOutput: '{ name: "김코딩", age: 15, email: "kim@example.com" }',
               description: '올바른 객체 생성'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'JavaScript 객체 핵심 이해',
+              description: 'JavaScript 객체의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['JavaScript 객체의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'JavaScript 객체 개념을 완벽하게 이해했어요!',
+                good: 'JavaScript 객체의 핵심을 잘 파악했어요!',
+                partial: 'JavaScript 객체의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'JavaScript 객체의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'JavaScript 객체 예제 분석',
+              description: 'JavaScript 객체 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'JavaScript 객체 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'JavaScript 객체 코드 수정',
+              description: '주어진 코드에서 JavaScript 객체 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'JavaScript 객체의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'JavaScript 객체 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'JavaScript 객체 직접 구현',
+              description: 'JavaScript 객체을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'JavaScript 객체의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'JavaScript 객체 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'JavaScript 객체 심화 도전',
+              description: 'JavaScript 객체을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'JavaScript 객체을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'JavaScript 객체 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -2598,6 +2958,78 @@ console.log(calculator.result);`,
               description: '10을 더하고 3을 빼면 7'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '객체 메서드 핵심 이해',
+              description: '객체 메서드의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['객체 메서드의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '객체 메서드 개념을 완벽하게 이해했어요!',
+                good: '객체 메서드의 핵심을 잘 파악했어요!',
+                partial: '객체 메서드의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '객체 메서드의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '객체 메서드 예제 분석',
+              description: '객체 메서드 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '객체 메서드 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '객체 메서드 코드 수정',
+              description: '주어진 코드에서 객체 메서드 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '객체 메서드의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '객체 메서드 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '객체 메서드 직접 구현',
+              description: '객체 메서드을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '객체 메서드의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '객체 메서드 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '객체 메서드 심화 도전',
+              description: '객체 메서드을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '객체 메서드을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '객체 메서드 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -2651,6 +3083,78 @@ printUserInfo({ name: "이민수", age: 16, email: "lee@example.com" });`,
               input: '{ name: "이민수", age: 16, email: "lee@example.com" }',
               expectedOutput: '"이름: 이민수, 나이: 16"',
               description: 'name과 age를 올바르게 추출'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '구조 분해 할당 핵심 이해',
+              description: '구조 분해 할당의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['구조 분해 할당의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '구조 분해 할당 개념을 완벽하게 이해했어요!',
+                good: '구조 분해 할당의 핵심을 잘 파악했어요!',
+                partial: '구조 분해 할당의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '구조 분해 할당의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '구조 분해 할당 예제 분석',
+              description: '구조 분해 할당 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '구조 분해 할당 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '구조 분해 할당 코드 수정',
+              description: '주어진 코드에서 구조 분해 할당 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '구조 분해 할당의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '구조 분해 할당 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '구조 분해 할당 직접 구현',
+              description: '구조 분해 할당을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '구조 분해 할당의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '구조 분해 할당 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '구조 분해 할당 심화 도전',
+              description: '구조 분해 할당을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '구조 분해 할당을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '구조 분해 할당 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -2709,6 +3213,78 @@ console.log(mergeArrays([1, 2], [3, 4]));`,
               description: '문자열 배열도 합치기'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Spread 연산자 핵심 이해',
+              description: 'Spread 연산자의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Spread 연산자의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Spread 연산자 개념을 완벽하게 이해했어요!',
+                good: 'Spread 연산자의 핵심을 잘 파악했어요!',
+                partial: 'Spread 연산자의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Spread 연산자의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Spread 연산자 예제 분석',
+              description: 'Spread 연산자 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Spread 연산자 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Spread 연산자 코드 수정',
+              description: '주어진 코드에서 Spread 연산자 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Spread 연산자의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Spread 연산자 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Spread 연산자 직접 구현',
+              description: 'Spread 연산자을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Spread 연산자의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Spread 연산자 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Spread 연산자 심화 도전',
+              description: 'Spread 연산자을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Spread 연산자을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Spread 연산자 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -2765,6 +3341,78 @@ console.log(sum(1, 2, 3, 4, 5));`,
               input: '1, 2, 3, 4, 5',
               expectedOutput: '15',
               description: '인자 개수가 달라도 작동'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Rest 파라미터 핵심 이해',
+              description: 'Rest 파라미터의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Rest 파라미터의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Rest 파라미터 개념을 완벽하게 이해했어요!',
+                good: 'Rest 파라미터의 핵심을 잘 파악했어요!',
+                partial: 'Rest 파라미터의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Rest 파라미터의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Rest 파라미터 예제 분석',
+              description: 'Rest 파라미터 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Rest 파라미터 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Rest 파라미터 코드 수정',
+              description: '주어진 코드에서 Rest 파라미터 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Rest 파라미터의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Rest 파라미터 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Rest 파라미터 직접 구현',
+              description: 'Rest 파라미터을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Rest 파라미터의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Rest 파라미터 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Rest 파라미터 심화 도전',
+              description: 'Rest 파라미터을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Rest 파라미터을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Rest 파라미터 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -2833,6 +3481,78 @@ console.log(result);`,
               description: '객체가 JSON을 거쳐 복원됨'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'JSON 핵심 이해',
+              description: 'JSON의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['JSON의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'JSON 개념을 완벽하게 이해했어요!',
+                good: 'JSON의 핵심을 잘 파악했어요!',
+                partial: 'JSON의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'JSON의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'JSON 예제 분석',
+              description: 'JSON 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'JSON 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'JSON 코드 수정',
+              description: '주어진 코드에서 JSON 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'JSON의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'JSON 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'JSON 직접 구현',
+              description: 'JSON을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'JSON의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'JSON 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'JSON 심화 도전',
+              description: 'JSON을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'JSON을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'JSON 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -2889,6 +3609,78 @@ console.log(findFirstEven([1, 3, 5]));`,
               input: '[1, 3, 5]',
               expectedOutput: 'undefined',
               description: '짝수가 없으면 undefined'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Array.find() 핵심 이해',
+              description: 'Array.find()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Array.find()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Array.find() 개념을 완벽하게 이해했어요!',
+                good: 'Array.find()의 핵심을 잘 파악했어요!',
+                partial: 'Array.find()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Array.find()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Array.find() 예제 분석',
+              description: 'Array.find() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Array.find() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Array.find() 코드 수정',
+              description: '주어진 코드에서 Array.find() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.find()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Array.find() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Array.find() 직접 구현',
+              description: 'Array.find()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Array.find()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Array.find() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Array.find() 심화 도전',
+              description: 'Array.find()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Array.find()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Array.find() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -2963,6 +3755,78 @@ console.log(allPositive([1, -2, 3]));`,
               description: '모두 양수이므로 true'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Array.some() / Array.every() 핵심 이해',
+              description: 'Array.some() / Array.every()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Array.some() / Array.every()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Array.some() / Array.every() 개념을 완벽하게 이해했어요!',
+                good: 'Array.some() / Array.every()의 핵심을 잘 파악했어요!',
+                partial: 'Array.some() / Array.every()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Array.some() / Array.every()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Array.some() / Array.every() 예제 분석',
+              description: 'Array.some() / Array.every() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Array.some() / Array.every() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Array.some() / Array.every() 코드 수정',
+              description: '주어진 코드에서 Array.some() / Array.every() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.some() / Array.every()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Array.some() / Array.every() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Array.some() / Array.every() 직접 구현',
+              description: 'Array.some() / Array.every()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Array.some() / Array.every()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Array.some() / Array.every() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Array.some() / Array.every() 심화 도전',
+              description: 'Array.some() / Array.every()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Array.some() / Array.every()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Array.some() / Array.every() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3031,6 +3895,78 @@ console.log(getExpensiveProductNames(products));`,
               description: '10000원 이상 상품 이름'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '객체 배열 처리 핵심 이해',
+              description: '객체 배열 처리의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['객체 배열 처리의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '객체 배열 처리 개념을 완벽하게 이해했어요!',
+                good: '객체 배열 처리의 핵심을 잘 파악했어요!',
+                partial: '객체 배열 처리의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '객체 배열 처리의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '객체 배열 처리 예제 분석',
+              description: '객체 배열 처리 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '객체 배열 처리 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '객체 배열 처리 코드 수정',
+              description: '주어진 코드에서 객체 배열 처리 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '객체 배열 처리의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '객체 배열 처리 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '객체 배열 처리 직접 구현',
+              description: '객체 배열 처리을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '객체 배열 처리의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '객체 배열 처리 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '객체 배열 처리 심화 도전',
+              description: '객체 배열 처리을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '객체 배열 처리을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '객체 배열 처리 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3094,6 +4030,78 @@ console.log(sortByScore(students));`,
               input: 'students 배열',
               expectedOutput: '[영희(95), 철수(85), 민수(78)]',
               description: '점수 높은 순 정렬'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Array.sort() 핵심 이해',
+              description: 'Array.sort()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Array.sort()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Array.sort() 개념을 완벽하게 이해했어요!',
+                good: 'Array.sort()의 핵심을 잘 파악했어요!',
+                partial: 'Array.sort()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Array.sort()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Array.sort() 예제 분석',
+              description: 'Array.sort() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Array.sort() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Array.sort() 코드 수정',
+              description: '주어진 코드에서 Array.sort() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.sort()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Array.sort() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Array.sort() 직접 구현',
+              description: 'Array.sort()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Array.sort()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Array.sort() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Array.sort() 심화 도전',
+              description: 'Array.sort()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Array.sort()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Array.sort() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -3183,6 +4191,78 @@ console.log(analyzeScores(students));`,
               description: '올바른 통계 계산'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '배열/객체 종합 활용 핵심 이해',
+              description: '배열/객체 종합 활용의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['배열/객체 종합 활용의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '배열/객체 종합 활용 개념을 완벽하게 이해했어요!',
+                good: '배열/객체 종합 활용의 핵심을 잘 파악했어요!',
+                partial: '배열/객체 종합 활용의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '배열/객체 종합 활용의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '배열/객체 종합 활용 예제 분석',
+              description: '배열/객체 종합 활용 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '배열/객체 종합 활용 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '배열/객체 종합 활용 코드 수정',
+              description: '주어진 코드에서 배열/객체 종합 활용 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '배열/객체 종합 활용의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '배열/객체 종합 활용 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '배열/객체 종합 활용 직접 구현',
+              description: '배열/객체 종합 활용을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '배열/객체 종합 활용의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '배열/객체 종합 활용 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '배열/객체 종합 활용 심화 도전',
+              description: '배열/객체 종합 활용을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '배열/객체 종합 활용을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '배열/객체 종합 활용 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3246,6 +4326,78 @@ changeTitle();`,
               description: 'getElementById와 textContent 사용'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'document.getElementById() 핵심 이해',
+              description: 'document.getElementById()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['document.getElementById()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'document.getElementById() 개념을 완벽하게 이해했어요!',
+                good: 'document.getElementById()의 핵심을 잘 파악했어요!',
+                partial: 'document.getElementById()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'document.getElementById()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'document.getElementById() 예제 분석',
+              description: 'document.getElementById() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'document.getElementById() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'document.getElementById() 코드 수정',
+              description: '주어진 코드에서 document.getElementById() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'document.getElementById()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'document.getElementById() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'document.getElementById() 직접 구현',
+              description: 'document.getElementById()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'document.getElementById()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'document.getElementById() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'document.getElementById() 심화 도전',
+              description: 'document.getElementById()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'document.getElementById()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'document.getElementById() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3301,6 +4453,78 @@ changeButtonText();`,
               description: 'class 선택자 사용'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'document.querySelector() 핵심 이해',
+              description: 'document.querySelector()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['document.querySelector()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'document.querySelector() 개념을 완벽하게 이해했어요!',
+                good: 'document.querySelector()의 핵심을 잘 파악했어요!',
+                partial: 'document.querySelector()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'document.querySelector()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'document.querySelector() 예제 분석',
+              description: 'document.querySelector() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'document.querySelector() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'document.querySelector() 코드 수정',
+              description: '주어진 코드에서 document.querySelector() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'document.querySelector()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'document.querySelector() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'document.querySelector() 직접 구현',
+              description: 'document.querySelector()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'document.querySelector()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'document.querySelector() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'document.querySelector() 심화 도전',
+              description: 'document.querySelector()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'document.querySelector()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'document.querySelector() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3354,6 +4578,78 @@ setContent();`,
               input: '<div id="content"></div>',
               expectedOutput: '"코딩"이 굵게 표시됨',
               description: 'innerHTML로 HTML 태그 삽입'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'textContent vs innerHTML 핵심 이해',
+              description: 'textContent vs innerHTML의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['textContent vs innerHTML의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'textContent vs innerHTML 개념을 완벽하게 이해했어요!',
+                good: 'textContent vs innerHTML의 핵심을 잘 파악했어요!',
+                partial: 'textContent vs innerHTML의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'textContent vs innerHTML의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'textContent vs innerHTML 예제 분석',
+              description: 'textContent vs innerHTML 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'textContent vs innerHTML 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'textContent vs innerHTML 코드 수정',
+              description: '주어진 코드에서 textContent vs innerHTML 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'textContent vs innerHTML의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'textContent vs innerHTML 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'textContent vs innerHTML 직접 구현',
+              description: 'textContent vs innerHTML을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'textContent vs innerHTML의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'textContent vs innerHTML 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'textContent vs innerHTML 심화 도전',
+              description: 'textContent vs innerHTML을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'textContent vs innerHTML을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'textContent vs innerHTML 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -3413,6 +4709,78 @@ styleBox();`,
               description: 'style 속성으로 색상 변경'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'element.style 핵심 이해',
+              description: 'element.style의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['element.style의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'element.style 개념을 완벽하게 이해했어요!',
+                good: 'element.style의 핵심을 잘 파악했어요!',
+                partial: 'element.style의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'element.style의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'element.style 예제 분석',
+              description: 'element.style 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'element.style 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'element.style 코드 수정',
+              description: '주어진 코드에서 element.style 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'element.style의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'element.style 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'element.style 직접 구현',
+              description: 'element.style을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'element.style의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'element.style 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'element.style 심화 도전',
+              description: 'element.style을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'element.style을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'element.style 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3467,6 +4835,78 @@ highlightBox();`,
               input: '<div id="box">박스</div>',
               expectedOutput: 'highlight 클래스 추가됨',
               description: 'classList.add 사용'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'element.classList 핵심 이해',
+              description: 'element.classList의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['element.classList의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'element.classList 개념을 완벽하게 이해했어요!',
+                good: 'element.classList의 핵심을 잘 파악했어요!',
+                partial: 'element.classList의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'element.classList의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'element.classList 예제 분석',
+              description: 'element.classList 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'element.classList 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'element.classList 코드 수정',
+              description: '주어진 코드에서 element.classList 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'element.classList의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'element.classList 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'element.classList 직접 구현',
+              description: 'element.classList을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'element.classList의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'element.classList 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'element.classList 심화 도전',
+              description: 'element.classList을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'element.classList을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'element.classList 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -3528,6 +4968,78 @@ setupButton();`,
               input: '버튼 클릭',
               expectedOutput: '콘솔에 "클릭됨!" 출력',
               description: 'click 이벤트 처리'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'addEventListener("click") 핵심 이해',
+              description: 'addEventListener("click")의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['addEventListener("click")의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'addEventListener("click") 개념을 완벽하게 이해했어요!',
+                good: 'addEventListener("click")의 핵심을 잘 파악했어요!',
+                partial: 'addEventListener("click")의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'addEventListener("click")의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'addEventListener("click") 예제 분석',
+              description: 'addEventListener("click") 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'addEventListener("click") 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'addEventListener("click") 코드 수정',
+              description: '주어진 코드에서 addEventListener("click") 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'addEventListener("click")의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'addEventListener("click") 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'addEventListener("click") 직접 구현',
+              description: 'addEventListener("click")을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'addEventListener("click")의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'addEventListener("click") 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'addEventListener("click") 심화 도전',
+              description: 'addEventListener("click")을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'addEventListener("click")을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'addEventListener("click") 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -3598,6 +5110,78 @@ setupCounter();`,
               description: '클릭 횟수 정확히 카운트'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '이벤트와 상태 관리 핵심 이해',
+              description: '이벤트와 상태 관리의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['이벤트와 상태 관리의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '이벤트와 상태 관리 개념을 완벽하게 이해했어요!',
+                good: '이벤트와 상태 관리의 핵심을 잘 파악했어요!',
+                partial: '이벤트와 상태 관리의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '이벤트와 상태 관리의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '이벤트와 상태 관리 예제 분석',
+              description: '이벤트와 상태 관리 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '이벤트와 상태 관리 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '이벤트와 상태 관리 코드 수정',
+              description: '주어진 코드에서 이벤트와 상태 관리 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '이벤트와 상태 관리의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '이벤트와 상태 관리 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '이벤트와 상태 관리 직접 구현',
+              description: '이벤트와 상태 관리을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '이벤트와 상태 관리의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '이벤트와 상태 관리 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '이벤트와 상태 관리 심화 도전',
+              description: '이벤트와 상태 관리을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '이벤트와 상태 관리을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '이벤트와 상태 관리 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3663,6 +5247,78 @@ setupGreeting();`,
               input: '"철수" 입력',
               expectedOutput: '"안녕하세요, 철수님!"',
               description: '실시간으로 인사말 업데이트'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'input 이벤트 핵심 이해',
+              description: 'input 이벤트의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['input 이벤트의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'input 이벤트 개념을 완벽하게 이해했어요!',
+                good: 'input 이벤트의 핵심을 잘 파악했어요!',
+                partial: 'input 이벤트의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'input 이벤트의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'input 이벤트 예제 분석',
+              description: 'input 이벤트 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'input 이벤트 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'input 이벤트 코드 수정',
+              description: '주어진 코드에서 input 이벤트 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'input 이벤트의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'input 이벤트 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'input 이벤트 직접 구현',
+              description: 'input 이벤트을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'input 이벤트의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'input 이벤트 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'input 이벤트 심화 도전',
+              description: 'input 이벤트을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'input 이벤트을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'input 이벤트 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -3739,6 +5395,78 @@ setupList();`,
               input: '버튼 3번 클릭',
               expectedOutput: '항목 1, 항목 2, 항목 3 리스트',
               description: '동적으로 li 요소 생성'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'document.createElement() 핵심 이해',
+              description: 'document.createElement()의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['document.createElement()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'document.createElement() 개념을 완벽하게 이해했어요!',
+                good: 'document.createElement()의 핵심을 잘 파악했어요!',
+                partial: 'document.createElement()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'document.createElement()의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'document.createElement() 예제 분석',
+              description: 'document.createElement() 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'document.createElement() 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'document.createElement() 코드 수정',
+              description: '주어진 코드에서 document.createElement() 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'document.createElement()의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'document.createElement() 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'document.createElement() 직접 구현',
+              description: 'document.createElement()을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'document.createElement()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'document.createElement() 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'document.createElement() 심화 도전',
+              description: 'document.createElement()을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'document.createElement()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'document.createElement() 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -3826,6 +5554,78 @@ setupForm();`,
               description: '3글자 이상 허용'
             }
           ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '폼 유효성 검사 핵심 이해',
+              description: '폼 유효성 검사의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['폼 유효성 검사의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '폼 유효성 검사 개념을 완벽하게 이해했어요!',
+                good: '폼 유효성 검사의 핵심을 잘 파악했어요!',
+                partial: '폼 유효성 검사의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '폼 유효성 검사의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '폼 유효성 검사 예제 분석',
+              description: '폼 유효성 검사 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '폼 유효성 검사 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '폼 유효성 검사 코드 수정',
+              description: '주어진 코드에서 폼 유효성 검사 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '폼 유효성 검사의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '폼 유효성 검사 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '폼 유효성 검사 직접 구현',
+              description: '폼 유효성 검사을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '폼 유효성 검사의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '폼 유효성 검사 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '폼 유효성 검사 심화 도전',
+              description: '폼 유효성 검사을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '폼 유효성 검사을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '폼 유효성 검사 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
+            }
+          ],
           unlocked: true,
           completed: false,
           perfectScore: false
@@ -3887,6 +5687,78 @@ saveAndLoadName("김코딩");`,
               input: '"김코딩"',
               expectedOutput: '저장 후 불러온 값: "김코딩"',
               description: 'localStorage에 저장/불러오기'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'localStorage 핵심 이해',
+              description: 'localStorage의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['localStorage의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'localStorage 개념을 완벽하게 이해했어요!',
+                good: 'localStorage의 핵심을 잘 파악했어요!',
+                partial: 'localStorage의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'localStorage의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'localStorage 예제 분석',
+              description: 'localStorage 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'localStorage 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'localStorage 코드 수정',
+              description: '주어진 코드에서 localStorage 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'localStorage의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'localStorage 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'localStorage 직접 구현',
+              description: 'localStorage을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'localStorage의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'localStorage 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'localStorage 심화 도전',
+              description: 'localStorage을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'localStorage을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'localStorage 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -3964,6 +5836,78 @@ setupDarkMode();`,
               input: '버튼 클릭',
               expectedOutput: 'dark 클래스 토글 및 저장',
               description: '다크모드 전환 및 저장'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: '다크모드 구현 핵심 이해',
+              description: '다크모드 구현의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['다크모드 구현의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: '다크모드 구현 개념을 완벽하게 이해했어요!',
+                good: '다크모드 구현의 핵심을 잘 파악했어요!',
+                partial: '다크모드 구현의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: '다크모드 구현의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: '다크모드 구현 예제 분석',
+              description: '다크모드 구현 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', '다크모드 구현 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: '다크모드 구현 코드 수정',
+              description: '주어진 코드에서 다크모드 구현 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', '다크모드 구현의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: '다크모드 구현 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: '다크모드 구현 직접 구현',
+              description: '다크모드 구현을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', '다크모드 구현의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: '다크모드 구현 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: '다크모드 구현 심화 도전',
+              description: '다크모드 구현을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', '다크모드 구현을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: '다크모드 구현 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -4051,6 +5995,78 @@ setupTodoApp();`,
               input: '"운동하기" 입력 후 추가',
               expectedOutput: '리스트에 "운동하기" 추가',
               description: 'Todo 항목 추가'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Todo 앱 - CRUD의 C 핵심 이해',
+              description: 'Todo 앱 - CRUD의 C의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Todo 앱 - CRUD의 C의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Todo 앱 - CRUD의 C 개념을 완벽하게 이해했어요!',
+                good: 'Todo 앱 - CRUD의 C의 핵심을 잘 파악했어요!',
+                partial: 'Todo 앱 - CRUD의 C의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Todo 앱 - CRUD의 C의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Todo 앱 - CRUD의 C 예제 분석',
+              description: 'Todo 앱 - CRUD의 C 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Todo 앱 - CRUD의 C 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Todo 앱 - CRUD의 C 코드 수정',
+              description: '주어진 코드에서 Todo 앱 - CRUD의 C 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Todo 앱 - CRUD의 C의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Todo 앱 - CRUD의 C 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Todo 앱 - CRUD의 C 직접 구현',
+              description: 'Todo 앱 - CRUD의 C을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Todo 앱 - CRUD의 C의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Todo 앱 - CRUD의 C 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Todo 앱 - CRUD의 C 심화 도전',
+              description: 'Todo 앱 - CRUD의 C을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Todo 앱 - CRUD의 C을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Todo 앱 - CRUD의 C 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
@@ -4142,6 +6158,78 @@ setupTodoAppWithDelete();`,
               input: '항목 추가 후 삭제 버튼 클릭',
               expectedOutput: '해당 항목이 리스트에서 제거',
               description: 'Todo 항목 삭제'
+            }
+          ],
+          challenges: [
+            {
+              id: 'c1',
+              title: 'Todo 앱 - CRUD의 D 핵심 이해',
+              description: 'Todo 앱 - CRUD의 D의 핵심 개념과 원리를 확인합니다.',
+              difficulty: 'easy',
+              hints: ['Todo 앱 - CRUD의 D의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
+              estimatedMinutes: 3,
+              feedback: {
+                perfect: 'Todo 앱 - CRUD의 D 개념을 완벽하게 이해했어요!',
+                good: 'Todo 앱 - CRUD의 D의 핵심을 잘 파악했어요!',
+                partial: 'Todo 앱 - CRUD의 D의 일부만 이해했어요. 핵심을 다시 확인하세요.',
+                wrong: 'Todo 앱 - CRUD의 D의 기본 개념부터 다시 학습해보세요.'
+              }
+            },
+            {
+              id: 'c2',
+              title: 'Todo 앱 - CRUD의 D 예제 분석',
+              description: 'Todo 앱 - CRUD의 D 관련 예제를 분석하고 동작 원리를 파악합니다.',
+              difficulty: 'easy',
+              hints: ['예제를 한 줄씩 읽어보세요', 'Todo 앱 - CRUD의 D 관련 문법을 확인하세요'],
+              estimatedMinutes: 5,
+              feedback: {
+                perfect: '예제 분석을 완벽하게 했어요!',
+                good: '대부분 잘 분석했어요!',
+                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
+                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
+              }
+            },
+            {
+              id: 'c3',
+              title: 'Todo 앱 - CRUD의 D 코드 수정',
+              description: '주어진 코드에서 Todo 앱 - CRUD의 D 관련 부분을 수정합니다.',
+              difficulty: 'medium',
+              hints: ['기존 코드의 문제점을 찾아보세요', 'Todo 앱 - CRUD의 D의 올바른 사용법을 적용하세요'],
+              estimatedMinutes: 7,
+              feedback: {
+                perfect: '코드 수정을 완벽하게 했어요!',
+                good: '수정 방향이 정확해요!',
+                partial: '일부만 수정했어요. 나머지도 확인하세요.',
+                wrong: 'Todo 앱 - CRUD의 D 문법을 다시 확인한 후 수정하세요.'
+              }
+            },
+            {
+              id: 'c4',
+              title: 'Todo 앱 - CRUD의 D 직접 구현',
+              description: 'Todo 앱 - CRUD의 D을 활용한 코드를 직접 작성합니다.',
+              difficulty: 'medium',
+              hints: ['요구사항을 먼저 파악하세요', 'Todo 앱 - CRUD의 D의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
+              estimatedMinutes: 10,
+              feedback: {
+                perfect: '직접 구현을 완벽하게 해냈어요!',
+                good: '핵심 기능을 잘 구현했어요!',
+                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
+                wrong: 'Todo 앱 - CRUD의 D 기본 문법부터 복습한 후 시도하세요.'
+              }
+            },
+            {
+              id: 'c5',
+              title: 'Todo 앱 - CRUD의 D 심화 도전',
+              description: 'Todo 앱 - CRUD의 D을 창의적으로 활용하는 심화 문제입니다.',
+              difficulty: 'hard',
+              hints: ['여러 개념을 조합해보세요', 'Todo 앱 - CRUD의 D을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
+              estimatedMinutes: 15,
+              feedback: {
+                perfect: 'Todo 앱 - CRUD의 D 마스터! 심화 문제까지 완벽해요!',
+                good: '창의적인 접근이에요!',
+                partial: '좋은 시도예요. 더 발전시켜보세요.',
+                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
+              }
             }
           ],
           unlocked: true,
