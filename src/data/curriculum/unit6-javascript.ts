@@ -2289,76 +2289,11 @@ console.log(doubleNumbers([1, 2, 3, 4, 5]));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Array.map() 핵심 이해',
-              description: 'Array.map()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Array.map()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Array.map() 개념을 완벽하게 이해했어요!',
-                good: 'Array.map()의 핵심을 잘 파악했어요!',
-                partial: 'Array.map()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Array.map()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Array.map() 예제 분석',
-              description: 'Array.map() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Array.map() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Array.map() 코드 수정',
-              description: '주어진 코드에서 Array.map() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.map()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Array.map() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Array.map() 직접 구현',
-              description: 'Array.map()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Array.map()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Array.map() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Array.map() 심화 도전',
-              description: 'Array.map()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Array.map()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Array.map() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '배열 요소 2배 변환', description: 'map을 사용하여 배열의 각 요소를 2배로 변환하세요.', difficulty: 'easy', hints: ['map은 배열.map(콜백) 형태로 사용해요', '화살표 함수: x => x * 2', 'map은 새 배열을 반환해요'], estimatedMinutes: 3, starterCode: 'const nums = [1, 2, 3, 4, 5];\n// map을 사용하여 각 요소를 2배로 변환하세요\nconst doubled = \nconsole.log(doubled);', solution: 'const nums = [1, 2, 3, 4, 5];\nconst doubled = nums.map(x => x * 2);\nconsole.log(doubled); // [2, 4, 6, 8, 10]', feedback: { perfect: '완벽해요! map으로 배열 변환을 정확히 이해했어요!', good: 'map 사용법을 잘 알고 있어요!', partial: 'map의 콜백 함수를 확인해보세요.', wrong: 'nums.map(x => x * 2) 형태로 작성하세요.' } },
+            { id: 'c2', title: '문자열 배열 대문자 변환', description: 'map으로 모든 단어를 대문자로 변환하세요.', difficulty: 'easy', hints: ['toUpperCase() 메서드를 사용해요', 'w.toUpperCase() 형태로 호출해요'], estimatedMinutes: 3, starterCode: 'const words = ["hello", "world", "javascript"];\n// map으로 모든 단어를 대문자로 변환하세요\nconst upper = \nconsole.log(upper);', solution: 'const words = ["hello", "world", "javascript"];\nconst upper = words.map(w => w.toUpperCase());\nconsole.log(upper); // ["HELLO", "WORLD", "JAVASCRIPT"]', feedback: { perfect: '문자열 메서드와 map의 조합을 완벽히 이해했어요!', good: '잘했어요! 문자열 변환이 정확해요.', partial: 'toUpperCase() 메서드를 map 콜백 안에서 호출하세요.', wrong: 'words.map(w => w.toUpperCase()) 형태를 사용하세요.' } },
+            { id: 'c3', title: '객체 배열에서 이름 추출', description: 'map으로 사용자 객체 배열에서 이름만 추출하세요.', difficulty: 'medium', hints: ['객체의 속성에 접근: user.name', 'map 콜백에서 원하는 속성만 반환하세요'], estimatedMinutes: 5, starterCode: 'const users = [\n  { name: "김철수", age: 15 },\n  { name: "이영희", age: 14 },\n  { name: "박민수", age: 16 }\n];\n// map으로 이름만 추출하세요\nconst names = \nconsole.log(names);', solution: 'const users = [\n  { name: "김철수", age: 15 },\n  { name: "이영희", age: 14 },\n  { name: "박민수", age: 16 }\n];\nconst names = users.map(user => user.name);\nconsole.log(names); // ["김철수", "이영희", "박민수"]', feedback: { perfect: '객체에서 특정 속성 추출을 완벽히 해냈어요!', good: '잘했어요! 속성 접근이 정확해요.', partial: '콜백에서 user.name을 반환하세요.', wrong: 'users.map(user => user.name) 형태를 사용하세요.' } },
+            { id: 'c4', title: '가격에 부가세 추가', description: 'map으로 10% 부가세가 추가된 가격 배열을 만드세요.', difficulty: 'medium', hints: ['가격 * 1.1로 10%를 추가해요', 'Math.round()로 반올림하면 깔끔해요'], estimatedMinutes: 5, starterCode: 'const prices = [1000, 2000, 3000, 5000];\n// map으로 10% 부가세가 추가된 가격 배열을 만드세요\nconst withTax = \nconsole.log(withTax);', solution: 'const prices = [1000, 2000, 3000, 5000];\nconst withTax = prices.map(p => Math.round(p * 1.1));\nconsole.log(withTax); // [1100, 2200, 3300, 5500]', feedback: { perfect: '부가세 계산까지 완벽해요!', good: '계산이 정확해요!', partial: '가격에 1.1을 곱하면 10% 추가돼요.', wrong: 'prices.map(p => Math.round(p * 1.1)) 형태를 사용하세요.' } },
+            { id: 'c5', title: '성적 등급 계산기', description: 'map으로 점수를 등급(A/B/C/D/F)으로 변환하세요. 90이상:A, 80이상:B, 70이상:C, 60이상:D, 그 외:F', difficulty: 'hard', hints: ['if/else 또는 삼항연산자를 사용하세요', '조건을 큰 수부터 확인하세요', 'map 콜백 안에서 조건문 사용 가능해요'], estimatedMinutes: 10, starterCode: 'const scores = [95, 82, 67, 54, 78];\n// map으로 점수를 등급으로 변환하세요\n// 90이상: A, 80이상: B, 70이상: C, 60이상: D, 그 외: F\nconst grades = \nconsole.log(grades);', solution: 'const scores = [95, 82, 67, 54, 78];\nconst grades = scores.map(s => {\n  if (s >= 90) return "A";\n  if (s >= 80) return "B";\n  if (s >= 70) return "C";\n  if (s >= 60) return "D";\n  return "F";\n});\nconsole.log(grades); // ["A", "B", "D", "F", "C"]', feedback: { perfect: '조건 분기와 map의 조합을 완벽히 마스터했어요!', good: '등급 판별 로직이 잘 작동해요!', partial: '조건을 높은 점수부터 확인하세요. 90 -> 80 -> 70 -> 60 순서로요.', wrong: 'map 콜백 안에서 if문으로 점수 구간별 등급을 반환하세요.' } }
           ],
           unlocked: true,
           completed: false,
@@ -2417,76 +2352,11 @@ console.log(getEvenNumbers([1, 2, 3, 4, 5, 6]));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Array.filter() 핵심 이해',
-              description: 'Array.filter()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Array.filter()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Array.filter() 개념을 완벽하게 이해했어요!',
-                good: 'Array.filter()의 핵심을 잘 파악했어요!',
-                partial: 'Array.filter()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Array.filter()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Array.filter() 예제 분석',
-              description: 'Array.filter() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Array.filter() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Array.filter() 코드 수정',
-              description: '주어진 코드에서 Array.filter() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.filter()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Array.filter() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Array.filter() 직접 구현',
-              description: 'Array.filter()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Array.filter()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Array.filter() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Array.filter() 심화 도전',
-              description: 'Array.filter()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Array.filter()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Array.filter() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '짝수만 필터링', description: 'filter로 배열에서 짝수만 남기세요.', difficulty: 'easy', hints: ['짝수: n % 2 === 0', 'filter는 조건이 true인 요소만 남겨요'], estimatedMinutes: 3, starterCode: 'const nums = [1, 2, 3, 4, 5, 6, 7, 8];\n// filter로 짝수만 남기세요\nconst evens = \nconsole.log(evens);', solution: 'const nums = [1, 2, 3, 4, 5, 6, 7, 8];\nconst evens = nums.filter(n => n % 2 === 0);\nconsole.log(evens); // [2, 4, 6, 8]', feedback: { perfect: 'filter로 짝수 필터링을 완벽히 해냈어요!', good: '잘했어요! 조건식이 정확해요.', partial: 'n % 2 === 0 이 짝수 조건이에요.', wrong: 'nums.filter(n => n % 2 === 0) 형태를 사용하세요.' } },
+            { id: 'c2', title: '빈 문자열 제거', description: 'filter로 빈 문자열을 제거하세요.', difficulty: 'easy', hints: ['빈 문자열의 length는 0이에요', 'w.length > 0 또는 w !== "" 사용'], estimatedMinutes: 3, starterCode: 'const words = ["hello", "", "world", "", "javascript"];\n// filter로 빈 문자열을 제거하세요\nconst cleaned = \nconsole.log(cleaned);', solution: 'const words = ["hello", "", "world", "", "javascript"];\nconst cleaned = words.filter(w => w.length > 0);\nconsole.log(cleaned); // ["hello", "world", "javascript"]', feedback: { perfect: '빈 문자열 제거를 완벽히 해냈어요!', good: '잘했어요! 조건이 정확해요.', partial: 'length가 0보다 큰 것만 남기세요.', wrong: 'words.filter(w => w.length > 0) 형태를 사용하세요.' } },
+            { id: 'c3', title: '성인만 필터링', description: 'filter로 18세 이상인 사람만 남기세요.', difficulty: 'medium', hints: ['객체의 age 속성에 접근하세요', 'p.age >= 18 조건 사용'], estimatedMinutes: 5, starterCode: 'const people = [\n  { name: "김철수", age: 25 },\n  { name: "이영희", age: 17 },\n  { name: "박민수", age: 30 },\n  { name: "최지우", age: 15 }\n];\n// filter로 18세 이상만 남기세요\nconst adults = \nconsole.log(adults);', solution: 'const people = [\n  { name: "김철수", age: 25 },\n  { name: "이영희", age: 17 },\n  { name: "박민수", age: 30 },\n  { name: "최지우", age: 15 }\n];\nconst adults = people.filter(p => p.age >= 18);\nconsole.log(adults);', feedback: { perfect: '객체 배열 필터링을 완벽히 해냈어요!', good: '잘했어요! 조건이 정확해요.', partial: 'p.age >= 18 조건을 사용하세요.', wrong: 'people.filter(p => p.age >= 18) 형태를 사용하세요.' } },
+            { id: 'c4', title: '검색 기능 구현', description: 'filter로 keyword가 포함된 제품만 검색하세요.', difficulty: 'medium', hints: ['includes() 메서드로 포함 여부 확인', 'p.includes(keyword) 형태'], estimatedMinutes: 5, starterCode: 'const products = ["아이폰", "아이패드", "맥북", "에어팟", "맥 미니"];\nconst keyword = "맥";\n// filter로 keyword가 포함된 제품만 검색하세요\nconst results = \nconsole.log(results);', solution: 'const products = ["아이폰", "아이패드", "맥북", "에어팟", "맥 미니"];\nconst keyword = "맥";\nconst results = products.filter(p => p.includes(keyword));\nconsole.log(results); // ["맥북", "맥 미니"]', feedback: { perfect: '검색 기능 구현 완벽해요!', good: '잘했어요! includes 사용이 정확해요.', partial: 'includes() 메서드를 활용하세요.', wrong: 'products.filter(p => p.includes(keyword)) 형태를 사용하세요.' } },
+            { id: 'c5', title: '다중 조건 필터', description: '점수 80 이상 AND 출석률 90 이상인 학생만 필터링하세요.', difficulty: 'hard', hints: ['&& 연산자로 두 조건을 결합하세요', 's.score >= 80 && s.attendance >= 90'], estimatedMinutes: 10, starterCode: 'const students = [\n  { name: "김철수", score: 85, attendance: 95 },\n  { name: "이영희", score: 92, attendance: 80 },\n  { name: "박민수", score: 78, attendance: 98 },\n  { name: "최지우", score: 95, attendance: 92 }\n];\n// 점수 80 이상 AND 출석률 90 이상인 학생만 필터링\nconst excellent = \nconsole.log(excellent);', solution: 'const students = [\n  { name: "김철수", score: 85, attendance: 95 },\n  { name: "이영희", score: 92, attendance: 80 },\n  { name: "박민수", score: 78, attendance: 98 },\n  { name: "최지우", score: 95, attendance: 92 }\n];\nconst excellent = students.filter(s => s.score >= 80 && s.attendance >= 90);\nconsole.log(excellent); // [김철수, 최지우]', feedback: { perfect: '다중 조건 필터링을 완벽히 마스터했어요!', good: '두 조건 결합이 정확해요!', partial: '&& 연산자로 두 조건을 모두 만족하는지 확인하세요.', wrong: 'students.filter(s => s.score >= 80 && s.attendance >= 90) 형태를 사용하세요.' } }
           ],
           unlocked: true,
           completed: false,
@@ -2545,76 +2415,11 @@ console.log(sumArray([1, 2, 3, 4, 5]));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: 'Array.reduce() 핵심 이해',
-              description: 'Array.reduce()의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['Array.reduce()의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: 'Array.reduce() 개념을 완벽하게 이해했어요!',
-                good: 'Array.reduce()의 핵심을 잘 파악했어요!',
-                partial: 'Array.reduce()의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: 'Array.reduce()의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: 'Array.reduce() 예제 분석',
-              description: 'Array.reduce() 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', 'Array.reduce() 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: 'Array.reduce() 코드 수정',
-              description: '주어진 코드에서 Array.reduce() 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', 'Array.reduce()의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: 'Array.reduce() 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: 'Array.reduce() 직접 구현',
-              description: 'Array.reduce()을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', 'Array.reduce()의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: 'Array.reduce() 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: 'Array.reduce() 심화 도전',
-              description: 'Array.reduce()을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', 'Array.reduce()을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: 'Array.reduce() 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '배열 합계 구하기', description: 'reduce로 배열의 모든 요소 합계를 구하세요.', difficulty: 'easy', hints: ['reduce(누적값, 현재값) => 누적값 + 현재값', '초기값을 0으로 설정하세요'], estimatedMinutes: 3, starterCode: 'const nums = [10, 20, 30, 40, 50];\n// reduce로 합계를 구하세요\nconst sum = \nconsole.log(sum);', solution: 'const nums = [10, 20, 30, 40, 50];\nconst sum = nums.reduce((acc, cur) => acc + cur, 0);\nconsole.log(sum); // 150', feedback: { perfect: 'reduce로 합계 구하기를 완벽히 해냈어요!', good: '잘했어요! reduce 사용법이 정확해요.', partial: '초기값 0을 두 번째 인자로 전달하세요.', wrong: 'nums.reduce((acc, cur) => acc + cur, 0) 형태를 사용하세요.' } },
+            { id: 'c2', title: '최대값 찾기', description: 'reduce로 배열에서 최대값을 찾으세요.', difficulty: 'easy', hints: ['삼항연산자: a > b ? a : b', '두 값 중 큰 값을 반환하세요'], estimatedMinutes: 3, starterCode: 'const nums = [3, 7, 2, 9, 4, 1];\n// reduce로 최대값을 구하세요\nconst max = \nconsole.log(max);', solution: 'const nums = [3, 7, 2, 9, 4, 1];\nconst max = nums.reduce((a, b) => a > b ? a : b);\nconsole.log(max); // 9', feedback: { perfect: 'reduce로 최대값 찾기를 완벽히 해냈어요!', good: '잘했어요! 비교 로직이 정확해요.', partial: '삼항연산자로 두 값을 비교하세요.', wrong: 'nums.reduce((a, b) => a > b ? a : b) 형태를 사용하세요.' } },
+            { id: 'c3', title: '문자열 합치기', description: 'reduce로 모든 단어를 하나의 문자열로 합치세요.', difficulty: 'medium', hints: ['문자열 연결: acc + " " + w', '공백을 넣어서 합치세요'], estimatedMinutes: 5, starterCode: 'const words = ["JavaScript", "는", "재미있다"];\n// reduce로 모든 단어를 하나의 문자열로 합치세요\nconst sentence = \nconsole.log(sentence);', solution: 'const words = ["JavaScript", "는", "재미있다"];\nconst sentence = words.reduce((acc, w) => acc + " " + w);\nconsole.log(sentence); // "JavaScript 는 재미있다"', feedback: { perfect: 'reduce로 문자열 합치기를 완벽히 해냈어요!', good: '잘했어요! 공백으로 연결이 정확해요.', partial: '누적값과 현재값 사이에 공백을 넣으세요.', wrong: 'words.reduce((acc, w) => acc + " " + w) 형태를 사용하세요.' } },
+            { id: 'c4', title: '장바구니 총액 계산', description: 'reduce로 장바구니의 총 금액을 계산하세요. 가격 * 수량의 합입니다.', difficulty: 'medium', hints: ['item.price * item.qty로 각 상품 금액 계산', '초기값 0에서 시작하여 누적'], estimatedMinutes: 7, starterCode: 'const cart = [\n  { item: "노트북", price: 1200000, qty: 1 },\n  { item: "마우스", price: 35000, qty: 2 },\n  { item: "키보드", price: 89000, qty: 1 }\n];\n// reduce로 총 금액을 계산하세요\nconst total = \nconsole.log(total);', solution: 'const cart = [\n  { item: "노트북", price: 1200000, qty: 1 },\n  { item: "마우스", price: 35000, qty: 2 },\n  { item: "키보드", price: 89000, qty: 1 }\n];\nconst total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);\nconsole.log(total); // 1359000', feedback: { perfect: '장바구니 총액 계산을 완벽히 해냈어요!', good: '잘했어요! 가격x수량 계산이 정확해요.', partial: '각 상품의 price * qty를 누적하세요.', wrong: 'cart.reduce((sum, item) => sum + item.price * item.qty, 0) 형태를 사용하세요.' } },
+            { id: 'c5', title: '빈도수 카운터', description: 'reduce로 각 과일의 개수를 세는 객체를 만드세요.', difficulty: 'hard', hints: ['초기값으로 빈 객체 {} 사용', 'acc[fruit] = (acc[fruit] || 0) + 1 패턴', '반드시 acc를 return 하세요'], estimatedMinutes: 10, starterCode: 'const fruits = ["사과", "바나나", "사과", "오렌지", "바나나", "사과"];\n// reduce로 각 과일의 개수를 세는 객체를 만드세요\nconst count = \nconsole.log(count);', solution: 'const fruits = ["사과", "바나나", "사과", "오렌지", "바나나", "사과"];\nconst count = fruits.reduce((acc, fruit) => {\n  acc[fruit] = (acc[fruit] || 0) + 1;\n  return acc;\n}, {});\nconsole.log(count); // { 사과: 3, 바나나: 2, 오렌지: 1 }', feedback: { perfect: 'reduce로 빈도수 카운팅을 완벽히 마스터했어요!', good: '잘했어요! 객체 누적 패턴이 정확해요.', partial: 'acc[fruit] = (acc[fruit] || 0) + 1 패턴을 사용하고 acc를 반환하세요.', wrong: '초기값 {}에서 시작하여 각 과일을 키로, 개수를 값으로 누적하세요.' } }
           ],
           unlocked: true,
           completed: false,
@@ -2675,76 +2480,11 @@ console.log(doubleEvenNumbers([1, 2, 3, 4, 5, 6]));`,
             }
           ],
           challenges: [
-            {
-              id: 'c1',
-              title: '메서드 체이닝 핵심 이해',
-              description: '메서드 체이닝의 핵심 개념과 원리를 확인합니다.',
-              difficulty: 'easy',
-              hints: ['메서드 체이닝의 정의를 떠올려보세요', '핵심 키워드에 집중하세요'],
-              estimatedMinutes: 3,
-              feedback: {
-                perfect: '메서드 체이닝 개념을 완벽하게 이해했어요!',
-                good: '메서드 체이닝의 핵심을 잘 파악했어요!',
-                partial: '메서드 체이닝의 일부만 이해했어요. 핵심을 다시 확인하세요.',
-                wrong: '메서드 체이닝의 기본 개념부터 다시 학습해보세요.'
-              }
-            },
-            {
-              id: 'c2',
-              title: '메서드 체이닝 예제 분석',
-              description: '메서드 체이닝 관련 예제를 분석하고 동작 원리를 파악합니다.',
-              difficulty: 'easy',
-              hints: ['예제를 한 줄씩 읽어보세요', '메서드 체이닝 관련 문법을 확인하세요'],
-              estimatedMinutes: 5,
-              feedback: {
-                perfect: '예제 분석을 완벽하게 했어요!',
-                good: '대부분 잘 분석했어요!',
-                partial: '기본은 파악했어요. 세부 동작을 더 확인하세요.',
-                wrong: '예제를 천천히 한 줄씩 따라해보세요.'
-              }
-            },
-            {
-              id: 'c3',
-              title: '메서드 체이닝 코드 수정',
-              description: '주어진 코드에서 메서드 체이닝 관련 부분을 수정합니다.',
-              difficulty: 'medium',
-              hints: ['기존 코드의 문제점을 찾아보세요', '메서드 체이닝의 올바른 사용법을 적용하세요'],
-              estimatedMinutes: 7,
-              feedback: {
-                perfect: '코드 수정을 완벽하게 했어요!',
-                good: '수정 방향이 정확해요!',
-                partial: '일부만 수정했어요. 나머지도 확인하세요.',
-                wrong: '메서드 체이닝 문법을 다시 확인한 후 수정하세요.'
-              }
-            },
-            {
-              id: 'c4',
-              title: '메서드 체이닝 직접 구현',
-              description: '메서드 체이닝을 활용한 코드를 직접 작성합니다.',
-              difficulty: 'medium',
-              hints: ['요구사항을 먼저 파악하세요', '메서드 체이닝의 핵심 패턴을 사용하세요', '단계별로 구현하세요'],
-              estimatedMinutes: 10,
-              feedback: {
-                perfect: '직접 구현을 완벽하게 해냈어요!',
-                good: '핵심 기능을 잘 구현했어요!',
-                partial: '기본 구조는 맞아요. 세부 기능을 보완하세요.',
-                wrong: '메서드 체이닝 기본 문법부터 복습한 후 시도하세요.'
-              }
-            },
-            {
-              id: 'c5',
-              title: '메서드 체이닝 심화 도전',
-              description: '메서드 체이닝을 창의적으로 활용하는 심화 문제입니다.',
-              difficulty: 'hard',
-              hints: ['여러 개념을 조합해보세요', '메서드 체이닝을 실생활에 적용해보세요', '정답은 여러 가지일 수 있어요'],
-              estimatedMinutes: 15,
-              feedback: {
-                perfect: '메서드 체이닝 마스터! 심화 문제까지 완벽해요!',
-                good: '창의적인 접근이에요!',
-                partial: '좋은 시도예요. 더 발전시켜보세요.',
-                wrong: '기본 문제를 충분히 연습한 후 다시 도전하세요.'
-              }
-            }
+            { id: 'c1', title: '필터 후 변환', description: 'filter로 짝수만 골라서 map으로 2배 변환하세요.', difficulty: 'easy', hints: ['filter를 먼저, map을 나중에 체이닝', '.filter().map() 형태'], estimatedMinutes: 3, starterCode: 'const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\n// filter로 짝수만 골라서 map으로 2배 변환\nconst result = \nconsole.log(result);', solution: 'const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\nconst result = nums.filter(n => n % 2 === 0).map(n => n * 2);\nconsole.log(result); // [4, 8, 12, 16, 20]', feedback: { perfect: 'filter와 map 체이닝을 완벽히 해냈어요!', good: '잘했어요! 체이닝 순서가 정확해요.', partial: 'filter 다음에 .map()을 바로 연결하세요.', wrong: 'nums.filter(n => n % 2 === 0).map(n => n * 2) 형태를 사용하세요.' } },
+            { id: 'c2', title: '문자열 처리 체인', description: 'map으로 trim하고 map으로 소문자 변환하세요.', difficulty: 'easy', hints: ['trim()으로 공백 제거', 'toLowerCase()로 소문자 변환', '.map().map() 체이닝'], estimatedMinutes: 3, starterCode: 'const words = ["  Hello  ", "  WORLD  ", "  JavaScript  "];\n// map으로 trim하고 map으로 소문자 변환\nconst result = \nconsole.log(result);', solution: 'const words = ["  Hello  ", "  WORLD  ", "  JavaScript  "];\nconst result = words.map(w => w.trim()).map(w => w.toLowerCase());\nconsole.log(result); // ["hello", "world", "javascript"]', feedback: { perfect: 'map 체이닝으로 문자열 처리를 완벽히 해냈어요!', good: '잘했어요! trim과 toLowerCase 체이닝이 정확해요.', partial: '.map(w => w.trim()).map(w => w.toLowerCase()) 순서로 연결하세요.', wrong: 'words.map(w => w.trim()).map(w => w.toLowerCase()) 형태를 사용하세요.' } },
+            { id: 'c3', title: '학생 성적 처리', description: '60점 이상만 필터링 후 이름만 추출하세요.', difficulty: 'medium', hints: ['filter로 점수 조건 필터링', 'map으로 이름 속성만 추출', '.filter().map() 체이닝'], estimatedMinutes: 5, starterCode: 'const students = [\n  { name: "김철수", score: 85 },\n  { name: "이영희", score: 92 },\n  { name: "박민수", score: 45 },\n  { name: "최지우", score: 78 }\n];\n// 60점 이상만 필터링 후 이름만 추출\nconst passed = \nconsole.log(passed);', solution: 'const students = [\n  { name: "김철수", score: 85 },\n  { name: "이영희", score: 92 },\n  { name: "박민수", score: 45 },\n  { name: "최지우", score: 78 }\n];\nconst passed = students.filter(s => s.score >= 60).map(s => s.name);\nconsole.log(passed); // ["김철수", "이영희", "최지우"]', feedback: { perfect: '필터링 후 속성 추출 체이닝을 완벽히 해냈어요!', good: '잘했어요! 조건과 추출이 정확해요.', partial: 'filter로 60점 이상 선택 후 map으로 name 추출하세요.', wrong: 'students.filter(s => s.score >= 60).map(s => s.name) 형태를 사용하세요.' } },
+            { id: 'c4', title: '데이터 파이프라인', description: 'map으로 할인 적용 -> filter로 50만원 이하 -> reduce로 합계를 구하세요.', difficulty: 'medium', hints: ['map으로 finalPrice 계산: price * (1 - discount)', 'filter로 50만원 이하만 선택', 'reduce로 합계 계산'], estimatedMinutes: 7, starterCode: 'const orders = [\n  { product: "노트북", price: 1500000, discount: 0.1 },\n  { product: "마우스", price: 35000, discount: 0 },\n  { product: "모니터", price: 450000, discount: 0.15 }\n];\n// map으로 할인 적용 -> filter로 50만원 이하 -> reduce로 합계\nconst total = \nconsole.log(total);', solution: 'const orders = [\n  { product: "노트북", price: 1500000, discount: 0.1 },\n  { product: "마우스", price: 35000, discount: 0 },\n  { product: "모니터", price: 450000, discount: 0.15 }\n];\nconst total = orders\n  .map(o => ({ ...o, finalPrice: o.price * (1 - o.discount) }))\n  .filter(o => o.finalPrice <= 500000)\n  .reduce((sum, o) => sum + o.finalPrice, 0);\nconsole.log(total); // 417500', feedback: { perfect: 'map->filter->reduce 파이프라인을 완벽히 구현했어요!', good: '잘했어요! 3단계 체이닝이 정확해요.', partial: 'map으로 할인 적용 후 filter, reduce를 순서대로 체이닝하세요.', wrong: '.map(할인적용).filter(가격조건).reduce(합계) 순서로 체이닝하세요.' } },
+            { id: 'c5', title: '상품 랭킹 시스템', description: 'rating 4.0 이상 필터 -> 판매량 내림차순 정렬 -> 이름만 추출하세요.', difficulty: 'hard', hints: ['filter로 rating >= 4.0', 'sort((a,b) => b.sales - a.sales)로 내림차순', 'map으로 name 추출'], estimatedMinutes: 10, starterCode: 'const products = [\n  { name: "A", sales: 150, rating: 4.5 },\n  { name: "B", sales: 300, rating: 3.8 },\n  { name: "C", sales: 80, rating: 4.9 },\n  { name: "D", sales: 200, rating: 4.2 }\n];\n// rating 4.0 이상 필터 -> 판매량 내림차순 정렬 -> 이름만 추출\nconst ranking = \nconsole.log(ranking);', solution: 'const products = [\n  { name: "A", sales: 150, rating: 4.5 },\n  { name: "B", sales: 300, rating: 3.8 },\n  { name: "C", sales: 80, rating: 4.9 },\n  { name: "D", sales: 200, rating: 4.2 }\n];\nconst ranking = products\n  .filter(p => p.rating >= 4.0)\n  .sort((a, b) => b.sales - a.sales)\n  .map(p => p.name);\nconsole.log(ranking); // ["D", "A", "C"]', feedback: { perfect: 'filter->sort->map 체이닝으로 랭킹 시스템을 완벽히 구현했어요!', good: '잘했어요! 3단계 체이닝이 정확해요.', partial: 'filter 후 sort로 내림차순 정렬, 그 다음 map으로 이름 추출하세요.', wrong: '.filter(rating조건).sort(판매량내림차순).map(이름추출) 순서로 체이닝하세요.' } }
           ],
           unlocked: true,
           completed: false,
